@@ -69,6 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const prosHtml = alt.pros ? alt.pros.map(p => `<li>${p}</li>`).join('') : '';
         const consHtml = alt.cons ? alt.cons.map(c => `<li>${c}</li>`).join('') : '';
+        
+        const platformMap = {
+          'windows': 'Windows',
+          'macos': 'Mac',
+          'linux': 'Linux',
+          'web': 'Web',
+          'android': 'Android',
+          'ios': 'iOS',
+          'self-hosted': 'Self-Hosted'
+        };
+        const platformsHtml = alt.platforms ? alt.platforms.map(p => `<span class="platform-badge">${platformMap[p] || p}</span>`).join('') : '';
 
         html += `
           <div class="alt-card glass-panel animate-slide-up" style="animation-delay: ${index * 0.1}s">
@@ -76,6 +87,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="${alt.website}" target="_blank" class="alt-title">${alt.name}</a>
               <span class="badge badge-open-source">${alt.type || 'open-source'}</span>
             </div>
+            
+            ${platformsHtml ? `<div class="platforms-container">${platformsHtml}</div>` : ''}
+
             <div class="alt-summary">${alt.summary || ''}</div>
             
             <div class="features-grid">
