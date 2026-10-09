@@ -1,0 +1,22 @@
+{
+  "https://github.com/apache/openoffice": {
+    "stars": 1248,
+    "last_commit": "2026-10-08T08:28:04Z",
+    "open_issues": 19
+  },
+  "https://github.com/storytold/filmcraft": {
+    "stars": 6948,
+    "last_commit": "2026-10-09T15:02:47Z",
+    "open_issues": 203
+  },
+  "https://github.com/penpot/penpot": {
+    "stars": 60858,
+    "last_commit": "2026-10-09T21:03:45Z",
+    "open_issues": 805
+  },
+  "https://github.com/storytold/photocraft": {
+    "stars": 34664,
+    "last_commit": "2026-10-09T21:41:16Z",
+    "open_issues": 476
+  }
+}

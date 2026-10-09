@@ -84,7 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         html += `
           <div class="alt-card glass-panel animate-slide-up" style="animation-delay: ${index * 0.1}s">
             <div class="alt-header">
-              <a href="${alt.website}" target="_blank" class="alt-title">${alt.name}</a>
+              <div>
+                <a href="${alt.website}" target="_blank" class="alt-title">${alt.name}</a>
+                ${alt.health && alt.health.stars ? `<div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem;"><svg style="vertical-align: middle; margin-right: 4px;" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>${alt.health.stars.toLocaleString()} stars</div>` : ''}
+              </div>
               <span class="badge badge-open-source">${alt.type || 'open-source'}</span>
             </div>
             

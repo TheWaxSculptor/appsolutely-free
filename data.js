@@ -131,7 +131,12 @@ const data = {
       "ads": false
     },
     "last_verified": "2026-10-09",
-    "id": "apache-openoffice"
+    "id": "apache-openoffice",
+    "health": {
+      "stars": 1248,
+      "last_commit": "2026-10-08T08:28:04Z",
+      "open_issues": 19
+    }
   },
   {
     "name": "FilmCraft",
@@ -175,7 +180,12 @@ const data = {
       "ads": false
     },
     "last_verified": "2026-10-09",
-    "id": "filmcraft"
+    "id": "filmcraft",
+    "health": {
+      "stars": 6948,
+      "last_commit": "2026-10-09T15:02:47Z",
+      "open_issues": 203
+    }
   },
   {
     "name": "Penpot",
@@ -218,7 +228,12 @@ const data = {
     },
     "last_verified": "2026-10-09",
     "verified_by": "example-contributor",
-    "id": "penpot"
+    "id": "penpot",
+    "health": {
+      "stars": 60858,
+      "last_commit": "2026-10-09T21:03:45Z",
+      "open_issues": 805
+    }
   },
   {
     "name": "PhotoCraft",
@@ -261,7 +276,12 @@ const data = {
       "ads": false
     },
     "last_verified": "2026-10-09",
-    "id": "photocraft"
+    "id": "photocraft",
+    "health": {
+      "stars": 34664,
+      "last_commit": "2026-10-09T21:41:16Z",
+      "open_issues": 476
+    }
   }
 ]
 };
