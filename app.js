@@ -1,4 +1,4 @@
-import db from './data.js';
+import db from './data.js?v=3';
 
 document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('appSearch');
