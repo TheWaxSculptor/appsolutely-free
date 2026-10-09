@@ -1,0 +1,17 @@
+# DRAFT: verify before publishing.
+name: Microsoft Office
+aliases: [Microsoft 365, Word, Excel, PowerPoint]
+vendor: Microsoft Corporation
+website: https://www.microsoft.com/microsoft-365
+category: office
+price_model: subscription
+typical_price: Subscription or one-time purchase, depending on the edition
+must_have_features:
+  - Word processing with tracked changes
+  - Spreadsheets with formulas and pivot tables
+  - Presentations with templates and transitions
+  - Opening and saving .docx, .xlsx, and .pptx files
+  - Charts and graphs
+  - Mail merge
+  - PDF export
+  - Real-time co-authoring

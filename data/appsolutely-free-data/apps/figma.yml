@@ -1,0 +1,15 @@
+# EXAMPLE ONLY: verify every field before publishing.
+name: Figma
+vendor: Figma, Inc.
+website: https://www.figma.com
+category: design
+price_model: freemium
+typical_price: Free tier available; paid seats billed monthly
+must_have_features:
+  - Real-time collaboration
+  - Vector editing
+  - Reusable components and variants
+  - Auto layout
+  - Interactive prototyping
+  - Developer handoff
+  - Plugins and extensions

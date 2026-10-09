@@ -1,0 +1,28 @@
+# DRAFT: needs human review. Confirm the warning against the Apache Security Team's own notice.
+name: Apache OpenOffice
+summary: Long-running free office suite with a word processor, spreadsheet, presentations, drawing, and database tools.
+type: open-source
+license: Apache-2.0
+website: https://www.openoffice.org
+repo:
+  host: github
+  url: https://github.com/apache/openoffice
+replaces: [microsoft-office]
+platforms: [windows, macos, linux]
+install: [installer]
+maturity: established
+switching_difficulty: moderate
+pros:
+  - Free suite covering documents, spreadsheets, presentations, drawing, and databases
+  - Opens common Microsoft Office file formats
+cons:
+  - Releases are infrequent; the latest stable version, 4.1.16, is from November 2025
+  - Some Microsoft Office formatting may not carry over
+  - LibreOffice is more actively maintained
+warnings:
+  - text: Reported security risk status of red since March 2026 over old unfixed vulnerabilities. Verify before publishing.
+    source: https://en.wikipedia.org/wiki/Apache_OpenOffice
+privacy:
+  telemetry: unknown
+  ads: false
+last_verified: 2026-10-09

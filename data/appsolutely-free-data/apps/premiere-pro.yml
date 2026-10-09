@@ -1,0 +1,17 @@
+# DRAFT: verify before publishing.
+name: Premiere Pro
+aliases: [Adobe Premiere Pro, Premiere]
+vendor: Adobe Inc.
+website: https://www.adobe.com/products/premiere.html
+category: video
+price_model: subscription
+typical_price: Monthly subscription
+must_have_features:
+  - Multi-track timeline editing
+  - Trim tools (ripple, roll, slip, slide)
+  - Color grading with scopes
+  - Keyframed effects and transitions
+  - Audio mixing and loudness metering
+  - Titles and captions
+  - Common codec import and export (H.264, HEVC, ProRes)
+  - Timeline interchange (XML, EDL, AAF)

@@ -1,0 +1,78 @@
+name: Submit an alternative
+description: Suggest a free or open source alternative to a paid app
+title: "Submit: "
+labels: ["submission"]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+  - type: input
+    id: website
+    attributes:
+      label: Official website
+      placeholder: https://
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: Repository link
+      description: GitHub, GitLab, Codeberg, or SourceHut. Leave blank for freeware.
+  - type: input
+    id: replaces
+    attributes:
+      label: Paid app(s) it replaces
+      placeholder: Photoshop, Lightroom
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: License type
+      options:
+        - Open source
+        - Source-available
+        - Freeware
+    validations:
+      required: true
+  - type: input
+    id: license
+    attributes:
+      label: License name
+      placeholder: GPL-3.0, MIT, MPL-2.0
+  - type: textarea
+    id: why
+    attributes:
+      label: Why is it a good replacement?
+      description: In your own words. Say who it suits.
+    validations:
+      required: true
+  - type: textarea
+    id: gaps
+    attributes:
+      label: Known gaps
+      description: What would someone switching from the paid app miss?
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the project
+      options:
+        - I maintain it
+        - I contribute to it
+        - I use it
+        - Other
+    validations:
+      required: true
+  - type: checkboxes
+    id: criteria
+    attributes:
+      label: Checks
+      options:
+        - label: It has install instructions and a usable README
+        - label: It has had a commit or release in the last 12 months
+        - label: It is not archived

@@ -1,0 +1,16 @@
+# DRAFT: verify before publishing.
+name: Photoshop
+vendor: Adobe Inc.
+website: https://www.adobe.com/products/photoshop.html
+category: design
+price_model: subscription
+typical_price: Monthly subscription
+must_have_features:
+  - Layers and masks
+  - Non-destructive adjustment layers
+  - Selection and masking tools
+  - Retouching tools (clone and healing)
+  - Editable type layers
+  - PSD file compatibility
+  - Layer styles and smart objects
+  - Color management (CMYK and ICC profiles)

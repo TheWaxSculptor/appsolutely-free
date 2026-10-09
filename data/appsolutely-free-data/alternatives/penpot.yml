@@ -1,0 +1,28 @@
+# EXAMPLE ONLY: verify every field before publishing. Parity scores are illustrative.
+name: Penpot
+summary: Browser-based design and prototyping tool for teams, built on open standards and available to self-host.
+type: open-source
+license: MPL-2.0
+website: https://penpot.app
+repo:
+  host: github
+  url: https://github.com/penpot/penpot
+replaces: [figma]
+platforms: [web, self-hosted]
+install: [hosted-web, docker]
+parity:
+  figma: 78
+switching_difficulty: moderate
+pros:
+  - Can be self-hosted, so files stay on your own server
+  - Layout concepts mirror CSS flexbox and grid, which helps designer-developer handoff
+  - Real-time collaboration and commenting
+cons:
+  - Smaller plugin and template ecosystem than Figma
+  - Self-hosting needs Docker and ongoing server upkeep
+best_for: Teams that want an open, self-hostable design tool.
+privacy:
+  telemetry: unknown
+  ads: false
+last_verified: 2026-10-09
+verified_by: example-contributor

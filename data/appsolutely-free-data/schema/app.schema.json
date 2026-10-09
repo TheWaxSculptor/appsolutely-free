@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Appsolutely Free paid app",
+  "description": "A paid app people want to replace, with a neutral checklist of the features they depend on.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "vendor", "website", "category", "price_model", "must_have_features"],
+  "properties": {
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 80 },
+      "description": "Other names people search for, such as the full product name or common abbreviations."
+    },
+    "vendor": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "website": { "type": "string", "format": "uri", "pattern": "^https://" },
+    "category": {
+      "enum": [
+        "design", "photo", "video", "audio", "office", "development", "cad-3d",
+        "security-privacy", "communication", "productivity", "education", "other"
+      ]
+    },
+    "price_model": { "enum": ["subscription", "one-time", "freemium", "per-seat", "quote-only"] },
+    "typical_price": { "type": "string", "maxLength": 80 },
+    "must_have_features": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3, "maxLength": 80 }
+    }
+  }
+}

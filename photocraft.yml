@@ -1,0 +1,28 @@
+# DRAFT: needs human review. Parity is left out until a reviewer scores it.
+# Link only to the official sources below. photocraft.im is an unofficial guide.
+name: PhotoCraft
+summary: Native, offline image editor with layers, masks, adjustment layers, and layered PSD support, laid out like Photoshop.
+type: open-source
+license: MIT OR Apache-2.0
+website: https://getartcraft.com/apps/photocraft
+repo:
+  host: github
+  url: https://github.com/storytold/photocraft
+replaces: [photoshop]
+platforms: [windows, macos, linux, web]
+install: [installer, build-from-source]
+maturity: early
+switching_difficulty: moderate
+pros:
+  - Menus and shortcuts follow Photoshop's layout
+  - Opens and saves layered PSD and PSB files
+  - Runs offline with no account
+cons:
+  - Early alpha; the project says it is not yet a replacement for daily professional work
+  - No generative AI features
+  - About twenty tools and plug-in compatibility are still missing
+best_for: Photoshop users who want a free, offline editor and can accept rough edges.
+privacy:
+  telemetry: unknown
+  ads: false
+last_verified: 2026-10-09

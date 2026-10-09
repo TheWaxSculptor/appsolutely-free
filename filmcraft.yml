@@ -1,0 +1,28 @@
+# DRAFT: needs human review. Parity is left out until a reviewer scores it.
+name: FilmCraft
+summary: Native video editor with Premiere-style panels, trim tools, color grading, and its own built-in codecs.
+type: open-source
+license: MIT OR Apache-2.0
+website: https://getartcraft.com/apps/filmcraft
+repo:
+  host: github
+  url: https://github.com/storytold/filmcraft
+replaces: [premiere-pro]
+platforms: [windows, macos, linux, web]
+install: [installer, build-from-source]
+maturity: early
+switching_difficulty: moderate
+pros:
+  - Premiere-style workspaces, tools, and keyboard shortcuts
+  - Exchanges timelines as Final Cut XML, OpenTimelineIO, EDL, and AAF
+  - Color grading panel with live scopes
+cons:
+  - The project estimates it is about 50 to 60 percent ready for real work
+  - No plugin hosting such as VST3, Audio Units, or OpenFX
+  - H.264 is the only delivery-codec export
+  - Hardware decoding works on macOS only
+best_for: Editors who want a free, Premiere-like workflow and can accept an early-stage tool.
+privacy:
+  telemetry: unknown
+  ads: false
+last_verified: 2026-10-09
