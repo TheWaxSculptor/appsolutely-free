@@ -7,9 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const popularChips = document.getElementById('popularChips');
 
   // Populate popular chips
-  db.apps.forEach(app => {
+  db.apps.forEach((app, index) => {
     const chip = document.createElement('div');
-    chip.className = 'chip';
+    chip.className = 'chip animate-slide-up';
+    chip.style.animationDelay = `${index * 0.05}s`;
     chip.textContent = app.name;
     chip.addEventListener('click', () => {
       searchInput.value = app.name;
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const appAlternatives = db.alternatives.filter(alt => alt.replaces && alt.replaces.includes(app.id));
 
     let html = `
-      <div class="app-header">
+      <div class="app-header animate-fade-in">
         <div>
           <h2>${app.name}</h2>
           <div class="app-vendor">by ${app.vendor || 'Unknown'}</div>
@@ -64,13 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (appAlternatives.length === 0) {
       html += `<div class="glass-panel" style="padding: 2rem; text-align: center;">No alternatives found for this app yet.</div>`;
     } else {
-      appAlternatives.forEach(alt => {
+      appAlternatives.forEach((alt, index) => {
         
         const prosHtml = alt.pros ? alt.pros.map(p => `<li>${p}</li>`).join('') : '';
         const consHtml = alt.cons ? alt.cons.map(c => `<li>${c}</li>`).join('') : '';
 
         html += `
-          <div class="alt-card glass-panel">
+          <div class="alt-card glass-panel animate-slide-up" style="animation-delay: ${index * 0.1}s">
             <div class="alt-header">
               <a href="${alt.website}" target="_blank" class="alt-title">${alt.name}</a>
               <span class="badge badge-open-source">${alt.type || 'open-source'}</span>
