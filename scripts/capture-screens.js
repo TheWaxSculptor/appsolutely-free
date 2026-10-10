@@ -24,8 +24,8 @@ for (const alt of targets) {
   try {
     execFileSync(CHROME, [
       '--headless=new', '--disable-gpu', '--hide-scrollbars', '--window-size=1280,800',
-      '--virtual-time-budget=15000', `--screenshot=${png}`, alt.website,
-    ], { stdio: 'ignore', timeout: 90000 });
+      '--virtual-time-budget=8000', `--screenshot=${png}`, alt.website,
+    ], { stdio: 'ignore', timeout: 40000 });
     execFileSync('sips', ['-Z', '800', '-s', 'format', 'jpeg', '-s', 'formatOptions', '72', png, '--out', jpg], { stdio: 'ignore' });
   } catch (e) {
     console.warn(`  failed: ${e.message.split('\n')[0]}`);

@@ -5,7 +5,7 @@ const { loadAll, root } = require('./scripts/load-all');
 
 const SITE = 'https://appsolutelyfree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
-const VERSION = '5';
+const VERSION = '7';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
@@ -93,7 +93,7 @@ async function main() {
     <p class="crumbs"><a href="/">Home</a> › ${cat ? `<a href="/category/${cat.id}/">${esc(cat.label)}</a> ›` : ''} ${esc(app.name)}</p>
     <header class="page-head">
       <h1>Free alternatives to <span class="grad">${esc(app.name)}</span></h1>
-      <p class="subtitle">${esc(app.name)} by ${esc(app.vendor || 'its vendor')} costs: <strong>${esc(app.typical_price || 'money')}</strong>. These ${list.length} free and open-source apps can replace it, with screenshots, pros, and cons.</p>
+      <p class="subtitle">${esc(app.name)} by ${esc(app.vendor || 'its vendor')} costs: <strong>${esc(app.typical_price || 'money')}</strong>. These ${list.length} free apps (many open source) can replace it, with screenshots, pros, and cons.</p>
     </header>
     <section class="alts-grid" aria-label="Alternatives to ${esc(app.name)}">
       ${list.map((a) => cardHtml(a, appsById, { base: '/' })).join('\n')}

@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('js-yaml');
 const catalog = require('../data/catalog.js');
+const freeCatalog = require('../data/catalog-free.js');
 
 const root = path.join(__dirname, '..');
 const appsDir = path.join(root, 'data/appsolutely-free-data/apps');
@@ -33,9 +34,10 @@ function loadAll() {
 
   const alts = readYamlDir(altsDir);
   const altIds = new Set(alts.map((a) => a.id));
-  catalog.alts.forEach((a) => {
+  [...catalog.alts, ...freeCatalog.alts].forEach((a) => {
     if (altIds.has(a.id)) return;
-    const alt = { ...a, type: 'open-source', switching_difficulty: a.difficulty };
+    altIds.add(a.id);
+    const alt = { type: 'open-source', ...a, switching_difficulty: a.difficulty };
     delete alt.difficulty;
     if (typeof alt.repo === 'string') {
       alt.repo = { host: 'github', url: `https://github.com/${alt.repo}` };

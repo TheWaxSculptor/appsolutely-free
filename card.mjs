@@ -29,6 +29,12 @@ export const PLATFORMS = [
 
 const PLATFORM_LABEL = Object.fromEntries(PLATFORMS.map((p) => [p.id, p.label]));
 
+const TYPE_BADGE = {
+  'open-source': ['Open source', 'badge-open-source'],
+  free: ['Free', 'badge-free'],
+  freemium: ['Free tier', 'badge-freemium'],
+  'source-available': ['Source available', 'badge-freemium'],
+};
 export function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -87,7 +93,7 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
           <h3 class="alt-title"><a href="${esc(alt.website)}" target="_blank" rel="noopener">${esc(alt.name)}</a></h3>
           <div class="alt-meta">${stars ? `<span class="stars">${STAR_SVG}${stars}</span>` : ''}<span>${esc(alt.license || 'Open source')}</span></div>
         </div>
-        <span class="badge badge-open-source">Free</span>
+        <span class="badge ${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[1]}">${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[0]}</span>
       </div>
       <div class="platforms-container">${platforms}</div>
       <p class="alt-summary">${esc(alt.summary || '')}</p>
