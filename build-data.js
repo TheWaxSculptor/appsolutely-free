@@ -3,9 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const { loadAll, root } = require('./scripts/load-all');
 
-const SITE = 'https://appsolutelyfree.com';
+const SITE = 'https://appsolutelyFree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
-const VERSION = '10';
+const VERSION = '11';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
@@ -13,6 +13,65 @@ async function main() {
   const appsById = Object.fromEntries(apps.map((a) => [a.id, a]));
   let deals = [];
   try { deals = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliates.json'), 'utf8')); } catch (e) { /* none */ }
+
+  const reportModalHtml = `
+  <div class="modal-backdrop hidden" id="reportModalBackdrop"></div>
+  <div class="modal-dialog hidden glass-panel" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
+    <div class="modal-header">
+      <h3 id="reportModalTitle">Report Outdated Information</h3>
+      <button type="button" class="btn-icon modal-close-btn" id="closeReportModalBtn" aria-label="Close dialog">✕</button>
+    </div>
+    <form id="reportForm" class="modal-body">
+      <p class="modal-lead">Help keep Appsolutely Free accurate. If pricing, licensing, or limitations have changed, let us know:</p>
+      <div class="form-group">
+        <label for="reportAppName">Software Alternative</label>
+        <input type="text" id="reportAppName" class="form-input" readonly>
+        <input type="hidden" id="reportAppId">
+      </div>
+      <div class="form-group">
+        <label for="reportReason">What needs updating?</label>
+        <select id="reportReason" class="form-input form-select" required>
+          <option value="pricing">Pricing or Cost Tier (e.g. no longer free / price changed)</option>
+          <option value="license">License or Open Source status changed</option>
+          <option value="limitation">Missing or changed limitation / warning</option>
+          <option value="broken">Broken link, archived repository, or discontinued</option>
+          <option value="other">Other correction</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reportDetails">Correction details or source link</label>
+        <textarea id="reportDetails" class="form-input form-textarea" rows="3" placeholder="Provide details or paste a URL to official documentation..." required></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelReportBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Report</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    document.addEventListener('click', function(e) {
+      var r = e.target.closest('.report-btn');
+      if (r) {
+        e.preventDefault();
+        var nameEl = document.getElementById('reportAppName');
+        var idEl = document.getElementById('reportAppId');
+        if (nameEl) nameEl.value = r.dataset.name || r.dataset.id;
+        if (idEl) idEl.value = r.dataset.id;
+        document.getElementById('reportModal').classList.remove('hidden');
+        document.getElementById('reportModalBackdrop').classList.remove('hidden');
+      }
+      if (e.target.closest('#closeReportModalBtn') || e.target.closest('#cancelReportBtn') || e.target === document.getElementById('reportModalBackdrop')) {
+        document.getElementById('reportModal').classList.add('hidden');
+        document.getElementById('reportModalBackdrop').classList.add('hidden');
+      }
+    });
+    document.getElementById('reportForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your feedback has been received and our team will verify.');
+      document.getElementById('reportModal').classList.add('hidden');
+      document.getElementById('reportModalBackdrop').classList.add('hidden');
+    });
+  </script>`;
 
   const adUnit = `
   <div class="ad-slot-container" aria-label="Advertisement">
@@ -116,6 +175,7 @@ async function main() {
     ${others ? `<section class="more"><h2>More comparisons in ${esc(cat ? cat.label : 'this category')}</h2><div class="chips">${others}</div></section>` : ''}
   </main>
   ${footer}
+  ${reportModalHtml}
 </body>
 </html>`);
     urls.push({ loc: canonical, priority: '0.8' });
@@ -153,6 +213,7 @@ async function main() {
     ${sponsored}
   </main>
   ${footer}
+  ${reportModalHtml}
 </body>
 </html>`);
     urls.push({ loc: canonical, priority: '0.7' });

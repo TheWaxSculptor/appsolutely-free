@@ -44,7 +44,7 @@
     <header class="hero">
       <div class="hero-badge">
         <span class="pulse-dot"></span>
-        <span>268 Hand-Picked Free Alternatives Across 74 Categories</span>
+        <span id="heroBadgeText">268 Hand-Picked Free Alternatives Across 14 Categories</span>
       </div>
       <h1 class="hero-title">Free alternatives to the apps <span class="grad">you're paying for</span></h1>
       <p class="subtitle">Ditch recurring subscriptions. Browse verified open-source and free software with real screenshots, pros, cons, and zero bloatware.</p>
@@ -80,11 +80,30 @@
         <div class="calc-header">
           <span class="eyebrow green">Annual Savings Calculator</span>
           <h2 id="calcTitle" class="calc-title">How much are you spending on subscriptions?</h2>
-          <p class="calc-subtitle">Select the software subscriptions you currently pay for to see how much you could save every year with free alternatives:</p>
+          <p class="calc-subtitle">Select subscriptions to calculate your <strong>potential savings</strong>. Edit the subscription costs or add replacement hosting expenses to fit your actual setup:</p>
         </div>
         <div class="calc-grid" id="calcGrid">
-          <!-- Populated dynamically by app.js -->
+          <!-- Populated dynamically by app.js with editable costs -->
         </div>
+
+        <!-- Replacement Hosting / Infrastructure Expenses -->
+        <div class="calc-expense-card glass-panel">
+          <div class="calc-expense-inner">
+            <div class="calc-expense-desc">
+              <label for="calcExpenseInput" class="calc-expense-title">
+                <span class="expense-icon" aria-hidden="true">🖥️</span>
+                <span>Replacement / Hosting Expenses</span>
+              </label>
+              <p class="calc-expense-sub">Planning to self-host on a VPS, Raspberry Pi, or cloud server? Enter your estimated annual hosting or hardware cost (deducted from potential savings):</p>
+            </div>
+            <div class="calc-expense-input-wrap">
+              <span class="calc-currency">$</span>
+              <input type="number" id="calcExpenseInput" class="calc-expense-input" min="0" step="10" value="0" placeholder="0" aria-label="Annual replacement and hosting expenses">
+              <span class="calc-period">/ year</span>
+            </div>
+          </div>
+        </div>
+
         <div class="calc-footer">
           <div class="calc-summary">
             <span class="calc-label">Your Potential Annual Savings:</span>
@@ -93,9 +112,10 @@
               <strong class="calc-total" id="calcTotal">0</strong>
               <span class="calc-period">/ year</span>
             </div>
-            <span class="calc-subtext" id="calcSelectedCount">Select subscriptions above to calculate</span>
+            <span class="calc-subtext" id="calcSelectedCount">Select subscriptions above to calculate potential savings</span>
+            <div class="calc-breakdown-sub" id="calcBreakdown"></div>
           </div>
-          <button class="btn btn-primary calc-btn" id="calcActionBtn" type="button" disabled>Show My Free Stack</button>
+          <button class="btn btn-primary calc-btn" id="calcActionBtn" type="button" disabled>Show Free Replacements</button>
         </div>
       </div>
     </section>
@@ -137,11 +157,11 @@
         <div class="chips center" id="popularChips"></div>
       </section>
 
-      <section class="home-section" aria-labelledby="featTitle">
+      <section class="home-section" id="popularGithub" aria-labelledby="featTitle">
         <div class="section-head-row">
           <div>
-            <h2 id="featTitle" class="section-title">Top community picks</h2>
-            <p class="section-desc">Highly rated open-source tools with stellar GitHub community ratings.</p>
+            <h2 id="featTitle" class="section-title">Popular on GitHub</h2>
+            <p class="section-desc">Top-ranked open-source alternatives based on verified GitHub community stars.</p>
           </div>
         </div>
         <div class="alts-grid" id="featuredGrid"></div>
@@ -190,6 +210,7 @@
         <span>Estimated Annual Savings:</span>
         <strong id="drawerTotalSaved">$0 / yr</strong>
       </div>
+      <p class="drawer-replaced-sub" id="drawerReplacedSub"></p>
       <div class="drawer-btn-row">
         <button class="btn btn-ghost" id="copyStackBtn" type="button">Copy Stack</button>
         <button class="btn btn-danger-ghost" id="clearStackBtn" type="button">Clear</button>
@@ -197,9 +218,44 @@
     </div>
   </aside>
 
+  <!-- Report Outdated Information Modal -->
+  <div class="modal-backdrop hidden" id="reportModalBackdrop"></div>
+  <div class="modal-dialog hidden glass-panel" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle">
+    <div class="modal-header">
+      <h3 id="reportModalTitle">Report Outdated Information</h3>
+      <button type="button" class="btn-icon modal-close-btn" id="closeReportModalBtn" aria-label="Close report modal">✕</button>
+    </div>
+    <form id="reportForm" class="modal-body">
+      <p class="modal-lead">Help keep Appsolutely Free accurate. If pricing, licensing, or limitations have changed, let us know:</p>
+      <div class="form-group">
+        <label for="reportAppName">Software Alternative</label>
+        <input type="text" id="reportAppName" class="form-input" readonly>
+        <input type="hidden" id="reportAppId">
+      </div>
+      <div class="form-group">
+        <label for="reportReason">What needs updating?</label>
+        <select id="reportReason" class="form-input form-select" required>
+          <option value="pricing">Pricing or Cost Tier (e.g. no longer free / pricing changed)</option>
+          <option value="license">License or Open Source status changed</option>
+          <option value="limitation">Missing or changed limitation / warning</option>
+          <option value="broken">Broken link, archived repository, or discontinued</option>
+          <option value="other">Other correction</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="reportDetails">Correction details or source link</label>
+        <textarea id="reportDetails" class="form-input form-textarea" rows="3" placeholder="Provide details or paste a URL to official documentation..." required></textarea>
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelReportBtn">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit Report</button>
+      </div>
+    </form>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="app.js?v=10"></script>
+  <script type="module" src="app.js?v=11"></script>
 </body>
 </html>

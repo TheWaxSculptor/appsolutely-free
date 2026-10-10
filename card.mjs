@@ -29,12 +29,12 @@ export const PLATFORMS = [
 
 const PLATFORM_LABEL = Object.fromEntries(PLATFORMS.map((p) => [p.id, p.label]));
 
-const TYPE_BADGE = {
-  'open-source': ['Open source', 'badge-open-source'],
-  free: ['Free', 'badge-free'],
-  freemium: ['Free tier', 'badge-freemium'],
-  'source-available': ['Source available', 'badge-freemium'],
+const COST_BADGES = {
+  'zero-cost': ['$0 to use', 'badge-zero-cost'],
+  'limited-free': ['Limited free plan', 'badge-limited-free'],
+  'self-hosted': ['Requires hosting/hardware', 'badge-self-hosted'],
 };
+
 export function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
@@ -80,8 +80,16 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
     ? `<a class="btn btn-ghost" href="${esc(alt.repo.url)}" target="_blank" rel="noopener">Source code</a>`
     : '';
 
+  const cost = COST_BADGES[alt.cost_tier] || COST_BADGES['zero-cost'];
+  const osBadge = alt.is_open_source ? '<span class="badge badge-open-source">Open source</span>' : '';
+  const costBadge = `<span class="badge ${cost[1]}">${cost[0]}</span>`;
+  const lastChecked = alt.last_verified ? `<span class="last-checked" title="Information verified by editors">✓ Last checked: ${esc(alt.last_verified)}</span>` : '';
+  const warningBox = alt.warnings && alt.warnings.length
+    ? `<div class="card-warning-box"><span class="warn-icon" aria-hidden="true">⚠️</span><div class="warn-content"><strong>Important limitation:</strong> ${esc(alt.warnings[0].text || alt.warnings[0])}</div></div>`
+    : '';
+
   return `
-  <article class="alt-card glass-panel" data-id="${esc(alt.id)}" data-type="${esc(alt.type || 'open-source')}" data-stars="${alt.health?.stars || 0}" data-difficulty="${esc(alt.switching_difficulty || 'moderate')}" data-name="${esc(alt.name)}">
+  <article class="alt-card glass-panel" data-id="${esc(alt.id)}" data-type="${esc(alt.cost_tier || 'zero-cost')}" data-cost="${esc(alt.cost_tier || 'zero-cost')}" data-opensource="${alt.is_open_source ? 'true' : 'false'}" data-stars="${alt.health?.stars || 0}" data-difficulty="${esc(alt.switching_difficulty || 'moderate')}" data-name="${esc(alt.name)}">
     <a class="shot${alt.screenshot ? '' : ' no-shot'}" href="${esc(alt.website)}" target="_blank" rel="noopener" aria-label="Visit ${esc(alt.name)}">
       ${shot}
       <span class="shot-fallback">${icon}</span>
@@ -91,10 +99,13 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
         ${icon}
         <div class="alt-title-wrap">
           <h3 class="alt-title"><a href="${esc(alt.website)}" target="_blank" rel="noopener">${esc(alt.name)}</a></h3>
-          <div class="alt-meta">${stars ? `<span class="stars">${STAR_SVG}${stars}</span>` : ''}<span>${esc(alt.license || 'Open source')}</span></div>
+          <div class="alt-meta">
+            ${stars ? `<span class="stars">${STAR_SVG}${stars}</span>` : ''}
+            <span>${esc(alt.license || 'Free')}</span>
+            ${lastChecked}
+          </div>
         </div>
         <div class="header-badges">
-          <span class="badge ${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[1]}">${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[0]}</span>
           <button class="btn-icon bookmark-btn" type="button" data-id="${esc(alt.id)}" data-name="${esc(alt.name)}" title="Save to My Free Stack" aria-label="Save ${esc(alt.name)} to stack">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
           </button>
@@ -103,15 +114,23 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
           </button>
         </div>
       </div>
+      <div class="badges-row">
+        ${osBadge}
+        ${costBadge}
+      </div>
       <div class="platforms-container">${platforms}</div>
       <p class="alt-summary">${esc(alt.summary || '')}</p>
       ${replaces ? `<div class="replaces"><span>Replaces</span>${replaces}</div>` : ''}
+      ${warningBox}
       <div class="features-grid">
         ${pros ? `<div class="feature-list pros"><h4>${CHECK_SVG} Pros</h4><ul>${pros}</ul></div>` : ''}
         ${cons ? `<div class="feature-list cons"><h4>${X_SVG} Cons</h4><ul>${cons}</ul></div>` : ''}
       </div>
       <div class="alt-footer">
-        <span class="difficulty-badge">Switching: ${esc(alt.switching_difficulty || 'unknown')}</span>
+        <div class="footer-left-info">
+          <span class="difficulty-badge">Switching: ${esc(alt.switching_difficulty || 'unknown')}</span>
+          <button class="report-btn" type="button" data-id="${esc(alt.id)}" data-name="${esc(alt.name)}">Report outdated information</button>
+        </div>
         <div class="btn-row">
           ${repoBtn}
           <a class="btn btn-primary" href="${esc(alt.website)}" target="_blank" rel="noopener">Get ${esc(alt.name)}</a>

@@ -1,5 +1,5 @@
-import db from './data.js?v=10';
-import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=10';
+import db from './data.js?v=11';
+import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const altsById = Object.fromEntries(db.alternatives.map((a) => [a.id, a]));
@@ -10,6 +10,51 @@ const searchInput = document.getElementById('appSearch');
 const searchClear = document.getElementById('searchClear');
 const resultsArea = document.getElementById('resultsArea');
 const initialState = document.getElementById('initialState');
+
+// Standard annual subscription costs for deduplicated stack savings
+const APP_PRICES = {
+  'photoshop': 264,
+  'microsoft-office': 99,
+  'spotify': 144,
+  'premiere-pro': 264,
+  'notion': 120,
+  'slack': 104,
+  '1password': 36,
+  'adobe-acrobat': 240,
+  'dropbox': 120,
+  'quickbooks': 360,
+  'chatgpt-plus': 240,
+  'autocad': 1980,
+  'illustrator': 264,
+  'after-effects': 264,
+  'lightroom': 120,
+  'indesign': 264,
+  'figma': 144,
+  'airtable': 240,
+  'fl-studio': 199,
+  'ableton-live': 439,
+  'logic-pro': 199,
+  'final-cut-pro': 299,
+  'zoom': 150,
+  'calendly': 120,
+  'grammarly': 144,
+  'trello': 60,
+  'monday': 120,
+  'cleanmymac': 40,
+  'lastpass': 36,
+  'nordvpn': 72,
+  'wolfram-alpha': 84,
+  'matlab': 940,
+  'jetbrains': 289,
+  'github-copilot': 120,
+  'parallels': 100,
+  'winrar': 29,
+  'tableau': 840,
+  'postman': 168,
+  'datadog': 180,
+  'auth0': 276,
+  'mailchimp': 156,
+};
 
 // ---- Stack / Bookmarks (LocalStorage) --------------------------------------
 const STACK_KEY = 'appsolutely_free_stack_v1';
@@ -45,11 +90,14 @@ function updateStackUI() {
   const drawerBody = document.getElementById('drawerBody');
   const drawerSub = document.getElementById('drawerSub');
   const drawerTotal = document.getElementById('drawerTotalSaved');
+  const drawerReplacedSub = document.getElementById('drawerReplacedSub');
+
   if (drawerBody) {
     if (!stack.length) {
       drawerBody.innerHTML = `<div class="empty-stack"><span class="empty-icon">📂</span><p>Your stack is empty.</p><small>Click the bookmark icon on any card to build your personalized free software stack!</small></div>`;
       if (drawerSub) drawerSub.textContent = '0 saved tools';
       if (drawerTotal) drawerTotal.textContent = '$0 / yr';
+      if (drawerReplacedSub) drawerReplacedSub.textContent = '';
     } else {
       const items = stack.map((id) => altsById[id]).filter(Boolean);
       drawerBody.innerHTML = items.map((a) => `
@@ -57,7 +105,7 @@ function updateStackUI() {
           <img class="drawer-icon" src="https://www.google.com/s2/favicons?domain=${esc(a.domain)}&sz=64" alt="" width="28" height="28" onerror="this.style.display='none'">
           <div class="drawer-item-info">
             <strong>${esc(a.name)}</strong>
-            <small>${esc(a.license || 'Free')}</small>
+            <small>${esc(a.cost_label || a.license || 'Free')}</small>
           </div>
           <div class="drawer-item-actions">
             <a class="btn btn-ghost btn-sm" href="${esc(a.website)}" target="_blank" rel="noopener">Open</a>
@@ -65,10 +113,33 @@ function updateStackUI() {
           </div>
         </div>
       `).join('');
-      if (drawerSub) drawerSub.textContent = `${items.length} saved ${items.length === 1 ? 'tool' : 'tools'}`;
-      // Estimate savings: $180 average per tool replaced
-      const est = items.length * 180;
-      if (drawerTotal) drawerTotal.textContent = `$${est.toLocaleString()} / yr`;
+
+      // Calculate from subscriptions the visitor actually replaces (deduplicated)
+      const replacedAppIds = new Set();
+      items.forEach((a) => {
+        (a.replaces || []).forEach((r) => replacedAppIds.add(r));
+      });
+      const replacedArr = [...replacedAppIds];
+      let totalEst = 0;
+      replacedArr.forEach((appId) => {
+        totalEst += APP_PRICES[appId] || 120;
+      });
+
+      if (drawerSub) {
+        drawerSub.textContent = `${items.length} saved ${items.length === 1 ? 'tool' : 'tools'}${replacedArr.length ? ` · ${replacedArr.length} subscription${replacedArr.length === 1 ? '' : 's'} replaced` : ''}`;
+      }
+      if (drawerTotal) {
+        drawerTotal.textContent = `$${totalEst.toLocaleString()} / yr`;
+      }
+      if (drawerReplacedSub) {
+        if (replacedArr.length > 0) {
+          const names = replacedArr.map((id) => (appsById[id] ? appsById[id].name : id)).slice(0, 4).join(', ');
+          const extra = replacedArr.length > 4 ? ` +${replacedArr.length - 4} more` : '';
+          drawerReplacedSub.textContent = `Calculated from replaced subscriptions: ${names}${extra}. (Multiple alternatives to the same tool do not multiply savings)`;
+        } else {
+          drawerReplacedSub.textContent = 'Save tools that replace paid apps to calculate your subscription savings.';
+        }
+      }
     }
   }
 }
@@ -89,13 +160,17 @@ function showToast(msg) {
 
 // ---- Results Rendering & Filtering -----------------------------------------
 let currentResults = [];
-let currentFilter = 'all';
+let currentCostFilter = 'all'; // 'all', 'zero-cost', 'limited-free', 'self-hosted'
+let openSourceOnly = false;
 let currentSort = 'default';
 
 function renderCardsWithState(list) {
   let filtered = [...list];
-  if (currentFilter !== 'all') {
-    filtered = filtered.filter((a) => a.type === currentFilter);
+  if (currentCostFilter !== 'all') {
+    filtered = filtered.filter((a) => a.cost_tier === currentCostFilter);
+  }
+  if (openSourceOnly) {
+    filtered = filtered.filter((a) => a.is_open_source);
   }
   if (currentSort === 'stars') {
     filtered.sort((a, b) => ((b.health && b.health.stars) || 0) - ((a.health && a.health.stars) || 0));
@@ -112,28 +187,36 @@ function updateResultsGrid() {
   const grid = document.getElementById('altsGrid');
   if (!grid) return;
   const html = renderCardsWithState(currentResults);
-  grid.innerHTML = html || `<div class="no-filter-match"><p>No apps match this filter criteria.</p><button class="btn btn-ghost" id="resetFilterBtn">Show all (${currentResults.length})</button></div>`;
+  grid.innerHTML = html || `<div class="no-filter-match"><p>No apps match this filter criteria.</p><button class="btn btn-ghost" id="resetFilterBtn">Reset filters (${currentResults.length})</button></div>`;
   updateStackUI();
   const resetBtn = document.getElementById('resetFilterBtn');
   if (resetBtn) resetBtn.addEventListener('click', () => {
-    currentFilter = 'all';
-    document.querySelectorAll('.filter-pill').forEach((p) => p.classList.toggle('active', p.dataset.type === 'all'));
+    currentCostFilter = 'all';
+    openSourceOnly = false;
+    const bar = resultsArea.querySelector('.filter-sort-bar');
+    if (bar) {
+      bar.querySelectorAll('.cost-pill').forEach((p) => p.classList.toggle('active', p.dataset.cost === 'all'));
+      const osBtn = bar.querySelector('#osToggleBtn');
+      if (osBtn) osBtn.classList.remove('active');
+    }
     updateResultsGrid();
   });
 }
 
 function renderFilterBar(totalCount) {
-  const openSourceCount = currentResults.filter((a) => a.type === 'open-source').length;
-  const freeCount = currentResults.filter((a) => a.type === 'free').length;
-  const freemiumCount = currentResults.filter((a) => a.type === 'freemium').length;
+  const zeroCostCount = currentResults.filter((a) => a.cost_tier === 'zero-cost').length;
+  const limitedFreeCount = currentResults.filter((a) => a.cost_tier === 'limited-free').length;
+  const selfHostedCount = currentResults.filter((a) => a.cost_tier === 'self-hosted').length;
+  const osCount = currentResults.filter((a) => a.is_open_source).length;
 
   return `
   <div class="filter-sort-bar glass-panel">
-    <div class="filter-pills" role="tablist" aria-label="Filter alternatives by license">
-      <button class="filter-pill ${currentFilter === 'all' ? 'active' : ''}" type="button" data-type="all">All (${totalCount})</button>
-      ${openSourceCount ? `<button class="filter-pill ${currentFilter === 'open-source' ? 'active' : ''}" type="button" data-type="open-source">🐧 Open Source (${openSourceCount})</button>` : ''}
-      ${freeCount ? `<button class="filter-pill ${currentFilter === 'free' ? 'active' : ''}" type="button" data-type="free">✨ 100% Free (${freeCount})</button>` : ''}
-      ${freemiumCount ? `<button class="filter-pill ${currentFilter === 'freemium' ? 'active' : ''}" type="button" data-type="freemium">🎁 Free Tier (${freemiumCount})</button>` : ''}
+    <div class="filter-pills" role="tablist" aria-label="Filter alternatives by cost tier">
+      <button class="filter-pill cost-pill ${currentCostFilter === 'all' ? 'active' : ''}" type="button" data-cost="all">All (${totalCount})</button>
+      ${zeroCostCount ? `<button class="filter-pill cost-pill ${currentCostFilter === 'zero-cost' ? 'active' : ''}" type="button" data-cost="zero-cost">✨ $0 to use (${zeroCostCount})</button>` : ''}
+      ${limitedFreeCount ? `<button class="filter-pill cost-pill ${currentCostFilter === 'limited-free' ? 'active' : ''}" type="button" data-cost="limited-free">🎁 Limited free plan (${limitedFreeCount})</button>` : ''}
+      ${selfHostedCount ? `<button class="filter-pill cost-pill ${currentCostFilter === 'self-hosted' ? 'active' : ''}" type="button" data-cost="self-hosted">🖥️ Requires hosting/hardware (${selfHostedCount})</button>` : ''}
+      ${osCount ? `<button class="filter-pill os-pill ${openSourceOnly ? 'active' : ''}" type="button" id="osToggleBtn">🐧 Open Source Only (${osCount})</button>` : ''}
     </div>
     <div class="sort-wrap">
       <label for="sortSelect">Sort:</label>
@@ -149,7 +232,8 @@ function renderFilterBar(totalCount) {
 
 const showResults = (headerHtml, resultsList) => {
   currentResults = resultsList;
-  currentFilter = 'all';
+  currentCostFilter = 'all';
+  openSourceOnly = false;
   currentSort = 'default';
   initialState.classList.add('hidden');
   resultsArea.classList.remove('hidden');
@@ -168,12 +252,20 @@ function bindResultsEvents() {
   const bar = resultsArea.querySelector('.filter-sort-bar');
   if (bar) {
     bar.addEventListener('click', (e) => {
-      const pill = e.target.closest('.filter-pill');
-      if (pill) {
-        bar.querySelectorAll('.filter-pill').forEach((p) => p.classList.remove('active'));
-        pill.classList.add('active');
-        currentFilter = pill.dataset.type;
+      const costPill = e.target.closest('.cost-pill');
+      if (costPill) {
+        bar.querySelectorAll('.cost-pill').forEach((p) => p.classList.remove('active'));
+        costPill.classList.add('active');
+        currentCostFilter = costPill.dataset.cost;
         updateResultsGrid();
+        return;
+      }
+      const osPill = e.target.closest('#osToggleBtn');
+      if (osPill) {
+        openSourceOnly = !openSourceOnly;
+        osPill.classList.toggle('active', openSourceOnly);
+        updateResultsGrid();
+        return;
       }
     });
     const sortSelect = bar.querySelector('#sortSelect');
@@ -194,6 +286,10 @@ const showHome = () => {
 
 // ---- Home sections --------------------------------------------------------
 function renderStats() {
+  const heroBadge = document.getElementById('heroBadgeText');
+  if (heroBadge) {
+    heroBadge.textContent = `${db.alternatives.length} Hand-Picked Free Alternatives Across ${CATEGORIES.length} Categories & ${replaceableApps.length} Paid Apps`;
+  }
   const stars = db.alternatives.reduce((n, a) => n + ((a.health && a.health.stars) || 0), 0);
   const items = [
     [db.alternatives.length, 'free alternatives'],
@@ -268,19 +364,44 @@ const POPULAR_SUBSCRIPTIONS = [
   { id: 'autocad', name: 'AutoCAD', price: 1980, icon: '🧊' },
 ];
 
+const customPrices = Object.fromEntries(POPULAR_SUBSCRIPTIONS.map((s) => [s.id, s.price]));
+let replacementExpense = 0;
+
 function renderCalculator() {
   const grid = document.getElementById('calcGrid');
   if (!grid) return;
   grid.innerHTML = POPULAR_SUBSCRIPTIONS.map((s) => `
-    <label class="calc-item glass-panel" data-id="${s.id}" data-price="${s.price}">
+    <label class="calc-item glass-panel" data-id="${s.id}">
       <input type="checkbox" name="sub" value="${s.id}">
       <span class="calc-item-emoji">${s.icon}</span>
       <span class="calc-item-name">${esc(s.name)}</span>
-      <span class="calc-item-price">$${s.price}/yr</span>
+      <span class="calc-item-price calc-item-price-static">$${s.price}/yr</span>
+      <div class="calc-price-edit-row" onclick="event.stopPropagation()">
+        <span>$</span>
+        <input type="number" class="calc-cost-input" value="${s.price}" min="0" step="5" data-id="${s.id}" aria-label="${esc(s.name)} cost per year">
+        <span>/yr</span>
+      </div>
     </label>
   `).join('');
 
   grid.addEventListener('change', updateCalculatorTotal);
+  grid.addEventListener('input', (e) => {
+    if (e.target.classList.contains('calc-cost-input')) {
+      const id = e.target.dataset.id;
+      const val = Math.max(0, Number(e.target.value) || 0);
+      customPrices[id] = val;
+      updateCalculatorTotal();
+    }
+  });
+
+  const expenseInput = document.getElementById('calcExpenseInput');
+  if (expenseInput) {
+    expenseInput.addEventListener('input', (e) => {
+      replacementExpense = Math.max(0, Number(e.target.value) || 0);
+      updateCalculatorTotal();
+    });
+  }
+
   const actionBtn = document.getElementById('calcActionBtn');
   if (actionBtn) {
     actionBtn.addEventListener('click', () => {
@@ -288,13 +409,16 @@ function renderCalculator() {
       if (!checked.length) return;
       const matchedAlts = db.alternatives.filter((a) => (a.replaces || []).some((r) => checked.includes(r)));
       const checkedNames = checked.map((id) => (appsById[id] ? appsById[id].name : id)).join(', ');
-      const total = checked.reduce((acc, id) => {
-        const item = POPULAR_SUBSCRIPTIONS.find((s) => s.id === id);
-        return acc + (item ? item.price : 0);
-      }, 0);
+      
+      let grossTotal = 0;
+      checked.forEach((id) => {
+        grossTotal += (customPrices[id] !== undefined ? customPrices[id] : (POPULAR_SUBSCRIPTIONS.find((s) => s.id === id)?.price || 0));
+      });
+      const netSavings = Math.max(0, grossTotal - replacementExpense);
+
       const headHtml = header(
-        `Your Free Stack (Save $${total.toLocaleString()}/yr)`,
-        `${matchedAlts.length} free alternatives replacing ${checkedNames}`
+        `Your Free Replacements (Potential Savings: $${netSavings.toLocaleString()}/yr)`,
+        `${matchedAlts.length} free alternatives replacing ${checkedNames}. ${replacementExpense > 0 ? `(After subtracting $${replacementExpense.toLocaleString()}/yr self-hosting/hardware expense)` : ''}`
       );
       showResults(headHtml, matchedAlts);
       bindBack();
@@ -304,29 +428,38 @@ function renderCalculator() {
 
 function updateCalculatorTotal() {
   const grid = document.getElementById('calcGrid');
-  const checked = [...grid.querySelectorAll('input[type="checkbox"]:checked')];
-  let total = 0;
-  checked.forEach((c) => {
-    const parent = c.closest('.calc-item');
-    if (parent) {
-      total += Number(parent.dataset.price) || 0;
-      parent.classList.add('selected');
-    }
+  if (!grid) return;
+  const checked = [...grid.querySelectorAll('input[type="checkbox"]:checked')].map((c) => c.value);
+
+  grid.querySelectorAll('.calc-item').forEach((item) => {
+    const isChecked = checked.includes(item.dataset.id);
+    item.classList.toggle('selected', isChecked);
   });
-  grid.querySelectorAll('input[type="checkbox"]:not(:checked)').forEach((c) => {
-    const parent = c.closest('.calc-item');
-    if (parent) parent.classList.remove('selected');
+
+  let grossTotal = 0;
+  checked.forEach((id) => {
+    grossTotal += (customPrices[id] !== undefined ? customPrices[id] : (POPULAR_SUBSCRIPTIONS.find((s) => s.id === id)?.price || 0));
   });
+
+  const netSavings = Math.max(0, grossTotal - replacementExpense);
 
   const totalEl = document.getElementById('calcTotal');
   const countEl = document.getElementById('calcSelectedCount');
+  const breakdownEl = document.getElementById('calcBreakdown');
   const actionBtn = document.getElementById('calcActionBtn');
 
-  if (totalEl) totalEl.textContent = total.toLocaleString();
+  if (totalEl) totalEl.textContent = netSavings.toLocaleString();
   if (countEl) {
     countEl.textContent = checked.length === 0
-      ? 'Select subscriptions above to calculate'
-      : `${checked.length} subscription${checked.length === 1 ? '' : 's'} selected (100% saved)`;
+      ? 'Select subscriptions above to calculate potential savings'
+      : `${checked.length} subscription${checked.length === 1 ? '' : 's'} selected · Potential savings calculated`;
+  }
+  if (breakdownEl) {
+    if (checked.length > 0) {
+      breakdownEl.textContent = `Subscriptions: $${grossTotal.toLocaleString()}/yr ${replacementExpense > 0 ? `− $${replacementExpense.toLocaleString()}/yr hosting/hardware = $${netSavings.toLocaleString()}/yr net potential savings` : '(assumes $0 local installation)'}`;
+    } else {
+      breakdownEl.textContent = '';
+    }
   }
   if (actionBtn) {
     actionBtn.disabled = checked.length === 0;
@@ -419,6 +552,7 @@ window.addEventListener('keydown', (e) => {
   }
   if (e.key === 'Escape') {
     closeDrawer();
+    closeReportModal();
   }
 });
 
@@ -431,7 +565,7 @@ document.getElementById('quickTags')?.addEventListener('click', (e) => {
   }
 });
 
-// Card Click Delegations (Bookmark & Share)
+// Card Click Delegations (Bookmark, Share, Report)
 document.addEventListener('click', (e) => {
   const bkmk = e.target.closest('.bookmark-btn');
   if (bkmk) {
@@ -457,12 +591,66 @@ document.addEventListener('click', (e) => {
     }
     return;
   }
+  const reportBtn = e.target.closest('.report-btn');
+  if (reportBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    openReportModal(reportBtn.dataset.id, reportBtn.dataset.name);
+    return;
+  }
   const removeBtn = e.target.closest('.remove-stack-btn');
   if (removeBtn) {
     toggleStack(removeBtn.dataset.id);
     return;
   }
 });
+
+// ---- Report Outdated Information Modal -------------------------------------
+const reportModal = document.getElementById('reportModal');
+const reportBackdrop = document.getElementById('reportModalBackdrop');
+const reportForm = document.getElementById('reportForm');
+const closeReportBtn = document.getElementById('closeReportModalBtn');
+const cancelReportBtn = document.getElementById('cancelReportBtn');
+
+function openReportModal(id, name) {
+  if (!reportModal) return;
+  const nameInput = document.getElementById('reportAppName');
+  const idInput = document.getElementById('reportAppId');
+  if (nameInput) nameInput.value = name || id;
+  if (idInput) idInput.value = id;
+  reportModal.classList.remove('hidden');
+  reportBackdrop?.classList.remove('hidden');
+  document.getElementById('reportDetails')?.focus();
+}
+
+function closeReportModal() {
+  reportModal?.classList.add('hidden');
+  reportBackdrop?.classList.add('hidden');
+  if (reportForm) reportForm.reset();
+}
+
+closeReportBtn?.addEventListener('click', closeReportModal);
+cancelReportBtn?.addEventListener('click', closeReportModal);
+reportBackdrop?.addEventListener('click', closeReportModal);
+
+if (reportForm) {
+  reportForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const id = document.getElementById('reportAppId')?.value;
+    const name = document.getElementById('reportAppName')?.value;
+    const reason = document.getElementById('reportReason')?.value;
+    const details = document.getElementById('reportDetails')?.value;
+
+    try {
+      const reports = JSON.parse(localStorage.getItem('appsolutely_reports_v1')) || [];
+      reports.push({ id, name, reason, details, timestamp: new Date().toISOString() });
+      localStorage.setItem('appsolutely_reports_v1', JSON.stringify(reports));
+    } catch (err) {}
+
+    showToast(`✓ Thank you! Report for ${name} submitted. Our team will verify.`);
+    closeReportModal();
+  });
+}
 
 // ---- Drawer Open / Close ---------------------------------------------------
 const drawer = document.getElementById('stackDrawer');
