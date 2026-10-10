@@ -1,5 +1,5 @@
-import db from './data.js?v=7';
-import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=7';
+import db from './data.js?v=8';
+import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=8';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const hasAlts = (app) => db.alternatives.some((a) => (a.replaces || []).includes(app.id));

@@ -5,9 +5,9 @@
     "open_issues": 19
   },
   "https://github.com/storytold/filmcraft": {
-    "stars": 8506,
-    "last_commit": "2026-10-10T21:15:49Z",
-    "open_issues": 211
+    "stars": 8540,
+    "last_commit": "2026-10-10T22:09:14Z",
+    "open_issues": 214
   },
   "https://github.com/ONLYOFFICE/DocumentServer": {
     "stars": 6987,
@@ -16,13 +16,13 @@
   },
   "https://github.com/penpot/penpot": {
     "stars": 60882,
-    "last_commit": "2026-10-09T21:03:45Z",
+    "last_commit": "2026-10-10T22:05:05Z",
     "open_issues": 808
   },
   "https://github.com/storytold/photocraft": {
-    "stars": 41494,
-    "last_commit": "2026-10-10T21:39:00Z",
-    "open_issues": 793
+    "stars": 41613,
+    "last_commit": "2026-10-10T22:10:13Z",
+    "open_issues": 795
   },
   "https://github.com/darktable-org/darktable": {
     "stars": 13253,
@@ -51,7 +51,7 @@
   },
   "https://github.com/OpenShot/openshot-qt": {
     "stars": 6615,
-    "last_commit": "2026-10-10T19:37:26Z",
+    "last_commit": "2026-10-10T22:05:29Z",
     "open_issues": 438
   },
   "https://github.com/obsproject/obs-studio": {
@@ -67,7 +67,7 @@
   "https://github.com/audacity/audacity": {
     "stars": 18693,
     "last_commit": "2026-10-09T11:48:56Z",
-    "open_issues": 1852
+    "open_issues": 1853
   },
   "https://github.com/Ardour/ardour": {
     "stars": 5336,
@@ -80,27 +80,27 @@
     "open_issues": 1471
   },
   "https://github.com/musescore/MuseScore": {
-    "stars": 15217,
+    "stars": 15218,
     "last_commit": "2026-10-09T17:30:31Z",
     "open_issues": 4308
   },
   "https://github.com/FreeCAD/FreeCAD": {
     "stars": 34126,
     "last_commit": "2026-10-10T21:26:40Z",
-    "open_issues": 3977
+    "open_issues": 3979
   },
   "https://github.com/LibreCAD/LibreCAD": {
     "stars": 6462,
     "last_commit": "2026-10-10T16:18:35Z",
-    "open_issues": 568
+    "open_issues": 567
   },
   "https://github.com/openscad/openscad": {
-    "stars": 10407,
+    "stars": 10408,
     "last_commit": "2026-10-08T08:15:01Z",
     "open_issues": 828
   },
   "https://github.com/VSCodium/vscodium": {
-    "stars": 33583,
+    "stars": 33584,
     "last_commit": "2026-10-08T23:11:51Z",
     "open_issues": 137
   },
@@ -120,24 +120,24 @@
     "open_issues": 848
   },
   "https://github.com/coollabsio/coolify": {
-    "stars": 62831,
+    "stars": 62832,
     "last_commit": "2026-10-09T18:42:05Z",
     "open_issues": 732
   },
   "https://github.com/supabase/supabase": {
-    "stars": 111315,
+    "stars": 111317,
     "last_commit": "2026-10-10T05:57:03Z",
     "open_issues": 1146
   },
   "https://github.com/appwrite/appwrite": {
-    "stars": 57625,
+    "stars": 57626,
     "last_commit": "2026-10-10T21:21:34Z",
     "open_issues": 779
   },
   "https://github.com/keycloak/keycloak": {
     "stars": 37277,
     "last_commit": "2026-10-10T15:25:16Z",
-    "open_issues": 3241
+    "open_issues": 3243
   },
   "https://github.com/LibreOffice/core": {
     "stars": 4489,
@@ -150,8 +150,8 @@
     "open_issues": 36
   },
   "https://github.com/Stirling-Tools/Stirling-PDF": {
-    "stars": 93944,
-    "last_commit": "2026-10-10T20:42:17Z",
+    "stars": 93945,
+    "last_commit": "2026-10-10T21:58:34Z",
     "open_issues": 542
   },
   "https://github.com/torakiki/pdfsam": {
@@ -165,18 +165,18 @@
     "open_issues": 653
   },
   "https://github.com/standardnotes/app": {
-    "stars": 6648,
+    "stars": 6649,
     "last_commit": "2026-10-09T22:38:40Z",
     "open_issues": 98
   },
   "https://github.com/AppFlowy-IO/AppFlowy": {
-    "stars": 77227,
+    "stars": 77228,
     "last_commit": "2026-10-08T11:00:14Z",
     "open_issues": 1039
   },
   "https://github.com/logseq/logseq": {
-    "stars": 45203,
-    "last_commit": "2026-10-10T20:09:15Z",
+    "stars": 45205,
+    "last_commit": "2026-10-10T21:48:36Z",
     "open_issues": 995
   },
   "https://github.com/languagetool-org/languagetool": {
@@ -185,7 +185,7 @@
     "open_issues": 2152
   },
   "https://github.com/calcom/cal.com": {
-    "stars": 48942,
+    "stars": 48943,
     "last_commit": "2026-09-26T07:48:40Z",
     "open_issues": 1500
   },
@@ -195,17 +195,17 @@
     "open_issues": 1105
   },
   "https://github.com/go-vikunja/vikunja": {
-    "stars": 5683,
+    "stars": 5684,
     "last_commit": "2026-10-10T13:55:06Z",
     "open_issues": 261
   },
   "https://github.com/actualbudget/actual": {
-    "stars": 29418,
-    "last_commit": "2026-10-10T21:31:32Z",
+    "stars": 29419,
+    "last_commit": "2026-10-10T22:00:28Z",
     "open_issues": 226
   },
   "https://github.com/firefly-iii/firefly-iii": {
-    "stars": 24865,
+    "stars": 24864,
     "last_commit": "2026-10-10T13:02:00Z",
     "open_issues": 156
   },
@@ -216,7 +216,7 @@
   },
   "https://github.com/RocketChat/Rocket.Chat": {
     "stars": 46244,
-    "last_commit": "2026-10-10T21:06:04Z",
+    "last_commit": "2026-10-10T21:49:35Z",
     "open_issues": 4208
   },
   "https://github.com/zulip/zulip": {
@@ -232,7 +232,7 @@
   "https://github.com/bitwarden/clients": {
     "stars": 13953,
     "last_commit": "2026-10-10T14:32:36Z",
-    "open_issues": 1345
+    "open_issues": 1346
   },
   "https://github.com/keepassxreboot/keepassxc": {
     "stars": 29154,
@@ -250,8 +250,8 @@
     "open_issues": 218
   },
   "https://github.com/mullvad/mullvadvpn-app": {
-    "stars": 7646,
-    "last_commit": "2026-10-10T16:14:44Z",
+    "stars": 7647,
+    "last_commit": "2026-10-10T21:57:33Z",
     "open_issues": 162
   },
   "https://github.com/nextcloud/server": {
@@ -265,12 +265,12 @@
     "open_issues": 388
   },
   "https://github.com/immich-app/immich": {
-    "stars": 115965,
-    "last_commit": "2026-10-10T21:26:27Z",
-    "open_issues": 705
+    "stars": 115969,
+    "last_commit": "2026-10-10T21:48:51Z",
+    "open_issues": 706
   },
   "https://github.com/jellyfin/jellyfin": {
-    "stars": 57982,
+    "stars": 57983,
     "last_commit": "2026-10-10T02:10:31Z",
     "open_issues": 725
   },
@@ -290,12 +290,12 @@
     "open_issues": 473
   },
   "https://github.com/rustdesk/rustdesk": {
-    "stars": 125422,
+    "stars": 125426,
     "last_commit": "2026-10-10T14:29:11Z",
     "open_issues": 176
   },
   "https://github.com/ShareX/ShareX": {
-    "stars": 39989,
+    "stars": 39990,
     "last_commit": "2026-10-10T17:23:25Z",
     "open_issues": 630
   },
@@ -305,7 +305,7 @@
     "open_issues": 741
   },
   "https://github.com/bleachbit/bleachbit": {
-    "stars": 7071,
+    "stars": 7072,
     "last_commit": "2026-10-10T16:49:39Z",
     "open_issues": 331
   },
@@ -320,7 +320,7 @@
     "open_issues": 565
   },
   "https://github.com/plausible/analytics": {
-    "stars": 29359,
+    "stars": 29360,
     "last_commit": "2026-10-09T11:40:56Z",
     "open_issues": 65
   },
@@ -330,9 +330,9 @@
     "open_issues": 122
   },
   "https://github.com/knadh/listmonk": {
-    "stars": 23737,
+    "stars": 23738,
     "last_commit": "2026-10-10T18:29:47Z",
-    "open_issues": 104
+    "open_issues": 105
   },
   "https://github.com/nocodb/nocodb": {
     "stars": 65242,
@@ -347,7 +347,7 @@
   "https://github.com/PintaProject/Pinta": {
     "stars": 4080,
     "last_commit": "2026-10-08T13:57:08Z",
-    "open_issues": 220
+    "open_issues": 222
   },
   "https://github.com/excalidraw/excalidraw": {
     "stars": 133614,
@@ -372,17 +372,17 @@
   "https://github.com/xbmc/xbmc": {
     "stars": 21303,
     "last_commit": "2026-10-10T21:35:29Z",
-    "open_issues": 485
+    "open_issues": 489
   },
   "https://github.com/microsoft/vscode": {
-    "stars": 193529,
+    "stars": 193530,
     "last_commit": "2026-10-10T17:29:38Z",
     "open_issues": 21712
   },
   "https://github.com/zed-industries/zed": {
     "stars": 91552,
-    "last_commit": "2026-10-10T19:18:06Z",
-    "open_issues": 3013
+    "last_commit": "2026-10-10T21:43:14Z",
+    "open_issues": 3011
   },
   "https://github.com/Kong/insomnia": {
     "stars": 40032,
@@ -390,19 +390,19 @@
     "open_issues": 906
   },
   "https://github.com/pocketbase/pocketbase": {
-    "stars": 61346,
+    "stars": 61348,
     "last_commit": "2026-10-08T16:38:14Z",
     "open_issues": 19
   },
   "https://github.com/goauthentik/authentik": {
     "stars": 25904,
-    "last_commit": "2026-10-10T21:15:30Z",
+    "last_commit": "2026-10-10T21:46:41Z",
     "open_issues": 1112
   },
   "https://github.com/JuliaLang/julia": {
     "stars": 49202,
     "last_commit": "2026-10-10T21:29:34Z",
-    "open_issues": 4692
+    "open_issues": 4690
   },
   "https://github.com/M2Team/NanaZip": {
     "stars": 15797,
@@ -416,8 +416,8 @@
   },
   "https://github.com/greenshot/greenshot": {
     "stars": 5169,
-    "last_commit": "2026-10-10T21:12:57Z",
-    "open_issues": 528
+    "last_commit": "2026-10-10T22:05:49Z",
+    "open_issues": 527
   },
   "https://github.com/matomo-org/matomo": {
     "stars": 21940,
@@ -425,8 +425,93 @@
     "open_issues": 2545
   },
   "https://github.com/n8n-io/n8n": {
-    "stars": 206928,
+    "stars": 206933,
     "last_commit": "2026-10-10T21:12:27Z",
     "open_issues": 1174
+  },
+  "https://github.com/ollama/ollama": {
+    "stars": 182655,
+    "last_commit": "2026-10-10T21:28:32Z",
+    "open_issues": 4242
+  },
+  "https://github.com/janhq/jan": {
+    "stars": 44879,
+    "last_commit": "2026-10-10T02:57:20Z",
+    "open_issues": 550
+  },
+  "https://github.com/continuedev/continue": {
+    "stars": 36172,
+    "last_commit": "2026-10-09T21:22:45Z",
+    "open_issues": 831
+  },
+  "https://github.com/toeverything/AFFiNE": {
+    "stars": 73368,
+    "last_commit": "2026-10-10T15:28:28Z",
+    "open_issues": 768
+  },
+  "https://github.com/anyproto/anytype-ts": {
+    "stars": 8898,
+    "last_commit": "2026-10-03T15:30:43Z",
+    "open_issues": 223
+  },
+  "https://github.com/mozilla/gecko-dev": {
+    "stars": 3692,
+    "last_commit": "2025-07-09T03:21:12Z",
+    "open_issues": 0
+  },
+  "https://github.com/brave/brave-browser": {
+    "stars": 23856,
+    "last_commit": "2026-10-09T16:04:34Z",
+    "open_issues": 11029
+  },
+  "https://github.com/KRTirtho/spotube": {
+    "stars": 49759,
+    "last_commit": "2026-10-09T08:51:44Z",
+    "open_issues": 869
+  },
+  "https://github.com/videolan/vlc": {
+    "stars": 19938,
+    "last_commit": "2026-10-10T19:31:50Z",
+    "open_issues": 2
+  },
+  "https://github.com/nukeop/nuclear": {
+    "stars": 18649,
+    "last_commit": "2026-10-06T13:06:45Z",
+    "open_issues": 3
+  },
+  "https://github.com/gorhill/uBlock": {
+    "stars": 68472,
+    "last_commit": "2026-10-10T21:51:55Z",
+    "open_issues": 15
+  },
+  "https://github.com/agalwood/motrix": {
+    "stars": 56346,
+    "last_commit": "2026-10-10T15:01:00Z",
+    "open_issues": 148
+  },
+  "https://github.com/HandBrake/HandBrake": {
+    "stars": 24616,
+    "last_commit": "2026-10-10T20:16:17Z",
+    "open_issues": 295
+  },
+  "https://github.com/godotengine/godot": {
+    "stars": 118233,
+    "last_commit": "2026-10-09T20:18:11Z",
+    "open_issues": 18859
+  },
+  "https://github.com/Gnucash/gnucash": {
+    "stars": 4369,
+    "last_commit": "2026-10-09T23:22:04Z",
+    "open_issues": 41
+  },
+  "https://github.com/taigaio/taiga-front": {
+    "stars": 382,
+    "last_commit": "2026-10-07T13:36:16Z",
+    "open_issues": 140
+  },
+  "https://github.com/opf/openproject": {
+    "stars": 16377,
+    "last_commit": "2026-10-10T16:49:36Z",
+    "open_issues": 299
   }
 }
