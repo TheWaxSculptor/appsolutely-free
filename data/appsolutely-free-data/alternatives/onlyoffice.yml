@@ -1,0 +1,17 @@
+name: "OnlyOffice"
+summary: "A free and open-source office suite that is highly compatible with Microsoft Office formats. Available on desktop, web, and mobile."
+type: "open-source"
+license: "AGPL-3.0"
+website: "https://www.onlyoffice.com/"
+repo:
+  host: "github"
+  url: "https://github.com/ONLYOFFICE/DocumentServer"
+replaces:
+  - "microsoft-office"
+platforms:
+  - "windows"
+  - "macos"
+  - "linux"
+  - "ios"
+  - "android"
+  - "web"

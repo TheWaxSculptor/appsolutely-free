@@ -182,9 +182,37 @@ const data = {
     "last_verified": "2026-10-09",
     "id": "filmcraft",
     "health": {
-      "stars": 6948,
+      "stars": 7090,
       "last_commit": "2026-10-09T15:02:47Z",
-      "open_issues": 203
+      "open_issues": 221
+    }
+  },
+  {
+    "name": "OnlyOffice",
+    "summary": "A free and open-source office suite that is highly compatible with Microsoft Office formats. Available on desktop, web, and mobile.",
+    "type": "open-source",
+    "license": "AGPL-3.0",
+    "website": "https://www.onlyoffice.com/",
+    "repo": {
+      "host": "github",
+      "url": "https://github.com/ONLYOFFICE/DocumentServer"
+    },
+    "replaces": [
+      "microsoft-office"
+    ],
+    "platforms": [
+      "windows",
+      "macos",
+      "linux",
+      "ios",
+      "android",
+      "web"
+    ],
+    "id": "onlyoffice",
+    "health": {
+      "stars": 6982,
+      "last_commit": "2026-07-22T09:43:52Z",
+      "open_issues": 1156
     }
   },
   {
@@ -230,7 +258,7 @@ const data = {
     "verified_by": "example-contributor",
     "id": "penpot",
     "health": {
-      "stars": 60858,
+      "stars": 60861,
       "last_commit": "2026-10-09T21:03:45Z",
       "open_issues": 805
     }
@@ -278,9 +306,9 @@ const data = {
     "last_verified": "2026-10-09",
     "id": "photocraft",
     "health": {
-      "stars": 34664,
-      "last_commit": "2026-10-09T21:41:16Z",
-      "open_issues": 476
+      "stars": 35189,
+      "last_commit": "2026-10-10T00:16:54Z",
+      "open_issues": 502
     }
   }
 ]
