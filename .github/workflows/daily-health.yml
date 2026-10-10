@@ -34,5 +34,5 @@ jobs:
         run: |
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
-          git add data/health.json data.js
+          git add data/health.json data.js sitemap.xml alternatives category
           git diff --quiet && git diff --staged --quiet || (git commit -m "Automated update of repository health data" && git push)

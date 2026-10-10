@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Appsolutely Free | Modern Open Source Alternatives</title>
-  <meta name="description" content="Ditch the subscriptions. Find powerful, open-source, and absolutely free alternatives to the expensive software you're paying for.">
-  <meta name="keywords" content="open source, free software, free alternatives, open source alternatives, replace subscriptions">
-  <meta property="og:title" content="Appsolutely Free | Modern Open Source Alternatives">
-  <meta property="og:description" content="Find powerful, open-source alternatives to the software you're paying for.">
+  <title>Appsolutely Free | Free & Open Source Alternatives to Paid Software</title>
+  <meta name="description" content="Ditch the subscriptions. Browse 100+ free, open-source alternatives to Photoshop, Microsoft Office, Premiere Pro, Notion, Slack and more, with screenshots, pros, and cons.">
+  <meta name="keywords" content="open source alternatives, free software, free alternatives, replace subscriptions, photoshop alternative, microsoft office alternative">
+  <link rel="canonical" href="https://appsolutelyfree.com/">
+  <meta property="og:title" content="Appsolutely Free | Free & Open Source Alternatives to Paid Software">
+  <meta property="og:description" content="Find powerful, open-source alternatives to the software you're paying for, with screenshots, pros, and cons.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appsolutelyfree.com">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2161345131320461" crossorigin="anonymous"></script>
-  <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Appsolutely Free","url":"https://appsolutelyfree.com/","potentialAction":{"@type":"SearchAction","target":"https://appsolutelyfree.com/?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
 </head>
 <body>
   <div class="background-blobs">
@@ -24,52 +25,66 @@
     <div class="blob blob-2"></div>
   </div>
 
-  <div class="container">
-    <header class="header">
-      <div class="logo">App<span>solutely</span> Free</div>
-      <p class="subtitle">Ditch the subscriptions. Find powerful, open-source alternatives to the software you're paying for.</p>
+  <nav class="topbar" aria-label="Main">
+    <a class="brand" href="/">App<span>solutely</span> Free</a>
+    <div class="topbar-links">
+      <a href="#categories">Categories</a>
+      <a href="#platforms">Platforms</a>
+      <a href="#popular">Popular</a>
+    </div>
+  </nav>
+
+  <main class="container wide">
+    <header class="hero">
+      <p class="eyebrow">Stop paying for software</p>
+      <h1 class="hero-title">Free alternatives to the apps <span class="grad">you're paying for</span></h1>
+      <p class="subtitle">Hand-picked open-source software with screenshots, pros, cons, and download links. No subscriptions, no tracking.</p>
+
+      <div class="search-container glass-panel">
+        <div class="search-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <input type="search" id="appSearch" class="search-input" placeholder="Search for an app (Photoshop, Notion, Slack…)" autocomplete="off" aria-label="Search apps">
+      </div>
+
+      <div class="stats" id="stats" aria-live="polite"></div>
     </header>
 
-    <main>
-      <div class="search-container glass-panel">
-        <input type="text" id="appSearch" class="search-input" placeholder="Search for an app (e.g., Photoshop, Figma...)">
-        <div class="search-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </div>
-      </div>
+    <section id="resultsArea" class="results-area hidden" aria-live="polite"></section>
 
-      <div id="resultsArea" class="results-area hidden">
-        <!-- Results will be injected here by app.js -->
-      </div>
-      
-      <div id="initialState" class="initial-state">
-        <div class="popular-apps glass-panel">
-          <h3>Popular Searches</h3>
-          <div class="chips" id="popularChips">
-            <!-- Chips will be generated -->
-          </div>
-        </div>
+    <div id="initialState" class="initial-state">
+      <section id="categories" class="home-section" aria-labelledby="catTitle">
+        <h2 id="catTitle" class="section-title">Browse by category</h2>
+        <div class="category-grid" id="categoryGrid"></div>
+      </section>
 
-        <div class="platform-browse glass-panel animate-slide-up" style="margin-top: 2rem; animation-delay: 0.1s;">
-          <h3>Browse by Platform</h3>
-          <div class="chips" id="platformChips">
-            <div class="chip" data-platform="windows">Windows</div>
-            <div class="chip" data-platform="macos">Mac</div>
-            <div class="chip" data-platform="linux">Linux</div>
-            <div class="chip" data-platform="ios">iPhone / iPad</div>
-            <div class="chip" data-platform="android">Android</div>
-            <div class="chip" data-platform="web">Web</div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
+      <section id="platforms" class="home-section" aria-labelledby="platTitle">
+        <h2 id="platTitle" class="section-title">Browse by platform</h2>
+        <div class="chips center" id="platformChips"></div>
+      </section>
 
-  <!-- EthicalAds Unit -->
-  <div class="animate-slide-up" style="animation-delay: 0.2s;">
-    <div data-ea-publisher="appsolutelyfreecom" data-ea-type="image" data-ea-style="stickybox" class="dark"></div>
-  </div>
+      <section id="popular" class="home-section" aria-labelledby="popTitle">
+        <h2 id="popTitle" class="section-title">Most replaced paid apps</h2>
+        <div class="chips center" id="popularChips"></div>
+      </section>
 
-  <script type="module" src="app.js?v=4"></script>
+      <section class="home-section" aria-labelledby="featTitle">
+        <h2 id="featTitle" class="section-title">Top open-source picks</h2>
+        <div class="alts-grid" id="featuredGrid"></div>
+      </section>
+
+      <section class="home-section" id="dealsSection" hidden aria-labelledby="dealTitle">
+        <h2 id="dealTitle" class="section-title">Recommended tools &amp; deals</h2>
+        <div class="deal-grid" id="dealGrid"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>Appsolutely Free</strong> helps you replace expensive subscriptions with free and open-source software.</p>
+    <p class="fine">Some links may be affiliate or sponsored links. Prices and features change, so check each vendor's site.</p>
+  </footer>
+
+  <script type="module" src="app.js?v=5"></script>
 </body>
 </html>
