@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Appsolutely Free | Free Alternatives to Paid Software (Open Source & Free Apps)</title>
-  <meta name="description" content="Ditch the subscriptions. Browse 150+ free and open-source alternatives to Photoshop, Microsoft Office, Premiere Pro, Notion, Slack and more, with screenshots, pros, and cons.">
-  <meta name="keywords" content="open source alternatives, free software, free alternatives, replace subscriptions, photoshop alternative, microsoft office alternative">
+  <title>Appsolutely Free | 260+ Free & Open Source Software Alternatives</title>
+  <meta name="description" content="Stop paying expensive subscriptions. Explore 260+ hand-picked free and open-source alternatives to Photoshop, Microsoft 365, Spotify, Notion, Slack, AutoCAD and more, with real screenshots, pros, and cons.">
+  <meta name="keywords" content="open source alternatives, free software, free alternatives, replace subscriptions, photoshop alternative, microsoft office alternative, spotify alternative">
   <link rel="canonical" href="https://appsolutelyfree.com/">
-  <meta property="og:title" content="Appsolutely Free | Free Alternatives to Paid Software (Open Source & Free Apps)">
-  <meta property="og:description" content="Find powerful, open-source alternatives to the software you're paying for, with screenshots, pros, and cons.">
+  <meta property="og:title" content="Appsolutely Free | Free Alternatives to Paid Software">
+  <meta property="og:description" content="Ditch recurring subscriptions. Browse 260+ free and open-source alternatives with real screenshots, pros, cons, and switching difficulty.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://appsolutelyfree.com">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="stylesheet" href="style.css?v=9">
+  <link rel="stylesheet" href="style.css?v=10">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
@@ -28,29 +28,79 @@
   <nav class="topbar" aria-label="Main">
     <a class="brand" href="/">App<span>solutely</span> Free</a>
     <div class="topbar-links">
+      <a href="#calculatorSection">Calculator</a>
       <a href="#categories">Categories</a>
       <a href="#platforms">Platforms</a>
       <a href="#popular">Popular</a>
+      <button class="stack-nav-btn" id="openStackBtn" type="button" aria-label="Open My Saved Stack">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span>My Stack</span>
+        <span class="stack-badge" id="stackCount">0</span>
+      </button>
     </div>
   </nav>
 
   <main class="container wide">
     <header class="hero">
-      <p class="eyebrow">Stop paying for software</p>
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>268 Hand-Picked Free Alternatives Across 74 Categories</span>
+      </div>
       <h1 class="hero-title">Free alternatives to the apps <span class="grad">you're paying for</span></h1>
-      <p class="subtitle">Hand-picked free apps and open-source software with screenshots, pros, cons, and download links, from web tools like Photopea to full desktop programs.</p>
+      <p class="subtitle">Ditch recurring subscriptions. Browse verified open-source and free software with real screenshots, pros, cons, and zero bloatware.</p>
 
       <div class="search-container glass-panel">
         <div class="search-icon" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         </div>
-        <input type="search" id="appSearch" class="search-input" placeholder="Search for an app (Photoshop, Notion, Slack…)" autocomplete="off" aria-label="Search apps">
+        <input type="search" id="appSearch" class="search-input" placeholder="Search for an app (Photoshop, Notion, Office, Spotify…)" autocomplete="off" aria-label="Search apps">
+        <button class="search-clear hidden" id="searchClear" type="button" aria-label="Clear search">✕</button>
+        <span class="search-kbd" title="Press / anywhere to search"><kbd>/</kbd></span>
+      </div>
+
+      <!-- Quick Trending Tags -->
+      <div class="quick-tags" id="quickTags">
+        <span class="quick-tags-label">Trending:</span>
+        <button class="quick-tag" type="button" data-q="photoshop">Photoshop</button>
+        <button class="quick-tag" type="button" data-q="microsoft-office">Office 365</button>
+        <button class="quick-tag" type="button" data-q="spotify">Spotify</button>
+        <button class="quick-tag" type="button" data-q="premiere-pro">Premiere</button>
+        <button class="quick-tag" type="button" data-q="notion">Notion</button>
+        <button class="quick-tag" type="button" data-q="lightroom">Lightroom</button>
+        <button class="quick-tag" type="button" data-q="slack">Slack</button>
+        <button class="quick-tag" type="button" data-q="unity">Unity</button>
       </div>
 
       <div class="stats" id="stats" aria-live="polite"></div>
     </header>
 
-    <!-- Top Responsive Ad Container -->
+    <!-- Interactive Annual Savings Calculator -->
+    <section class="calculator-section" id="calculatorSection" aria-labelledby="calcTitle">
+      <div class="calculator-card glass-panel">
+        <div class="calc-header">
+          <span class="eyebrow green">Annual Savings Calculator</span>
+          <h2 id="calcTitle" class="calc-title">How much are you spending on subscriptions?</h2>
+          <p class="calc-subtitle">Select the software subscriptions you currently pay for to see how much you could save every year with free alternatives:</p>
+        </div>
+        <div class="calc-grid" id="calcGrid">
+          <!-- Populated dynamically by app.js -->
+        </div>
+        <div class="calc-footer">
+          <div class="calc-summary">
+            <span class="calc-label">Your Potential Annual Savings:</span>
+            <div class="calc-total-wrap">
+              <span class="calc-currency">$</span>
+              <strong class="calc-total" id="calcTotal">0</strong>
+              <span class="calc-period">/ year</span>
+            </div>
+            <span class="calc-subtext" id="calcSelectedCount">Select subscriptions above to calculate</span>
+          </div>
+          <button class="btn btn-primary calc-btn" id="calcActionBtn" type="button" disabled>Show My Free Stack</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsive Ad Container -->
     <div class="ad-slot-container" aria-label="Advertisement">
       <span class="ad-label">Advertisement</span>
       <ins class="adsbygoogle"
@@ -63,11 +113,17 @@
       </script>
     </div>
 
+    <!-- Results Area with Interactive Filters & Sorting -->
     <section id="resultsArea" class="results-area hidden" aria-live="polite"></section>
 
     <div id="initialState" class="initial-state">
       <section id="categories" class="home-section" aria-labelledby="catTitle">
-        <h2 id="catTitle" class="section-title">Browse by category</h2>
+        <div class="section-head-row">
+          <div>
+            <h2 id="catTitle" class="section-title">Browse by category</h2>
+            <p class="section-desc">Explore free software across design, development, office, audio, video, and security.</p>
+          </div>
+        </div>
         <div class="category-grid" id="categoryGrid"></div>
       </section>
 
@@ -82,22 +138,68 @@
       </section>
 
       <section class="home-section" aria-labelledby="featTitle">
-        <h2 id="featTitle" class="section-title">Top open-source picks</h2>
+        <div class="section-head-row">
+          <div>
+            <h2 id="featTitle" class="section-title">Top community picks</h2>
+            <p class="section-desc">Highly rated open-source tools with stellar GitHub community ratings.</p>
+          </div>
+        </div>
         <div class="alts-grid" id="featuredGrid"></div>
       </section>
 
       <section class="home-section" id="dealsSection" hidden aria-labelledby="dealTitle">
-        <h2 id="dealTitle" class="section-title">Recommended tools &amp; deals</h2>
+        <div class="section-head-row">
+          <div>
+            <h2 id="dealTitle" class="section-title">Recommended privacy &amp; dev deals</h2>
+            <p class="section-desc">Trusted infrastructure, VPNs, and cloud storage providers with generous free tiers or lifetime deals.</p>
+          </div>
+        </div>
         <div class="deal-grid" id="dealGrid"></div>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
-    <p><strong>Appsolutely Free</strong> helps you replace expensive subscriptions with free and open-source software.</p>
-    <p class="fine">Some links may be affiliate or sponsored links. Prices and features change, so check each vendor's site.</p>
+    <div class="container">
+      <div class="footer-brand">App<span>solutely</span> Free</div>
+      <p>Helping you escape expensive subscriptions with battle-tested free and open-source software.</p>
+      <div class="footer-links">
+        <a href="#categories">All Categories</a>
+        <a href="#calculatorSection">Savings Calculator</a>
+        <a href="https://github.com/TheWaxSculptor/appsolutely-free" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="fine">Some links may be affiliate or sponsored links. Prices and features change, so check each vendor's site. © 2026 Appsolutely Free.</p>
+    </div>
   </footer>
 
-  <script type="module" src="app.js?v=9"></script>
+  <!-- "My Free Stack" Slide-Over Drawer -->
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="drawer hidden" id="stackDrawer" aria-label="My Free Stack Drawer">
+    <div class="drawer-header">
+      <div>
+        <h3>My Free Software Stack</h3>
+        <p class="drawer-sub" id="drawerSub">0 saved tools</p>
+      </div>
+      <button class="btn-icon drawer-close" id="closeDrawerBtn" type="button" aria-label="Close stack drawer">✕</button>
+    </div>
+    <div class="drawer-body" id="drawerBody">
+      <!-- Populated dynamically -->
+    </div>
+    <div class="drawer-footer">
+      <div class="drawer-stats">
+        <span>Estimated Annual Savings:</span>
+        <strong id="drawerTotalSaved">$0 / yr</strong>
+      </div>
+      <div class="drawer-btn-row">
+        <button class="btn btn-ghost" id="copyStackBtn" type="button">Copy Stack</button>
+        <button class="btn btn-danger-ghost" id="clearStackBtn" type="button">Clear</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script type="module" src="app.js?v=10"></script>
 </body>
 </html>

@@ -81,7 +81,7 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
     : '';
 
   return `
-  <article class="alt-card glass-panel">
+  <article class="alt-card glass-panel" data-id="${esc(alt.id)}" data-type="${esc(alt.type || 'open-source')}" data-stars="${alt.health?.stars || 0}" data-difficulty="${esc(alt.switching_difficulty || 'moderate')}" data-name="${esc(alt.name)}">
     <a class="shot${alt.screenshot ? '' : ' no-shot'}" href="${esc(alt.website)}" target="_blank" rel="noopener" aria-label="Visit ${esc(alt.name)}">
       ${shot}
       <span class="shot-fallback">${icon}</span>
@@ -93,7 +93,15 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
           <h3 class="alt-title"><a href="${esc(alt.website)}" target="_blank" rel="noopener">${esc(alt.name)}</a></h3>
           <div class="alt-meta">${stars ? `<span class="stars">${STAR_SVG}${stars}</span>` : ''}<span>${esc(alt.license || 'Open source')}</span></div>
         </div>
-        <span class="badge ${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[1]}">${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[0]}</span>
+        <div class="header-badges">
+          <span class="badge ${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[1]}">${(TYPE_BADGE[alt.type] || TYPE_BADGE['open-source'])[0]}</span>
+          <button class="btn-icon bookmark-btn" type="button" data-id="${esc(alt.id)}" data-name="${esc(alt.name)}" title="Save to My Free Stack" aria-label="Save ${esc(alt.name)} to stack">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          </button>
+          <button class="btn-icon share-btn" type="button" data-id="${esc(alt.id)}" data-name="${esc(alt.name)}" data-url="${esc(alt.website)}" title="Share alternative" aria-label="Share ${esc(alt.name)}">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+          </button>
+        </div>
       </div>
       <div class="platforms-container">${platforms}</div>
       <p class="alt-summary">${esc(alt.summary || '')}</p>
