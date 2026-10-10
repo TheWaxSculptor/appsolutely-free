@@ -4,6 +4,7 @@ const yaml = require('js-yaml');
 const catalog = require('../data/catalog.js');
 const freeCatalog = require('../data/catalog-free.js');
 const moreCatalog = require('../data/catalog-more.js');
+const extendedCatalog = require('../data/catalog-extended.js');
 
 const root = path.join(__dirname, '..');
 const appsDir = path.join(root, 'data/appsolutely-free-data/apps');
@@ -31,12 +32,20 @@ function loadAll() {
 
   const apps = readYamlDir(appsDir);
   const appIds = new Set(apps.map((a) => a.id));
-  [...catalog.apps, ...(moreCatalog.apps || [])].forEach((a) => { if (!appIds.has(a.id)) { appIds.add(a.id); apps.push({ ...a }); } });
+  [...catalog.apps, ...(moreCatalog.apps || []), ...(extendedCatalog.apps || [])].forEach((a) => {
+    if (!appIds.has(a.id)) { appIds.add(a.id); apps.push({ ...a }); }
+  });
 
   const alts = readYamlDir(altsDir);
   const altIds = new Set(alts.map((a) => a.id));
-  [...catalog.alts, ...freeCatalog.alts, ...(moreCatalog.alts || [])].forEach((a) => {
-    if (altIds.has(a.id)) return;
+  [...catalog.alts, ...freeCatalog.alts, ...(moreCatalog.alts || []), ...(extendedCatalog.alts || [])].forEach((a) => {
+    if (altIds.has(a.id)) {
+      const existing = alts.find((x) => x.id === a.id);
+      if (existing && Array.isArray(a.replaces)) {
+        existing.replaces = [...new Set([...(existing.replaces || []), ...a.replaces])];
+      }
+      return;
+    }
     altIds.add(a.id);
     const alt = { type: 'open-source', ...a, switching_difficulty: a.difficulty };
     delete alt.difficulty;

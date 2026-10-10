@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "id": "proton",
+    "category": "security",
+    "title": "Proton Unlimited – Swiss Privacy Suite",
+    "text": "Encrypted email, ultra-fast VPN, 500GB secure cloud drive, and password manager. Zero logs, Swiss privacy laws.",
+    "url": "https://proton.me/",
+    "cta": "Get Proton Suite"
+  },
+  {
+    "id": "nordvpn",
+    "category": "security",
+    "title": "NordVPN – Threat Protection & Private Browsing",
+    "text": "Block malware, intrusive trackers, and bypass geographic restrictions with high-speed 10Gbps encrypted servers.",
+    "url": "https://nordvpn.com/",
+    "cta": "Get NordVPN Deal"
+  },
+  {
+    "id": "digitalocean",
+    "category": "dev",
+    "title": "DigitalOcean – $200 Free Cloud Credit",
+    "text": "Spin up self-hosted open-source software (Nextcloud, Vaultwarden, Ghost, Docker) in seconds on scalable cloud droplets.",
+    "url": "https://www.digitalocean.com/",
+    "cta": "Claim $200 Free Credit"
+  },
+  {
+    "id": "hetzner",
+    "category": "dev",
+    "title": "Hetzner Cloud – High Performance European Servers",
+    "text": "Ultra-affordable, dedicated and cloud VPS servers starting at just €4/month. Perfect for hosting open-source apps.",
+    "url": "https://www.hetzner.com/cloud/",
+    "cta": "Explore Hetzner"
+  },
+  {
+    "id": "pcloud",
+    "category": "cloud",
+    "title": "pCloud – Lifetime Cloud Storage (Zero Subscriptions)",
+    "text": "Pay once, keep forever. Up to 10TB of encrypted Swiss cloud storage with zero recurring monthly subscription fees.",
+    "url": "https://www.pcloud.com/",
+    "cta": "View Lifetime Deals"
+  },
+  {
+    "id": "namecheap",
+    "category": "business",
+    "title": "Namecheap – Affordable Domains & Web Hosting",
+    "text": "Register .com, .org, and tech domains with free lifetime WhoisGuard privacy protection and reliable DNS.",
+    "url": "https://www.namecheap.com/",
+    "cta": "Search Domains"
+  },
+  {
+    "id": "privacy-general",
+    "title": "Support Open-Source Software",
+    "text": "Love free software? Consider donating to open-source maintainers on GitHub Sponsors or Liberapay to keep the tools you rely on free forever.",
+    "url": "https://github.com/sponsors",
+    "cta": "Support Creators"
+  }
+]

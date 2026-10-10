@@ -5,7 +5,7 @@ const { loadAll, root } = require('./scripts/load-all');
 
 const SITE = 'https://appsolutelyfree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
-const VERSION = '8';
+const VERSION = '9';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
@@ -13,6 +13,19 @@ async function main() {
   const appsById = Object.fromEntries(apps.map((a) => [a.id, a]));
   let deals = [];
   try { deals = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliates.json'), 'utf8')); } catch (e) { /* none */ }
+
+  const adUnit = `
+  <div class="ad-slot-container" aria-label="Advertisement">
+    <span class="ad-label">Advertisement</span>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="${ADSENSE}"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+    </script>
+  </div>`;
 
   // ---- data.js for the SPA -------------------------------------------------
   const data = { apps, alternatives: alts, deals };
@@ -98,6 +111,7 @@ async function main() {
     <section class="alts-grid" aria-label="Alternatives to ${esc(app.name)}">
       ${list.map((a) => cardHtml(a, appsById, { base: '/' })).join('\n')}
     </section>
+    ${adUnit}
     ${sponsored}
     ${others ? `<section class="more"><h2>More comparisons in ${esc(cat ? cat.label : 'this category')}</h2><div class="chips">${others}</div></section>` : ''}
   </main>
@@ -135,6 +149,7 @@ async function main() {
     <section class="alts-grid">
       ${list.map((a) => cardHtml(a, appsById, { base: '/' })).join('\n')}
     </section>
+    ${adUnit}
     ${sponsored}
   </main>
   ${footer}

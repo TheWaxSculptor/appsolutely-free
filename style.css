@@ -202,6 +202,34 @@ a { color: inherit; }
 .deal-card .btn { align-self: flex-start; margin-top: 0.4rem; }
 .ad-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary); font-weight: 700; }
 
+/* ---- AdSense Ad Unit Slots ------------------------------------------------ */
+.ad-slot-container {
+  margin: 2rem 0;
+  padding: 1.25rem 1rem;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px dashed var(--glass-border);
+  border-radius: var(--radius-md);
+  text-align: center;
+  position: relative;
+  min-height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.ad-slot-container .ad-label {
+  align-self: flex-start;
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+.ad-slot-container ins.adsbygoogle {
+  display: block;
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+}
+
 /* ---- Footer -------------------------------------------------------------- */
 .site-footer { text-align: center; padding: 2.5rem 1.5rem 3rem; color: var(--text-secondary); border-top: 1px solid var(--glass-border); }
 .site-footer .fine { font-size: 0.8rem; margin-top: 0.4rem; opacity: 0.8; }

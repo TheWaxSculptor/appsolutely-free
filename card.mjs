@@ -10,7 +10,7 @@ export const CATEGORIES = [
   { id: 'communication', label: 'Chat & Meetings', emoji: '💬', blurb: 'Team chat and video calls without per-seat pricing.' },
   { id: 'security', label: 'Security & Privacy', emoji: '🔐', blurb: 'Password managers, 2FA apps, and private VPNs.' },
   { id: 'cloud', label: 'Cloud & Storage', emoji: '☁️', blurb: 'Sync files and photos on your terms.' },
-  { id: 'media', label: 'Media Servers', emoji: '📺', blurb: 'Stream your own library with no tracking.' },
+  { id: 'media', label: 'Media & Streaming', emoji: '📺', blurb: 'Music, podcasts, audiobooks, and media servers.' },
   { id: 'dev', label: 'Developer Tools', emoji: '💻', blurb: 'Editors, API clients, and backends you can own.' },
   { id: '3d-cad', label: '3D & CAD', emoji: '🧊', blurb: 'Model, design, and engineer without a license fee.' },
   { id: 'business', label: 'Business & Analytics', emoji: '📊', blurb: 'Analytics, dashboards, email, and automation.' },
