@@ -224,7 +224,7 @@ export function developerAdHtml(netConfig = {}, fallbackDeal = null, opts = {}) 
   const ethicalPublisher = (netConfig && netConfig.ethicalads && netConfig.ethicalads.publisher) || 'appsolutelyfree';
   const ethicalType = (netConfig && netConfig.ethicalads && netConfig.ethicalads.type) || 'image';
   const ethicalKeywords = (netConfig && netConfig.ethicalads && netConfig.ethicalads.keywords) || 'open-source|developer-tools|privacy|security';
-  const ethicalEnabled = !netConfig || !netConfig.ethicalads || netConfig.ethicalads.enabled !== false;
+  const ethicalEnabled = Boolean(netConfig && netConfig.ethicalads && netConfig.ethicalads.enabled);
   const carbonEnabled = Boolean(netConfig && netConfig.carbonads && netConfig.carbonads.enabled && netConfig.carbonads.serve_code);
 
   const fallbackTitle = fallbackDeal ? fallbackDeal.title : 'Brkox – Minimalist Workspace Tech & Desk Setup';
@@ -232,14 +232,32 @@ export function developerAdHtml(netConfig = {}, fallbackDeal = null, opts = {}) 
   const fallbackUrl = fallbackDeal ? fallbackDeal.url : 'https://www.awin1.com/cread.php?awinmid=129093&awinaffid=2867391&clickref=appsolutelyfree';
   const fallbackCta = fallbackDeal ? (fallbackDeal.cta || 'Explore Gear') : 'Explore Gear';
   const fallbackIcon = fallbackDeal ? (fallbackDeal.icon || '⚡') : '⚡';
+  const tagLabel = fallbackDeal && (fallbackDeal.id === 'retouch4me') ? 'CREATIVE WORKFLOW SPONSOR' : (fallbackDeal && fallbackDeal.id === 'everblog' ? 'PUBLISHING & WRITING SPONSOR' : 'DEV & WORKSPACE SPONSOR');
+
+  const sponsorCardHtml = `
+    <div class="ea-fallback-card" id="eaFallbackCard">
+      <div class="ea-fallback-body">
+        <div class="ea-fallback-icon" aria-hidden="true">${fallbackIcon}</div>
+        <div class="ea-fallback-content">
+          <span class="ea-fallback-eyebrow">${tagLabel}</span>
+          <h4 class="ea-fallback-title"><a href="${esc(fallbackUrl)}" target="_blank" rel="noopener sponsored">${esc(fallbackTitle)}</a></h4>
+          <p class="ea-fallback-desc">${esc(fallbackText)}</p>
+        </div>
+        <div class="ea-fallback-action">
+          <a href="${esc(fallbackUrl)}" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm ea-fallback-btn">
+            <span>${esc(fallbackCta)}</span> <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>`;
 
   return `
-  <aside class="developer-ad-spotlight glass-panel" aria-label="Developer & Open Source Sponsor">
+  <aside class="developer-ad-spotlight glass-panel" aria-label="Featured Partner Sponsor">
     <div class="developer-ad-inner">
       <div class="developer-ad-header">
         <div class="developer-ad-tags">
-          <span class="developer-ad-pill">DEV &amp; OPEN SOURCE AD</span>
-          <span class="developer-ad-network-tag">EthicalAds / Carbon Verified</span>
+          <span class="developer-ad-pill">${tagLabel}</span>
+          <span class="developer-ad-network-tag">Verified Partner Deal</span>
         </div>
         <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="developer-sponsor-btn" title="Feature your tool or sponsor Appsolutely Free">
           <span>Feature Your Tool</span> <span class="arrow" aria-hidden="true">↗</span>
@@ -251,24 +269,10 @@ export function developerAdHtml(netConfig = {}, fallbackDeal = null, opts = {}) 
       ${ethicalEnabled ? `
       <div class="ea-placement-wrapper">
         <div data-ea-publisher="${esc(ethicalPublisher)}" data-ea-type="${esc(ethicalType)}" data-ea-keywords="${esc(ethicalKeywords)}" data-ea-theme="dark" class="ea-spotlight-slot" id="ea-spotlight-unit">
-          <!-- Fallback card displayed until publisher account is active or if unfilled -->
-          <div class="ea-fallback-card" id="eaFallbackCard">
-            <div class="ea-fallback-body">
-              <div class="ea-fallback-icon" aria-hidden="true">${fallbackIcon}</div>
-              <div class="ea-fallback-content">
-                <span class="ea-fallback-eyebrow">FEATURED TECH SPONSOR</span>
-                <h4 class="ea-fallback-title"><a href="${esc(fallbackUrl)}" target="_blank" rel="noopener sponsored">${esc(fallbackTitle)}</a></h4>
-                <p class="ea-fallback-desc">${esc(fallbackText)}</p>
-              </div>
-              <div class="ea-fallback-action">
-                <a href="${esc(fallbackUrl)}" target="_blank" rel="noopener sponsored" class="btn btn-primary btn-sm ea-fallback-btn">
-                  <span>${esc(fallbackCta)}</span> <span class="arrow" aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
+          ${sponsorCardHtml}
         </div>
-      </div>` : ''}
+      </div>` : sponsorCardHtml}
     </div>
   </aside>`;
 }
+

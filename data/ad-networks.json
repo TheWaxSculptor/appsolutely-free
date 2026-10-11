@@ -1,6 +1,6 @@
 {
   "ethicalads": {
-    "enabled": true,
+    "enabled": false,
     "publisher": "appsolutelyfree",
     "type": "image",
     "theme": "dark",

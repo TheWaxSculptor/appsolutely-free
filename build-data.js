@@ -146,8 +146,70 @@ async function main() {
   const dealBottom = deals.find((d) => d.id === 'kingkoil') || deals[2];
 
 
+  const getContextualPartner = (appOrCatId) => {
+    const cat = typeof appOrCatId === 'string' ? appOrCatId : (appOrCatId && appOrCatId.category);
+    const appId = typeof appOrCatId === 'object' && appOrCatId !== null ? appOrCatId.id : '';
+
+    // Photoshop & Lightroom / Photo & Design -> Retouch4me (Awin MID 123978)
+    if (appId === 'photoshop' || appId === 'lightroom' || appId === 'after-effects' || appId === 'premiere-pro' || appId === 'illustrator' || cat === 'photo' || cat === 'design') {
+      return deals.find((d) => d.id === 'retouch4me') || deals[0];
+    }
+    // Developer tools / Code editors / Dev & Cloud -> Brkox (Awin MID 129093)
+    if (appId === 'jetbrains' || appId === 'sublime-text' || appId === 'postman' || appId === 'github-copilot' || appId === 'docker-desktop' || appId === 'matlab' || cat === 'dev' || cat === 'cloud' || cat === 'utilities') {
+      return deals.find((d) => d.id === 'brkox') || deals[1];
+    }
+    // Writing / Publishing / Office -> Everblog (Awin MID 128579)
+    if (appId === 'notion' || appId === 'evernote' || appId === 'microsoft-office' || cat === 'office' || cat === 'business') {
+      return deals.find((d) => d.id === 'everblog') || deals[2];
+    }
+    // Games / Creative Models -> Brickzonehub (Awin MID 121692)
+    if (cat === 'games' || cat === 'media' || cat === '3d-cad') {
+      return deals.find((d) => d.id === 'brickzonehub') || deals[3];
+    }
+    // General Lifestyle / Ergonomics -> King Koil (Awin MID 115216)
+    return deals.find((d) => d.id === 'kingkoil') || deals[0];
+  };
+
+  const getProTipHtml = (app) => {
+    if (!app) return '';
+    const id = app.id;
+    const cat = app.category;
+
+    if (id === 'photoshop' || id === 'lightroom' || id === 'after-effects' || id === 'premiere-pro' || cat === 'photo') {
+      return `
+    <aside class="contextual-pro-tip glass-panel">
+      <span class="pro-tip-badge">📸 PRO CREATIVE TIP</span>
+      <div class="pro-tip-content">
+        <p>Switching from <strong>${esc(app.name)}</strong>? For AI neural portrait &amp; skin retouching without Adobe's subscription, check out <a href="https://www.awin1.com/cread.php?awinmid=123978&amp;awinaffid=2867391&amp;clickref=appsolutelyfree" target="_blank" rel="noopener sponsored"><strong>Retouch4me AI Plugins</strong></a> (standalone &amp; native PS/LR plugins with lifetime license options).</p>
+      </div>
+    </aside>`;
+    }
+
+    if (id === 'jetbrains' || id === 'sublime-text' || id === 'postman' || id === 'github-copilot' || id === 'docker-desktop' || id === 'matlab' || cat === 'dev') {
+      return `
+    <aside class="contextual-pro-tip glass-panel">
+      <span class="pro-tip-badge">⚡ WORKSPACE SETUP TIP</span>
+      <div class="pro-tip-content">
+        <p>Upgrading your developer workstation? Pair your free code editor with <a href="https://www.awin1.com/cread.php?awinmid=129093&amp;awinaffid=2867391&amp;clickref=appsolutelyfree" target="_blank" rel="noopener sponsored"><strong>Brkox Minimalist Tech Gear</strong></a> for ergonomic aluminum laptop stands, monitor arms, and clean cable management.</p>
+      </div>
+    </aside>`;
+    }
+
+    if (id === 'notion' || id === 'evernote' || id === 'microsoft-office' || cat === 'office' || cat === 'business') {
+      return `
+    <aside class="contextual-pro-tip glass-panel">
+      <span class="pro-tip-badge">✍️ CREATOR &amp; WRITING TIP</span>
+      <div class="pro-tip-content">
+        <p>Replacing bloated document software? Check out <a href="https://www.awin1.com/cread.php?awinmid=128579&amp;awinaffid=2867391&amp;clickref=appsolutelyfree" target="_blank" rel="noopener sponsored"><strong>Everblog</strong></a> for distraction-free markdown blogging and instant newsletter publishing with free creator plans.</p>
+      </div>
+    </aside>`;
+    }
+
+    return '';
+  };
+
   const getContextInfeed = (catId) => {
-    const match = dealsFor(catId)[0] || dealInfeed;
+    const match = getContextualPartner(catId);
 
     return `
     <div class="partner-spotlight-slot partner-spotlight-infeed" aria-label="Sponsored Partner Offer">
@@ -213,7 +275,7 @@ async function main() {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
-  <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
+  ${adNetworks.ethicalads && adNetworks.ethicalads.enabled ? '<script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>' : ''}
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>`;
 
@@ -394,6 +456,14 @@ async function main() {
     const others = apps.filter((a) => a.id !== app.id && a.category === app.category && alts.some((x) => (x.replaces || []).includes(a.id)))
       .slice(0, 8).map((a) => `<a class="chip" href="/alternatives/${a.id}/">${esc(a.name)}</a>`).join('');
 
+    const appPartner = getContextualPartner(app);
+    const proTipHtml = getProTipHtml(app);
+    const appAdUnitTop = `
+    <div class="partner-spotlight-slot partner-spotlight-top" aria-label="Sponsored Partner Offer">
+      ${makeHouseBanner(appPartner)}
+    </div>`;
+    const appDevAdUnit = developerAdHtml(adNetworks, appPartner);
+
     write(`alternatives/${app.id}`, `${head({ title, description, canonical, jsonLd, image: topShot })}
 <body>
   <div class="background-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
@@ -404,12 +474,13 @@ async function main() {
       <h1>Free alternatives to <span class="grad">${esc(app.name)}</span></h1>
       <p class="subtitle">${esc(app.name)} by ${esc(app.vendor || 'its vendor')} costs: <strong>${esc(app.typical_price || 'money')}</strong>. These ${list.length} free apps (many open source) can replace it, with screenshots, pros, and cons.</p>
     </header>
-    ${adUnitTop}
+    ${appAdUnitTop}
+    ${proTipHtml}
     ${guideBannerHtml}
     <section class="alts-grid" aria-label="Alternatives to ${esc(app.name)}">
       ${cardsHtml}
     </section>
-    ${devAdUnit}
+    ${appDevAdUnit}
     ${adUnitBottom}
     ${faqHtml}
     ${others ? `<section class="more"><h2>More comparisons in ${esc(cat ? cat.label : 'this category')}</h2><div class="chips">${others}</div></section>` : ''}
@@ -505,6 +576,13 @@ async function main() {
     const related = apps.filter((a) => a.category === cat.id && alts.some((x) => (x.replaces || []).includes(a.id)))
       .map((a) => `<a class="chip" href="/alternatives/${a.id}/">Alternatives to ${esc(a.name)}</a>`).join('');
 
+    const catPartner = getContextualPartner(cat.id);
+    const catAdUnitTop = `
+    <div class="partner-spotlight-slot partner-spotlight-top" aria-label="Sponsored Partner Offer">
+      ${makeHouseBanner(catPartner)}
+    </div>`;
+    const catDevAdUnit = developerAdHtml(adNetworks, catPartner);
+
     write(`category/${cat.id}`, `${head({ title, description, canonical, jsonLd, image: catShot })}
 <body>
   <div class="background-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
@@ -516,11 +594,11 @@ async function main() {
       <p class="subtitle">${esc(cat.blurb)}</p>
       ${related ? `<div class="chips center">${related}</div>` : ''}
     </header>
-    ${adUnitTop}
+    ${catAdUnitTop}
     <section class="alts-grid">
       ${catCardsHtml}
     </section>
-    ${devAdUnit}
+    ${catDevAdUnit}
     ${adUnitBottom}
     ${catFaqHtml}
   </main>
