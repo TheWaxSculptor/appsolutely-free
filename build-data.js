@@ -8,11 +8,13 @@ const AWIN_AFFID = '2867391';
 const VERSION = '17';
 
 async function main() {
-  const { cardHtml, dealHtml, displayAdHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
+  const { cardHtml, dealHtml, displayAdHtml, developerAdHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
   const { apps, alts, stacks, resources, learning, games, aiHub, guides, radar } = loadAll();
   const appsById = Object.fromEntries(apps.map((a) => [a.id, a]));
   let deals = [];
   try { deals = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliates.json'), 'utf8')); } catch (e) { /* none */ }
+  let adNetworks = { ethicalads: { enabled: true, publisher: 'appsolutelyfree', type: 'image' } };
+  try { adNetworks = JSON.parse(fs.readFileSync(path.join(root, 'data/ad-networks.json'), 'utf8')); } catch (e) { /* none */ }
 
   const reportModalHtml = `
   <div class="modal-backdrop hidden" id="reportModalBackdrop"></div>
@@ -169,6 +171,7 @@ async function main() {
   </div>`;
 
   const adUnit = adUnitBottom;
+  const devAdUnit = developerAdHtml(adNetworks, dealInfeed);
 
 
 
@@ -210,6 +213,7 @@ async function main() {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>`;
 
@@ -405,6 +409,7 @@ async function main() {
     <section class="alts-grid" aria-label="Alternatives to ${esc(app.name)}">
       ${cardsHtml}
     </section>
+    ${devAdUnit}
     ${adUnitBottom}
     ${faqHtml}
     ${others ? `<section class="more"><h2>More comparisons in ${esc(cat ? cat.label : 'this category')}</h2><div class="chips">${others}</div></section>` : ''}
@@ -515,6 +520,7 @@ async function main() {
     <section class="alts-grid">
       ${catCardsHtml}
     </section>
+    ${devAdUnit}
     ${adUnitBottom}
     ${catFaqHtml}
   </main>

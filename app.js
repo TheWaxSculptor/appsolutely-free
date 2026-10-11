@@ -1,5 +1,5 @@
-import db from './data.js?v=11';
-import { cardHtml, dealHtml, displayAdHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
+import db from './data.js?v=12';
+import { cardHtml, dealHtml, displayAdHtml, developerAdHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=12';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const altsById = Object.fromEntries(db.alternatives.map((a) => [a.id, a]));
@@ -1440,3 +1440,13 @@ renderFeatured();
 renderDeals();
 updateStackUI();
 route();
+
+// Handle EthicalAds dynamic ad fill / fallback toggling
+document.addEventListener('ea-ad-loaded', () => {
+  const fallback = document.getElementById('eaFallbackCard');
+  if (fallback) fallback.style.display = 'none';
+});
+document.addEventListener('ea-ad-empty', () => {
+  const fallback = document.getElementById('eaFallbackCard');
+  if (fallback) fallback.style.display = 'block';
+});

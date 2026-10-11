@@ -2235,3 +2235,215 @@ body.is-searching .search-container { margin: 0 auto 0.5rem; }
   .alt-card, .toast, .pulse-dot::after { animation: none; }
   .alt-card:hover, .category-card:hover, .chip:hover, .btn:hover { transform: none; }
 }
+
+/* =========================================================================
+   Developer Ad Networks (EthicalAds & Carbon Ads)
+   Privacy-respecting, dark-mode glassmorphic ad containers
+   ========================================================================= */
+.developer-ad-spotlight {
+  width: 100%;
+  max-width: 920px;
+  margin: 2.2rem auto;
+  padding: 1.15rem 1.4rem;
+  background: rgba(18, 22, 34, 0.88);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: var(--radius);
+  box-shadow: 0 10px 32px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+.developer-ad-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.developer-ad-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  padding-bottom: 0.65rem;
+}
+.developer-ad-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.developer-ad-pill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.18rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+.developer-ad-network-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.developer-sponsor-btn {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--accent-gold-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.developer-sponsor-btn:hover {
+  color: #fff;
+  transform: translateX(2px);
+}
+
+/* Fallback card styling */
+.ea-fallback-card {
+  display: block;
+}
+.ea-fallback-body {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+}
+.ea-fallback-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+  padding: 0.6rem;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.ea-fallback-content {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.ea-fallback-eyebrow {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  color: #38bdf8;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.15rem;
+}
+.ea-fallback-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.2rem;
+}
+.ea-fallback-title a {
+  text-decoration: none;
+  color: #fff;
+}
+.ea-fallback-title a:hover {
+  color: var(--accent-color);
+}
+.ea-fallback-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.42;
+  margin: 0;
+}
+.ea-fallback-action {
+  flex-shrink: 0;
+}
+.ea-fallback-btn {
+  white-space: nowrap;
+  font-size: 0.84rem;
+  padding: 0.5rem 1.05rem;
+}
+
+@media (max-width: 700px) {
+  .ea-fallback-body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .ea-fallback-action {
+    width: 100%;
+  }
+  .ea-fallback-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* EthicalAds Native Client Overrides */
+.ea-placement-wrapper {
+  width: 100%;
+}
+.ea-spotlight-slot {
+  width: 100%;
+}
+.ea-spotlight-slot .ea-content {
+  background: rgba(14, 18, 28, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: var(--radius-md) !important;
+  color: #e2e8f0 !important;
+  padding: 1rem 1.2rem !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+}
+.ea-spotlight-slot .ea-content a {
+  color: #fff !important;
+}
+.ea-spotlight-slot .ea-content a:hover {
+  color: var(--accent-color) !important;
+}
+.ea-spotlight-slot .ea-callout {
+  color: #38bdf8 !important;
+  font-family: 'Outfit', sans-serif !important;
+  font-weight: 700 !important;
+}
+
+/* Carbon Ads Native Client Overrides */
+#carbonads {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  display: flex;
+  max-width: 380px;
+  margin: 0 auto;
+  background: rgba(14, 18, 28, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+#carbonads a {
+  color: #e2e8f0;
+  text-decoration: none;
+}
+#carbonads .carbon-wrap {
+  display: flex;
+  gap: 12px;
+}
+#carbonads .carbon-img img {
+  display: block;
+  border-radius: 6px;
+  width: 130px;
+  height: 100px;
+  object-fit: cover;
+}
+#carbonads .carbon-text {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+#carbonads .carbon-poweredby {
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-top: 6px;
+}
+

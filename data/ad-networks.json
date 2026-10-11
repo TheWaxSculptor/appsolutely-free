@@ -1,0 +1,14 @@
+{
+  "ethicalads": {
+    "enabled": true,
+    "publisher": "appsolutelyfree",
+    "type": "image",
+    "theme": "dark",
+    "keywords": "open-source|developer-tools|privacy|security|productivity"
+  },
+  "carbonads": {
+    "enabled": false,
+    "serve_code": "",
+    "placement": "appsolutelyfreecom"
+  }
+}
