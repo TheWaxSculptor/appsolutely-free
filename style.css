@@ -945,8 +945,516 @@ a { color: inherit; }
 }
 .impact-text { font-size: 0.84rem; color: var(--text-primary); line-height: 1.45; }
 
+/* ---- Founder & Buy Me a Coffee Section ---------------------------------- */
+.founder-section {
+  margin: 3.5rem 0 2rem;
+}
+.founder-card {
+  padding: clamp(1.75rem, 4vw, 3rem);
+  background: linear-gradient(145deg, rgba(19, 23, 32, 0.92) 0%, rgba(14, 17, 24, 0.95) 100%);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+.founder-card::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  filter: blur(40px);
+}
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+  position: relative;
+  z-index: 2;
+}
+
+/* Left: Founder Story */
+.founder-story {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.founder-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+.pulse-amber {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+  box-shadow: 0 0 10px var(--accent-gold);
+  margin-right: 0.45rem;
+}
+.founder-location {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+.founder-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.7rem, 3.2vw, 2.35rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+}
+.grad-gold {
+  background: linear-gradient(135deg, #fbbf24 20%, #f59e0b 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.founder-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  padding: 1rem 1.15rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+.founder-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+.founder-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3) 0%, rgba(56, 189, 248, 0.2) 100%);
+  border: 2px solid rgba(251, 191, 36, 0.4);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+  flex-shrink: 0;
+}
+.founder-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.founder-name {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.01em;
+}
+.founder-role {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+.founder-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+.founder-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--text-titanium);
+}
+.founder-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.founder-bio strong {
+  color: var(--text-primary);
+}
+.founder-quote-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding: 1.1rem 1.35rem;
+  background: rgba(245, 158, 11, 0.06);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-top: 0.5rem;
+}
+.founder-quote-banner .quote-svg {
+  color: var(--accent-gold);
+  flex-shrink: 0;
+  opacity: 0.8;
+  margin-top: 2px;
+}
+.founder-quote-banner blockquote {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* Right: Buy Me a Coffee Bento Card */
+.founder-support-card {
+  height: 100%;
+}
+.coffee-card-inner {
+  background: rgba(20, 24, 34, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-md);
+  padding: clamp(1.35rem, 3vw, 1.85rem);
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(251, 191, 36, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+  position: relative;
+  overflow: hidden;
+}
+.coffee-card-inner::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+}
+.coffee-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.coffee-cup-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.15) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+.coffee-eyebrow {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+.coffee-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+.coffee-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+.coffee-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+}
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--text-titanium);
+}
+.perk-check {
+  color: var(--success);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+.coffee-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.coffee-tiers-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+.coffee-tier-chips {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.coffee-tier-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.4rem;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  text-align: center;
+}
+.coffee-tier-chip:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-2px);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+.coffee-tier-chip strong {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent-gold-light);
+}
+.coffee-tier-chip span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+.coffee-tier-chip.featured {
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.08);
+}
+.tier-popular {
+  position: absolute;
+  top: -8px;
+  background: var(--accent-gold);
+  color: #0b0d11;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.58rem;
+  font-weight: 800;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Primary Official BMC Button */
+.btn-bmc-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.25rem;
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #0b0d11;
+  border: 1px solid #fbbf24;
+  border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.btn-bmc-primary:hover {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  color: #000;
+}
+.btn-bmc-primary .bmc-icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.btn-bmc-primary .bmc-arrow {
+  font-size: 1.05rem;
+  transition: transform 0.2s ease;
+}
+.btn-bmc-primary:hover .bmc-arrow {
+  transform: translateX(3px);
+}
+.coffee-transparency {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+/* Topbar Coffee Button */
+.coffee-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: inset 0 1px 0 rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  padding: 0.42rem 0.85rem;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.coffee-nav-btn:hover {
+  background: rgba(245, 158, 11, 0.22);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+}
+
+/* Calculator Coffee Callout */
+.calc-coffee-tip {
+  margin-top: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px dashed rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-titanium);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.calc-coffee-tip a {
+  color: var(--accent-gold-light);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.calc-coffee-tip a:hover {
+  color: #fff;
+}
+
+/* Drawer Coffee Link */
+.drawer-coffee-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--text-primary);
+  margin-top: 0.75rem;
+  transition: all 0.2s ease;
+}
+.drawer-coffee-link:hover {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.5);
+  transform: translateY(-1px);
+}
+.drawer-coffee-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.drawer-coffee-text strong {
+  font-size: 0.85rem;
+  color: #fbbf24;
+}
+.drawer-coffee-text small {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.drawer-coffee-arrow {
+  color: #fbbf24;
+  font-weight: 700;
+}
+
+/* Footer Creator Banner */
+.footer-creator-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-md);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+.creator-info {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 650px;
+}
+.creator-info strong {
+  color: var(--text-primary);
+}
+.creator-info em {
+  color: var(--accent-gold-light);
+  font-style: normal;
+  font-weight: 500;
+}
+.footer-coffee-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.15rem;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+  border-radius: var(--radius-sm);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.footer-coffee-btn:hover {
+  background: rgba(245, 158, 11, 0.28);
+  border-color: rgba(245, 158, 11, 0.7);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 /* ---- Responsive Tweaks --------------------------------------------------- */
 @media (max-width: 900px) {
+  .founder-grid { grid-template-columns: 1fr; }
+  .footer-creator-banner { flex-direction: column; align-items: stretch; text-align: left; }
   .topbar { padding: 0.75rem 1rem; flex-wrap: wrap; }
   .topbar-links {
     width: 100%; overflow-x: auto; white-space: nowrap; padding: 0.35rem 0 0.2rem;

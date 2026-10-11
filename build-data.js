@@ -126,14 +126,36 @@ async function main() {
     <div class="topbar-links">
       <a href="/#categories">Categories</a>
       <a href="/#platforms">Platforms</a>
+      <a href="/about/">About</a>
+      <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="coffee-nav-btn" title="Support Yishay on Buy Me a Coffee">
+        <span class="coffee-icon" aria-hidden="true">☕</span>
+        <span>Buy a Coffee</span>
+      </a>
       <form class="topbar-search" action="/" method="get" role="search"><input name="q" type="search" placeholder="Search apps…" aria-label="Search apps"></form>
     </div>
   </nav>`;
 
   const footer = `
   <footer class="site-footer">
-    <p><strong>Appsolutely Free</strong> helps you replace expensive subscriptions with free and open-source software.</p>
-    <p class="fine">Some links may be affiliate or sponsored links. Prices and features change, so check each vendor's site. © ${year}</p>
+    <div class="container">
+      <div class="footer-creator-banner">
+        <div class="creator-info">
+          <strong>Appsolutely Free</strong> is founded by <strong>Yishay Stewart-Mitchell</strong> in Jamaica, Queens. Built on the belief that <em>“Your budget shouldn’t decide whether you get to start.”</em>
+        </div>
+        <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="footer-coffee-btn">
+          ☕ Buy Yishay a coffee
+        </a>
+      </div>
+      <div class="footer-links">
+        <a href="/about/">About the Founder</a>
+        <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+        <a href="/#categories">All Categories</a>
+        <a href="/#calculatorSection">Savings Calculator</a>
+        <a href="https://github.com/TheWaxSculptor/appsolutely-free" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p><strong>Appsolutely Free</strong> helps you replace expensive subscriptions with free and open-source software.</p>
+      <p class="fine">Some links may be affiliate or sponsored links. Prices and features change, so check each vendor's site. © ${year}</p>
+    </div>
   </footer>`;
 
   const write = (rel, html) => {
@@ -224,6 +246,149 @@ async function main() {
 </html>`);
     urls.push({ loc: canonical, priority: '0.7' });
   }
+
+  // Dedicated About the Founder page
+  const aboutTitle = `About the Founder — Yishay Stewart-Mitchell | Appsolutely Free`;
+  const aboutDesc = `Meet Yishay Stewart-Mitchell, creator and technology professional from Jamaica, Queens, and founder of Appsolutely Free. Discover the mission behind transparent, free software curation.`;
+  const aboutCanonical = `${SITE}/about/`;
+  const aboutJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+      '@type': 'Person',
+      name: 'Yishay Stewart-Mitchell',
+      jobTitle: 'Founder & Technology Professional',
+      worksFor: {
+        '@type': 'Organization',
+        name: 'Appsolutely Free',
+        url: 'https://appsolutelyfree.com/'
+      },
+      homeLocation: {
+        '@type': 'Place',
+        name: 'Jamaica, Queens, New York'
+      },
+      knowsAbout: ['IT Support', 'Audio Production', 'Programming', 'Custom Electronics', 'Open-Source Software'],
+      sameAs: [
+        'https://buymeacoffee.com/yishay',
+        'https://github.com/TheWaxSculptor/appsolutely-free'
+      ]
+    }
+  };
+
+  write('about', `${head({ title: aboutTitle, description: aboutDesc, canonical: aboutCanonical, jsonLd: aboutJsonLd })}
+<body>
+  <div class="background-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+  ${nav}
+  <main class="container wide">
+    <p class="crumbs"><a href="/">Home</a> › About the Founder</p>
+    
+    <section class="founder-section" style="margin-top: 1.25rem;">
+      <div class="founder-card glass-panel">
+        <div class="founder-grid">
+          <div class="founder-story">
+            <div class="founder-badge-row">
+              <span class="eyebrow amber"><span class="pulse-amber"></span>Founder &amp; Mission</span>
+              <span class="founder-location">📍 Jamaica, Queens, NY</span>
+            </div>
+            <h1 class="founder-heading">
+              “Your budget shouldn’t decide <span class="grad-gold">whether you get to start.</span>”
+            </h1>
+            
+            <div class="founder-intro">
+              <div class="founder-avatar-wrap">
+                <div class="founder-avatar" aria-hidden="true">YS</div>
+                <div class="founder-meta">
+                  <strong class="founder-name">Yishay Stewart-Mitchell</strong>
+                  <span class="founder-role">Creator &amp; Founder, Appsolutely Free</span>
+                </div>
+              </div>
+              <div class="founder-tags">
+                <span class="founder-tag">🎧 Audio Production</span>
+                <span class="founder-tag">💻 IT Support</span>
+                <span class="founder-tag">⚡ Programming</span>
+                <span class="founder-tag">🔌 Custom Electronics</span>
+              </div>
+            </div>
+
+            <div class="founder-bio">
+              <p>I’m <strong>Yishay Stewart-Mitchell</strong>, a creator and technology professional from Jamaica, Queens, and the founder of <strong>Appsolutely Free</strong>.</p>
+              <p>My background spans IT support, audio production, programming, and custom electronics. Across those fields, I’ve seen how quickly software costs can add up—especially when you’re learning, starting a business, or trying to bring an idea to life.</p>
+              <p>I created Appsolutely Free to make useful technology easier to find and understand. The goal is simple: help people discover free and open-source alternatives, understand the tradeoffs, and choose tools that fit their needs and budget.</p>
+              <p>To me, “free” deserves an explanation. A useful recommendation should tell you whether an app has limits, requires paid hosting, or charges for features you might need. That transparency is part of what I want to build here.</p>
+              <p>Whether you’re a student, artist, developer, small-business owner, or someone tired of another monthly subscription, I want Appsolutely Free to help you keep creating and learning.</p>
+            </div>
+
+            <div class="founder-quote-banner">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="quote-svg" aria-hidden="true"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+              <blockquote>Your budget shouldn’t decide whether you get to start.</blockquote>
+            </div>
+          </div>
+
+          <div class="founder-support-card">
+            <div class="coffee-card-inner">
+              <div class="coffee-card-header">
+                <div class="coffee-cup-icon" aria-hidden="true">☕</div>
+                <div>
+                  <span class="coffee-eyebrow">Direct Creator Support</span>
+                  <h2 class="coffee-card-title">Buy Yishay a Coffee</h2>
+                </div>
+              </div>
+
+              <p class="coffee-desc">
+                Appsolutely Free is completely free to use, independent, and curated by hand. No paywalls, no investor agendas, and zero bloatware.
+              </p>
+
+              <div class="coffee-perks">
+                <div class="perk-item">
+                  <span class="perk-check">✓</span>
+                  <span>Keeps the database running &amp; free for everyone</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-check">✓</span>
+                  <span>Supports testing &amp; verifying new open-source tools</span>
+                </div>
+                <div class="perk-item">
+                  <span class="perk-check">✓</span>
+                  <span>Empowers independent, transparent tech guidance</span>
+                </div>
+              </div>
+
+              <div class="coffee-tiers">
+                <span class="coffee-tiers-label">Quick Support on Buy Me a Coffee:</span>
+                <div class="coffee-tier-chips">
+                  <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="coffee-tier-chip">
+                    <strong>$3</strong> <span>Quick Espresso</span>
+                  </a>
+                  <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="coffee-tier-chip featured">
+                    <span class="tier-popular">Popular</span>
+                    <strong>$5</strong> <span>A Warm Brew</span>
+                  </a>
+                  <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="coffee-tier-chip">
+                    <strong>$15</strong> <span>Server Fuel</span>
+                  </a>
+                </div>
+              </div>
+
+              <a href="https://buymeacoffee.com/yishay" target="_blank" rel="noopener noreferrer" class="btn-bmc-primary">
+                <span class="bmc-icon" aria-hidden="true">☕</span>
+                <span class="bmc-label">buymeacoffee.com/yishay</span>
+                <span class="bmc-arrow" aria-hidden="true">→</span>
+              </a>
+
+              <div class="coffee-transparency">
+                <span>🔒 Secure one-time or monthly support via Stripe / Apple Pay</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  ${footer}
+  ${reportModalHtml}
+</body>
+</html>`);
+  urls.push({ loc: aboutCanonical, priority: '0.9' });
 
   const today = new Date().toISOString().slice(0, 10);
   fs.writeFileSync(path.join(root, 'sitemap.xml'),
