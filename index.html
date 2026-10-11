@@ -82,69 +82,69 @@
       <div class="stats" id="stats" aria-live="polite"></div>
     </header>
 
-    <!-- Interactive Annual Savings Calculator -->
-    <section class="calculator-section" id="calculatorSection" aria-labelledby="calcTitle">
-      <div class="calculator-card glass-panel">
-        <div class="calc-header">
-          <span class="eyebrow green">Annual Savings Calculator</span>
-          <h2 id="calcTitle" class="calc-title">How much are you spending on subscriptions?</h2>
-          <p class="calc-subtitle">Select subscriptions to calculate your <strong>potential savings</strong>. Edit the subscription costs or add replacement hosting expenses to fit your actual setup:</p>
-        </div>
-        <div class="calc-grid" id="calcGrid">
-          <!-- Populated dynamically by app.js with editable costs -->
-        </div>
-
-        <!-- Replacement Hosting / Infrastructure Expenses -->
-        <div class="calc-expense-card glass-panel">
-          <div class="calc-expense-inner">
-            <div class="calc-expense-desc">
-              <label for="calcExpenseInput" class="calc-expense-title">
-                <span class="expense-icon" aria-hidden="true">🖥️</span>
-                <span>Replacement / Hosting Expenses</span>
-              </label>
-              <p class="calc-expense-sub">Planning to self-host on a VPS, Raspberry Pi, or cloud server? Enter your estimated annual hosting or hardware cost (deducted from potential savings):</p>
-            </div>
-            <div class="calc-expense-input-wrap">
-              <span class="calc-currency">$</span>
-              <input type="number" id="calcExpenseInput" class="calc-expense-input" min="0" step="10" value="0" placeholder="0" aria-label="Annual replacement and hosting expenses">
-              <span class="calc-period">/ year</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="calc-footer">
-          <div class="calc-summary">
-            <span class="calc-label">Your Potential Annual Savings:</span>
-            <div class="calc-total-wrap">
-              <span class="calc-currency">$</span>
-              <strong class="calc-total" id="calcTotal">0</strong>
-              <span class="calc-period">/ year</span>
-            </div>
-            <span class="calc-subtext" id="calcSelectedCount">Select subscriptions above to calculate potential savings</span>
-            <div class="calc-breakdown-sub" id="calcBreakdown"></div>
-          </div>
-          <button class="btn btn-primary calc-btn" id="calcActionBtn" type="button" disabled>Show Free Replacements</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Responsive Ad Container -->
-    <div class="ad-slot-container" aria-label="Advertisement">
-      <span class="ad-label">Advertisement</span>
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-2161345131320461"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-      <script>
-        try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-      </script>
-    </div>
-
     <!-- Results Area with Interactive Filters & Sorting -->
     <section id="resultsArea" class="results-area hidden" aria-live="polite"></section>
 
     <div id="initialState" class="initial-state">
+      <!-- Interactive Annual Savings Calculator -->
+      <section class="calculator-section" id="calculatorSection" aria-labelledby="calcTitle">
+        <div class="calculator-card glass-panel">
+          <div class="calc-header">
+            <span class="eyebrow green">Annual Savings Calculator</span>
+            <h2 id="calcTitle" class="calc-title">How much are you spending on subscriptions?</h2>
+            <p class="calc-subtitle">Select subscriptions to calculate your <strong>potential savings</strong>. Edit the subscription costs or add replacement hosting expenses to fit your actual setup:</p>
+          </div>
+          <div class="calc-grid" id="calcGrid">
+            <!-- Populated dynamically by app.js with editable costs -->
+          </div>
+
+          <!-- Replacement Hosting / Infrastructure Expenses -->
+          <div class="calc-expense-card glass-panel">
+            <div class="calc-expense-inner">
+              <div class="calc-expense-desc">
+                <label for="calcExpenseInput" class="calc-expense-title">
+                  <span class="expense-icon" aria-hidden="true">🖥️</span>
+                  <span>Replacement / Hosting Expenses</span>
+                </label>
+                <p class="calc-expense-sub">Planning to self-host on a VPS, Raspberry Pi, or cloud server? Enter your estimated annual hosting or hardware cost (deducted from potential savings):</p>
+              </div>
+              <div class="calc-expense-input-wrap">
+                <span class="calc-currency">$</span>
+                <input type="number" id="calcExpenseInput" class="calc-expense-input" min="0" step="10" value="0" placeholder="0" aria-label="Annual replacement and hosting expenses">
+                <span class="calc-period">/ year</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="calc-footer">
+            <div class="calc-summary">
+              <span class="calc-label">Your Potential Annual Savings:</span>
+              <div class="calc-total-wrap">
+                <span class="calc-currency">$</span>
+                <strong class="calc-total" id="calcTotal">0</strong>
+                <span class="calc-period">/ year</span>
+              </div>
+              <span class="calc-subtext" id="calcSelectedCount">Select subscriptions above to calculate potential savings</span>
+              <div class="calc-breakdown-sub" id="calcBreakdown"></div>
+            </div>
+            <button class="btn btn-primary calc-btn" id="calcActionBtn" type="button" disabled>Show Free Replacements</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Responsive Ad Container -->
+      <div class="ad-slot-container" aria-label="Advertisement">
+        <span class="ad-label">Advertisement</span>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2161345131320461"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
+        </script>
+      </div>
+
       <!-- 1. Software Categories -->
       <section id="categories" class="home-section" aria-labelledby="catTitle">
         <div class="section-head-row">
@@ -348,6 +348,6 @@
   <!-- Toast Notification -->
   <div class="toast-container" id="toastContainer" aria-live="polite"></div>
 
-  <script type="module" src="app.js?v=11"></script>
+  <script type="module" src="app.js?v=12"></script>
 </body>
 </html>

@@ -230,7 +230,7 @@ function renderFilterBar(totalCount) {
   </div>`;
 }
 
-const showResults = (headerHtml, resultsList) => {
+const showResults = (headerHtml, resultsList, { shouldScroll = false } = {}) => {
   currentResults = resultsList;
   currentCostFilter = 'all';
   openSourceOnly = false;
@@ -245,7 +245,9 @@ const showResults = (headerHtml, resultsList) => {
   `;
   bindResultsEvents();
   updateStackUI();
-  resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (shouldScroll) {
+    resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 };
 
 function bindResultsEvents() {
@@ -422,7 +424,7 @@ function renderCalculator() {
         `Your Free Replacements (Potential Savings: $${netSavings.toLocaleString()}/yr)`,
         `${matchedAlts.length} free alternatives replacing ${checkedNames}. ${replacementExpense > 0 ? `(After subtracting $${replacementExpense.toLocaleString()}/yr self-hosting/hardware expense)` : ''}`
       );
-      showResults(headHtml, matchedAlts);
+      showResults(headHtml, matchedAlts, { shouldScroll: true });
       bindBack();
     });
   }
@@ -502,14 +504,14 @@ function handleSearch(query) {
   const results = [...byReplace, ...byName];
 
   if (!results.length) {
-    showResults(`${header(`No results for “${esc(query)}”`, 'Try searching for an app name like Photoshop, Office, Spotify, or browse categories.')}`, []);
+    showResults(`${header(`No results for “${esc(query)}”`, 'Try searching for an app name like Photoshop, Office, Spotify, or browse categories.')}`, [], { shouldScroll: false });
     bindBack();
     return;
   }
   const title = matchedApps.length
     ? `Free alternatives to ${matchedApps.map((a) => esc(a.name)).join(', ')}`
     : `Results for “${esc(query)}”`;
-  showResults(header(title, `${results.length} free ${results.length === 1 ? 'app' : 'apps'} found`), results);
+  showResults(header(title, `${results.length} free ${results.length === 1 ? 'app' : 'apps'} found`), results, { shouldScroll: false });
   bindBack();
 }
 
@@ -517,7 +519,7 @@ function handlePlatform(id) {
   const platform = PLATFORMS.find((p) => p.id === id);
   if (!platform) { showHome(); return; }
   const list = db.alternatives.filter((a) => (a.platforms || []).includes(id));
-  showResults(header(`${platform.emoji} Free apps for ${esc(platform.label)}`, `${list.length} verified alternatives available`), list);
+  showResults(header(`${platform.emoji} Free apps for ${esc(platform.label)}`, `${list.length} verified alternatives available`), list, { shouldScroll: true });
   bindBack();
 }
 
