@@ -5,7 +5,7 @@ const { loadAll, root } = require('./scripts/load-all');
 
 const SITE = 'https://appsolutelyfree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
-const VERSION = '11';
+const VERSION = '12';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
@@ -115,7 +115,7 @@ async function main() {
   <link rel="stylesheet" href="/style.css?v=${VERSION}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE}" crossorigin="anonymous"></script>
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>`;
