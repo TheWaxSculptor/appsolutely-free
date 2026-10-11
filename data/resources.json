@@ -1,0 +1,152 @@
+[
+  {
+    "category": "Fonts",
+    "name": "Fontshare",
+    "url": "https://www.fontshare.com",
+    "description": "Free, professional-grade typeface library created by the Indian Type Foundry.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Custom Free (ITF Fontshare License)",
+    "highlight": "Features high-end fonts like Satoshi, Cabinet Grotesk, Clash Display, and General Sans."
+  },
+  {
+    "category": "Fonts",
+    "name": "Google Fonts",
+    "url": "https://fonts.google.com",
+    "description": "Over 1,500 open-source font families accessible via direct download or CDN.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "SIL Open Font License / Apache 2.0",
+    "highlight": "Industry standard including Inter, Roboto, Outfit, and Playfair Display."
+  },
+  {
+    "category": "Fonts",
+    "name": "Velvetyne Type Foundry",
+    "url": "https://velvetyne.fr",
+    "description": "Open-source typography collective releasing experimental and distinctive libre fonts.",
+    "commercial_use": "Allowed",
+    "attribution": "Optional",
+    "license": "SIL Open Font License",
+    "highlight": "Distinctive editorial and display typefaces for bold branding."
+  },
+  {
+    "category": "Icons",
+    "name": "Lucide Icons",
+    "url": "https://lucide.dev",
+    "description": "Over 1,400 sharp, consistent vector icons. The community-maintained successor to Feather.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "ISC License",
+    "highlight": "Full support for React, Vue, Svelte, SVG, and Figma."
+  },
+  {
+    "category": "Icons",
+    "name": "Tabler Icons",
+    "url": "https://tabler.io/icons",
+    "description": "5,200+ customizable stroke-based vector icons for modern web apps.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "MIT License",
+    "highlight": "Configurable stroke width, color, and size directly in browser."
+  },
+  {
+    "category": "Icons",
+    "name": "Remix Icon",
+    "url": "https://remixicon.com",
+    "description": "Neutral, elegant icon set with 2,800+ symbols in both outline and filled styles.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Apache 2.0",
+    "highlight": "Great coverage of media, document, and office UI symbols."
+  },
+  {
+    "category": "Stock Photos & Vectors",
+    "name": "Unsplash",
+    "url": "https://unsplash.com",
+    "description": "Over 5 million high-resolution photography assets from a global creator community.",
+    "commercial_use": "Allowed",
+    "attribution": "Appreciated, not required",
+    "license": "Unsplash License",
+    "highlight": "Ideal for website hero headers, blog thumbnails, and background imagery."
+  },
+  {
+    "category": "Stock Photos & Vectors",
+    "name": "Pexels",
+    "url": "https://www.pexels.com",
+    "description": "High-quality royalty-free photos and 4K stock video footage.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Pexels License",
+    "highlight": "Includes vertical video footage tailored for TikTok and Instagram Reels."
+  },
+  {
+    "category": "Stock Photos & Vectors",
+    "name": "Public Domain Archive (Library of Congress & NASA)",
+    "url": "https://www.loc.gov/free-to-use/",
+    "description": "Historical prints, space photography, and vintage posters in the public domain.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Public Domain (CC0 / No Known Restrictions)",
+    "highlight": "100% immune from copyright claims and takedown notices."
+  },
+  {
+    "category": "Sound Effects & Audio",
+    "name": "Freesound",
+    "url": "https://freesound.org",
+    "description": "Collaborative database of over 500,000 creative-commons licensed audio samples and field recordings.",
+    "commercial_use": "Allowed on CC0 / CC-BY samples",
+    "attribution": "Depends on sample (CC0: None, CC-BY: Required)",
+    "license": "CC0 / CC-BY / CC-NC",
+    "highlight": "Filter by CC0 license to find 100,000+ attribution-free sounds."
+  },
+  {
+    "category": "Sound Effects & Audio",
+    "name": "Sonniss GDC Audio Archives",
+    "url": "https://sonniss.com/gameaudioarchive",
+    "description": "Over 150 GB of commercial-grade sound effects released every year during GDC.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Royalty-Free Commercial",
+    "highlight": "Foley, impacts, cinematic hits, monster roars, and ambient environments."
+  },
+  {
+    "category": "Sound Effects & Audio",
+    "name": "Incompetech (Kevin MacLeod)",
+    "url": "https://incompetech.com/music/royalty-free/",
+    "description": "Over 2,000 recognizable, versatile background music tracks across every genre.",
+    "commercial_use": "Allowed with attribution",
+    "attribution": "Required (standard credit line)",
+    "license": "Creative Commons Attribution 4.0",
+    "highlight": "The soundtrack behind thousands of top YouTube videos and indie games."
+  },
+  {
+    "category": "3D Models & Assets",
+    "name": "ambientCG",
+    "url": "https://ambientcg.com",
+    "description": "Over 2,000 public-domain PBR material textures, 3D scans, and HDRIs.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Creative Commons CC0",
+    "highlight": "Up to 8K resolution diffuse, normal, roughness, and displacement maps."
+  },
+  {
+    "category": "3D Models & Assets",
+    "name": "Poly Pizza",
+    "url": "https://poly.pizza",
+    "description": "Searchable archive of thousands of low-poly 3D models from Google Poly creators.",
+    "commercial_use": "Allowed on CC0 / CC-BY models",
+    "attribution": "Filterable (CC0 available)",
+    "license": "CC0 / CC-BY",
+    "highlight": "Download .obj and .gltf assets ready for Blender, Godot, or Three.js."
+  },
+  {
+    "category": "3D Models & Assets",
+    "name": "Kenney.nl (Asset Jesus)",
+    "url": "https://kenney.nl/assets",
+    "description": "Thousands of 2D sprites, 3D modular assets, sound effects, and UI components.",
+    "commercial_use": "Allowed",
+    "attribution": "Not required",
+    "license": "Creative Commons CC0 1.0 Universal",
+    "highlight": "The gold standard for game prototyping, game jams, and indie releases."
+  }
+]

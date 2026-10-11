@@ -1,0 +1,108 @@
+[
+  {
+    "id": "business-zero",
+    "title": "Start a Business for $0",
+    "emoji": "🚀",
+    "subtitle": "Everything you need to launch, brand, invoice, and run a company without SaaS bills.",
+    "tools": [
+      { "name": "LibreOffice", "role": "Documents & Spreadsheets", "id": "libreoffice", "website": "https://www.libreoffice.org" },
+      { "name": "Wave Invoicing", "role": "Invoicing & Accounting", "id": "wave", "website": "https://www.waveapps.com" },
+      { "name": "Bitwarden", "role": "Password Security & 2FA", "id": "bitwarden", "website": "https://bitwarden.com" },
+      { "name": "Penpot", "role": "UI & Brand Identity Design", "id": "penpot", "website": "https://penpot.app" },
+      { "name": "Thunderbird", "role": "Email Client & Calendar", "id": "thunderbird", "website": "https://www.thunderbird.net" },
+      { "name": "Nextcloud", "role": "Team Storage & File Sync", "id": "nextcloud", "website": "https://nextcloud.com" }
+    ],
+    "steps": [
+      "1. Secure all logins and 2FA tokens inside Bitwarden before creating vendor accounts.",
+      "2. Create client invoices and track receipts using Wave's free invoicing tier.",
+      "3. Design your logo and pitch decks in Penpot (collaborative vector design).",
+      "4. Organize contracts and financial spreadsheets in LibreOffice Calc and Writer."
+    ],
+    "limitations": "Wave charges standard merchant processing fees if clients pay by credit card. Nextcloud requires a home server or VPS for team file syncing.",
+    "estimated_annual_savings": 1420
+  },
+  {
+    "id": "music-zero",
+    "title": "Make Music & Beats for $0",
+    "emoji": "🎵",
+    "subtitle": "A complete digital audio workstation, virtual instruments, and mixing suite for $0.",
+    "tools": [
+      { "name": "Cakewalk / Ardour", "role": "Full DAW / Multi-Track Recording", "id": "ardour", "website": "https://ardour.org" },
+      { "name": "Audacity", "role": "Audio Editor & Vocal Cleanup", "id": "audacity", "website": "https://www.audacityteam.org" },
+      { "name": "Vital Synth", "role": "Wavetable Synthesizer (Free Tier)", "id": "vital", "website": "https://vital.audio" },
+      { "name": "Spitfire LABS", "role": "Acoustic Instruments & Strings", "id": "spitfire-labs", "website": "https://labs.spitfireaudio.com" },
+      { "name": "MT Power DrumKit", "role": "Drum Machine & Sampler", "id": "mt-power-drumkit", "website": "https://www.power-drum-kit.com" }
+    ],
+    "steps": [
+      "1. Install your DAW (Ardour for Linux/Mac, Cakewalk for Windows, or LMMS cross-platform).",
+      "2. Install low-latency ASIO audio drivers (ASIO4ALL or your audio interface's driver).",
+      "3. Load Vital for bass and lead synths, and Spitfire LABS for pianos and organic instruments.",
+      "4. Record vocals and clean background hiss using Audacity's noise reduction filter."
+    ],
+    "limitations": "Vital free tier comes with 75 presets (commercial use allowed). Requires 8GB+ RAM when loading multiple sample libraries.",
+    "estimated_annual_savings": 650
+  },
+  {
+    "id": "student-essentials",
+    "title": "Student Essentials Stack",
+    "emoji": "🎓",
+    "subtitle": "Research, cite, annotate, and ace your exams without paid subscriptions.",
+    "tools": [
+      { "name": "Obsidian", "role": "Connected Knowledge Base & Notes", "id": "obsidian", "website": "https://obsidian.md" },
+      { "name": "Zotero", "role": "Citation Manager & PDF Annotator", "id": "zotero", "website": "https://www.zotero.org" },
+      { "name": "LibreOffice", "role": "Term Papers & Slide Decks", "id": "libreoffice", "website": "https://www.libreoffice.org" },
+      { "name": "Anki", "role": "Spaced Repetition Flashcards", "id": "anki", "website": "https://apps.ankiweb.net" },
+      { "name": "Calibre", "role": "E-Book & Textbook Organizer", "id": "calibre", "website": "https://calibre-ebook.com" }
+    ],
+    "steps": [
+      "1. Capture class notes in Obsidian using two-way links [[topic]] to build a visual knowledge graph.",
+      "2. Install Zotero browser extension to capture research papers with 1-click citation generation.",
+      "3. Convert key exam concepts into Anki flashcards and review 10 minutes daily with spaced repetition.",
+      "4. Write essays in LibreOffice Writer and export to PDF with standardized bibliography."
+    ],
+    "limitations": "Obsidian sync across mobile devices requires free Git plugin or iCloud/Syncthing rather than paid Obsidian Sync.",
+    "estimated_annual_savings": 420
+  },
+  {
+    "id": "website-zero",
+    "title": "Build & Host a Website for $0",
+    "emoji": "🌐",
+    "subtitle": "Blazing-fast modern website deployed to global CDN edge servers with $0 hosting fees.",
+    "tools": [
+      { "name": "VSCodium / VS Code", "role": "Code Editor", "id": "vscodium", "website": "https://vscodium.com" },
+      { "name": "Astro / Hugo", "role": "Static Site Generator", "id": "astro", "website": "https://astro.build" },
+      { "name": "Cloudflare Pages", "role": "Global CDN Edge Hosting", "id": "cloudflare-pages", "website": "https://pages.cloudflare.com" },
+      { "name": "Decap CMS", "role": "Open Source Headless CMS", "id": "decap-cms", "website": "https://decapcms.org" },
+      { "name": "Fontsource", "role": "Self-Hosted Google Fonts", "id": "fontsource", "website": "https://fontsource.org" }
+    ],
+    "steps": [
+      "1. Scaffold a site with Astro or Hugo in VSCodium with modern responsive HTML/CSS.",
+      "2. Push your project to a free GitHub repository.",
+      "3. Connect Cloudflare Pages or GitHub Pages for unlimited static bandwidth and automatic HTTPS.",
+      "4. Plug in Decap CMS for client editing without monthly database or WordPress costs."
+    ],
+    "limitations": "Custom apex domain (.com) costs $10-$12/year from a registrar (Cloudflare / Porkbun), though subdomains (*.pages.dev) are 100% free.",
+    "estimated_annual_savings": 380
+  },
+  {
+    "id": "content-creator",
+    "title": "YouTube & Content Creator for $0",
+    "emoji": "🎬",
+    "subtitle": "4K video editing, screen recording, podcast mixing, and thumbnail design.",
+    "tools": [
+      { "name": "DaVinci Resolve", "role": "Hollywood-Grade Video Editor", "id": "davinci-resolve", "website": "https://www.blackmagicdesign.com/products/davinciresolve" },
+      { "name": "OBS Studio", "role": "Screen Recording & Live Streaming", "id": "obs-studio", "website": "https://obsproject.com" },
+      { "name": "Audacity", "role": "Podcast & Mic Audio Cleanup", "id": "audacity", "website": "https://www.audacityteam.org" },
+      { "name": "Photopea / GIMP", "role": "YouTube Thumbnail Design", "id": "photopea", "website": "https://www.photopea.com" },
+      { "name": "HandBrake", "role": "Video Encoding & Compression", "id": "handbrake", "website": "https://handbrake.fr" }
+    ],
+    "steps": [
+      "1. Record 60fps gameplay or webcam with OBS Studio using hardware NVENC/Apple Silicon encoding.",
+      "2. Edit, color grade, and mix sound in DaVinci Resolve (free edition includes 95% of Studio features).",
+      "3. Design high-CTR 1280x720 thumbnails in Photopea or GIMP with glowing text and cutouts.",
+      "4. Compress master renders through HandBrake to reduce upload times without quality loss."
+    ],
+    "limitations": "DaVinci Resolve Free caps renders at 4K UHD 60fps (sufficient for 99% of creators) and requires a modern GPU.",
+    "estimated_annual_savings": 920
+  }
+]

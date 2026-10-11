@@ -1,0 +1,82 @@
+[
+  {
+    "category": "Open-Source PC Games",
+    "title": "0 A.D. (Empires Ascendant)",
+    "genre": "Historical Real-Time Strategy",
+    "url": "https://play0ad.com",
+    "tier": "100% Free & Open Source (GPL)",
+    "monetization": "Zero ads, zero microtransactions",
+    "platforms": ["Windows", "Mac", "Linux"],
+    "description": "High-fidelity 3D RTS game of ancient warfare covering 500 B.C. to 500 A.D., featuring custom civilizations, naval warfare, and procedural maps."
+  },
+  {
+    "category": "Open-Source PC Games",
+    "title": "The Battle for Wesnoth",
+    "genre": "Turn-Based Strategy RPG",
+    "url": "https://www.wesnoth.org",
+    "tier": "100% Free & Open Source (GPL)",
+    "monetization": "Zero ads, zero microtransactions",
+    "platforms": ["Windows", "Mac", "Linux", "iOS", "Android"],
+    "description": "Tactical high-fantasy strategy with 16 solo campaigns, hundreds of unit types, rich lore, map editor, and active online multiplayer."
+  },
+  {
+    "category": "Open-Source PC Games",
+    "title": "OpenTTD",
+    "genre": "Transport Simulation & Tycoon",
+    "url": "https://www.openttd.org",
+    "tier": "100% Free & Open Source (GPL)",
+    "monetization": "Zero ads, zero microtransactions",
+    "platforms": ["Windows", "Mac", "Linux", "Steam"],
+    "description": "Open-source remake of Transport Tycoon Deluxe. Build rail networks, truck routes, flight paths, and shipping lanes with multiplayer support up to 255 players."
+  },
+  {
+    "category": "Open-Source PC Games",
+    "title": "Shattered Pixel Dungeon",
+    "genre": "Traditional Roguelike RPG",
+    "url": "https://shatteredpixel.com",
+    "tier": "100% Free & Open Source (GPL)",
+    "monetization": "Free on PC / Android (Optional tip jar)",
+    "platforms": ["Windows", "Mac", "Linux", "Android"],
+    "description": "Deep turn-based roguelike with 5 playable hero classes, high replayability, procedural dungeon floors, and zero pay-to-win mechanics."
+  },
+  {
+    "category": "Browser Games (Zero Ads / Fair)",
+    "title": "Lichess",
+    "genre": "Chess Platform & Puzzles",
+    "url": "https://lichess.org",
+    "tier": "100% Free & Open Source",
+    "monetization": "Non-profit (0 ads, 0 paywalls, 0 tracking)",
+    "platforms": ["Web", "iOS", "Android"],
+    "description": "The world's leading open-source chess server. Unlimited free computer analysis (Stockfish), tactics puzzles, tournaments, and master games."
+  },
+  {
+    "category": "Browser Games (Zero Ads / Fair)",
+    "title": "Infinite Craft",
+    "genre": "Procedural Sandbox Puzzle",
+    "url": "https://neal.fun/infinite-craft/",
+    "tier": "Free Web Game",
+    "monetization": "Clean web page, zero intrusive popups",
+    "platforms": ["Web"],
+    "description": "Combine basic elements (Water, Fire, Earth, Wind) to discover millions of emergent objects, concepts, and historical figures powered by generative AI."
+  },
+  {
+    "category": "Free Stores & Giveaways",
+    "title": "GOG Free Games Collection",
+    "genre": "DRM-Free PC Classics",
+    "url": "https://www.gog.com/en/partner/free_games",
+    "tier": "Permanently Free DRM-Free Downloads",
+    "monetization": "No microtransactions (Free full games)",
+    "platforms": ["Windows", "Mac", "Linux"],
+    "description": "Curated collection of classic PC titles (Beneath a Steel Sky, Tyrian 2000, Lure of the Temptress, Postal) that you own forever with no DRM launcher required."
+  },
+  {
+    "category": "Free Stores & Giveaways",
+    "title": "Epic Games Weekly Free Games Tracker",
+    "genre": "Commercial PC Games Giveaways",
+    "url": "https://store.epicgames.com/en-US/free-games",
+    "tier": "Weekly 100% Free to Keep",
+    "monetization": "Standard commercial games given away for 100% off",
+    "platforms": ["Windows", "Mac"],
+    "description": "Every Thursday, Epic Games makes 1-2 commercial PC games completely free to claim permanently. Once claimed during the free week, they remain in your library forever."
+  }
+]

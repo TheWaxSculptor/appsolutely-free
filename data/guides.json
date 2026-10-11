@@ -1,0 +1,132 @@
+[
+  {
+    "id": "photoshop-to-photopea-gimp",
+    "from_app": "Adobe Photoshop",
+    "to_app": "Photopea / GIMP",
+    "title": "Switching from Photoshop to Photopea or GIMP",
+    "headline": "How to keep your .PSD files, layers, masks, and keyboard shortcuts.",
+    "file_support": {
+      "opens_native": ".PSD, .TIFF, .PNG, .JPG, .WEBP, .RAW",
+      "exports_to": ".PSD, .PNG, .JPG, .SVG, .PDF, .WEBP"
+    },
+    "key_steps": [
+      {
+        "title": "1. Opening Existing Photoshop Files",
+        "detail": "Photopea opens multi-layer .PSD files directly with smart objects, adjustment layers, clipping masks, and layer styles intact. GIMP 2.10+ opens .PSD files with standard raster layers, layer masks, and blending modes."
+      },
+      {
+        "title": "2. Matching Photoshop Keyboard Shortcuts",
+        "detail": "Photopea comes preconfigured with standard Photoshop shortcut keys (V for Move, B for Brush, Cmd/Ctrl+J to Duplicate, Cmd/Ctrl+T to Transform). In GIMP, go to Edit → Keyboard Shortcuts or download the 'Photoshop Shortcuts for GIMP' profile."
+      },
+      {
+        "title": "3. Replicating Photoshop Action & Filter Workflows",
+        "detail": "Install G'MIC (GREYC's Magic for Image Computing) in GIMP for over 500 filters including neural style transfer, film grain emulation, and frequency separation."
+      }
+    ],
+    "gotchas": "Adobe proprietary adjustment layers (e.g. Color Lookup Tables with 3D LUTs) or proprietary Cloud Smart Objects may flatten in GIMP. Export key assets as high-resolution layered PSDs or TIFFs before cancelling Adobe Creative Cloud."
+  },
+  {
+    "id": "office-to-libreoffice",
+    "from_app": "Microsoft 365 (Word, Excel, PowerPoint)",
+    "to_app": "LibreOffice (Writer, Calc, Impress)",
+    "title": "Switching from Microsoft 365 to LibreOffice",
+    "headline": "Preserving document formatting, Excel formulas, and slide transitions.",
+    "file_support": {
+      "opens_native": ".DOCX, .XLSX, .PPTX, .DOC, .XLS, .PPT, .CSV, .ODT, .ODS, .ODP",
+      "exports_to": ".DOCX, .XLSX, .PPTX, .PDF, .ODT, .ODS, .EPUB"
+    },
+    "key_steps": [
+      {
+        "title": "1. Avoiding Font Substitution Layout Shifts",
+        "detail": "Layout shifts when opening .docx in LibreOffice are almost always caused by missing Microsoft proprietary fonts (Calibri, Aptos, Cambria). Install the Carlito and Caladea metric-compatible fonts (or standard Microsoft Core Fonts), and documents render with pixel-accurate line wraps."
+      },
+      {
+        "title": "2. Setting Default Save Formats to Microsoft .docx/.xlsx",
+        "detail": "If you collaborate with Office users, set LibreOffice default format: Tools → Options → Load/Save → General → Always save as Word 2010-365 (*.docx) and Excel 2010-365 (*.xlsx)."
+      },
+      {
+        "title": "3. Excel Formulas and Pivot Tables",
+        "detail": "LibreOffice Calc supports 99.8% of Excel formulas (VLOOKUP, XLOOKUP, INDEX/MATCH, SUMIFS). Pivot Tables are called 'Pivot Tables' (Data → Pivot Table) and function identically."
+      }
+    ],
+    "gotchas": "Complex Visual Basic for Applications (VBA) macros with proprietary Windows ActiveX controls require reviewing or porting to LibreOffice Basic or Python scripting."
+  },
+  {
+    "id": "notion-to-obsidian",
+    "from_app": "Notion",
+    "to_app": "Obsidian",
+    "title": "Switching from Notion to Obsidian",
+    "headline": "Liberating your personal database and notes into local Markdown files you own forever.",
+    "file_support": {
+      "opens_native": ".MD (Markdown), .CSV, .JSON, .CANVAS, images, audio, PDF",
+      "exports_to": "Plaintext Markdown, HTML, PDF"
+    },
+    "key_steps": [
+      {
+        "title": "1. Exporting Your Notion Workspace",
+        "detail": "In Notion, click Settings & Members → Settings → Export all workspace content → Select 'Markdown & CSV' with 'Include subpages' enabled. Download the generated ZIP file."
+      },
+      {
+        "title": "2. Importing into an Obsidian Vault",
+        "detail": "Create a new Obsidian Vault pointing to a local folder on your computer. Use the official 'Notion Importer' community plugin in Obsidian (Settings → Community Plugins → Importer → Notion) to convert Notion databases and callouts into clean Markdown with embedded images."
+      },
+      {
+        "title": "3. Replicating Notion Databases & Kanban Boards",
+        "detail": "Install the community 'Dataview' and 'Kanban' plugins in Obsidian. Dataview enables SQL-like queries across your notes (e.g. status = 'in progress', due_date < date(today)), rendering instant interactive tables."
+      }
+    ],
+    "gotchas": "Notion's nested page URLs will become local wikilinks [[Page Name]]. Complex relational formulas should be set up via Obsidian Dataview or the Projects plugin."
+  },
+  {
+    "id": "1password-lastpass-to-bitwarden",
+    "from_app": "1Password / LastPass",
+    "to_app": "Bitwarden",
+    "title": "Switching from 1Password or LastPass to Bitwarden",
+    "headline": "Zero-downtime password migration with end-to-end zero-knowledge encryption.",
+    "file_support": {
+      "opens_native": "1Password (.1pux, .csv), LastPass (.csv), Chrome/Firefox (.csv), KeePass (.kdbx)",
+      "exports_to": "Encrypted JSON, Standard JSON, CSV"
+    },
+    "key_steps": [
+      {
+        "title": "1. Export Vault from Old Manager",
+        "detail": "In 1Password, choose File → Export → All Items (.1pux or .csv). In LastPass, go to Advanced Options → Export → Enter Master Password → Save as CSV."
+      },
+      {
+        "title": "2. Import Directly into Bitwarden",
+        "detail": "Log in to vault.bitwarden.com → Tools → Import Data → Select '1Password (.1pux)' or 'LastPass (csv)' from the dropdown → Select file and click Import. All logins, secure notes, cards, and 2FA seeds transfer in seconds."
+      },
+      {
+        "title": "3. Permanently Shred the Unencrypted Export",
+        "detail": "CRITICAL: The exported .csv file contains plaintext passwords. After confirming everything is visible in Bitwarden, immediately shred/delete the export file from your downloads folder and empty trash."
+      }
+    ],
+    "gotchas": "Disable browser password autofill in Chrome/Safari to prevent conflicting double-autofill popups."
+  },
+  {
+    "id": "premiere-to-davinci-resolve",
+    "from_app": "Adobe Premiere Pro",
+    "to_app": "DaVinci Resolve",
+    "title": "Switching from Premiere Pro to DaVinci Resolve",
+    "headline": "Exporting timelines, XML projects, and switching to industry-standard color grading.",
+    "file_support": {
+      "opens_native": "FCP XML (.xml), EDL, AAF, MP4, MOV, Apple ProRes, Blackmagic RAW, Sony/Canon RAW",
+      "exports_to": "ProRes, H.264, H.265, QuickTime, IMF, DCP, Final Cut XML"
+    },
+    "key_steps": [
+      {
+        "title": "1. Exporting XML from Premiere",
+        "detail": "In Premiere Pro, select your active sequence → File → Export → Final Cut Pro XML (*.xml). This exports edit cuts, track positions, volume points, and clip timing."
+      },
+      {
+        "title": "2. Importing XML Timeline into Resolve",
+        "detail": "In DaVinci Resolve, go to File → Import → Timeline → Select your exported XML file. Resolve automatically reconnects the original media files and creates an exact timeline replica."
+      },
+      {
+        "title": "3. Switching Keyboard Shortcuts to Premiere Layout",
+        "detail": "Go to DaVinci Resolve → Keyboard Customization → Top right dropdown → Select 'Adobe Premiere Pro'. All your muscle memory (C for Razor cut, Q/W for ripple trim, J-K-L shuttle) transfers seamlessly."
+      }
+    ],
+    "gotchas": "Third-party Adobe After Effects dynamic links or proprietary Premiere plugins (e.g. Essential Graphics templates) should be rendered out as ProRes/DNxHR clips prior to XML export."
+  }
+]

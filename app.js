@@ -1,5 +1,6 @@
 import db from './data.js?v=11';
 import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
+import { initToolsUI } from './tools.mjs?v=11';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const altsById = Object.fromEntries(db.alternatives.map((a) => [a.id, a]));
@@ -288,13 +289,15 @@ const showHome = () => {
 function renderStats() {
   const heroBadge = document.getElementById('heroBadgeText');
   if (heroBadge) {
-    heroBadge.textContent = `${db.alternatives.length} Hand-Picked Free Alternatives Across ${CATEGORIES.length} Categories & ${replaceableApps.length} Paid Apps`;
+    heroBadge.textContent = `${db.alternatives.length} Free Alternatives · 5 $0 Stacks · 11 Free AI Tools · 5 In-Browser Utilities`;
   }
   const stars = db.alternatives.reduce((n, a) => n + ((a.health && a.health.stars) || 0), 0);
   const items = [
     [db.alternatives.length, 'free alternatives'],
     [replaceableApps.length, 'paid apps covered'],
-    [CATEGORIES.length, 'categories'],
+    [(db.stacks || []).length, '$0 ready stacks'],
+    [(db.aiHub || []).length, 'free AI tools'],
+    [5, 'in-browser tools'],
     [formatStars(stars), 'GitHub stars combined'],
   ];
   document.getElementById('stats').innerHTML = items
@@ -687,11 +690,424 @@ document.getElementById('copyStackBtn')?.addEventListener('click', () => {
   });
 });
 
+// ---- Ready-Made Free Stacks ------------------------------------------------
+function renderStacks() {
+  const grid = document.getElementById('readyStacksGrid');
+  if (!grid || !db.stacks) return;
+
+  grid.innerHTML = db.stacks.map(st => `
+    <div class="stack-card glass-panel" id="stack-${esc(st.id)}">
+      <div class="stack-card-header">
+        <div class="stack-title-group">
+          <span class="stack-card-emoji">${st.emoji}</span>
+          <div>
+            <h3 class="stack-card-title">${esc(st.title)}</h3>
+            <p class="stack-card-sub">${esc(st.subtitle)}</p>
+          </div>
+        </div>
+        <div class="stack-badge-green">
+          <span class="stack-badge-label">Est. Annual Savings</span>
+          <strong>+$${st.estimated_annual_savings.toLocaleString()} / yr</strong>
+        </div>
+      </div>
+
+      <div class="stack-tools-container">
+        <h4 class="stack-section-label">Included Tools in this Stack:</h4>
+        <div class="stack-tools-grid">
+          ${st.tools.map(t => {
+            const isSaved = getStack().includes(t.id);
+            return `
+              <div class="stack-tool-row">
+                <div class="stack-tool-meta">
+                  <strong class="stack-tool-name">${esc(t.name)}</strong>
+                  <span class="stack-tool-role">${esc(t.role)}</span>
+                </div>
+                <div class="stack-tool-btns">
+                  <a href="${esc(t.website)}" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Site ↗</a>
+                  <button type="button" class="btn btn-ghost btn-xs bookmark-btn ${isSaved ? 'active' : ''}" data-id="${esc(t.id)}" title="Save to My Stack">
+                    ${isSaved ? '★ Saved' : '+ Save'}
+                  </button>
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+
+      <details class="stack-details">
+        <summary class="stack-summary">
+          <span>📋 Step-by-Step Setup Blueprint (${st.steps.length} Steps)</span>
+          <span class="summary-arrow">▾</span>
+        </summary>
+        <ol class="stack-steps-list">
+          ${st.steps.map(s => `<li>${esc(s)}</li>`).join('')}
+        </ol>
+      </details>
+
+      <div class="stack-limitation-box">
+        <div class="limitation-head">
+          <span class="limitation-icon">⚠️</span>
+          <strong>Clear Limitations &amp; Requirements:</strong>
+        </div>
+        <p>${esc(st.limitations)}</p>
+      </div>
+
+      <div class="stack-card-footer">
+        <button type="button" class="btn btn-primary add-all-stack-btn" data-stack="${esc(st.id)}">
+          ⭐ Add Entire Stack to My Tools (${st.tools.length} Tools)
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  grid.querySelectorAll('.add-all-stack-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const stackId = btn.dataset.stack;
+      const stack = db.stacks.find(s => s.id === stackId);
+      if (!stack) return;
+      const current = getStack();
+      const newItems = stack.tools.map(t => t.id);
+      const merged = Array.from(new Set([...current, ...newItems]));
+      setStack(merged);
+      showToast(`⭐ Added ${stack.tools.length} tools from "${stack.title}" to your stack!`);
+      openDrawer();
+    });
+  });
+}
+
+// ---- Free AI Hub ------------------------------------------------------------
+let currentAiFilter = 'all';
+function renderAiHub() {
+  const chipsEl = document.getElementById('aiFilterChips');
+  const gridEl = document.getElementById('aiCardsGrid');
+  if (!gridEl || !db.aiHub) return;
+
+  const categories = ['all', ...Array.from(new Set(db.aiHub.map(a => a.category)))];
+
+  chipsEl.innerHTML = categories.map(cat => `
+    <button type="button" class="chip ${currentAiFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
+      ${cat === 'all' ? 'All Free AI Tools' : esc(cat)}
+    </button>
+  `).join('');
+
+  chipsEl.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentAiFilter = btn.dataset.cat;
+      renderAiHub();
+    });
+  });
+
+  const list = currentAiFilter === 'all' ? db.aiHub : db.aiHub.filter(a => a.category === currentAiFilter);
+
+  gridEl.innerHTML = list.map(item => `
+    <div class="ai-card glass-panel">
+      <div class="ai-card-top">
+        <div class="ai-title-wrap">
+          <span class="ai-cat-pill">${esc(item.category)}</span>
+          <h3 class="ai-name">${esc(item.name)}</h3>
+        </div>
+        <span class="ai-tier-badge">${esc(item.tier)}</span>
+      </div>
+      <p class="ai-desc">${esc(item.description)}</p>
+
+      <div class="ai-spec-grid">
+        <div class="ai-spec-item">
+          <span class="spec-label">⚡ Quota / Limits:</span>
+          <span class="spec-value">${esc(item.limits)}</span>
+        </div>
+        <div class="ai-spec-item">
+          <span class="spec-label">👤 Account:</span>
+          <span class="spec-value">${esc(item.account_required)}</span>
+        </div>
+        <div class="ai-spec-item">
+          <span class="spec-label">💼 Commercial Use:</span>
+          <span class="spec-value">${esc(item.commercial_use)}</span>
+        </div>
+        <div class="ai-spec-item">
+          <span class="spec-label">🖼️ Watermark:</span>
+          <span class="spec-value">${esc(item.watermark)}</span>
+        </div>
+        <div class="ai-spec-item">
+          <span class="spec-label">💻 Hardware:</span>
+          <span class="spec-value">${esc(item.hardware)}</span>
+        </div>
+      </div>
+
+      <div class="ai-card-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          Access Free AI ↗
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- Free Creative Resources -----------------------------------------------
+let currentResFilter = 'all';
+function renderResources() {
+  const chipsEl = document.getElementById('resourceFilterChips');
+  const gridEl = document.getElementById('resourceCardsGrid');
+  if (!gridEl || !db.resources) return;
+
+  const categories = ['all', ...Array.from(new Set(db.resources.map(r => r.category)))];
+
+  chipsEl.innerHTML = categories.map(cat => `
+    <button type="button" class="chip ${currentResFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
+      ${cat === 'all' ? 'All Creative Resources' : esc(cat)}
+    </button>
+  `).join('');
+
+  chipsEl.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentResFilter = btn.dataset.cat;
+      renderResources();
+    });
+  });
+
+  const list = currentResFilter === 'all' ? db.resources : db.resources.filter(r => r.category === currentResFilter);
+
+  gridEl.innerHTML = list.map(item => `
+    <div class="resource-card glass-panel">
+      <div class="res-top">
+        <div>
+          <span class="res-cat-badge">${esc(item.category)}</span>
+          <h3 class="res-name">${esc(item.name)}</h3>
+        </div>
+        <span class="res-license-pill">${esc(item.license)}</span>
+      </div>
+      <p class="res-desc">${esc(item.description)}</p>
+
+      <div class="res-terms-row">
+        <span class="res-term-badge term-commercial">
+          Commercial: <strong>${esc(item.commercial_use)}</strong>
+        </span>
+        <span class="res-term-badge term-attribution">
+          Attribution: <strong>${esc(item.attribution)}</strong>
+        </span>
+      </div>
+
+      <div class="res-highlight-box">
+        <span class="highlight-star">✨</span>
+        <small>${esc(item.highlight)}</small>
+      </div>
+
+      <div class="res-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          Browse Library ↗
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- Free Learning & Practice Labs -----------------------------------------
+let currentLearnFilter = 'all';
+function renderLearning() {
+  const chipsEl = document.getElementById('learningFilterChips');
+  const gridEl = document.getElementById('learningCardsGrid');
+  if (!gridEl || !db.learning) return;
+
+  const categories = ['all', ...Array.from(new Set(db.learning.map(l => l.category)))];
+
+  chipsEl.innerHTML = categories.map(cat => `
+    <button type="button" class="chip ${currentLearnFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
+      ${cat === 'all' ? 'All Learning & Labs' : esc(cat)}
+    </button>
+  `).join('');
+
+  chipsEl.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentLearnFilter = btn.dataset.cat;
+      renderLearning();
+    });
+  });
+
+  const list = currentLearnFilter === 'all' ? db.learning : db.learning.filter(l => l.category === currentLearnFilter);
+
+  gridEl.innerHTML = list.map(item => {
+    const hasCert = (item.has_certificate || '').toLowerCase().startsWith('yes');
+    return `
+      <div class="learning-card glass-panel">
+        <div class="learning-card-top">
+          <div>
+            <span class="learn-software-badge">${esc(item.software || item.category)}</span>
+            <h3 class="learn-title">${esc(item.title)}</h3>
+            <span class="learn-provider">By ${esc(item.provider)}</span>
+          </div>
+          <span class="learn-cost-badge">${esc(item.cost_model)}</span>
+        </div>
+
+        <p class="learn-desc">${esc(item.description)}</p>
+
+        <div class="learn-spec-row">
+          <div class="cert-status-badge ${hasCert ? 'cert-free' : 'cert-none'}">
+            <span class="cert-icon">${hasCert ? '🎓' : '🛠️'}</span>
+            <span>Certificate: <strong>${esc(item.has_certificate)}</strong></span>
+          </div>
+          <div class="learn-format-pill">
+            <span>Format: <strong>${esc(item.format)}</strong></span>
+          </div>
+        </div>
+
+        <div class="learning-footer">
+          <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            Start Free Course ↗
+          </a>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ---- Free Games ------------------------------------------------------------
+let currentGamesFilter = 'all';
+function renderGames() {
+  const chipsEl = document.getElementById('gamesFilterChips');
+  const gridEl = document.getElementById('gamesCardsGrid');
+  if (!gridEl || !db.games) return;
+
+  const categories = ['all', ...Array.from(new Set(db.games.map(g => g.category)))];
+
+  chipsEl.innerHTML = categories.map(cat => `
+    <button type="button" class="chip ${currentGamesFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
+      ${cat === 'all' ? 'All Free Games' : esc(cat)}
+    </button>
+  `).join('');
+
+  chipsEl.querySelectorAll('.chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentGamesFilter = btn.dataset.cat;
+      renderGames();
+    });
+  });
+
+  const list = currentGamesFilter === 'all' ? db.games : db.games.filter(g => g.category === currentGamesFilter);
+
+  gridEl.innerHTML = list.map(item => `
+    <div class="game-card glass-panel">
+      <div class="game-top">
+        <div>
+          <span class="game-genre-badge">${esc(item.genre)}</span>
+          <h3 class="game-title">${esc(item.title)}</h3>
+        </div>
+        <span class="game-tier-pill">${esc(item.tier)}</span>
+      </div>
+
+      <p class="game-desc">${esc(item.description)}</p>
+
+      <div class="game-monetization-row">
+        <span class="monetization-badge">
+          🛡️ Monetization: <strong>${esc(item.monetization)}</strong>
+        </span>
+      </div>
+
+      <div class="game-platforms-row">
+        <span class="platforms-label">Platforms:</span>
+        ${(item.platforms || []).map(p => `<span class="platform-mini-pill">${esc(p)}</span>`).join('')}
+      </div>
+
+      <div class="game-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          Play / Download ↗
+        </a>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- Software Switching Guides ---------------------------------------------
+function renderGuides() {
+  const grid = document.getElementById('guidesGrid');
+  if (!grid || !db.guides) return;
+
+  grid.innerHTML = db.guides.map(g => `
+    <div class="guide-card glass-panel" id="guide-${esc(g.id)}">
+      <div class="guide-header">
+        <div class="guide-migration-flow">
+          <span class="guide-from">${esc(g.from_app)}</span>
+          <span class="flow-arrow">➔</span>
+          <span class="guide-to">${esc(g.to_app)}</span>
+        </div>
+        <h3 class="guide-title">${esc(g.title)}</h3>
+        <p class="guide-headline">${esc(g.headline)}</p>
+      </div>
+
+      <div class="guide-file-formats">
+        <div class="format-badge-box">
+          <span class="format-box-label">📂 Opens Native:</span>
+          <span class="format-tags">${esc(g.file_support.opens_native)}</span>
+        </div>
+        <div class="format-badge-box">
+          <span class="format-box-label">💾 Exports To:</span>
+          <span class="format-tags">${esc(g.file_support.exports_to)}</span>
+        </div>
+      </div>
+
+      <div class="guide-steps-container">
+        <h4 class="guide-steps-title">Transition Steps:</h4>
+        <div class="guide-steps-list">
+          ${g.key_steps.map(step => `
+            <div class="guide-step-item">
+              <strong>${esc(step.title)}</strong>
+              <p>${esc(step.detail)}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="guide-gotchas-box">
+        <div class="gotcha-head">
+          <span>⚠️</span>
+          <strong>Critical Gotchas &amp; Workarounds:</strong>
+        </div>
+        <p>${esc(g.gotchas)}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ---- New & Newly Restricted Radar -----------------------------------------
+function renderRadar() {
+  const timeline = document.getElementById('radarTimeline');
+  if (!timeline || !db.radar) return;
+
+  timeline.innerHTML = db.radar.map(entry => {
+    let typeClass = 'radar-neutral';
+    if (entry.type === 'new-addition') typeClass = 'radar-new';
+    else if (entry.type === 'restricted') typeClass = 'radar-restricted';
+    else if (entry.type === 'price-increase') typeClass = 'radar-price';
+    else if (entry.type === 'warning') typeClass = 'radar-warning';
+
+    return `
+      <div class="radar-card glass-panel ${typeClass}">
+        <div class="radar-card-top">
+          <span class="radar-badge ${typeClass}">${esc(entry.badge)}</span>
+          <time class="radar-date">${esc(entry.date)}</time>
+        </div>
+        <h3 class="radar-tool-name">${esc(entry.name)}</h3>
+        <p class="radar-summary">${esc(entry.summary)}</p>
+        <div class="radar-impact-box">
+          <span class="impact-label">Impact &amp; Free Replacement:</span>
+          <p class="impact-text">${esc(entry.impact)}</p>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
 window.addEventListener('hashchange', route);
 
 // ---- Init ------------------------------------------------------------------
 renderStats();
 renderCalculator();
+initToolsUI();
+renderStacks();
+renderAiHub();
+renderResources();
+renderLearning();
+renderGames();
+renderGuides();
+renderRadar();
 renderCategories();
 renderPlatforms();
 renderPopular();

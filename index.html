@@ -28,10 +28,15 @@
   <nav class="topbar" aria-label="Main">
     <a class="brand" href="/">App<span>solutely</span> Free</a>
     <div class="topbar-links">
+      <a href="#browserTools">Tools</a>
+      <a href="#readyStacks">Stacks</a>
+      <a href="#aiHub">AI Hub</a>
+      <a href="#creativeResources">Resources</a>
+      <a href="#learningHub">Learning</a>
+      <a href="#freeGames">Games</a>
+      <a href="#switchingGuides">Guides</a>
+      <a href="#radarSection">Radar</a>
       <a href="#calculatorSection">Calculator</a>
-      <a href="#categories">Categories</a>
-      <a href="#platforms">Platforms</a>
-      <a href="#popular">Popular</a>
       <button class="stack-nav-btn" id="openStackBtn" type="button" aria-label="Open My Saved Stack">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
         <span>My Stack</span>
@@ -137,6 +142,217 @@
     <section id="resultsArea" class="results-area hidden" aria-live="polite"></section>
 
     <div id="initialState" class="initial-state">
+      <!-- 1. Free Browser Tools (100% Client-Side & Zero Uploads) -->
+      <section id="browserTools" class="home-section tools-section" aria-labelledby="toolsTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow green">🔒 100% Client-Side · Zero Server Uploads</span>
+            <h2 id="toolsTitle" class="section-title">Free Browser Utility Tools</h2>
+            <p class="section-desc">Fast, daily in-browser utilities powered by HTML5 Canvas, Web Audio, and Web Crypto APIs. Your images, text, and files never leave your computer.</p>
+          </div>
+        </div>
+
+        <div class="tools-container glass-panel">
+          <div class="tools-tab-bar" role="tablist" aria-label="Free Browser Tools">
+            <button class="tool-tab-btn active" role="tab" aria-selected="true" data-tool="image" id="tabBtn-image">
+              <span>🖼️</span> Image Resizer &amp; Compressor
+            </button>
+            <button class="tool-tab-btn" role="tab" aria-selected="false" data-tool="qr" id="tabBtn-qr">
+              <span>📱</span> QR Code Maker
+            </button>
+            <button class="tool-tab-btn" role="tab" aria-selected="false" data-tool="words" id="tabBtn-words">
+              <span>📝</span> Word &amp; Reading Counter
+            </button>
+            <button class="tool-tab-btn" role="tab" aria-selected="false" data-tool="audio" id="tabBtn-audio">
+              <span>🔊</span> Audio Tone Generator
+            </button>
+            <button class="tool-tab-btn" role="tab" aria-selected="false" data-tool="crypto" id="tabBtn-crypto">
+              <span>🔐</span> Hash &amp; JSON Formatter
+            </button>
+          </div>
+
+          <div class="tool-panels">
+            <!-- 1. Image Resizer & Compressor -->
+            <div class="tool-panel active" id="toolPanel-image" role="tabpanel" aria-labelledby="tabBtn-image">
+              <div class="tool-grid">
+                <div class="drop-zone" id="imgDropZone" tabindex="0" role="button" aria-label="Drop image or click to select">
+                  <input type="file" id="imgFileInput" accept="image/*" class="file-input-hidden" aria-label="Upload image">
+                  <div class="drop-zone-prompt">
+                    <span class="drop-icon">📁</span>
+                    <strong>Drop an image here or click to browse</strong>
+                    <small>Supports PNG, JPG, WebP, SVG, AVIF · Processed 100% locally in your browser</small>
+                  </div>
+                  <img id="imgPreview" class="img-preview" alt="Preview" hidden>
+                </div>
+                <div class="tool-controls" id="imgControls" hidden>
+                  <div class="control-row">
+                    <div class="form-group flex-1">
+                      <label for="imgWidth">Width (px)</label>
+                      <input type="number" id="imgWidth" class="form-input" min="10" max="8000">
+                    </div>
+                    <div class="form-group flex-1">
+                      <label for="imgHeight">Height (px)</label>
+                      <input type="number" id="imgHeight" class="form-input" min="10" max="8000">
+                    </div>
+                    <label class="checkbox-label">
+                      <input type="checkbox" id="imgLockAspect" checked>
+                      <span>Lock ratio</span>
+                    </label>
+                  </div>
+                  <div class="control-row">
+                    <div class="form-group flex-1">
+                      <label for="imgFormat">Target Format</label>
+                      <select id="imgFormat" class="form-input form-select">
+                        <option value="image/webp">WebP (Smallest file size)</option>
+                        <option value="image/jpeg">JPEG (Universal photo)</option>
+                        <option value="image/png">PNG (Lossless clarity)</option>
+                      </select>
+                    </div>
+                    <div class="form-group flex-1">
+                      <label for="imgQuality">Quality (<span id="imgQualityVal">85%</span>)</label>
+                      <input type="range" id="imgQuality" min="10" max="100" value="85" class="range-slider">
+                    </div>
+                  </div>
+                  <div class="tool-stats-banner" id="imgStats"></div>
+                  <button type="button" class="btn btn-primary" id="imgDownloadBtn">⬇️ Download Compressed Image</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. QR Code Generator -->
+            <div class="tool-panel" id="toolPanel-qr" role="tabpanel" aria-labelledby="tabBtn-qr" hidden>
+              <div class="tool-grid qr-tool-grid">
+                <div class="tool-controls">
+                  <div class="form-group">
+                    <label for="qrInput">Text or URL to Encode</label>
+                    <input type="text" id="qrInput" class="form-input" value="https://appsolutelyfree.com" placeholder="https://yourwebsite.com or text...">
+                  </div>
+                  <div class="control-row">
+                    <div class="form-group flex-1">
+                      <label for="qrFgColor">QR Color</label>
+                      <input type="color" id="qrFgColor" class="color-picker-input" value="#000000">
+                    </div>
+                    <div class="form-group flex-1">
+                      <label for="qrBgColor">Background</label>
+                      <input type="color" id="qrBgColor" class="color-picker-input" value="#ffffff">
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-primary" id="qrDownloadBtn">⬇️ Download QR Code (PNG)</button>
+                </div>
+                <div class="qr-canvas-wrap">
+                  <canvas id="qrCanvas" class="qr-canvas" width="300" height="300"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Word & Reading Counter -->
+            <div class="tool-panel" id="toolPanel-words" role="tabpanel" aria-labelledby="tabBtn-words" hidden>
+              <div class="word-counter-wrap">
+                <textarea id="wordText" class="form-input form-textarea word-textarea" placeholder="Paste or type your text here to calculate words, characters, reading speed, and speaking time..."></textarea>
+                <div class="word-stats-grid">
+                  <div class="word-stat-card"><strong id="statWords">0</strong><span>Words</span></div>
+                  <div class="word-stat-card"><strong id="statChars">0</strong><span>Characters</span></div>
+                  <div class="word-stat-card"><strong id="statCharsNoSpace">0</strong><span>Without spaces</span></div>
+                  <div class="word-stat-card"><strong id="statSentences">0</strong><span>Sentences</span></div>
+                  <div class="word-stat-card"><strong id="statParagraphs">0</strong><span>Paragraphs</span></div>
+                  <div class="word-stat-card"><strong id="statReadTime">0 min</strong><span>Reading time (200 wpm)</span></div>
+                  <div class="word-stat-card"><strong id="statSpeakTime">0 min</strong><span>Speaking time (130 wpm)</span></div>
+                </div>
+                <div class="tool-actions-row">
+                  <button type="button" class="btn btn-ghost" id="wordCopyBtn">📋 Copy Text</button>
+                  <button type="button" class="btn btn-danger-ghost" id="wordClearBtn">Clear</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. Audio Tone Generator -->
+            <div class="tool-panel" id="toolPanel-audio" role="tabpanel" aria-labelledby="tabBtn-audio" hidden>
+              <div class="audio-tool-wrap">
+                <p class="tool-desc">Test headphones, tune musical instruments, calibrate monitors, or generate acoustic test frequencies with the HTML5 Web Audio API.</p>
+                <div class="control-row">
+                  <div class="form-group flex-1">
+                    <label for="audioType">Waveform Type</label>
+                    <select id="audioType" class="form-input form-select">
+                      <option value="sine">Sine Wave (Pure tone / Tuning)</option>
+                      <option value="square">Square Wave (Synth lead / Harmonics)</option>
+                      <option value="sawtooth">Sawtooth Wave (Buzzy / Bass synth)</option>
+                      <option value="triangle">Triangle Wave (Mellow tone)</option>
+                    </select>
+                  </div>
+                  <div class="form-group flex-1">
+                    <label for="audioVol">Volume</label>
+                    <input type="range" id="audioVol" min="1" max="100" value="30" class="range-slider">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="audioFreq">Frequency: <strong id="audioFreqVal" class="accent-text">440 Hz (Concert A)</strong></label>
+                  <input type="range" id="audioFreq" min="20" max="20000" step="1" value="440" class="range-slider">
+                  <div class="slider-presets">
+                    <button type="button" class="btn-preset" data-freq="60">60 Hz (Sub Bass)</button>
+                    <button type="button" class="btn-preset" data-freq="440">440 Hz (Concert A)</button>
+                    <button type="button" class="btn-preset" data-freq="1000">1 kHz (Test Tone)</button>
+                    <button type="button" class="btn-preset" data-freq="10000">10 kHz (High Air)</button>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-primary audio-play-btn" id="audioPlayBtn">▶ Play Tone</button>
+              </div>
+            </div>
+
+            <!-- 5. Hash & JSON Formatter -->
+            <div class="tool-panel" id="toolPanel-crypto" role="tabpanel" aria-labelledby="tabBtn-crypto" hidden>
+              <div class="crypto-tool-wrap">
+                <div class="form-group">
+                  <label for="hashInput">Input Text or JSON</label>
+                  <textarea id="hashInput" class="form-input form-textarea" rows="4" placeholder="Enter text to compute cryptographic SHA-256 hash, encode to Base64, or format raw JSON..."></textarea>
+                </div>
+                <div class="hash-output-card">
+                  <span class="hash-label">SHA-256 Hash (Web Crypto SubtleAPI):</span>
+                  <code class="hash-code" id="hashSha256">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</code>
+                </div>
+                <div class="tool-btn-grid">
+                  <button type="button" class="btn btn-ghost" id="b64EncBtn">🔒 Base64 Encode</button>
+                  <button type="button" class="btn btn-ghost" id="b64DecBtn">🔓 Base64 Decode</button>
+                  <button type="button" class="btn btn-ghost" id="jsonPrettifyBtn">✨ Prettify JSON</button>
+                  <button type="button" class="btn btn-ghost" id="jsonMinifyBtn">⚡ Minify JSON</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Ready-Made Free Stacks -->
+      <section id="readyStacks" class="home-section" aria-labelledby="stacksTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow green">Curated Workflows · $0 Upfront</span>
+            <h2 id="stacksTitle" class="section-title">Ready-Made Free Stacks</h2>
+            <p class="section-desc">Turn isolated free programs into a coherent, working plan. Includes setup blueprints, realistic limitations, and 1-click stack bookmarking.</p>
+          </div>
+        </div>
+        <div class="stacks-grid" id="readyStacksGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 3. Free AI Hub -->
+      <section id="aiHub" class="home-section" aria-labelledby="aiTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow purple">Free Quotas · Zero Mystery</span>
+            <h2 id="aiTitle" class="section-title">Free AI Tools Hub</h2>
+            <p class="section-desc">Genuinely free AI tools organized by writing, coding, image, audio, and local offline models with explicit quotas, account rules, watermarks, and hardware specs.</p>
+          </div>
+        </div>
+        <div class="chips center" id="aiFilterChips">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="ai-cards-grid" id="aiCardsGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 4. Software Categories -->
       <section id="categories" class="home-section" aria-labelledby="catTitle">
         <div class="section-head-row">
           <div>
@@ -145,6 +361,85 @@
           </div>
         </div>
         <div class="category-grid" id="categoryGrid"></div>
+      </section>
+
+      <!-- 5. Free Creative Resources -->
+      <section id="creativeResources" class="home-section" aria-labelledby="resTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow blue">Commercial-Use Assets</span>
+            <h2 id="resTitle" class="section-title">Free Creative Resources</h2>
+            <p class="section-desc">Hand-picked fonts, SVG icon sets, stock photography, sound effects, audio samples, and 3D models with transparent commercial licensing and attribution terms.</p>
+          </div>
+        </div>
+        <div class="chips center" id="resourceFilterChips">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="resource-cards-grid" id="resourceCardsGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 6. Free Learning & Practice Labs -->
+      <section id="learningHub" class="home-section" aria-labelledby="learnTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow green">Zero Tuition · World-Class Knowledge</span>
+            <h2 id="learnTitle" class="section-title">Free Learning &amp; Labs</h2>
+            <p class="section-desc">Master the software in this directory with official tutorials, interactive practice labs, and full curricula. Genuinely free learning distinguished from paid certificates.</p>
+          </div>
+        </div>
+        <div class="chips center" id="learningFilterChips">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="learning-cards-grid" id="learningCardsGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 7. Free & Open-Source Games -->
+      <section id="freeGames" class="home-section" aria-labelledby="gamesTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow cyan">100% Free · Fair Play</span>
+            <h2 id="gamesTitle" class="section-title">Free &amp; Open-Source Games</h2>
+            <p class="section-desc">Community-developed open-source games, fair browser titles, and legitimate 100% giveaway trackers. Clearly distinguished from microtransaction traps and ad-heavy clones.</p>
+          </div>
+        </div>
+        <div class="chips center" id="gamesFilterChips">
+          <!-- Populated by app.js -->
+        </div>
+        <div class="games-cards-grid" id="gamesCardsGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 8. Software Switching Guides -->
+      <section id="switchingGuides" class="home-section" aria-labelledby="guidesTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow amber">Migration Roadmaps</span>
+            <h2 id="guidesTitle" class="section-title">Software Switching Guides</h2>
+            <p class="section-desc">"What happens to my existing work?" Step-by-step export/import workflows, native file compatibility, shortcut preservation, and gotchas before cancelling subscriptions.</p>
+          </div>
+        </div>
+        <div class="guides-grid" id="guidesGrid">
+          <!-- Populated by app.js -->
+        </div>
+      </section>
+
+      <!-- 9. New & Newly Restricted Radar -->
+      <section id="radarSection" class="home-section" aria-labelledby="radarTitle">
+        <div class="section-head-row">
+          <div>
+            <span class="eyebrow red">Market Watch &amp; Alerts</span>
+            <h2 id="radarTitle" class="section-title">New Additions &amp; Pricing Radar</h2>
+            <p class="section-desc">Live tracker documenting newly launched free tools, programs that downgraded their free tiers, pricing hikes, and abandoned projects with verified replacements.</p>
+          </div>
+        </div>
+        <div class="radar-timeline" id="radarTimeline">
+          <!-- Populated by app.js -->
+        </div>
       </section>
 
       <section id="platforms" class="home-section" aria-labelledby="platTitle">
@@ -182,8 +477,15 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-brand">App<span>solutely</span> Free</div>
-      <p>Helping you escape expensive subscriptions with battle-tested free and open-source software.</p>
       <div class="footer-links">
+        <a href="#browserTools">Free Tools</a>
+        <a href="#readyStacks">Free Stacks</a>
+        <a href="#aiHub">AI Hub</a>
+        <a href="#creativeResources">Creative Resources</a>
+        <a href="#learningHub">Free Learning</a>
+        <a href="#freeGames">Free Games</a>
+        <a href="#switchingGuides">Switching Guides</a>
+        <a href="#radarSection">Pricing Radar</a>
         <a href="#categories">All Categories</a>
         <a href="#calculatorSection">Savings Calculator</a>
         <a href="https://github.com/TheWaxSculptor/appsolutely-free" target="_blank" rel="noopener">GitHub</a>

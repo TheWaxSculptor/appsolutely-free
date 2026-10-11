@@ -9,7 +9,7 @@ const VERSION = '11';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');
-  const { apps, alts } = loadAll();
+  const { apps, alts, stacks, resources, learning, games, aiHub, guides, radar } = loadAll();
   const appsById = Object.fromEntries(apps.map((a) => [a.id, a]));
   let deals = [];
   try { deals = JSON.parse(fs.readFileSync(path.join(root, 'data/affiliates.json'), 'utf8')); } catch (e) { /* none */ }
@@ -87,9 +87,9 @@ async function main() {
   </div>`;
 
   // ---- data.js for the SPA -------------------------------------------------
-  const data = { apps, alternatives: alts, deals };
+  const data = { apps, alternatives: alts, deals, stacks, resources, learning, games, aiHub, guides, radar };
   fs.writeFileSync(path.join(root, 'data.js'), `const data = ${JSON.stringify(data)};\nexport default data;\n`);
-  console.log(`data.js: ${apps.length} paid apps, ${alts.length} alternatives`);
+  console.log(`data.js: ${apps.length} paid apps, ${alts.length} alternatives, ${stacks.length} stacks, ${resources.length} creative resources, ${learning.length} learning resources, ${games.length} games, ${aiHub.length} AI tools, ${guides.length} guides, ${radar.length} radar updates`);
 
   // ---- static pages --------------------------------------------------------
   const year = new Date().getFullYear();

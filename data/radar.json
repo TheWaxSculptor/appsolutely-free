@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-10",
+    "type": "new-addition",
+    "badge": "New Free Addition",
+    "name": "Kokoro TTS",
+    "summary": "Lightweight 82M open-source text-to-speech engine matching ElevenLabs audio naturalness at $0 cost.",
+    "impact": "Can run 100% offline on standard CPUs without GPU requirements or usage caps."
+  },
+  {
+    "date": "2026-09",
+    "type": "restricted",
+    "badge": "Reduced Free Plan",
+    "name": "Evernote Free Tier",
+    "summary": "Evernote capped free basic accounts to a strict limit of 1 notebook and 50 notes total.",
+    "impact": "Users pushed into $129.99/yr subscription. Recommended free replacement: Joplin, Obsidian, or Notesnook."
+  },
+  {
+    "date": "2026-08",
+    "type": "restricted",
+    "badge": "Became Paid / Restricted",
+    "name": "Docker Desktop",
+    "summary": "Enforced subscription fees for companies with >250 employees or >$10M annual revenue.",
+    "impact": "Recommended free drop-in replacements: Rancher Desktop, Colima, or Podman Desktop (100% free & open source)."
+  },
+  {
+    "date": "2026-07",
+    "type": "new-addition",
+    "badge": "New Free Addition",
+    "name": "Bruno API Client",
+    "summary": "Fast, git-friendly open-source API desktop client that stores collections directly in local folders.",
+    "impact": "Replaces Postman (which moved team collections into mandatory cloud sync with limits)."
+  },
+  {
+    "date": "2026-05",
+    "type": "restricted",
+    "badge": "Reduced Free Plan",
+    "name": "Trello Free Tier",
+    "summary": "Atlassian limited free Trello Workspaces to a maximum of 10 collaborators across all boards.",
+    "impact": "Teams requiring unlimited members can switch to Focalboard, Wekan, or Taiga."
+  },
+  {
+    "date": "2026-03",
+    "type": "abandoned",
+    "badge": "Security Alert / Quiet Project",
+    "name": "Apache OpenOffice",
+    "summary": "Project releases remain infrequent with unresolved CVE security alerts in older distributions.",
+    "impact": "All users are strongly advised to migrate immediately to active LibreOffice, which receives monthly security patches."
+  },
+  {
+    "date": "2026-01",
+    "type": "restricted",
+    "badge": "Price Hike Alert",
+    "name": "Adobe Creative Cloud",
+    "summary": "Adobe raised global pricing across standalone Single App subscriptions ($22.99/mo) and All Apps bundles ($59.99/mo).",
+    "impact": "Average annual expense now exceeds $720/yr. Accelerated user migration to Affinity, DaVinci Resolve, Blender, and GIMP."
+  }
+]

@@ -121,7 +121,28 @@ function loadAll() {
     }
   });
 
-  return { apps, alts };
+  let stacks = [];
+  try { stacks = JSON.parse(fs.readFileSync(path.join(root, 'data/stacks.json'), 'utf8')); } catch (e) {}
+
+  let resources = [];
+  try { resources = JSON.parse(fs.readFileSync(path.join(root, 'data/resources.json'), 'utf8')); } catch (e) {}
+
+  let learning = [];
+  try { learning = JSON.parse(fs.readFileSync(path.join(root, 'data/learning.json'), 'utf8')); } catch (e) {}
+
+  let games = [];
+  try { games = JSON.parse(fs.readFileSync(path.join(root, 'data/games.json'), 'utf8')); } catch (e) {}
+
+  let aiHub = [];
+  try { aiHub = JSON.parse(fs.readFileSync(path.join(root, 'data/ai-hub.json'), 'utf8')); } catch (e) {}
+
+  let guides = [];
+  try { guides = JSON.parse(fs.readFileSync(path.join(root, 'data/guides.json'), 'utf8')); } catch (e) {}
+
+  let radar = [];
+  try { radar = JSON.parse(fs.readFileSync(path.join(root, 'data/radar.json'), 'utf8')); } catch (e) {}
+
+  return { apps, alts, stacks, resources, learning, games, aiHub, guides, radar };
 }
 
 module.exports = { loadAll, domainOf, root };
