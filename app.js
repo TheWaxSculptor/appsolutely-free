@@ -280,7 +280,19 @@ function bindResultsEvents() {
   }
 }
 
+// Scroll so the search bar sits just below the sticky topbar, leaving room for results beneath it.
+// Idempotent: does nothing if the bar is already in position, so typing never causes jumps.
+function alignSearchBar() {
+  const box = searchInput.closest('.search-container') || searchInput;
+  const topbarH = document.querySelector('.topbar')?.offsetHeight || 0;
+  const target = Math.max(0, box.getBoundingClientRect().top + window.scrollY - topbarH - 16);
+  if (Math.abs(window.scrollY - target) < 4) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+}
+
 const showHome = () => {
+  document.body.classList.remove('is-searching');
   resultsArea.classList.add('hidden');
   resultsArea.innerHTML = '';
   initialState.classList.remove('hidden');
@@ -495,6 +507,7 @@ function handleSearch(query) {
   const q = query.trim().toLowerCase();
   if (searchClear) searchClear.classList.toggle('hidden', !q);
   if (!q) { showHome(); return; }
+  document.body.classList.add('is-searching');
 
   const matchedApps = db.apps.filter((a) => hasAlts(a) && (a.name.toLowerCase().includes(q) || a.id.includes(q) || (a.vendor || '').toLowerCase().includes(q)));
   const appIds = new Set(matchedApps.map((a) => a.id));
@@ -506,6 +519,7 @@ function handleSearch(query) {
   if (!results.length) {
     showResults(`${header(`No results for “${esc(query)}”`, 'Try searching for an app name like Photoshop, Office, Spotify, or browse categories.')}`, [], { shouldScroll: false });
     bindBack();
+    alignSearchBar();
     return;
   }
   const title = matchedApps.length
@@ -513,6 +527,7 @@ function handleSearch(query) {
     : `Results for “${esc(query)}”`;
   showResults(header(title, `${results.length} free ${results.length === 1 ? 'app' : 'apps'} found`), results, { shouldScroll: false });
   bindBack();
+  alignSearchBar();
 }
 
 function handlePlatform(id) {
