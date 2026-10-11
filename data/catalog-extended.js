@@ -148,9 +148,9 @@ const alts = [
     ['Zero recurring subscriptions (free tier + $29 lifetime deal for advanced features)', 'Syncs with Google Calendar, Apple Calendar, and Office 365', 'Accepts payments via Stripe and PayPal on paid tier'],
     ['Free tier allows up to 2 calendar connections', 'Simpler interface with fewer enterprise integrations'], 'easy'),
 
-  f('zcal', 'Zcal', 'https://zcal.co/', 'free', 'Free forever', ['web'], ['calendly'],
-    'A 100% free meeting scheduling app that adds personalized video introductions and collective meeting polling with zero paywalls.',
-    ['Completely free with unlimited booking links and calendars', 'Record short video/GIF intros to personalize your booking page', 'No branding watermarks or hidden upsells'],
+  f('zcal', 'Zcal', 'https://zcal.co/', 'free', 'Free individual plan', ['web'], ['calendly'],
+    'A free meeting scheduling app that adds personalized video introductions and collective meeting polling with zero paywalls.',
+    ['Generous free plan with unlimited booking links and calendars', 'Record short video/GIF intros to personalize your booking page', 'No branding watermarks on standard bookings'],
     ['Smaller user base and third-party integrations than Calendly', 'No native SMS notifications'], 'easy'),
 
   // =========================================================================
@@ -318,11 +318,6 @@ const alts = [
   // =========================================================================
   // Code & Text Editors (replaces 'sublime-text')
   // =========================================================================
-  f('vscode', 'Visual Studio Code', 'https://code.visualstudio.com/', 'free', 'Microsoft Software License (Open Core)', ALL, ['sublime-text', 'jetbrains'],
-    'The world’s most popular free code editor with an unmatched ecosystem of extensions, integrated terminal, and debugging tools.',
-    ['Massive library of extensions covering every programming language', 'Built-in Git source control and integrated terminal', 'Free multi-device settings sync'],
-    ['Higher memory usage than lightweight text editors like Sublime or Notepad++', 'Official binary contains Microsoft telemetry (use VSCodium for zero telemetry)'], 'easy', { repo: 'microsoft/vscode' }),
-
   f('notepad-plus-plus', 'Notepad++', 'https://notepad-plus-plus.org/', 'open-source', 'GPL-3.0', ['windows'], ['sublime-text'],
     'The legendary lightweight, lightning-fast source code and text editor for Windows that opens gigabyte log files in milliseconds.',
     ['Starts up in a split second with negligible CPU and memory usage', 'Handles massive multi-gigabyte log files without breaking a sweat', 'Extensive regex search-and-replace across multiple files and folders'],
@@ -371,7 +366,7 @@ const alts = [
 
   f('nostr', 'Nostr', 'https://nostr.com/', 'open-source', 'MIT', EVERYWHERE, ['twitter'],
     'A lightweight, decentralized protocol for censorship-resistant global publishing where you own your identity via cryptographic keys.',
-    ['Immune to account bans or centralized server takedowns', 'Use any mobile or web client (Damus, Amethyst, Primal, Coracle)', 'Built-in micropayments via Bitcoin Lightning Network zaps'],
+    ['Decentralized protocol resistant to single-platform account bans or centralized server takedowns', 'Use any mobile or web client (Damus, Amethyst, Primal, Coracle)', 'Built-in micropayments via Bitcoin Lightning Network zaps'],
     ['Requires keeping your private cryptographic key secure', 'Relay connection concepts differ from standard social logins'], 'moderate', { repo: 'nostr-protocol/nostr' }),
 
   // =========================================================================
@@ -448,7 +443,7 @@ const alts = [
 
   f('hugo', 'Hugo', 'https://gohugo.io/', 'open-source', 'Apache-2.0', ALL, ['squarespace'],
     'The world’s fastest open-source static site generator, compiling thousands of pages into static HTML in fractions of a second.',
-    ['Generates entire websites in milliseconds with zero database overhead', 'Host for 100% free on GitHub Pages, Cloudflare Pages, or Netlify', 'Immune to database hacking or CMS security vulnerabilities'],
+    ['Generates entire websites in milliseconds with zero database overhead', 'Host for free on GitHub Pages, Cloudflare Pages, or Netlify free tiers', 'Static file architecture eliminates dynamic CMS database exploits'],
     ['Requires writing Markdown and editing HTML/Go templates', 'No graphical drag-and-drop web admin interface out of the box'], 'moderate', { repo: 'gohugoio/hugo' }),
 
   f('publii', 'Publii', 'https://getpublii.com/', 'open-source', 'GPL-3.0', ALL, ['squarespace'],

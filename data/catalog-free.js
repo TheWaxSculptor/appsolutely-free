@@ -155,7 +155,7 @@ const alts = [
     'A clean, free note-taking app with instant sync and Markdown support across all devices.',
     ['Very fast and minimalist', 'Free sync across devices', 'Open source and no ads'],
     ['No attachments or rich media', 'Minimal organization features'], 'easy', { repo: 'Automattic/simplenote-electron' }),
-  f('clickup', 'ClickUp', 'https://clickup.com/', 'freemium', 'Free forever plan', EVERYWHERE, ['trello'],
+  f('clickup', 'ClickUp', 'https://clickup.com/', 'freemium', 'Free tier (100MB storage)', EVERYWHERE, ['trello'],
     'An all-in-one work platform for tasks, docs, goals, and sprints, with a generous free plan.',
     ['Tasks, boards, docs, and goals in one place', 'Free plan for small teams', 'Highly customizable'],
     ['Can feel overwhelming', 'Advanced features are paid'], 'moderate'),
@@ -243,10 +243,10 @@ const alts = [
     ['Not designed to change your location', 'Not an anonymity tool'], 'easy'),
 
   // ---- Developer tools --------------------------------------------------------
-  f('vs-code', 'Visual Studio Code', 'https://code.visualstudio.com/', 'open-source', 'MIT (source), Microsoft license (binary)', ['windows', 'macos', 'linux', 'web'], ['jetbrains'],
-    'The most popular free code editor, with thousands of extensions, Git, and a built-in terminal.',
-    ['Huge extension marketplace', 'Great Git and debugging support', 'Lightweight and fast'],
-    ['Lighter refactoring than full IDEs', 'Microsoft telemetry is on by default'], 'easy', { repo: 'microsoft/vscode' }),
+  f('vs-code', 'Visual Studio Code', 'https://code.visualstudio.com/', 'free', 'MIT (source Code-OSS), Microsoft License (official binary)', ['windows', 'macos', 'linux', 'web'], ['sublime-text', 'jetbrains'],
+    'The most popular free code editor with an unmatched ecosystem of extensions, integrated terminal, and debugging tools.',
+    ['Massive extension marketplace covering virtually every programming language', 'Built-in Git source control and integrated terminal', 'Free multi-device settings sync'],
+    ['Higher memory footprint than minimal text editors like Sublime Text', 'Official Microsoft binaries contain telemetry (use VSCodium for clean open-source build)'], 'easy', { repo: 'microsoft/vscode' }),
   f('zed', 'Zed', 'https://zed.dev/', 'open-source', 'GPL-3.0', ['macos', 'linux', 'windows'], ['jetbrains'],
     'A very fast, modern code editor built for collaboration and AI-assisted coding.',
     ['Blazing fast native performance', 'Real-time multiplayer editing', 'Built-in AI tools'],

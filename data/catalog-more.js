@@ -153,7 +153,7 @@ const alts = [
   // ---- Game Engines (Unity replacements) -------------------------------------
   f('godot', 'Godot Engine', 'https://godotengine.org/', 'open-source', 'MIT', ALL, ['unity'],
     'The free, open-source 2D and 3D game engine that is completely free of royalties, runtime fees, and subscriptions.',
-    ['100% free under MIT with ZERO royalties forever', 'Lightweight 50MB single executable with fast startup', 'Clean node-based scene architecture with GDScript & C#'],
+    ['Open source under MIT license with no runtime fees or royalties', 'Lightweight 50MB single executable with fast startup', 'Clean node-based scene architecture with GDScript & C#'],
     ['High-end 3D graphics pipeline still maturing compared to Unreal/Unity', 'Fewer console export kits out of the box'], 'moderate', { repo: 'godotengine/godot' }),
 
   // ---- Small Business & Accounting (QuickBooks replacements) -----------------

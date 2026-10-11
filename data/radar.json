@@ -1,56 +1,96 @@
 [
   {
     "date": "2026-10",
-    "type": "new-addition",
-    "badge": "New Free Addition",
+    "event_date": "October 2026",
+    "last_checked": "2026-10-10",
+    "source_url": "https://voideditor.com/",
+    "source_name": "Void Editor Release Notes & GitHub",
+    "type": "new-launch",
+    "badge": "Newly Launched Software",
+    "name": "Void Code Editor",
+    "summary": "New open-source AI code editor alternative to Cursor that connects to local or self-hosted LLMs with zero third-party telemetry.",
+    "impact": "Eliminates $20/month AI editor subscriptions while keeping source code 100% on local storage."
+  },
+  {
+    "date": "2026-10",
+    "event_date": "Initial Release: October 2024 · v1.0: 2025",
+    "last_checked": "2026-10-10",
+    "source_url": "https://huggingface.co/hexgrad/Kokoro-82M",
+    "source_name": "Hugging Face Model Repository & Benchmarks",
+    "type": "directory-addition",
+    "badge": "Added to Directory",
     "name": "Kokoro TTS",
-    "summary": "Lightweight 82M open-source text-to-speech engine matching ElevenLabs audio naturalness at $0 cost.",
-    "impact": "Can run 100% offline on standard CPUs without GPU requirements or usage caps."
+    "summary": "Lightweight 82M open-source text-to-speech engine matching commercial voice naturalness at $0 cost.",
+    "impact": "Can run offline on standard consumer CPUs without expensive GPU cloud requirements or API character quotas."
   },
   {
     "date": "2026-09",
+    "event_date": "December 2023",
+    "last_checked": "2026-10-10",
+    "source_url": "https://help.evernote.com/hc/en-us/articles/23565011247635",
+    "source_name": "Evernote Help Center Official Announcement",
     "type": "restricted",
-    "badge": "Reduced Free Plan",
+    "badge": "Downgraded Free Plan",
     "name": "Evernote Free Tier",
     "summary": "Evernote capped free basic accounts to a strict limit of 1 notebook and 50 notes total.",
-    "impact": "Users pushed into $129.99/yr subscription. Recommended free replacement: Joplin, Obsidian, or Notesnook."
+    "impact": "Users prompted into $129.99/yr subscription. Recommended free replacement: Joplin, Obsidian, or Notesnook."
   },
   {
     "date": "2026-08",
+    "event_date": "January 2022",
+    "last_checked": "2026-10-10",
+    "source_url": "https://www.docker.com/pricing/faq/",
+    "source_name": "Docker Subscription Service Agreement",
     "type": "restricted",
     "badge": "Became Paid / Restricted",
     "name": "Docker Desktop",
     "summary": "Enforced subscription fees for companies with >250 employees or >$10M annual revenue.",
-    "impact": "Recommended free drop-in replacements: Rancher Desktop, Colima, or Podman Desktop (100% free & open source)."
+    "impact": "Recommended free drop-in replacements: Rancher Desktop, Colima, or Podman Desktop (free & open source)."
   },
   {
     "date": "2026-07",
-    "type": "new-addition",
-    "badge": "New Free Addition",
+    "event_date": "Initial Release: September 2023",
+    "last_checked": "2026-10-10",
+    "source_url": "https://www.usebruno.com/",
+    "source_name": "Bruno Official Documentation & GitHub",
+    "type": "directory-addition",
+    "badge": "Added to Directory",
     "name": "Bruno API Client",
     "summary": "Fast, git-friendly open-source API desktop client that stores collections directly in local folders.",
-    "impact": "Replaces Postman (which moved team collections into mandatory cloud sync with limits)."
+    "impact": "Replaces Postman (which phased out scratchpad mode and moved team collections into mandatory cloud sync with limits)."
   },
   {
     "date": "2026-05",
+    "event_date": "April 2024",
+    "last_checked": "2026-10-10",
+    "source_url": "https://support.atlassian.com/trello/docs/user-limits-on-free-workspaces/",
+    "source_name": "Atlassian Trello Support Notice",
     "type": "restricted",
-    "badge": "Reduced Free Plan",
+    "badge": "Downgraded Free Plan",
     "name": "Trello Free Tier",
     "summary": "Atlassian limited free Trello Workspaces to a maximum of 10 collaborators across all boards.",
     "impact": "Teams requiring unlimited members can switch to Focalboard, Wekan, or Taiga."
   },
   {
     "date": "2026-03",
+    "event_date": "March 2024",
+    "last_checked": "2026-10-10",
+    "source_url": "https://www.openoffice.org/security/",
+    "source_name": "Apache OpenOffice Security Bulletins",
     "type": "abandoned",
     "badge": "Security Alert / Quiet Project",
     "name": "Apache OpenOffice",
-    "summary": "Project releases remain infrequent with unresolved CVE security alerts in older distributions.",
-    "impact": "All users are strongly advised to migrate immediately to active LibreOffice, which receives monthly security patches."
+    "summary": "Project releases remain infrequent with slow CVE patching cycles compared to modern office suites.",
+    "impact": "All users are strongly advised to migrate to active LibreOffice, which receives frequent security and compatibility updates."
   },
   {
     "date": "2026-01",
+    "event_date": "November 2023",
+    "last_checked": "2026-10-10",
+    "source_url": "https://helpx.adobe.com/manage-account/using/creative-cloud-subscription-price-increase.html",
+    "source_name": "Adobe Creative Cloud Pricing Announcement",
     "type": "restricted",
-    "badge": "Price Hike Alert",
+    "badge": "Subscription Price Hike",
     "name": "Adobe Creative Cloud",
     "summary": "Adobe raised global pricing across standalone Single App subscriptions ($22.99/mo) and All Apps bundles ($59.99/mo).",
     "impact": "Average annual expense now exceeds $720/yr. Accelerated user migration to Affinity, DaVinci Resolve, Blender, and GIMP."

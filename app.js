@@ -1,5 +1,5 @@
 import db from './data.js?v=11';
-import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
+import { cardHtml, dealHtml, displayAdHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const altsById = Object.fromEntries(db.alternatives.map((a) => [a.id, a]));
@@ -58,12 +58,22 @@ const APP_PRICES = {
 
 // ---- Stack / Bookmarks (LocalStorage) --------------------------------------
 const STACK_KEY = 'appsolutely_free_stack_v1';
+const USER_SUBS_KEY = 'appsolutely_user_subs_v1';
+
 function getStack() {
   try { return JSON.parse(localStorage.getItem(STACK_KEY)) || []; } catch (e) { return []; }
 }
 function setStack(list) {
   localStorage.setItem(STACK_KEY, JSON.stringify(list));
   updateStackUI();
+}
+function getUserSubs() {
+  try { return JSON.parse(localStorage.getItem(USER_SUBS_KEY)) || []; } catch (e) { return []; }
+}
+function setUserSubs(list) {
+  localStorage.setItem(USER_SUBS_KEY, JSON.stringify(list));
+  updateStackUI();
+  syncCalculatorSelections();
 }
 function toggleStack(id) {
   const stack = getStack();
@@ -91,13 +101,19 @@ function updateStackUI() {
   const drawerSub = document.getElementById('drawerSub');
   const drawerTotal = document.getElementById('drawerTotalSaved');
   const drawerReplacedSub = document.getElementById('drawerReplacedSub');
+  const drawerSubsSection = document.getElementById('drawerSubsSection');
+  const drawerSubsList = document.getElementById('drawerSubsList');
 
   if (drawerBody) {
     if (!stack.length) {
       drawerBody.innerHTML = `<div class="empty-stack"><span class="empty-icon">📂</span><p>Your stack is empty.</p><small>Click the bookmark icon on any card to build your personalized free software stack!</small></div>`;
       if (drawerSub) drawerSub.textContent = '0 saved tools';
-      if (drawerTotal) drawerTotal.textContent = '$0 / yr';
+      if (drawerTotal) {
+        drawerTotal.textContent = '$0 / yr';
+        drawerTotal.classList.remove('loss');
+      }
       if (drawerReplacedSub) drawerReplacedSub.textContent = '';
+      if (drawerSubsSection) drawerSubsSection.classList.add('hidden');
     } else {
       const items = stack.map((id) => altsById[id]).filter(Boolean);
       drawerBody.innerHTML = items.map((a) => `
@@ -114,30 +130,100 @@ function updateStackUI() {
         </div>
       `).join('');
 
-      // Calculate from subscriptions the visitor actually replaces (deduplicated)
-      const replacedAppIds = new Set();
+      // Find all paid tools that these saved alternatives actually replace
+      const candidateAppIds = new Set();
       items.forEach((a) => {
-        (a.replaces || []).forEach((r) => replacedAppIds.add(r));
+        (a.replaces || []).forEach((r) => candidateAppIds.add(r));
       });
-      const replacedArr = [...replacedAppIds];
-      let totalEst = 0;
-      replacedArr.forEach((appId) => {
-        totalEst += APP_PRICES[appId] || 120;
+      const candidateArr = [...candidateAppIds];
+      const userSubs = getUserSubs();
+
+      if (candidateArr.length > 0) {
+        if (drawerSubsSection) drawerSubsSection.classList.remove('hidden');
+        if (drawerSubsList) {
+          drawerSubsList.innerHTML = candidateArr.map((appId) => {
+            const isChecked = userSubs.includes(appId);
+            const price = customPrices[appId] !== undefined ? customPrices[appId] : (APP_PRICES[appId] || 0);
+            const appObj = appsById[appId];
+            const appName = appObj ? appObj.name : appId;
+            return `
+              <label class="drawer-sub-row">
+                <span class="drawer-sub-label">
+                  <input type="checkbox" class="drawer-sub-chk" value="${esc(appId)}" ${isChecked ? 'checked' : ''}>
+                  ${esc(appName)}
+                </span>
+                <span class="drawer-sub-price" onclick="event.stopPropagation()">
+                  $<input type="number" class="drawer-cost-input" value="${price > 0 ? price : ''}" placeholder="${price > 0 ? price : '0'}" data-id="${esc(appId)}" min="0" step="5" aria-label="${esc(appName)} annual cost">/yr
+                </span>
+              </label>
+            `;
+          }).join('');
+
+          // Bind checkbox toggles
+          drawerSubsList.querySelectorAll('.drawer-sub-chk').forEach((chk) => {
+            chk.addEventListener('change', () => {
+              const current = getUserSubs();
+              const next = chk.checked ? [...new Set([...current, chk.value])] : current.filter((x) => x !== chk.value);
+              setUserSubs(next);
+            });
+          });
+
+          // Bind editable price inputs
+          drawerSubsList.querySelectorAll('.drawer-cost-input').forEach((inp) => {
+            inp.addEventListener('input', (e) => {
+              const appId = e.target.dataset.id;
+              const val = Math.max(0, Number(e.target.value) || 0);
+              customPrices[appId] = val;
+              const calcInp = document.querySelector(`.calc-cost-input[data-id="${appId}"]`);
+              if (calcInp) calcInp.value = val;
+              updateStackUI();
+              updateCalculatorTotal();
+            });
+          });
+        }
+      } else {
+        if (drawerSubsSection) drawerSubsSection.classList.add('hidden');
+      }
+
+      // Calculate strictly based on subscriptions the visitor ACTUALLY pays for
+      let verifiedGross = 0;
+      let activePaidCount = 0;
+      candidateArr.forEach((appId) => {
+        if (userSubs.includes(appId)) {
+          const price = customPrices[appId] !== undefined ? customPrices[appId] : (APP_PRICES[appId] || 0);
+          verifiedGross += price;
+          activePaidCount++;
+        }
       });
 
+      const netSavings = verifiedGross - replacementExpense;
+
       if (drawerSub) {
-        drawerSub.textContent = `${items.length} saved ${items.length === 1 ? 'tool' : 'tools'}${replacedArr.length ? ` · ${replacedArr.length} subscription${replacedArr.length === 1 ? '' : 's'} replaced` : ''}`;
+        drawerSub.textContent = `${items.length} saved ${items.length === 1 ? 'tool' : 'tools'} · ${candidateArr.length} potential replacement${candidateArr.length === 1 ? '' : 's'}`;
       }
+
       if (drawerTotal) {
-        drawerTotal.textContent = `$${totalEst.toLocaleString()} / yr`;
-      }
-      if (drawerReplacedSub) {
-        if (replacedArr.length > 0) {
-          const names = replacedArr.map((id) => (appsById[id] ? appsById[id].name : id)).slice(0, 4).join(', ');
-          const extra = replacedArr.length > 4 ? ` +${replacedArr.length - 4} more` : '';
-          drawerReplacedSub.textContent = `Calculated from replaced subscriptions: ${names}${extra}. (Multiple alternatives to the same tool do not multiply savings)`;
+        if (activePaidCount === 0) {
+          drawerTotal.textContent = '$0 / yr';
+          drawerTotal.classList.remove('loss');
+        } else if (netSavings < 0) {
+          drawerTotal.textContent = `-$${Math.abs(netSavings).toLocaleString()} / yr`;
+          drawerTotal.classList.add('loss');
         } else {
-          drawerReplacedSub.textContent = 'Save tools that replace paid apps to calculate your subscription savings.';
+          drawerTotal.textContent = `$${netSavings.toLocaleString()} / yr`;
+          drawerTotal.classList.remove('loss');
+        }
+      }
+
+      if (drawerReplacedSub) {
+        if (candidateArr.length === 0) {
+          drawerReplacedSub.textContent = 'Save tools that replace paid software to calculate your subscription savings.';
+        } else if (activePaidCount === 0) {
+          drawerReplacedSub.textContent = 'Check the subscriptions you actually pay for above to calculate verified savings.';
+        } else if (netSavings < 0) {
+          drawerReplacedSub.textContent = `Replacement costs exceed savings by $${Math.abs(netSavings).toLocaleString()}/year ($${verifiedGross.toLocaleString()}/yr subscriptions − $${replacementExpense.toLocaleString()}/yr replacement expenses).`;
+        } else {
+          drawerReplacedSub.textContent = `Verified savings from ${activePaidCount} subscription${activePaidCount === 1 ? '' : 's'}${replacementExpense > 0 ? ` after subtracting $${replacementExpense}/yr replacement costs` : ''}.`;
         }
       }
     }
@@ -158,11 +244,163 @@ function showToast(msg) {
   }, 2600);
 }
 
+// ---- Reusable Card Renderers (Apps, Resources, Learning, Games, Guides) -----
+function renderResourceCard(item) {
+  return `
+    <div class="resource-card glass-panel">
+      <div class="res-top">
+        <div>
+          <span class="res-cat-badge">${esc(item.category)}</span>
+          <h3 class="res-name">${esc(item.name)}</h3>
+        </div>
+        <span class="res-license-pill">${esc(item.license)}</span>
+      </div>
+      <p class="res-desc">${esc(item.description)}</p>
+
+      <div class="res-terms-row">
+        <span class="res-term-badge term-commercial">
+          Commercial: <strong>${esc(item.commercial_use)}</strong>
+        </span>
+        <span class="res-term-badge term-attribution">
+          Attribution: <strong>${esc(item.attribution)}</strong>
+        </span>
+      </div>
+
+      <div class="res-highlight-box">
+        <span class="highlight-star">✨</span>
+        <small>${esc(item.highlight)}</small>
+      </div>
+
+      <div class="res-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          Browse Library ↗
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function renderLearningCard(item) {
+  const hasCert = (item.has_certificate || '').toLowerCase().startsWith('yes');
+  return `
+    <div class="learning-card glass-panel">
+      <div class="learning-card-top">
+        <div>
+          <span class="learn-software-badge">${esc(item.software || item.category)}</span>
+          <h3 class="learn-title">${esc(item.title)}</h3>
+          <span class="learn-provider">By ${esc(item.provider)}</span>
+        </div>
+        <span class="learn-cost-badge">${esc(item.cost_model)}</span>
+      </div>
+
+      <p class="learn-desc">${esc(item.description)}</p>
+
+      <div class="learn-spec-row">
+        <div class="cert-status-badge ${hasCert ? 'cert-free' : 'cert-none'}">
+          <span class="cert-icon">${hasCert ? '🎓' : '🛠️'}</span>
+          <span>Certificate: <strong>${esc(item.has_certificate)}</strong></span>
+        </div>
+        <div class="learn-format-pill">
+          <span>Format: <strong>${esc(item.format)}</strong></span>
+        </div>
+      </div>
+
+      <div class="learning-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+          Start Free Course ↗
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function renderGameCard(item) {
+  return `
+    <div class="game-card glass-panel">
+      <div class="game-top">
+        <div>
+          <span class="game-genre-badge">${esc(item.genre)}</span>
+          <h3 class="game-title">${esc(item.title)}</h3>
+        </div>
+        <span class="game-tier-pill">${esc(item.tier)}</span>
+      </div>
+
+      <p class="game-desc">${esc(item.description)}</p>
+
+      <div class="game-monetization-row">
+        <span class="monetization-badge">
+          🛡️ Monetization: <strong>${esc(item.monetization)}</strong>
+        </span>
+      </div>
+
+      <div class="game-platforms-row">
+        <span class="platforms-label">Platforms:</span>
+        ${(item.platforms || []).map(p => `<span class="platform-mini-pill">${esc(p)}</span>`).join('')}
+      </div>
+
+      <div class="game-footer">
+        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+          Play / Download ↗
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+function renderGuideCard(g) {
+  return `
+    <div class="guide-card glass-panel" id="guide-${esc(g.id)}">
+      <div class="guide-header">
+        <div class="guide-migration-flow">
+          <span class="guide-from">${esc(g.from_app)}</span>
+          <span class="flow-arrow">➔</span>
+          <span class="guide-to">${esc(g.to_app)}</span>
+        </div>
+        <h3 class="guide-title">${esc(g.title)}</h3>
+        <p class="guide-headline">${esc(g.headline)}</p>
+      </div>
+
+      <div class="guide-file-formats">
+        <div class="format-badge-box">
+          <span class="format-box-label">📂 Opens Native:</span>
+          <span class="format-tags">${esc(g.file_support ? g.file_support.opens_native : '')}</span>
+        </div>
+        <div class="format-badge-box">
+          <span class="format-box-label">💾 Exports To:</span>
+          <span class="format-tags">${esc(g.file_support ? g.file_support.exports_to : '')}</span>
+        </div>
+      </div>
+
+      <div class="guide-steps-container">
+        <h4 class="guide-steps-title">Transition Steps:</h4>
+        <div class="guide-steps-list">
+          ${(g.key_steps || []).map(step => `
+            <div class="guide-step-item">
+              <strong>${esc(step.title)}</strong>
+              <p>${esc(step.detail)}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+      <div class="guide-gotchas-box">
+        <div class="gotcha-head">
+          <span>⚠️</span>
+          <strong>Critical Gotchas &amp; Workarounds:</strong>
+        </div>
+        <p>${esc(g.gotchas)}</p>
+      </div>
+    </div>
+  `;
+}
+
 // ---- Results Rendering & Filtering -----------------------------------------
 let currentResults = [];
 let currentCostFilter = 'all'; // 'all', 'zero-cost', 'limited-free', 'self-hosted'
 let openSourceOnly = false;
 let currentSort = 'default';
+let currentUnifiedResults = null;
+let currentSearchType = 'all';
 
 function renderCardsWithState(list) {
   let filtered = [...list];
@@ -230,8 +468,150 @@ function renderFilterBar(totalCount) {
   </div>`;
 }
 
+function renderTypeChips(resultsObj) {
+  const { alts, learning, resources, games, guides } = resultsObj;
+  const total = alts.length + learning.length + resources.length + games.length + guides.length;
+
+  return `
+    <div class="search-type-filters" role="tablist" aria-label="Filter results by category">
+      <button class="type-chip ${currentSearchType === 'all' ? 'active' : ''}" type="button" data-type="all">
+        <span>All Results</span>
+        <span class="type-chip-count">${total}</span>
+      </button>
+      ${alts.length ? `<button class="type-chip ${currentSearchType === 'apps' ? 'active' : ''}" type="button" data-type="apps">
+        <span>💻 Apps &amp; Tools</span>
+        <span class="type-chip-count">${alts.length}</span>
+      </button>` : ''}
+      ${learning.length ? `<button class="type-chip ${currentSearchType === 'learning' ? 'active' : ''}" type="button" data-type="learning">
+        <span>🎓 Courses &amp; Labs</span>
+        <span class="type-chip-count">${learning.length}</span>
+      </button>` : ''}
+      ${resources.length ? `<button class="type-chip ${currentSearchType === 'resources' ? 'active' : ''}" type="button" data-type="resources">
+        <span>🎨 Creative Assets</span>
+        <span class="type-chip-count">${resources.length}</span>
+      </button>` : ''}
+      ${games.length ? `<button class="type-chip ${currentSearchType === 'games' ? 'active' : ''}" type="button" data-type="games">
+        <span>🎮 Free Games</span>
+        <span class="type-chip-count">${games.length}</span>
+      </button>` : ''}
+      ${guides.length ? `<button class="type-chip ${currentSearchType === 'guides' ? 'active' : ''}" type="button" data-type="guides">
+        <span>🗺️ Guides</span>
+        <span class="type-chip-count">${guides.length}</span>
+      </button>` : ''}
+    </div>
+  `;
+}
+
+function renderUnifiedContent() {
+  if (!currentUnifiedResults) return '';
+  const { alts, learning, resources, games, guides } = currentUnifiedResults;
+  const sections = [];
+
+  const showApps = (currentSearchType === 'all' || currentSearchType === 'apps') && alts.length > 0;
+  const showLearning = (currentSearchType === 'all' || currentSearchType === 'learning') && learning.length > 0;
+  const showResources = (currentSearchType === 'all' || currentSearchType === 'resources') && resources.length > 0;
+  const showGames = (currentSearchType === 'all' || currentSearchType === 'games') && games.length > 0;
+  const showGuides = (currentSearchType === 'all' || currentSearchType === 'guides') && guides.length > 0;
+
+  if (showApps) {
+    sections.push(`
+      <div class="search-group-section">
+        ${currentSearchType === 'all' ? `
+          <div class="search-group-head">
+            <h3 class="search-group-title">💻 Free Software Alternatives</h3>
+            <span class="search-group-count">${alts.length} found</span>
+          </div>` : ''}
+        ${renderFilterBar(alts.length)}
+        <div class="alts-grid" id="altsGrid">${renderCardsWithState(alts)}</div>
+      </div>
+    `);
+  }
+
+  if (showLearning) {
+    sections.push(`
+      <div class="search-group-section">
+        ${currentSearchType === 'all' ? `
+          <div class="search-group-head">
+            <h3 class="search-group-title">🎓 Free Courses &amp; Practice Labs</h3>
+            <span class="search-group-count">${learning.length} found</span>
+          </div>` : ''}
+        <div class="learning-cards-grid">${learning.map(renderLearningCard).join('')}</div>
+      </div>
+    `);
+  }
+
+  if (showResources) {
+    sections.push(`
+      <div class="search-group-section">
+        ${currentSearchType === 'all' ? `
+          <div class="search-group-head">
+            <h3 class="search-group-title">🎨 Free Creative Resources</h3>
+            <span class="search-group-count">${resources.length} found</span>
+          </div>` : ''}
+        <div class="resource-cards-grid">${resources.map(renderResourceCard).join('')}</div>
+      </div>
+    `);
+  }
+
+  if (showGames) {
+    sections.push(`
+      <div class="search-group-section">
+        ${currentSearchType === 'all' ? `
+          <div class="search-group-head">
+            <h3 class="search-group-title">🎮 Free &amp; Open Source Games</h3>
+            <span class="search-group-count">${games.length} found</span>
+          </div>` : ''}
+        <div class="games-cards-grid">${games.map(renderGameCard).join('')}</div>
+      </div>
+    `);
+  }
+
+  if (showGuides) {
+    sections.push(`
+      <div class="search-group-section">
+        ${currentSearchType === 'all' ? `
+          <div class="search-group-head">
+            <h3 class="search-group-title">🗺️ Software Switching Guides</h3>
+            <span class="search-group-count">${guides.length} found</span>
+          </div>` : ''}
+        <div class="guides-grid">${guides.map(renderGuideCard).join('')}</div>
+      </div>
+    `);
+  }
+
+  return sections.join('');
+}
+
+function updateUnifiedResultsView() {
+  const container = document.getElementById('unifiedResultsContainer');
+  const chipsWrap = document.getElementById('searchTypeChipsWrap');
+  if (chipsWrap && currentUnifiedResults) {
+    chipsWrap.innerHTML = renderTypeChips(currentUnifiedResults);
+  }
+  if (container) {
+    container.innerHTML = renderUnifiedContent();
+    bindResultsEvents();
+    updateStackUI();
+  }
+}
+
+const getAdUnitResults = () => {
+  const deal = (db.deals && db.deals.find((d) => d.id === 'retouch4me')) || (db.deals && db.deals[0]);
+  return `
+  <div class="partner-spotlight-slot partner-spotlight-results" aria-label="Sponsored Partner Offer">
+    ${displayAdHtml(deal, { base: '' })}
+  </div>`;
+
+};
+
+function triggerAdSense() {
+  // Pure affiliate banner architecture — no external ad scripts needed
+}
+
 const showResults = (headerHtml, resultsList, { shouldScroll = false } = {}) => {
   currentResults = resultsList;
+  currentUnifiedResults = null;
+  currentSearchType = 'all';
   currentCostFilter = 'all';
   openSourceOnly = false;
   currentSort = 'default';
@@ -242,18 +622,30 @@ const showResults = (headerHtml, resultsList, { shouldScroll = false } = {}) => 
     ${headerHtml}
     ${renderFilterBar(resultsList.length)}
     <div class="alts-grid" id="altsGrid">${renderCardsWithState(resultsList)}</div>
+    ${getAdUnitResults()}
   `;
+
   bindResultsEvents();
   updateStackUI();
+  triggerAdSense(resultsArea);
   if (shouldScroll) {
     resultsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 };
 
 function bindResultsEvents() {
+  const chipsWrap = resultsArea.querySelector('#searchTypeChipsWrap') || resultsArea;
+  chipsWrap.querySelectorAll('.type-chip').forEach((chip) => {
+    chip.onclick = (e) => {
+      e.preventDefault();
+      currentSearchType = chip.dataset.type;
+      updateUnifiedResultsView();
+    };
+  });
+
   const bar = resultsArea.querySelector('.filter-sort-bar');
   if (bar) {
-    bar.addEventListener('click', (e) => {
+    bar.onclick = (e) => {
       const costPill = e.target.closest('.cost-pill');
       if (costPill) {
         bar.querySelectorAll('.cost-pill').forEach((p) => p.classList.remove('active'));
@@ -269,13 +661,13 @@ function bindResultsEvents() {
         updateResultsGrid();
         return;
       }
-    });
+    };
     const sortSelect = bar.querySelector('#sortSelect');
     if (sortSelect) {
-      sortSelect.addEventListener('change', (e) => {
+      sortSelect.onchange = (e) => {
         currentSort = e.target.value;
         updateResultsGrid();
-      });
+      };
     }
   }
 }
@@ -291,8 +683,11 @@ const showHome = () => {
   document.body.classList.remove('is-searching');
   resultsArea.classList.add('hidden');
   resultsArea.innerHTML = '';
+  currentUnifiedResults = null;
+  currentSearchType = 'all';
   initialState.classList.remove('hidden');
 };
+
 
 // ---- Home sections --------------------------------------------------------
 function renderStats() {
@@ -357,8 +752,9 @@ function renderFeatured() {
 function renderDeals() {
   if (!db.deals || !db.deals.length) return;
   document.getElementById('dealsSection').hidden = false;
-  document.getElementById('dealGrid').innerHTML = db.deals.map(dealHtml).join('');
+  document.getElementById('dealGrid').innerHTML = db.deals.map((d) => dealHtml(d, { base: '' })).join('');
 }
+
 
 // ---- Savings Calculator ----------------------------------------------------
 const POPULAR_SUBSCRIPTIONS = [
@@ -382,9 +778,10 @@ let replacementExpense = 0;
 function renderCalculator() {
   const grid = document.getElementById('calcGrid');
   if (!grid) return;
+  const userSubs = getUserSubs();
   grid.innerHTML = POPULAR_SUBSCRIPTIONS.map((s) => `
-    <label class="calc-item glass-panel" data-id="${s.id}">
-      <input type="checkbox" name="sub" value="${s.id}">
+    <label class="calc-item glass-panel ${userSubs.includes(s.id) ? 'selected' : ''}" data-id="${s.id}">
+      <input type="checkbox" name="sub" value="${s.id}" ${userSubs.includes(s.id) ? 'checked' : ''}>
       <span class="calc-item-emoji">${s.icon}</span>
       <span class="calc-item-name">${esc(s.name)}</span>
       <span class="calc-item-price calc-item-price-static">$${s.price}/yr</span>
@@ -396,13 +793,20 @@ function renderCalculator() {
     </label>
   `).join('');
 
-  grid.addEventListener('change', updateCalculatorTotal);
+  grid.addEventListener('change', () => {
+    const checked = [...grid.querySelectorAll('input[type="checkbox"]:checked')].map((c) => c.value);
+    localStorage.setItem(USER_SUBS_KEY, JSON.stringify(checked));
+    updateCalculatorTotal();
+    updateStackUI();
+  });
+
   grid.addEventListener('input', (e) => {
     if (e.target.classList.contains('calc-cost-input')) {
       const id = e.target.dataset.id;
       const val = Math.max(0, Number(e.target.value) || 0);
       customPrices[id] = val;
       updateCalculatorTotal();
+      updateStackUI();
     }
   });
 
@@ -411,6 +815,7 @@ function renderCalculator() {
     expenseInput.addEventListener('input', (e) => {
       replacementExpense = Math.max(0, Number(e.target.value) || 0);
       updateCalculatorTotal();
+      updateStackUI();
     });
   }
 
@@ -426,16 +831,30 @@ function renderCalculator() {
       checked.forEach((id) => {
         grossTotal += (customPrices[id] !== undefined ? customPrices[id] : (POPULAR_SUBSCRIPTIONS.find((s) => s.id === id)?.price || 0));
       });
-      const netSavings = Math.max(0, grossTotal - replacementExpense);
+      const netSavings = grossTotal - replacementExpense;
 
       const headHtml = header(
-        `Your Free Replacements (Potential Savings: $${netSavings.toLocaleString()}/yr)`,
-        `${matchedAlts.length} free alternatives replacing ${checkedNames}. ${replacementExpense > 0 ? `(After subtracting $${replacementExpense.toLocaleString()}/yr self-hosting/hardware expense)` : ''}`
+        netSavings >= 0 
+          ? `Your Free Replacements (Potential Net Savings: $${netSavings.toLocaleString()}/yr)`
+          : `Your Free Replacements (Replacement costs exceed savings by $${Math.abs(netSavings).toLocaleString()}/year)`,
+        `${matchedAlts.length} free alternatives replacing ${checkedNames}. ${replacementExpense > 0 ? `(After subtracting $${replacementExpense.toLocaleString()}/yr self-hosting/hardware expenses)` : ''}`
       );
       showResults(headHtml, matchedAlts, { shouldScroll: true });
       bindBack();
     });
   }
+
+  updateCalculatorTotal();
+}
+
+function syncCalculatorSelections() {
+  const grid = document.getElementById('calcGrid');
+  if (!grid) return;
+  const subs = getUserSubs();
+  grid.querySelectorAll('input[type="checkbox"]').forEach((chk) => {
+    chk.checked = subs.includes(chk.value);
+  });
+  updateCalculatorTotal();
 }
 
 function updateCalculatorTotal() {
@@ -453,22 +872,52 @@ function updateCalculatorTotal() {
     grossTotal += (customPrices[id] !== undefined ? customPrices[id] : (POPULAR_SUBSCRIPTIONS.find((s) => s.id === id)?.price || 0));
   });
 
-  const netSavings = Math.max(0, grossTotal - replacementExpense);
+  const netSavings = grossTotal - replacementExpense;
 
   const totalEl = document.getElementById('calcTotal');
+  const currencyPrefix = document.getElementById('calcCurrencyPrefix');
+  const savingsLabel = document.getElementById('calcSavingsLabel');
+  const lossAlert = document.getElementById('calcLossAlert');
+  const lossAmount = document.getElementById('calcLossAmount');
   const countEl = document.getElementById('calcSelectedCount');
   const breakdownEl = document.getElementById('calcBreakdown');
   const actionBtn = document.getElementById('calcActionBtn');
 
-  if (totalEl) totalEl.textContent = netSavings.toLocaleString();
+  if (totalEl) {
+    if (netSavings < 0) {
+      totalEl.textContent = `-${Math.abs(netSavings).toLocaleString()}`;
+      totalEl.classList.add('loss');
+      if (currencyPrefix) currencyPrefix.classList.add('loss');
+      if (savingsLabel) savingsLabel.textContent = 'Net Annual Financial Impact:';
+      if (lossAlert) {
+        lossAlert.classList.remove('hidden');
+        if (lossAmount) lossAmount.textContent = `$${Math.abs(netSavings).toLocaleString()}/year`;
+      }
+    } else {
+      totalEl.textContent = netSavings.toLocaleString();
+      totalEl.classList.remove('loss');
+      if (currencyPrefix) currencyPrefix.classList.remove('loss');
+      if (savingsLabel) savingsLabel.textContent = 'Your Potential Annual Savings:';
+      if (lossAlert) lossAlert.classList.add('hidden');
+    }
+  }
+
   if (countEl) {
-    countEl.textContent = checked.length === 0
-      ? 'Select subscriptions above to calculate potential savings'
-      : `${checked.length} subscription${checked.length === 1 ? '' : 's'} selected · Potential savings calculated`;
+    if (checked.length === 0) {
+      countEl.textContent = 'Select subscriptions above to calculate potential savings';
+    } else if (netSavings < 0) {
+      countEl.innerHTML = `<span class="loss-text">Replacement costs exceed savings by $${Math.abs(netSavings).toLocaleString()}/year</span> (${checked.length} subscription${checked.length === 1 ? '' : 's'} selected)`;
+    } else {
+      countEl.textContent = `${checked.length} subscription${checked.length === 1 ? '' : 's'} selected · Savings calculated`;
+    }
   }
   if (breakdownEl) {
     if (checked.length > 0) {
-      breakdownEl.textContent = `Subscriptions: $${grossTotal.toLocaleString()}/yr ${replacementExpense > 0 ? `− $${replacementExpense.toLocaleString()}/yr hosting/hardware = $${netSavings.toLocaleString()}/yr net potential savings` : '(assumes $0 local installation)'}`;
+      if (netSavings < 0) {
+        breakdownEl.textContent = `Subscriptions: $${grossTotal.toLocaleString()}/yr − $${replacementExpense.toLocaleString()}/yr replacement expenses = -$${Math.abs(netSavings).toLocaleString()}/yr (Replacement costs exceed savings by $${Math.abs(netSavings).toLocaleString()}/year)`;
+      } else {
+        breakdownEl.textContent = `Subscriptions: $${grossTotal.toLocaleString()}/yr ${replacementExpense > 0 ? `− $${replacementExpense.toLocaleString()}/yr hosting/hardware = $${netSavings.toLocaleString()}/yr net savings` : '(assumes $0 local installation)'}`;
+      }
     } else {
       breakdownEl.textContent = '';
     }
@@ -501,30 +950,123 @@ function bindBack() {
 
 function handleSearch(query) {
   const q = query.trim().toLowerCase();
+  const qClean = q.replace(/[\s\-_]/g, '');
+  const qWords = q.split(/\s+/).filter(Boolean);
   if (searchClear) searchClear.classList.toggle('hidden', !q);
   if (!q) { showHome(); return; }
   document.body.classList.add('is-searching');
 
-  const matchedApps = db.apps.filter((a) => hasAlts(a) && (a.name.toLowerCase().includes(q) || a.id.includes(q) || (a.vendor || '').toLowerCase().includes(q)));
+  const matchStr = (str) => {
+    if (!str) return false;
+    const lower = str.toLowerCase();
+    if (lower.includes(q)) return true;
+    if (qClean.length >= 3 && lower.replace(/[\s\-_]/g, '').includes(qClean)) return true;
+    if (qWords.length > 1 && qWords.every((w) => lower.includes(w))) return true;
+    return false;
+  };
+
+  // 1. Apps & Alternatives
+  const matchedApps = db.apps.filter((a) => hasAlts(a) && (matchStr(a.name) || matchStr(a.id) || matchStr(a.vendor)));
   const appIds = new Set(matchedApps.map((a) => a.id));
   const byReplace = db.alternatives.filter((alt) => (alt.replaces || []).some((id) => appIds.has(id)));
   const byName = db.alternatives.filter((alt) => !byReplace.includes(alt) &&
-    (alt.name.toLowerCase().includes(q) || (alt.summary || '').toLowerCase().includes(q)));
-  const results = [...byReplace, ...byName];
+    (matchStr(alt.name) || matchStr(alt.summary) || matchStr(alt.license) || matchStr(alt.category) || (alt.pros || []).some(matchStr) || (alt.cons || []).some(matchStr)));
+  const matchedAlts = [...byReplace, ...byName];
 
-  if (!results.length) {
+  // 2. Free Courses & Practice Labs
+  const matchedLearning = (db.learning || []).filter((item) =>
+    matchStr(item.title) ||
+    matchStr(item.provider) ||
+    matchStr(item.description) ||
+    matchStr(item.software) ||
+    matchStr(item.category) ||
+    matchStr(item.format) ||
+    matchStr(item.cost_model)
+  );
+
+  // 3. Free Creative Resources
+  const matchedResources = (db.resources || []).filter((item) =>
+    matchStr(item.name) ||
+    matchStr(item.description) ||
+    matchStr(item.category) ||
+    matchStr(item.highlight) ||
+    matchStr(item.license)
+  );
+
+  // 4. Free & Open-Source Games
+  const matchedGames = (db.games || []).filter((item) =>
+    matchStr(item.title) ||
+    matchStr(item.description) ||
+    matchStr(item.genre) ||
+    matchStr(item.category) ||
+    (item.platforms || []).some(matchStr) ||
+    matchStr(item.monetization)
+  );
+
+  // 5. Software Switching Guides
+  const matchedGuides = (db.guides || []).filter((item) =>
+    matchStr(item.title) ||
+    matchStr(item.headline) ||
+    matchStr(item.from_app) ||
+    matchStr(item.to_app) ||
+    matchStr(item.gotchas) ||
+    (item.key_steps || []).some(s => matchStr(s.title) || matchStr(s.detail))
+  );
+
+  const totalMatches = matchedAlts.length + matchedLearning.length + matchedResources.length + matchedGames.length + matchedGuides.length;
+
+  if (totalMatches === 0) {
+    currentUnifiedResults = null;
     showResults(`${header(`No results for “${esc(query)}”`, 'Try searching for an app name like Photoshop, Office, Spotify, or browse categories.')}`, [], { shouldScroll: false });
     bindBack();
     alignSearchBar();
     return;
   }
+
+  currentUnifiedResults = {
+    alts: matchedAlts,
+    learning: matchedLearning,
+    resources: matchedResources,
+    games: matchedGames,
+    guides: matchedGuides,
+  };
+  currentSearchType = 'all';
+  currentResults = matchedAlts;
+  currentCostFilter = 'all';
+  openSourceOnly = false;
+  currentSort = 'default';
+
+  initialState.classList.add('hidden');
+  resultsArea.classList.remove('hidden');
+
   const title = matchedApps.length
     ? `Free alternatives to ${matchedApps.map((a) => esc(a.name)).join(', ')}`
     : `Results for “${esc(query)}”`;
-  showResults(header(title, `${results.length} free ${results.length === 1 ? 'app' : 'apps'} found`), results, { shouldScroll: false });
+
+  const breakdown = [];
+  if (matchedAlts.length) breakdown.push(`${matchedAlts.length} ${matchedAlts.length === 1 ? 'app' : 'apps'}`);
+  if (matchedLearning.length) breakdown.push(`${matchedLearning.length} ${matchedLearning.length === 1 ? 'course' : 'courses'}`);
+  if (matchedResources.length) breakdown.push(`${matchedResources.length} ${matchedResources.length === 1 ? 'resource' : 'resources'}`);
+  if (matchedGames.length) breakdown.push(`${matchedGames.length} ${matchedGames.length === 1 ? 'game' : 'games'}`);
+  if (matchedGuides.length) breakdown.push(`${matchedGuides.length} ${matchedGuides.length === 1 ? 'guide' : 'guides'}`);
+
+  const sub = `${totalMatches} result${totalMatches === 1 ? '' : 's'} across ${breakdown.length} categorie${breakdown.length === 1 ? 'y' : 's'} (${breakdown.join(' · ')})`;
+
+  resultsArea.innerHTML = `
+    ${header(title, sub)}
+    <div id="searchTypeChipsWrap">${renderTypeChips(currentUnifiedResults)}</div>
+    <div id="unifiedResultsContainer">${renderUnifiedContent()}</div>
+    ${getAdUnitResults()}
+  `;
+
+
+  bindResultsEvents();
   bindBack();
+  updateStackUI();
   alignSearchBar();
+  triggerAdSense(resultsArea);
 }
+
 
 function handlePlatform(id) {
   const platform = PLATFORMS.find((p) => p.id === id);
@@ -631,8 +1173,18 @@ function openReportModal(id, name) {
   if (!reportModal) return;
   const nameInput = document.getElementById('reportAppName');
   const idInput = document.getElementById('reportAppId');
+  const feedbackEl = document.getElementById('reportFeedback');
+  const submitBtn = document.getElementById('submitReportBtn');
   if (nameInput) nameInput.value = name || id;
   if (idInput) idInput.value = id;
+  if (feedbackEl) {
+    feedbackEl.className = 'report-feedback hidden';
+    feedbackEl.innerHTML = '';
+  }
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Submit Report';
+  }
   reportModal.classList.remove('hidden');
   reportBackdrop?.classList.remove('hidden');
   document.getElementById('reportDetails')?.focus();
@@ -642,6 +1194,11 @@ function closeReportModal() {
   reportModal?.classList.add('hidden');
   reportBackdrop?.classList.add('hidden');
   if (reportForm) reportForm.reset();
+  const feedbackEl = document.getElementById('reportFeedback');
+  if (feedbackEl) {
+    feedbackEl.className = 'report-feedback hidden';
+    feedbackEl.innerHTML = '';
+  }
 }
 
 closeReportBtn?.addEventListener('click', closeReportModal);
@@ -649,21 +1206,82 @@ cancelReportBtn?.addEventListener('click', closeReportModal);
 reportBackdrop?.addEventListener('click', closeReportModal);
 
 if (reportForm) {
-  reportForm.addEventListener('submit', (e) => {
+  reportForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const id = document.getElementById('reportAppId')?.value;
-    const name = document.getElementById('reportAppName')?.value;
-    const reason = document.getElementById('reportReason')?.value;
-    const details = document.getElementById('reportDetails')?.value;
+    const id = document.getElementById('reportAppId')?.value || '';
+    const name = document.getElementById('reportAppName')?.value || 'Software';
+    const reason = document.getElementById('reportReason')?.value || '';
+    const details = document.getElementById('reportDetails')?.value || '';
+    const email = document.getElementById('reportEmail')?.value || '';
+    const btn = document.getElementById('submitReportBtn');
+    const fb = document.getElementById('reportFeedback');
+
+    if (btn) { btn.disabled = true; btn.textContent = 'Delivering report...'; }
+    if (fb) { fb.className = 'report-feedback info'; fb.innerHTML = 'Connecting to editorial verification endpoint...'; }
 
     try {
-      const reports = JSON.parse(localStorage.getItem('appsolutely_reports_v1')) || [];
-      reports.push({ id, name, reason, details, timestamp: new Date().toISOString() });
-      localStorage.setItem('appsolutely_reports_v1', JSON.stringify(reports));
-    } catch (err) {}
+      const res = await fetch('https://formsubmit.co/ajax/support@appsolutelyfree.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          appId: id,
+          appName: name,
+          reason: reason,
+          details: details,
+          reporterEmail: email || 'anonymous',
+          pageUrl: window.location.href,
+          timestamp: new Date().toISOString(),
+          _subject: '[Appsolutely Free] Correction Report: ' + name,
+          _captcha: 'false',
+          _template: 'table'
+        })
+      });
 
-    showToast(`✓ Thank you! Report for ${name} submitted. Our team will verify.`);
-    closeReportModal();
+      const data = await res.json().catch(() => ({}));
+
+      if (res.ok && (data.success === true || data.success === 'true')) {
+        try {
+          const reports = JSON.parse(localStorage.getItem('appsolutely_reports_v1')) || [];
+          reports.push({ id, name, reason, details, email, timestamp: new Date().toISOString() });
+          localStorage.setItem('appsolutely_reports_v1', JSON.stringify(reports));
+        } catch (err) {}
+
+        if (fb) {
+          fb.className = 'report-feedback success';
+          fb.innerHTML = '✓ Report successfully delivered to our verification team. Thank you!';
+        }
+        showToast(`✓ Correction report for ${name} delivered.`);
+        setTimeout(() => {
+          closeReportModal();
+          if (btn) { btn.disabled = false; btn.textContent = 'Submit Report'; }
+        }, 1800);
+      } else {
+        const errMsg = data.message || ('Endpoint returned HTTP ' + res.status);
+        throw new Error(errMsg);
+      }
+    } catch (err) {
+      const mailtoSub = encodeURIComponent('[Appsolutely Free] Correction Report: ' + name);
+      const mailtoBody = encodeURIComponent(
+        `Software: ${name} (ID: ${id})\n` +
+        `Issue / Reason: ${reason}\n` +
+        `Details: ${details}\n` +
+        `Reporter Email: ${email || 'Not provided'}\n` +
+        `Page: ${window.location.href}`
+      );
+      const mailtoUrl = `mailto:support@appsolutelyfree.com?subject=${mailtoSub}&body=${mailtoBody}`;
+
+      if (fb) {
+        fb.className = 'report-feedback error';
+        fb.innerHTML = `
+          <p style="margin-bottom:0.35rem;"><strong>⚠️ Automated delivery could not be confirmed:</strong> ${esc(err.message || 'Delivery error')}</p>
+          <p style="font-size:0.84rem;margin-bottom:0.5rem;">To ensure your correction reaches our verification desk directly, please send it via email:</p>
+          <a href="${mailtoUrl}" class="btn btn-secondary btn-sm" style="display:inline-flex;align-items:center;gap:0.4rem;">
+            ✉️ Email to support@appsolutelyfree.com ↗
+          </a>
+        `;
+      }
+      if (btn) { btn.disabled = false; btn.textContent = 'Retry Submission'; }
+    }
   });
 }
 
@@ -703,228 +1321,64 @@ document.getElementById('copyStackBtn')?.addEventListener('click', () => {
 });
 
 // ---- Free Creative Resources -----------------------------------------------
-let currentResFilter = 'all';
+// ---- Free Creative Resources (Homepage Preview) ----------------------------
 function renderResources() {
-  const chipsEl = document.getElementById('resourceFilterChips');
   const gridEl = document.getElementById('resourceCardsGrid');
   if (!gridEl || !db.resources) return;
-
-  const categories = ['all', ...Array.from(new Set(db.resources.map(r => r.category)))];
-
-  chipsEl.innerHTML = categories.map(cat => `
-    <button type="button" class="chip ${currentResFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
-      ${cat === 'all' ? 'All Creative Resources' : esc(cat)}
-    </button>
-  `).join('');
-
-  chipsEl.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentResFilter = btn.dataset.cat;
-      renderResources();
-    });
-  });
-
-  const list = currentResFilter === 'all' ? db.resources : db.resources.filter(r => r.category === currentResFilter);
-
-  gridEl.innerHTML = list.map(item => `
-    <div class="resource-card glass-panel">
-      <div class="res-top">
-        <div>
-          <span class="res-cat-badge">${esc(item.category)}</span>
-          <h3 class="res-name">${esc(item.name)}</h3>
-        </div>
-        <span class="res-license-pill">${esc(item.license)}</span>
-      </div>
-      <p class="res-desc">${esc(item.description)}</p>
-
-      <div class="res-terms-row">
-        <span class="res-term-badge term-commercial">
-          Commercial: <strong>${esc(item.commercial_use)}</strong>
-        </span>
-        <span class="res-term-badge term-attribution">
-          Attribution: <strong>${esc(item.attribution)}</strong>
-        </span>
-      </div>
-
-      <div class="res-highlight-box">
-        <span class="highlight-star">✨</span>
-        <small>${esc(item.highlight)}</small>
-      </div>
-
-      <div class="res-footer">
-        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-          Browse Library ↗
-        </a>
-      </div>
-    </div>
-  `).join('');
+  const list = db.resources.slice(0, 3);
+  gridEl.innerHTML = list.map(renderResourceCard).join('');
 }
 
-// ---- Free Learning & Practice Labs -----------------------------------------
-let currentLearnFilter = 'all';
+// ---- Free Learning & Practice Labs (Homepage Preview) ----------------------
 function renderLearning() {
-  const chipsEl = document.getElementById('learningFilterChips');
   const gridEl = document.getElementById('learningCardsGrid');
   if (!gridEl || !db.learning) return;
-
-  const categories = ['all', ...Array.from(new Set(db.learning.map(l => l.category)))];
-
-  chipsEl.innerHTML = categories.map(cat => `
-    <button type="button" class="chip ${currentLearnFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
-      ${cat === 'all' ? 'All Learning & Labs' : esc(cat)}
-    </button>
-  `).join('');
-
-  chipsEl.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentLearnFilter = btn.dataset.cat;
-      renderLearning();
-    });
-  });
-
-  const list = currentLearnFilter === 'all' ? db.learning : db.learning.filter(l => l.category === currentLearnFilter);
-
-  gridEl.innerHTML = list.map(item => {
-    const hasCert = (item.has_certificate || '').toLowerCase().startsWith('yes');
-    return `
-      <div class="learning-card glass-panel">
-        <div class="learning-card-top">
-          <div>
-            <span class="learn-software-badge">${esc(item.software || item.category)}</span>
-            <h3 class="learn-title">${esc(item.title)}</h3>
-            <span class="learn-provider">By ${esc(item.provider)}</span>
-          </div>
-          <span class="learn-cost-badge">${esc(item.cost_model)}</span>
-        </div>
-
-        <p class="learn-desc">${esc(item.description)}</p>
-
-        <div class="learn-spec-row">
-          <div class="cert-status-badge ${hasCert ? 'cert-free' : 'cert-none'}">
-            <span class="cert-icon">${hasCert ? '🎓' : '🛠️'}</span>
-            <span>Certificate: <strong>${esc(item.has_certificate)}</strong></span>
-          </div>
-          <div class="learn-format-pill">
-            <span>Format: <strong>${esc(item.format)}</strong></span>
-          </div>
-        </div>
-
-        <div class="learning-footer">
-          <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-            Start Free Course ↗
-          </a>
-        </div>
-      </div>
-    `;
-  }).join('');
+  const list = db.learning.slice(0, 3);
+  gridEl.innerHTML = list.map(renderLearningCard).join('');
 }
 
-// ---- Free Games ------------------------------------------------------------
-let currentGamesFilter = 'all';
+// ---- Free Games (Homepage Preview) -----------------------------------------
 function renderGames() {
-  const chipsEl = document.getElementById('gamesFilterChips');
   const gridEl = document.getElementById('gamesCardsGrid');
   if (!gridEl || !db.games) return;
-
-  const categories = ['all', ...Array.from(new Set(db.games.map(g => g.category)))];
-
-  chipsEl.innerHTML = categories.map(cat => `
-    <button type="button" class="chip ${currentGamesFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
-      ${cat === 'all' ? 'All Free Games' : esc(cat)}
-    </button>
-  `).join('');
-
-  chipsEl.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentGamesFilter = btn.dataset.cat;
-      renderGames();
-    });
-  });
-
-  const list = currentGamesFilter === 'all' ? db.games : db.games.filter(g => g.category === currentGamesFilter);
-
-  gridEl.innerHTML = list.map(item => `
-    <div class="game-card glass-panel">
-      <div class="game-top">
-        <div>
-          <span class="game-genre-badge">${esc(item.genre)}</span>
-          <h3 class="game-title">${esc(item.title)}</h3>
-        </div>
-        <span class="game-tier-pill">${esc(item.tier)}</span>
-      </div>
-
-      <p class="game-desc">${esc(item.description)}</p>
-
-      <div class="game-monetization-row">
-        <span class="monetization-badge">
-          🛡️ Monetization: <strong>${esc(item.monetization)}</strong>
-        </span>
-      </div>
-
-      <div class="game-platforms-row">
-        <span class="platforms-label">Platforms:</span>
-        ${(item.platforms || []).map(p => `<span class="platform-mini-pill">${esc(p)}</span>`).join('')}
-      </div>
-
-      <div class="game-footer">
-        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
-          Play / Download ↗
-        </a>
-      </div>
-    </div>
-  `).join('');
+  const list = db.games.slice(0, 3);
+  gridEl.innerHTML = list.map(renderGameCard).join('');
 }
 
-// ---- Software Switching Guides ---------------------------------------------
+// ---- Software Switching Guides (Homepage Preview) --------------------------
 function renderGuides() {
   const grid = document.getElementById('guidesGrid');
   if (!grid || !db.guides) return;
-
-  grid.innerHTML = db.guides.map(g => `
-    <div class="guide-card glass-panel" id="guide-${esc(g.id)}">
-      <div class="guide-header">
-        <div class="guide-migration-flow">
-          <span class="guide-from">${esc(g.from_app)}</span>
-          <span class="flow-arrow">➔</span>
-          <span class="guide-to">${esc(g.to_app)}</span>
-        </div>
-        <h3 class="guide-title">${esc(g.title)}</h3>
-        <p class="guide-headline">${esc(g.headline)}</p>
-      </div>
-
-      <div class="guide-file-formats">
-        <div class="format-badge-box">
-          <span class="format-box-label">📂 Opens Native:</span>
-          <span class="format-tags">${esc(g.file_support.opens_native)}</span>
-        </div>
-        <div class="format-badge-box">
-          <span class="format-box-label">💾 Exports To:</span>
-          <span class="format-tags">${esc(g.file_support.exports_to)}</span>
-        </div>
-      </div>
-
-      <div class="guide-steps-container">
-        <h4 class="guide-steps-title">Transition Steps:</h4>
-        <div class="guide-steps-list">
-          ${g.key_steps.map(step => `
-            <div class="guide-step-item">
-              <strong>${esc(step.title)}</strong>
-              <p>${esc(step.detail)}</p>
-            </div>
-          `).join('')}
-        </div>
-      </div>
-
-      <div class="guide-gotchas-box">
-        <div class="gotcha-head">
-          <span>⚠️</span>
-          <strong>Critical Gotchas &amp; Workarounds:</strong>
-        </div>
-        <p>${esc(g.gotchas)}</p>
-      </div>
-    </div>
-  `).join('');
+  const list = db.guides.slice(0, 2);
+  grid.innerHTML = list.map(renderGuideCard).join('');
 }
+
+
+// ---- Topbar Navigation Integration (Dismiss Search on Section Jump) --------
+document.querySelectorAll('.topbar-links a[href^="#"]').forEach((link) => {
+  link.addEventListener('click', (e) => {
+    const targetId = link.getAttribute('href').slice(1);
+    const targetEl = document.getElementById(targetId);
+    const isSearchingOrFiltered = document.body.classList.contains('is-searching') ||
+      Boolean(searchInput && searchInput.value) ||
+      (resultsArea && !resultsArea.classList.contains('hidden')) ||
+      (initialState && initialState.classList.contains('hidden'));
+
+    if (isSearchingOrFiltered) {
+      if (searchInput) searchInput.value = '';
+      if (searchClear) searchClear.classList.add('hidden');
+      showHome();
+      if (targetEl) {
+        e.preventDefault();
+        history.pushState(null, null, `#${targetId}`);
+        requestAnimationFrame(() => {
+          targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    }
+  });
+});
+
 
 // ---- New & Newly Restricted Radar -----------------------------------------
 function renderRadar() {
@@ -933,16 +1387,29 @@ function renderRadar() {
 
   timeline.innerHTML = db.radar.map(entry => {
     let typeClass = 'radar-neutral';
-    if (entry.type === 'new-addition') typeClass = 'radar-new';
+    if (entry.type === 'directory-addition') typeClass = 'radar-addition';
+    else if (entry.type === 'new-launch' || entry.type === 'new-addition') typeClass = 'radar-new';
     else if (entry.type === 'restricted') typeClass = 'radar-restricted';
     else if (entry.type === 'price-increase') typeClass = 'radar-price';
-    else if (entry.type === 'warning') typeClass = 'radar-warning';
+    else if (entry.type === 'abandoned' || entry.type === 'warning') typeClass = 'radar-warning';
+
+    const sourceHtml = entry.source_url ? `
+      <div class="radar-source-row">
+        <a href="${esc(entry.source_url)}" target="_blank" rel="noopener noreferrer" class="radar-source-link">
+          🔗 Official Source: ${esc(entry.source_name || 'Announcement')} ↗
+        </a>
+        ${entry.last_checked ? `<span class="radar-verified">Verified: ${esc(entry.last_checked)}</span>` : ''}
+      </div>
+    ` : '';
 
     return `
       <div class="radar-card glass-panel ${typeClass}">
         <div class="radar-card-top">
           <span class="radar-badge ${typeClass}">${esc(entry.badge)}</span>
-          <time class="radar-date">${esc(entry.date)}</time>
+          <div class="radar-date-wrap">
+            <time class="radar-date">${esc(entry.date)}</time>
+            ${entry.event_date ? `<small class="radar-event-date">(${esc(entry.event_date)})</small>` : ''}
+          </div>
         </div>
         <h3 class="radar-tool-name">${esc(entry.name)}</h3>
         <p class="radar-summary">${esc(entry.summary)}</p>
@@ -950,6 +1417,7 @@ function renderRadar() {
           <span class="impact-label">Impact &amp; Free Replacement:</span>
           <p class="impact-text">${esc(entry.impact)}</p>
         </div>
+        ${sourceHtml}
       </div>
     `;
   }).join('');

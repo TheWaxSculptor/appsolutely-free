@@ -140,12 +140,84 @@ export function cardHtml(alt, appsById = {}, opts = {}) {
   </article>`;
 }
 
-export function dealHtml(deal) {
+export function displayAdHtml(deal, opts = {}) {
+  if (!deal) return '';
+  const options = (typeof opts === 'object' && !Array.isArray(opts) && opts !== null) ? opts : {};
+  const base = options.base ?? '/';
+  const imgUrl = deal.image ? (deal.image.startsWith('http') || deal.image.startsWith('/') ? deal.image : `${base}${deal.image}`) : '';
+  const discount = deal.discount ? `<span class="partner-discount-tag">${esc(deal.discount)}</span>` : '';
+  const rating = deal.rating ? `<span class="partner-rating-pill">${esc(deal.rating)}</span>` : '';
+  const promo = deal.promo_highlight || 'EXCLUSIVE PARTNER DEAL';
+  const perksHtml = (deal.perks || []).slice(0, 3).map((p) => `<li><span class="partner-check-icon">✓</span> <span>${esc(p)}</span></li>`).join('');
+
   return `
-  <aside class="deal-card glass-panel">
-    <span class="ad-label">Sponsored</span>
-    <h3>${esc(deal.title)}</h3>
-    <p>${esc(deal.text)}</p>
-    <a class="btn btn-primary" href="${esc(deal.url)}" target="_blank" rel="noopener sponsored nofollow">${esc(deal.cta || 'Learn more')}</a>
+  <div class="partner-billboard display-ad-billboard glass-panel" data-partner-id="${esc(deal.id)}">
+    <div class="partner-billboard-grid ad-billboard-grid">
+      <div class="partner-billboard-media ad-billboard-media">
+        ${imgUrl ? `<img class="partner-billboard-img ad-billboard-img" src="${esc(imgUrl)}" alt="${esc(deal.title)}" loading="lazy" width="720" height="400">` : `<div class="partner-fallback-visual ad-fallback-visual"><span class="partner-fallback-emoji ad-fallback-emoji">${deal.icon || '⚡'}</span></div>`}
+        <div class="partner-media-badges ad-media-badges">
+          <span class="partner-pill ad-pill sponsored">FEATURED PARTNER</span>
+          ${discount}
+        </div>
+      </div>
+      <div class="partner-billboard-info ad-billboard-info">
+        <div class="partner-billboard-header ad-billboard-header">
+          <span class="partner-pill ad-pill highlight">${esc(promo)}</span>
+          <span class="partner-partner-label ad-partner-label">${esc(deal.badge || 'Verified Partner')}</span>
+          ${rating}
+        </div>
+        <h3 class="partner-billboard-title ad-billboard-title">
+          <a href="${esc(deal.url)}" target="_blank" rel="noopener sponsored nofollow">${esc(deal.title)}</a>
+        </h3>
+        <p class="partner-billboard-desc ad-billboard-desc">${esc(deal.text)}</p>
+        ${perksHtml ? `<ul class="partner-perks-list ad-perks-list">${perksHtml}</ul>` : ''}
+        <div class="partner-billboard-footer ad-billboard-footer">
+          <a href="${esc(deal.url)}" target="_blank" rel="noopener sponsored nofollow" class="btn btn-primary btn-partner-cta btn-ad-cta">
+            <span>${esc(deal.cta || 'Claim Offer')}</span> <span class="arrow" aria-hidden="true">↗</span>
+          </a>
+          <span class="partner-disclosure-note ad-disclosure-note">Official Verified Partner • Direct link with discount</span>
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+export function dealHtml(deal, opts = {}) {
+  if (!deal) return '';
+  const options = (typeof opts === 'object' && !Array.isArray(opts) && opts !== null) ? opts : {};
+  const base = options.base ?? '/';
+  const label = deal.badge || (deal.is_sponsored ? 'Sponsored Partner' : 'Optional Paid Service');
+  const promo = deal.promo_highlight || 'EXCLUSIVE DEAL';
+  const discount = deal.discount ? `<span class="partner-discount-tag">${esc(deal.discount)}</span>` : '';
+  const rating = deal.rating ? `<span class="partner-rating-pill">${esc(deal.rating)}</span>` : '';
+  const imgUrl = deal.image ? (deal.image.startsWith('http') || deal.image.startsWith('/') ? deal.image : `${base}${deal.image}`) : '';
+  const perksHtml = (deal.perks || []).slice(0, 3).map((p) => `<li><span class="partner-check-icon">✓</span> <span>${esc(p)}</span></li>`).join('');
+
+  return `
+  <aside class="deal-card partner-spotlight-card display-ad-card glass-panel" data-partner-id="${esc(deal.id)}">
+    <div class="partner-card-media-wrap ad-card-media-wrap">
+      ${imgUrl ? `<img class="partner-card-img ad-card-img" src="${esc(imgUrl)}" alt="${esc(deal.title)}" loading="lazy" width="600" height="340">` : `<div class="partner-fallback-visual ad-fallback-visual"><span class="partner-fallback-emoji ad-fallback-emoji">${deal.icon || '⚡'}</span></div>`}
+      <div class="partner-media-badges ad-media-badges">
+        <span class="partner-pill ad-pill sponsored">PARTNER</span>
+        ${discount}
+      </div>
+    </div>
+    <div class="partner-card-content ad-card-content">
+      <div class="partner-card-top-row ad-card-top-row">
+        <span class="partner-partner-name ad-partner-name">${esc(label)}</span>
+        ${rating}
+      </div>
+      <h3 class="partner-card-title ad-card-title"><a href="${esc(deal.url)}" target="_blank" rel="noopener sponsored nofollow">${esc(deal.title)}</a></h3>
+      <p class="partner-card-desc ad-card-desc">${esc(deal.text)}</p>
+      ${perksHtml ? `<ul class="partner-perks-list ad-perks-list">${perksHtml}</ul>` : ''}
+      <div class="partner-card-actions ad-card-actions">
+        <a href="${esc(deal.url)}" target="_blank" rel="noopener sponsored nofollow" class="btn btn-primary btn-partner-cta btn-ad-cta">
+          <span>${esc(deal.cta || 'Claim Offer')}</span> <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
   </aside>`;
 }
+
+
+

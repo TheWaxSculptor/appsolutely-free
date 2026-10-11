@@ -46,7 +46,7 @@
       },
       {
         "title": "3. Excel Formulas and Pivot Tables",
-        "detail": "LibreOffice Calc supports 99.8% of Excel formulas (VLOOKUP, XLOOKUP, INDEX/MATCH, SUMIFS). Pivot Tables are called 'Pivot Tables' (Data → Pivot Table) and function identically."
+        "detail": "LibreOffice Calc provides broad formula compatibility with Excel (including VLOOKUP, XLOOKUP, INDEX/MATCH, and SUMIFS). Pivot Tables (Data → Pivot Table) support standard data aggregation. Note: Highly complex nested formulas, proprietary VBA macros, and Power Pivot models require Microsoft Excel. (Source: The Document Foundation Calc Documentation, verified October 2026)."
       }
     ],
     "gotchas": "Complex Visual Basic for Applications (VBA) macros with proprietary Windows ActiveX controls require reviewing or porting to LibreOffice Basic or Python scripting."
@@ -120,7 +120,7 @@
       },
       {
         "title": "2. Importing XML Timeline into Resolve",
-        "detail": "In DaVinci Resolve, go to File → Import → Timeline → Select your exported XML file. Resolve automatically reconnects the original media files and creates an exact timeline replica."
+        "detail": "In DaVinci Resolve, go to File → Import → Timeline → Select your exported XML file. Resolve automatically reconnects cuts, track positions, and standard crossfades. Note: Proprietary Premiere Motion effects, Essential Graphics mogrts, and third-party effects must be manually rebuilt. (Source: Blackmagic Design Resolve Reference Manual, verified October 2026)."
       },
       {
         "title": "3. Switching Keyboard Shortcuts to Premiere Layout",
