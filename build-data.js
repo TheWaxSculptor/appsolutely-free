@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { loadAll, root } = require('./scripts/load-all');
 
-const SITE = 'https://appsolutelyFree.com';
+const SITE = 'https://appsolutelyfree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
 const VERSION = '11';
 
@@ -93,7 +93,7 @@ async function main() {
 
   // ---- static pages --------------------------------------------------------
   const year = new Date().getFullYear();
-  const head = ({ title, description, canonical, jsonLd }) => `<!DOCTYPE html>
+  const head = ({ title, description, canonical, jsonLd, image }) => `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -101,11 +101,17 @@ async function main() {
   <title>${esc(title)}</title>
   <meta name="description" content="${esc(description)}">
   <link rel="canonical" href="${canonical}">
+  <meta name="theme-color" content="#0a0f1e">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💎</text></svg>">
   <meta property="og:title" content="${esc(title)}">
   <meta property="og:description" content="${esc(description)}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="${canonical}">
+  <meta property="og:image" content="${image || 'https://appsolutelyfree.com/assets/screenshots/photopea.webp'}">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${esc(title)}">
+  <meta name="twitter:description" content="${esc(description)}">
+  <meta name="twitter:image" content="${image || 'https://appsolutelyfree.com/assets/screenshots/photopea.webp'}">
   <link rel="stylesheet" href="/style.css?v=${VERSION}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -2,7 +2,7 @@
   --bg-color: #0a0f1e;
   --text-primary: #f8fafc;
   --text-secondary: #9fb0c8;
-  --text-muted: #64748b;
+  --text-muted: #8da0b8;
   --accent-color: #38bdf8;
   --accent-2: #818cf8;
   --accent-3: #c084fc;
@@ -20,6 +20,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
+:focus-visible { outline: 2px solid var(--accent-color); outline-offset: 2px; }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -418,12 +419,12 @@ a { color: inherit; }
   margin: 2rem 0; padding: 1rem;
   background: rgba(15, 23, 42, 0.45); border: 1px dashed var(--glass-border);
   border-radius: var(--radius-md); text-align: center; position: relative;
-  min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 90px; display: flex; flex-direction: column; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .ad-slot-container .ad-label { align-self: flex-start; margin-bottom: 0.6rem; opacity: 0.7; }
-.ad-slot-container ins.adsbygoogle { display: block; width: 100%; max-width: 728px; margin: 0 auto; }
-.ad-slot-container:not(:has(iframe)) {
+.ad-slot-container ins.adsbygoogle { display: block; width: 100%; max-width: 728px; min-height: 90px; margin: 0 auto; }
+.ad-slot-container:has(ins[data-ad-status="unfilled"]) {
   display: none;
 }
 
