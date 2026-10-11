@@ -1,6 +1,5 @@
 import db from './data.js?v=11';
 import { cardHtml, dealHtml, esc, CATEGORIES, PLATFORMS, formatStars } from './card.mjs?v=11';
-import { initToolsUI } from './tools.mjs?v=11';
 
 const appsById = Object.fromEntries(db.apps.map((a) => [a.id, a]));
 const altsById = Object.fromEntries(db.alternatives.map((a) => [a.id, a]));
@@ -289,15 +288,15 @@ const showHome = () => {
 function renderStats() {
   const heroBadge = document.getElementById('heroBadgeText');
   if (heroBadge) {
-    heroBadge.textContent = `${db.alternatives.length} Free Alternatives · 5 $0 Stacks · 11 Free AI Tools · 5 In-Browser Utilities`;
+    heroBadge.textContent = `${db.alternatives.length} Hand-Picked Free Alternatives Across ${CATEGORIES.length} Categories`;
   }
   const stars = db.alternatives.reduce((n, a) => n + ((a.health && a.health.stars) || 0), 0);
   const items = [
     [db.alternatives.length, 'free alternatives'],
     [replaceableApps.length, 'paid apps covered'],
-    [(db.stacks || []).length, '$0 ready stacks'],
-    [(db.aiHub || []).length, 'free AI tools'],
-    [5, 'in-browser tools'],
+    [CATEGORIES.length, 'categories'],
+    [(db.resources || []).length, 'creative resources'],
+    [(db.learning || []).length, 'free courses & labs'],
     [formatStars(stars), 'GitHub stars combined'],
   ];
   document.getElementById('stats').innerHTML = items
@@ -690,158 +689,6 @@ document.getElementById('copyStackBtn')?.addEventListener('click', () => {
   });
 });
 
-// ---- Ready-Made Free Stacks ------------------------------------------------
-function renderStacks() {
-  const grid = document.getElementById('readyStacksGrid');
-  if (!grid || !db.stacks) return;
-
-  grid.innerHTML = db.stacks.map(st => `
-    <div class="stack-card glass-panel" id="stack-${esc(st.id)}">
-      <div class="stack-card-header">
-        <div class="stack-title-group">
-          <span class="stack-card-emoji">${st.emoji}</span>
-          <div>
-            <h3 class="stack-card-title">${esc(st.title)}</h3>
-            <p class="stack-card-sub">${esc(st.subtitle)}</p>
-          </div>
-        </div>
-        <div class="stack-badge-green">
-          <span class="stack-badge-label">Est. Annual Savings</span>
-          <strong>+$${st.estimated_annual_savings.toLocaleString()} / yr</strong>
-        </div>
-      </div>
-
-      <div class="stack-tools-container">
-        <h4 class="stack-section-label">Included Tools in this Stack:</h4>
-        <div class="stack-tools-grid">
-          ${st.tools.map(t => {
-            const isSaved = getStack().includes(t.id);
-            return `
-              <div class="stack-tool-row">
-                <div class="stack-tool-meta">
-                  <strong class="stack-tool-name">${esc(t.name)}</strong>
-                  <span class="stack-tool-role">${esc(t.role)}</span>
-                </div>
-                <div class="stack-tool-btns">
-                  <a href="${esc(t.website)}" target="_blank" rel="noopener" class="btn btn-ghost btn-xs">Site ↗</a>
-                  <button type="button" class="btn btn-ghost btn-xs bookmark-btn ${isSaved ? 'active' : ''}" data-id="${esc(t.id)}" title="Save to My Stack">
-                    ${isSaved ? '★ Saved' : '+ Save'}
-                  </button>
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>
-
-      <details class="stack-details">
-        <summary class="stack-summary">
-          <span>📋 Step-by-Step Setup Blueprint (${st.steps.length} Steps)</span>
-          <span class="summary-arrow">▾</span>
-        </summary>
-        <ol class="stack-steps-list">
-          ${st.steps.map(s => `<li>${esc(s)}</li>`).join('')}
-        </ol>
-      </details>
-
-      <div class="stack-limitation-box">
-        <div class="limitation-head">
-          <span class="limitation-icon">⚠️</span>
-          <strong>Clear Limitations &amp; Requirements:</strong>
-        </div>
-        <p>${esc(st.limitations)}</p>
-      </div>
-
-      <div class="stack-card-footer">
-        <button type="button" class="btn btn-primary add-all-stack-btn" data-stack="${esc(st.id)}">
-          ⭐ Add Entire Stack to My Tools (${st.tools.length} Tools)
-        </button>
-      </div>
-    </div>
-  `).join('');
-
-  grid.querySelectorAll('.add-all-stack-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const stackId = btn.dataset.stack;
-      const stack = db.stacks.find(s => s.id === stackId);
-      if (!stack) return;
-      const current = getStack();
-      const newItems = stack.tools.map(t => t.id);
-      const merged = Array.from(new Set([...current, ...newItems]));
-      setStack(merged);
-      showToast(`⭐ Added ${stack.tools.length} tools from "${stack.title}" to your stack!`);
-      openDrawer();
-    });
-  });
-}
-
-// ---- Free AI Hub ------------------------------------------------------------
-let currentAiFilter = 'all';
-function renderAiHub() {
-  const chipsEl = document.getElementById('aiFilterChips');
-  const gridEl = document.getElementById('aiCardsGrid');
-  if (!gridEl || !db.aiHub) return;
-
-  const categories = ['all', ...Array.from(new Set(db.aiHub.map(a => a.category)))];
-
-  chipsEl.innerHTML = categories.map(cat => `
-    <button type="button" class="chip ${currentAiFilter === cat ? 'active' : ''}" data-cat="${esc(cat)}">
-      ${cat === 'all' ? 'All Free AI Tools' : esc(cat)}
-    </button>
-  `).join('');
-
-  chipsEl.querySelectorAll('.chip').forEach(btn => {
-    btn.addEventListener('click', () => {
-      currentAiFilter = btn.dataset.cat;
-      renderAiHub();
-    });
-  });
-
-  const list = currentAiFilter === 'all' ? db.aiHub : db.aiHub.filter(a => a.category === currentAiFilter);
-
-  gridEl.innerHTML = list.map(item => `
-    <div class="ai-card glass-panel">
-      <div class="ai-card-top">
-        <div class="ai-title-wrap">
-          <span class="ai-cat-pill">${esc(item.category)}</span>
-          <h3 class="ai-name">${esc(item.name)}</h3>
-        </div>
-        <span class="ai-tier-badge">${esc(item.tier)}</span>
-      </div>
-      <p class="ai-desc">${esc(item.description)}</p>
-
-      <div class="ai-spec-grid">
-        <div class="ai-spec-item">
-          <span class="spec-label">⚡ Quota / Limits:</span>
-          <span class="spec-value">${esc(item.limits)}</span>
-        </div>
-        <div class="ai-spec-item">
-          <span class="spec-label">👤 Account:</span>
-          <span class="spec-value">${esc(item.account_required)}</span>
-        </div>
-        <div class="ai-spec-item">
-          <span class="spec-label">💼 Commercial Use:</span>
-          <span class="spec-value">${esc(item.commercial_use)}</span>
-        </div>
-        <div class="ai-spec-item">
-          <span class="spec-label">🖼️ Watermark:</span>
-          <span class="spec-value">${esc(item.watermark)}</span>
-        </div>
-        <div class="ai-spec-item">
-          <span class="spec-label">💻 Hardware:</span>
-          <span class="spec-value">${esc(item.hardware)}</span>
-        </div>
-      </div>
-
-      <div class="ai-card-footer">
-        <a href="${esc(item.url)}" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
-          Access Free AI ↗
-        </a>
-      </div>
-    </div>
-  `).join('');
-}
-
 // ---- Free Creative Resources -----------------------------------------------
 let currentResFilter = 'all';
 function renderResources() {
@@ -1100,9 +947,6 @@ window.addEventListener('hashchange', route);
 // ---- Init ------------------------------------------------------------------
 renderStats();
 renderCalculator();
-initToolsUI();
-renderStacks();
-renderAiHub();
 renderResources();
 renderLearning();
 renderGames();
