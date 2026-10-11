@@ -110,7 +110,7 @@ const alts = [
   f('dust3d', 'Dust3D', 'https://dust3d.org/', 'open-source', 'MIT', ALL, ['maya'],
     'A quick 3D modeling software for indie game developers to auto-generate watertight base meshes, UV unwrap, and rig characters in minutes.',
     ['Auto-generates clean 3D character meshes from 2D reference lines', 'Built-in automatic UV unwrapping and rigging', 'Exports directly to glTF and FBX for game engines'],
-    ['Specialized for quick character base meshes, not detailed micro-sculpting', 'Interface takes an hour to get used to'], 'easy', { repo: 'dust3d/dust3d' }),
+    ['Specialized for quick character base meshes, not detailed micro-sculpting', 'Interface takes an hour to get used to'], 'easy', { repo: 'huxingyi/dust3d' }),
 
   f('armorpaint', 'ArmorPaint', 'https://armorpaint.org/', 'open-source', 'zlib/libpng (free from source)', ALL, ['maya'],
     'A stand-alone, GPU-accelerated 3D PBR texture painting software designed as an open-source alternative to Substance 3D Painter.',
@@ -246,7 +246,7 @@ const alts = [
   f('grandperspective', 'GrandPerspective', 'https://grandperspectiv.sourceforge.net/', 'open-source', 'GPL-2.0', ['macos'], ['cleanmymac'],
     'A graphical disk space visualization tool that draws an interactive treemap to reveal exactly what large files are eating your storage.',
     ['Visual treemaps make multi-gigabyte hidden videos and caches instantly obvious', 'Scan internal hard drives, external disks, or specific folders', 'Lightweight and open-source'],
-    ['Visualizes disk space, but file deletion requires manual user review', 'Traditional macOS utility aesthetic'], 'easy', { repo: 'grandperspective/grandperspective' }),
+    ['Visualizes disk space, but file deletion requires manual user review', 'Traditional macOS utility aesthetic'], 'easy', { repo: { host: 'sourceforge', url: 'https://sourceforge.net/projects/grandperspectiv/' } }),
 
   // =========================================================================
   // Modern Project Management & Task Boards (replaces 'monday')

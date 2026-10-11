@@ -90,7 +90,7 @@ const alts = [
   f('librewolf', 'LibreWolf', 'https://librewolf.net/', 'open-source', 'MPL-2.0', ALL, ['google-chrome'],
     'A custom, hardened build of Firefox focused on privacy, security, and freedom, with zero telemetry.',
     ['Completely removed telemetry and data collection', 'Pre-configured with uBlock Origin and enhanced tracking protection', 'DuckDuckGo / SearXNG by default'],
-    ['Can break logins on high-security banking sites due to strict anti-fingerprinting', 'No automatic updater on Windows without package managers'], 'easy', { repo: 'librewolf-community/browser' }),
+    ['Can break logins on high-security banking sites due to strict anti-fingerprinting', 'No automatic updater on Windows without package managers'], 'easy', { repo: { host: 'gitlab', url: 'https://gitlab.com/librewolf-community/browser' } }),
   f('tor-browser', 'Tor Browser', 'https://www.torproject.org/', 'open-source', 'BSD-3-Clause', EVERYWHERE, ['google-chrome'],
     'The ultimate privacy browser that bounces your traffic through an encrypted relay network worldwide.',
     ['Complete anonymity and censorship circumvention', 'Defeats browser fingerprinting completely', 'Free and non-profit maintained'],

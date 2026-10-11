@@ -599,9 +599,14 @@ a { color: inherit; }
 .btn-sm { padding: 0.35rem 0.75rem; font-size: 0.78rem; }
 
 /* ---- Results Views ------------------------------------------------------- */
-.results-area { margin-top: 1.5rem; min-height: 70vh; }
-body.is-searching .hero .stats { display: none; }
-body.is-searching .hero { padding-bottom: 0.5rem; }
+.results-area { margin-top: 1rem; min-height: 70vh; }
+body.is-searching .hero { padding-top: 1rem; padding-bottom: 0.25rem; }
+body.is-searching .hero-badge,
+body.is-searching .hero-title,
+body.is-searching .hero > .subtitle,
+body.is-searching .hero .stats,
+body.is-searching .quick-tags { display: none !important; }
+body.is-searching .search-container { margin: 0 auto 0.5rem; }
 .results-head { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
 .results-head h2 { font-family: 'Outfit', sans-serif; font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.03em; }
 .btn.back { font-size: 0.88rem; }

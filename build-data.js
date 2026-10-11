@@ -5,7 +5,7 @@ const { loadAll, root } = require('./scripts/load-all');
 
 const SITE = 'https://appsolutelyfree.com';
 const ADSENSE = 'ca-pub-2161345131320461';
-const VERSION = '13';
+const VERSION = '14';
 
 async function main() {
   const { cardHtml, dealHtml, esc, CATEGORIES, categoryById } = await import('./card.mjs');

@@ -280,15 +280,11 @@ function bindResultsEvents() {
   }
 }
 
-// Scroll so the search bar sits just below the sticky topbar, leaving room for results beneath it.
-// Idempotent: does nothing if the bar is already in position, so typing never causes jumps.
+// When searching, hero collapses to top and results sit directly under search box.
 function alignSearchBar() {
-  const box = searchInput.closest('.search-container') || searchInput;
-  const topbarH = document.querySelector('.topbar')?.offsetHeight || 0;
-  const target = Math.max(0, box.getBoundingClientRect().top + window.scrollY - topbarH - 16);
-  if (Math.abs(window.scrollY - target) < 4) return;
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  window.scrollTo({ top: target, behavior: reduce ? 'auto' : 'smooth' });
+  if (window.scrollY > 0) {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
 }
 
 const showHome = () => {
