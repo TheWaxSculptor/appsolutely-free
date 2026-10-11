@@ -139,9 +139,10 @@ async function main() {
 
   const dealsFor = (cat) => deals.filter((d) => !d.category || d.category === cat || (Array.isArray(d.categories) && d.categories.includes(cat)));
 
-  const dealTop = deals.find((d) => d.id === 'nordvpn') || deals[0];
-  const dealInfeed = deals.find((d) => d.id === 'retouch4me') || deals[1];
+  const dealTop = deals.find((d) => d.id === 'retouch4me') || deals[0];
+  const dealInfeed = deals.find((d) => d.id === 'brkox') || deals[1];
   const dealBottom = deals.find((d) => d.id === 'kingkoil') || deals[2];
+
 
   const getContextInfeed = (catId) => {
     const match = dealsFor(catId)[0] || dealInfeed;
