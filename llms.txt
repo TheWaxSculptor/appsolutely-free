@@ -1,0 +1,66 @@
+# Appsolutely Free
+
+> Appsolutely Free (https://appsolutelyfree.com/) is a human-curated directory of 260+ free and open-source software (FOSS) alternatives to 74 expensive paid subscriptions across 12 software categories. Every alternative is audited for zero adware, active maintenance, and transparent licensing.
+
+## Overview
+- **Mission**: Digital sovereignty and budget independence. "Your budget shouldn't decide whether you get to start."
+- **Founder**: Yishay Stewart-Mitchell (Jamaica, Queens, New York).
+- **Core Tiers**: $0 to use (100% free), Limited free plan (generous free tier), Requires hosting/hardware (self-hostable open source).
+- **Full Text Catalog**: https://appsolutelyfree.com/llms-full.txt
+- **Machine-Readable JSON API**: https://appsolutelyfree.com/data.json
+- **Sitemap**: https://appsolutelyfree.com/sitemap.xml
+
+## Software Categories
+- [Design & Illustration](https://appsolutelyfree.com/category/design/): Free software alternatives for Free alternatives to Photoshop, Illustrator, and Figma.
+- [Photo Editing](https://appsolutelyfree.com/category/photo/): Free software alternatives for RAW processing and photo workflows without a subscription.
+- [Video & Animation](https://appsolutelyfree.com/category/video/): Free software alternatives for Edit, composite, and record video for free.
+- [Audio & Music](https://appsolutelyfree.com/category/audio/): Free software alternatives for Record, mix, and compose with open-source studios.
+- [Office & Documents](https://appsolutelyfree.com/category/office/): Free software alternatives for Documents, PDFs, diagrams, and email without Microsoft 365.
+- [Notes & Productivity](https://appsolutelyfree.com/category/productivity/): Free software alternatives for Notes, tasks, budgeting, and scheduling you control.
+- [Chat & Meetings](https://appsolutelyfree.com/category/communication/): Free software alternatives for Team chat and video calls without per-seat pricing.
+- [Security & Privacy](https://appsolutelyfree.com/category/security/): Free software alternatives for Password managers, 2FA apps, and private VPNs.
+- [Cloud & Storage](https://appsolutelyfree.com/category/cloud/): Free software alternatives for Sync files and photos on your terms.
+- [Media & Streaming](https://appsolutelyfree.com/category/media/): Free software alternatives for Music, podcasts, audiobooks, and media servers.
+- [Developer Tools](https://appsolutelyfree.com/category/dev/): Free software alternatives for Editors, API clients, and backends you can own.
+- [3D & CAD](https://appsolutelyfree.com/category/3d-cad/): Free software alternatives for Model, design, and engineer without a license fee.
+- [Business & Analytics](https://appsolutelyfree.com/category/business/): Free software alternatives for Analytics, dashboards, email, and automation.
+- [System Utilities](https://appsolutelyfree.com/category/utilities/): Free software alternatives for Archivers, VMs, remote desktop, and cleanup tools.
+
+## Popular Comparisons
+- [Free alternatives to Figma](https://appsolutelyfree.com/alternatives/figma/): Penpot, Lunacy, Vectr, AFFiNE.
+- [Free alternatives to Microsoft Office](https://appsolutelyfree.com/alternatives/microsoft-office/): Apache OpenOffice, OnlyOffice, LibreOffice, Google Docs, Sheets & Slides.
+- [Free alternatives to Photoshop](https://appsolutelyfree.com/alternatives/photoshop/): PhotoCraft, GIMP, Krita, Photopea.
+- [Free alternatives to Premiere Pro](https://appsolutelyfree.com/alternatives/premiere-pro/): FilmCraft, Kdenlive, Shotcut, DaVinci Resolve.
+- [Free alternatives to Adobe Illustrator](https://appsolutelyfree.com/alternatives/illustrator/): Krita, Inkscape, Photopea, Affinity by Canva.
+- [Free alternatives to Adobe Lightroom](https://appsolutelyfree.com/alternatives/lightroom/): darktable, RawTherapee, Pixlr, Photoshop Express.
+- [Free alternatives to After Effects](https://appsolutelyfree.com/alternatives/after-effects/): Blender, Natron, DaVinci Resolve, Cavalry.
+- [Free alternatives to Final Cut Pro](https://appsolutelyfree.com/alternatives/final-cut-pro/): Kdenlive, Shotcut, OpenShot, DaVinci Resolve.
+- [Free alternatives to Camtasia](https://appsolutelyfree.com/alternatives/camtasia/): OpenShot, OBS Studio, Clipchamp, Loom.
+- [Free alternatives to Adobe Audition](https://appsolutelyfree.com/alternatives/adobe-audition/): Audacity, Ardour, Ocenaudio.
+- [Free alternatives to FL Studio](https://appsolutelyfree.com/alternatives/fl-studio/): LMMS, GarageBand, Cakewalk by BandLab, BandLab.
+- [Free alternatives to Ableton Live](https://appsolutelyfree.com/alternatives/ableton-live/): Ardour, GarageBand, Cakewalk by BandLab, BandLab.
+- [Free alternatives to Sibelius](https://appsolutelyfree.com/alternatives/sibelius/): MuseScore, LilyPond, Flat.io, Noteflight.
+- [Free alternatives to AutoCAD](https://appsolutelyfree.com/alternatives/autocad/): FreeCAD, LibreCAD, Fusion (personal use), SketchUp Free.
+- [Free alternatives to Autodesk Maya](https://appsolutelyfree.com/alternatives/maya/): Blender, Wings 3D, MagicaVoxel, Dust3D.
+- [Free alternatives to SolidWorks](https://appsolutelyfree.com/alternatives/solidworks/): FreeCAD, OpenSCAD, Fusion (personal use), SketchUp Free.
+- [Free alternatives to MATLAB](https://appsolutelyfree.com/alternatives/matlab/): GNU Octave, Julia, Scilab.
+- [Free alternatives to Adobe Acrobat Pro](https://appsolutelyfree.com/alternatives/adobe-acrobat/): LibreOffice, Stirling-PDF, PDFsam Basic, WPS Office.
+- [Free alternatives to Microsoft Visio](https://appsolutelyfree.com/alternatives/microsoft-visio/): LibreOffice, diagrams.net (draw.io), Lucidchart, Excalidraw.
+- [Free alternatives to Microsoft Outlook](https://appsolutelyfree.com/alternatives/microsoft-outlook/): Mozilla Thunderbird, Gmail, Proton Mail.
+- [Free alternatives to WinRAR](https://appsolutelyfree.com/alternatives/winrar/): 7-Zip, PeaZip, Bandizip, NanaZip.
+- [Free alternatives to Parallels Desktop](https://appsolutelyfree.com/alternatives/parallels/): VirtualBox, UTM, VMware Workstation & Fusion.
+- [Free alternatives to TeamViewer](https://appsolutelyfree.com/alternatives/teamviewer/): RustDesk, AnyDesk, Chrome Remote Desktop, HopToDesk.
+- [Free alternatives to Snagit](https://appsolutelyfree.com/alternatives/snagit/): ShareX, Flameshot, Greenshot, Lightshot.
+- [Free alternatives to CleanMyMac](https://appsolutelyfree.com/alternatives/cleanmymac/): BleachBit, AppCleaner, Pearcleaner, GrandPerspective.
+- [Free alternatives to Power BI](https://appsolutelyfree.com/alternatives/power-bi/): Metabase, Apache Superset, Looker Studio, Tableau Public.
+- [Free alternatives to Tableau](https://appsolutelyfree.com/alternatives/tableau/): Metabase, Apache Superset, Looker Studio, Tableau Public.
+- [Free alternatives to Google Analytics](https://appsolutelyfree.com/alternatives/google-analytics/): Plausible Analytics, Umami, Matomo, Cloudflare Web Analytics.
+- [Free alternatives to Mailchimp](https://appsolutelyfree.com/alternatives/mailchimp/): listmonk, MailerLite, Brevo.
+- [Free alternatives to Airtable](https://appsolutelyfree.com/alternatives/airtable/): NocoDB, Baserow, Grist, Teable.
+
+## Educational Resources & Guides
+- [Software Switching Guides](https://appsolutelyfree.com/guides/): Migration roadmaps, file compatibility (PSD, DOCX, XLSX, DWG), and gotchas before cancelling subscriptions.
+- [Free Learning & Practice Labs](https://appsolutelyfree.com/learning/): Free official tutorials, interactive practice labs, and full curricula.
+- [Free Creative Resources](https://appsolutelyfree.com/resources/): Free fonts, icons, sound effects, textures, and UI kits.
+- [Free & Open-Source Games](https://appsolutelyfree.com/games/): Fair-play open-source games and giveaway trackers.
+- [Annual Savings Calculator](https://appsolutelyfree.com/#calculatorSection): Calculate personal or business savings by replacing commercial software.

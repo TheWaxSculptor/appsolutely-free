@@ -1,4 +1,59 @@
+# Appsolutely Free robots.txt
+# Optimized for Web Crawlers, Search Engines, and AI / LLM Agents (GEO / AEO)
+
 User-agent: *
 Allow: /
 
+# OpenAI Crawlers (ChatGPT, SearchGPT, GPT-4o, Training & Retrieval)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic Crawlers (Claude, Claude 3.5 Sonnet, Claude Search)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity AI Answer Engine
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI & Extended Crawlers (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI Crawlers (Llama, Meta AI)
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere, Mistral & Enterprise AI Crawlers
+User-agent: cohere-ai
+Allow: /
+
+# LLM-Friendly Clean Markdown Feeds & Raw API Data
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /data.json
+
+# Primary Sitemap
 Sitemap: https://appsolutelyfree.com/sitemap.xml

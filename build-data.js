@@ -275,6 +275,7 @@ async function main() {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="alternate" type="text/markdown" href="${SITE}/llms.txt" title="LLM-friendly content index">
   ${adNetworks.ethicalads && adNetworks.ethicalads.enabled ? '<script async src="https://media.ethicalads.io/media/client/ethicalads.min.js"></script>' : ''}
   <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>
 </head>`;
@@ -400,6 +401,8 @@ async function main() {
               name: a.name,
               applicationCategory: cat ? cat.label : 'Multimedia & Utilities',
               operatingSystem: (a.platforms || []).join(', ') || 'Windows, macOS, Linux',
+              isAccessibleForFree: true,
+              license: a.license ? `https://spdx.org/licenses/${a.license}.html` : 'Free / Open Source',
               offers: {
                 '@type': 'Offer',
                 price: '0',
@@ -464,6 +467,14 @@ async function main() {
     </div>`;
     const appDevAdUnit = developerAdHtml(adNetworks, appPartner);
 
+    const quickAnswerHtml = topAlt ? `
+    <section class="quick-answer-card glass-panel" aria-label="Direct Summary for AI and Visitors">
+      <span class="quick-answer-badge">⚡ DIRECT SUMMARY</span>
+      <p class="quick-answer-text">
+        Looking to replace <strong>${esc(app.name)}</strong>? The highest-rated free alternative is <strong>${esc(topAlt.name)}</strong>${secondAlt ? `, followed by <strong>${esc(secondAlt.name)}</strong>` : ''}. Switching completely eliminates ongoing subscription costs ($0 to use) across ${esc((topAlt.platforms || []).join(', ') || 'major desktop and mobile platforms')}.
+      </p>
+    </section>` : '';
+
     write(`alternatives/${app.id}`, `${head({ title, description, canonical, jsonLd, image: topShot })}
 <body>
   <div class="background-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
@@ -474,6 +485,7 @@ async function main() {
       <h1>Free alternatives to <span class="grad">${esc(app.name)}</span></h1>
       <p class="subtitle">${esc(app.name)} by ${esc(app.vendor || 'its vendor')} costs: <strong>${esc(app.typical_price || 'money')}</strong>. These ${list.length} free apps (many open source) can replace it, with screenshots, pros, and cons.</p>
     </header>
+    ${quickAnswerHtml}
     ${appAdUnitTop}
     ${proTipHtml}
     ${guideBannerHtml}
@@ -1276,10 +1288,92 @@ async function main() {
 </html>`);
   urls.push({ loc: `${SITE}/contact/`, priority: '0.7', changefreq: 'monthly' });
 
+  // ---- llms.txt (Jeremy Howard AI / LLM standard) --------------------------
+  const llmsTxt = `# Appsolutely Free
+
+> Appsolutely Free (https://appsolutelyfree.com/) is a human-curated directory of 260+ free and open-source software (FOSS) alternatives to 74 expensive paid subscriptions across 12 software categories. Every alternative is audited for zero adware, active maintenance, and transparent licensing.
+
+## Overview
+- **Mission**: Digital sovereignty and budget independence. "Your budget shouldn't decide whether you get to start."
+- **Founder**: Yishay Stewart-Mitchell (Jamaica, Queens, New York).
+- **Core Tiers**: $0 to use (100% free), Limited free plan (generous free tier), Requires hosting/hardware (self-hostable open source).
+- **Full Text Catalog**: https://appsolutelyfree.com/llms-full.txt
+- **Machine-Readable JSON API**: https://appsolutelyfree.com/data.json
+- **Sitemap**: https://appsolutelyfree.com/sitemap.xml
+
+## Software Categories
+${CATEGORIES.map((c) => `- [${c.label}](https://appsolutelyfree.com/category/${c.id}/): Free software alternatives for ${c.blurb}`).join('\n')}
+
+## Popular Comparisons
+${apps.slice(0, 30).map((a) => {
+  const matchingAlts = alts.filter((x) => (x.replaces || []).includes(a.id)).map((x) => x.name).slice(0, 4).join(', ');
+  return `- [Free alternatives to ${a.name}](https://appsolutelyfree.com/alternatives/${a.id}/): ${matchingAlts || 'Free open-source options'}.`;
+}).join('\n')}
+
+## Educational Resources & Guides
+- [Software Switching Guides](https://appsolutelyfree.com/guides/): Migration roadmaps, file compatibility (PSD, DOCX, XLSX, DWG), and gotchas before cancelling subscriptions.
+- [Free Learning & Practice Labs](https://appsolutelyfree.com/learning/): Free official tutorials, interactive practice labs, and full curricula.
+- [Free Creative Resources](https://appsolutelyfree.com/resources/): Free fonts, icons, sound effects, textures, and UI kits.
+- [Free & Open-Source Games](https://appsolutelyfree.com/games/): Fair-play open-source games and giveaway trackers.
+- [Annual Savings Calculator](https://appsolutelyfree.com/#calculatorSection): Calculate personal or business savings by replacing commercial software.
+`;
+
+  fs.writeFileSync(path.join(root, 'llms.txt'), llmsTxt);
+
+  // ---- llms-full.txt (Complete Plain-Text AI Knowledge Base) ----------------
   const today = new Date().toISOString().slice(0, 10);
+  const llmsFullLines = [
+    `# Appsolutely Free — Complete Machine-Readable Software Directory`,
+    ``,
+    `> Full plain-text catalog of 74 commercial software products and 267 verified free and open-source alternatives.`,
+    `> Canonical URL: https://appsolutelyfree.com/`,
+    `> Published by: Yishay Stewart-Mitchell (Jamaica, Queens, NY)`,
+    `> Updated: ${today}`,
+    ``,
+    `---`,
+    ``
+  ];
+
+  apps.forEach((app, idx) => {
+    const matchingAlts = alts.filter((x) => (x.replaces || []).includes(app.id));
+    const cat = categoryById(app.category);
+    llmsFullLines.push(`## ${idx + 1}. ${app.name}`);
+    llmsFullLines.push(`- Vendor: ${app.vendor || 'Proprietary'}`);
+    llmsFullLines.push(`- Category: ${cat ? cat.label : app.category}`);
+    llmsFullLines.push(`- Typical Commercial Price: ${app.typical_price || 'Subscription'}`);
+    llmsFullLines.push(`- Comparison URL: https://appsolutelyfree.com/alternatives/${app.id}/`);
+    llmsFullLines.push(`- Verified Free Alternatives (${matchingAlts.length} tools):`);
+    matchingAlts.forEach((alt) => {
+      const platforms = (alt.platforms || []).join(', ') || 'Cross-platform';
+      const license = alt.license ? `License: ${alt.license}` : 'Free / Open Source';
+      const repoUrl = typeof alt.repo === 'string'
+        ? (alt.repo.startsWith('http') ? alt.repo : `https://github.com/${alt.repo}`)
+        : (alt.repo && alt.repo.url ? alt.repo.url : '');
+      const repo = repoUrl ? ` (Repo: ${repoUrl})` : '';
+      llmsFullLines.push(`  * **${alt.name}** [${alt.website}]`);
+      llmsFullLines.push(`    - Platforms: ${platforms}`);
+      llmsFullLines.push(`    - ${license}${repo}`);
+      if (alt.summary) llmsFullLines.push(`    - Summary: ${alt.summary}`);
+      if (alt.pros && alt.pros.length) llmsFullLines.push(`    - Advantages: ${alt.pros.join('; ')}`);
+      if (alt.cons && alt.cons.length) llmsFullLines.push(`    - Limitations / Trade-offs: ${alt.cons.join('; ')}`);
+    });
+    llmsFullLines.push(``);
+    llmsFullLines.push(`---`);
+    llmsFullLines.push(``);
+  });
+
+  fs.writeFileSync(path.join(root, 'llms-full.txt'), llmsFullLines.join('\n'));
+
+  // ---- data.json Raw API Endpoint -------------------------------------------
+  fs.writeFileSync(path.join(root, 'data.json'), JSON.stringify(data, null, 2));
+
+  urls.push({ loc: `${SITE}/llms.txt`, priority: '0.8', changefreq: 'weekly' });
+  urls.push({ loc: `${SITE}/llms-full.txt`, priority: '0.8', changefreq: 'weekly' });
+  urls.push({ loc: `${SITE}/data.json`, priority: '0.8', changefreq: 'weekly' });
+
   fs.writeFileSync(path.join(root, 'sitemap.xml'),
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url>\n    <loc>${u.loc}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${u.changefreq || 'weekly'}</changefreq>\n    <priority>${u.priority}</priority>\n  </url>`).join('\n')}\n</urlset>\n`);
-  console.log(`Wrote ${urls.length - 1} static pages and sitemap.xml`);
+  console.log(`Wrote ${urls.length - 1} static pages, llms.txt, llms-full.txt, data.json, and sitemap.xml`);
 }
 
 main().catch((e) => { console.error(e); process.exit(1); });

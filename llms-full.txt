@@ -1,0 +1,2628 @@
+# Appsolutely Free — Complete Machine-Readable Software Directory
+
+> Full plain-text catalog of 74 commercial software products and 267 verified free and open-source alternatives.
+> Canonical URL: https://appsolutelyfree.com/
+> Published by: Yishay Stewart-Mitchell (Jamaica, Queens, NY)
+> Updated: 2026-10-12
+
+---
+
+## 1. Figma
+- Vendor: Figma, Inc.
+- Category: Design & Illustration
+- Typical Commercial Price: Free tier available; paid seats billed monthly
+- Comparison URL: https://appsolutelyfree.com/alternatives/figma/
+- Verified Free Alternatives (5 tools):
+  * **Penpot** [https://penpot.app]
+    - Platforms: web, self-hosted
+    - License: MPL-2.0 (Repo: https://github.com/penpot/penpot)
+    - Summary: Browser-based design and prototyping tool for teams, built on open standards and available to self-host.
+    - Advantages: Can be self-hosted, so files stay on your own server; Layout concepts mirror CSS flexbox and grid, which helps designer-developer handoff; Real-time collaboration and commenting
+    - Limitations / Trade-offs: Smaller plugin and template ecosystem than Figma; Self-hosting needs Docker and ongoing server upkeep
+  * **Lunacy** [https://icons8.com/lunacy]
+    - Platforms: windows, macos, linux
+    - License: Free
+    - Summary: A free design tool for UI and graphics that opens Sketch files and includes built-in assets.
+    - Advantages: Opens Sketch (.sketch) and Figma-style layouts; Offline use with built-in icons and stock; Free to use for design work
+    - Limitations / Trade-offs: Collaboration is lighter than Figma; Plugin ecosystem is small
+  * **Vectr** [https://vectr.com/]
+    - Platforms: web, windows, macos, linux
+    - License: Free
+    - Summary: A free, simple vector graphics editor that works in the browser or as a desktop app.
+    - Advantages: Easy to learn for logos and icons; Real-time collaboration and sharing; Free web and desktop versions
+    - Limitations / Trade-offs: Far fewer features than Illustrator; Development has slowed in recent years
+  * **AFFiNE** [https://affine.pro/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MIT (Repo: https://github.com/toeverything/AFFiNE)
+    - Summary: A next-gen privacy-first open-source workspace combining Notion-style docs, Miro-style whiteboards, and databases.
+    - Advantages: Seamless switch between document view and infinite canvas whiteboard; Local-first with peer sync; No vendor lock-in
+    - Limitations / Trade-offs: Younger ecosystem than Notion; Self-hosting takes configuration
+  * **Quant-UX** [https://www.quant-ux.com/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/KlausSchaefers/quant-ux)
+    - Summary: An open-source visual prototyping and usability testing platform that records user test sessions with heatmaps and analytics.
+    - Advantages: Create interactive screen prototypes and test them with real users; Visual heatmaps and recorded click sessions analyze user flow friction; 100% open-source and privacy-friendly
+    - Limitations / Trade-offs: Smaller component library than Figma Community; Learning curve for usability analytics configurations
+
+---
+
+## 2. Microsoft Office
+- Vendor: Microsoft Corporation
+- Category: Office & Documents
+- Typical Commercial Price: Subscription or one-time purchase, depending on the edition
+- Comparison URL: https://appsolutelyfree.com/alternatives/microsoft-office/
+- Verified Free Alternatives (7 tools):
+  * **Apache OpenOffice** [https://www.openoffice.org]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/apache/openoffice)
+    - Summary: Long-running free office suite with a word processor, spreadsheet, presentations, drawing, and database tools.
+    - Advantages: Free suite covering documents, spreadsheets, presentations, drawing, and databases; Opens common Microsoft Office file formats
+    - Limitations / Trade-offs: Releases are infrequent; the latest stable version, 4.1.16, is from November 2025; Some Microsoft Office formatting may not carry over; LibreOffice is more actively maintained
+  * **OnlyOffice** [https://www.onlyoffice.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/ONLYOFFICE/DocumentServer)
+    - Summary: A free and open-source office suite that is highly compatible with Microsoft Office formats. Available on desktop, web, and mobile.
+  * **LibreOffice** [https://www.libreoffice.org/]
+    - Platforms: windows, macos, linux
+    - License: MPL-2.0 (Repo: https://github.com/LibreOffice/core)
+    - Summary: The full-featured free office suite with word processing, spreadsheets, slides, and drawing.
+    - Advantages: Writer, Calc, Impress, Draw, and Base; Opens and saves Microsoft Office formats; No account or subscription
+    - Limitations / Trade-offs: Interface looks traditional; Complex Office documents may shift slightly
+  * **Google Docs, Sheets & Slides** [https://workspace.google.com/products/docs/]
+    - Platforms: web, ios, android
+    - License: Free with a Google account
+    - Summary: Free online word processing, spreadsheets, and presentations with real-time collaboration.
+    - Advantages: Real-time collaboration out of the box; Autosave and version history; Opens and exports Office formats
+    - Limitations / Trade-offs: Needs an internet connection for best results; Fewer advanced Excel and Word features
+  * **Microsoft 365 for the web** [https://www.microsoft365.com/free-office-online-for-the-web]
+    - Platforms: web, ios, android
+    - License: Free with a Microsoft account
+    - Summary: Free browser versions of Word, Excel, and PowerPoint with 5 GB of OneDrive storage.
+    - Advantages: Real Office file fidelity; Free with a Microsoft account; Co-authoring and OneDrive sync
+    - Limitations / Trade-offs: Missing many desktop features; Includes some ads and upsells
+  * **WPS Office** [https://www.wps.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free with ads, paid Premium
+    - Summary: A lightweight office suite with Writer, Spreadsheet, and Presentation that looks like Microsoft Office.
+    - Advantages: Familiar Office-style ribbon; Handles docx, xlsx, pptx, and PDF; Runs on desktop and mobile
+    - Limitations / Trade-offs: Free version shows ads; Some features require a subscription
+  * **Apple Pages, Numbers & Keynote** [https://www.apple.com/iwork/]
+    - Platforms: macos, ios, web
+    - License: Free on Apple devices
+    - Summary: Apple’s free suite for documents, spreadsheets, and beautiful presentations.
+    - Advantages: Polished templates and design; Free on every Apple device; iCloud collaboration
+    - Limitations / Trade-offs: Best on Apple devices; Some Office formatting may shift when exporting
+
+---
+
+## 3. Photoshop
+- Vendor: Adobe Inc.
+- Category: Design & Illustration
+- Typical Commercial Price: Monthly subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/photoshop/
+- Verified Free Alternatives (11 tools):
+  * **PhotoCraft** [https://getartcraft.com/apps/photocraft]
+    - Platforms: windows, macos, linux, web
+    - License: MIT OR Apache-2.0 (Repo: https://github.com/storytold/photocraft)
+    - Summary: Native, offline image editor with layers, masks, adjustment layers, and layered PSD support, laid out like Photoshop.
+    - Advantages: Menus and shortcuts follow Photoshop's layout; Opens and saves layered PSD and PSB files; Runs offline with no account
+    - Limitations / Trade-offs: Early alpha; the project says it is not yet a replacement for daily professional work; No generative AI features; About twenty tools and plug-in compatibility are still missing
+  * **GIMP** [https://www.gimp.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0
+    - Summary: The classic free image editor with layers, masks, filters, and scripting for serious photo work.
+    - Advantages: Layers, masks, curves, and a huge filter set; Reads and writes PSD files; Scriptable with Python and Script-Fu
+    - Limitations / Trade-offs: Interface feels different from Photoshop; Non-destructive editing is more limited
+  * **Krita** [https://krita.org/]
+    - Platforms: windows, macos, linux, android
+    - License: GPL-3.0
+    - Summary: A professional painting and illustration app built by artists, with fantastic brush engines.
+    - Advantages: Industry-grade brush engine; Animation tools and vector layers; Great tablet and pen support
+    - Limitations / Trade-offs: Less suited to photo retouching than GIMP; Heavier on large canvases
+  * **Photopea** [https://www.photopea.com/]
+    - Platforms: web
+    - License: Free with ads
+    - Summary: A free Photoshop-style editor that runs entirely in your browser and opens PSD, AI, XD, Sketch, and RAW files.
+    - Advantages: Looks and feels like Photoshop, so there is almost no learning curve; Opens and saves PSD files with layers intact; Nothing to install; works on any computer with a browser
+    - Limitations / Trade-offs: Free version shows ads (a paid plan removes them); Heavy files depend on your browser and RAM
+  * **Pixlr** [https://pixlr.com/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid upgrade
+    - Summary: Browser-based photo editor with layers, one-click effects, and AI tools, from quick fixes to full editing.
+    - Advantages: Pixlr E offers a fuller editor, Pixlr X is simple and quick; Works in any browser and on mobile; Templates and AI cutout tools
+    - Limitations / Trade-offs: Some AI features are limited on the free tier; Free version includes ads
+  * **Paint.NET** [https://www.getpaint.net/]
+    - Platforms: windows
+    - License: Freeware
+    - Summary: A fast, friendly image editor for Windows with layers, effects, and a big plugin community.
+    - Advantages: Very quick to learn and light on resources; Layers, blend modes, and plugins; No subscription for the full program
+    - Limitations / Trade-offs: Windows only; Less powerful than Photoshop for advanced retouching
+  * **Affinity by Canva** [https://www.affinity.studio/]
+    - Platforms: windows, macos
+    - License: Free (account required)
+    - Summary: A professional photo, vector, and layout suite that Canva made free to use.
+    - Advantages: Pro-level raster, vector, and layout tools in one app; Imports PSD and AI files; No subscription
+    - Limitations / Trade-offs: Some AI features need a paid Canva plan; Requires a free Canva account
+  * **Canva** [https://www.canva.com/]
+    - Platforms: web, ios, android, windows, macos
+    - License: Free tier, paid Pro
+    - Summary: Drag-and-drop design for social posts, slides, logos, and posters, with a huge template library.
+    - Advantages: Thousands of free templates; Easy for non-designers; great for social media; Real-time collaboration
+    - Limitations / Trade-offs: Not a true replacement for pixel-level editing; Best assets and Magic tools need Pro
+  * **Pinta** [https://www.pinta-project.com/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/PintaProject/Pinta)
+    - Summary: A simple, cross-platform image editor inspired by Paint.NET with layers and common adjustments.
+    - Advantages: Clean, beginner-friendly interface; Layers, selections, and effects; Open source on Windows, Mac, and Linux
+    - Limitations / Trade-offs: Limited advanced features; Smaller plugin ecosystem
+  * **Photoshop Express** [https://www.adobe.com/products/photoshop-express.html]
+    - Platforms: ios, android, web, windows
+    - License: Free tier, paid upgrade
+    - Summary: Adobe’s free, simple photo editor for quick edits, filters, and collages on your phone or PC.
+    - Advantages: Fast fixes with filters, crop, and healing; Familiar Adobe quality; Free on phone and PC
+    - Limitations / Trade-offs: Premium features are paid; Far fewer tools than full Photoshop
+  * **Snapseed** [https://apps.apple.com/app/snapseed/id439438619]
+    - Platforms: ios, android
+    - License: Free
+    - Summary: Google’s free mobile photo editor with selective adjustments, healing, and RAW support.
+    - Advantages: Selective editing with control points; Free with no subscription; Open and edit RAW (DNG) files
+    - Limitations / Trade-offs: Mobile only; No library or cloud sync
+
+---
+
+## 4. Premiere Pro
+- Vendor: Adobe Inc.
+- Category: Video & Animation
+- Typical Commercial Price: Monthly subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/premiere-pro/
+- Verified Free Alternatives (7 tools):
+  * **FilmCraft** [https://getartcraft.com/apps/filmcraft]
+    - Platforms: windows, macos, linux, web
+    - License: MIT OR Apache-2.0 (Repo: https://github.com/storytold/filmcraft)
+    - Summary: Native video editor with Premiere-style panels, trim tools, color grading, and its own built-in codecs.
+    - Advantages: Premiere-style workspaces, tools, and keyboard shortcuts; Exchanges timelines as Final Cut XML, OpenTimelineIO, EDL, and AAF; Color grading panel with live scopes
+    - Limitations / Trade-offs: The project estimates it is about 50 to 60 percent ready for real work; No plugin hosting such as VST3, Audio Units, or OpenFX; H.264 is the only delivery-codec export; Hardware decoding works on macOS only
+  * **Kdenlive** [https://kdenlive.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/KDE/kdenlive)
+    - Summary: A multi-track video editor with proxies, keyframes, and a flexible timeline.
+    - Advantages: Multi-track timeline and proxy editing; Wide format support through FFmpeg; Keyframeable effects
+    - Limitations / Trade-offs: Can be unstable on very complex projects; Hardware acceleration varies by system
+  * **Shotcut** [https://shotcut.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/mltframework/shotcut)
+    - Summary: A fast cross-platform video editor with a clean interface and broad format support.
+    - Advantages: Native timeline editing, no import needed; Good filters and color tools; Portable version available
+    - Limitations / Trade-offs: Less polished than commercial editors; Fewer templates and effects
+  * **DaVinci Resolve** [https://www.blackmagicdesign.com/products/davinciresolve]
+    - Platforms: windows, macos, linux
+    - License: Free version, paid Studio
+    - Summary: A professional editor with industry-leading color grading, Fusion effects, and Fairlight audio, all in one free app.
+    - Advantages: Hollywood-grade color, VFX, and audio tools; Free version has no watermark; Great performance on Mac, Windows, and Linux
+    - Limitations / Trade-offs: Needs a fairly powerful computer; A few features (like some codecs and AI) require Studio
+  * **CapCut** [https://www.capcut.com/]
+    - Platforms: web, windows, macos, ios, android
+    - License: Free tier, paid Pro
+    - Summary: An easy video editor with templates, auto captions, and effects, popular for social video.
+    - Advantages: Quick editing with auto captions and templates; Works on phone, PC, and web; Large effects and music library
+    - Limitations / Trade-offs: Some effects and exports need Pro; Cloud features tie you to the platform
+  * **Clipchamp** [https://clipchamp.com/]
+    - Platforms: web, windows
+    - License: Free tier, paid upgrade
+    - Summary: A browser-based video editor from Microsoft with screen recording, templates, and 1080p export.
+    - Advantages: Free 1080p exports without a watermark; Built-in screen and webcam recorder; Included with Windows 11
+    - Limitations / Trade-offs: Fewer pro features than desktop editors; 4K export requires a paid plan
+  * **iMovie** [https://www.apple.com/imovie/]
+    - Platforms: macos, ios
+    - License: Free on Apple devices
+    - Summary: Apple’s free video editor for Mac, iPhone, and iPad with trailers, titles, and 4K support.
+    - Advantages: Free and preinstalled on Apple devices; Simple timeline with great templates; Projects move between iPhone and Mac
+    - Limitations / Trade-offs: Apple platforms only; Limited advanced editing and effects
+
+---
+
+## 5. Adobe Illustrator
+- Vendor: Adobe
+- Category: Design & Illustration
+- Typical Commercial Price: Monthly or annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/illustrator/
+- Verified Free Alternatives (7 tools):
+  * **Krita** [https://krita.org/]
+    - Platforms: windows, macos, linux, android
+    - License: GPL-3.0
+    - Summary: A professional painting and illustration app built by artists, with fantastic brush engines.
+    - Advantages: Industry-grade brush engine; Animation tools and vector layers; Great tablet and pen support
+    - Limitations / Trade-offs: Less suited to photo retouching than GIMP; Heavier on large canvases
+  * **Inkscape** [https://inkscape.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0
+    - Summary: A powerful vector graphics editor for logos, icons, and illustrations using the open SVG format.
+    - Advantages: Native SVG workflow; Bezier, node, and path tools; Extensible with plugins
+    - Limitations / Trade-offs: Can slow down on very complex files; CMYK workflow is limited
+  * **Photopea** [https://www.photopea.com/]
+    - Platforms: web
+    - License: Free with ads
+    - Summary: A free Photoshop-style editor that runs entirely in your browser and opens PSD, AI, XD, Sketch, and RAW files.
+    - Advantages: Looks and feels like Photoshop, so there is almost no learning curve; Opens and saves PSD files with layers intact; Nothing to install; works on any computer with a browser
+    - Limitations / Trade-offs: Free version shows ads (a paid plan removes them); Heavy files depend on your browser and RAM
+  * **Affinity by Canva** [https://www.affinity.studio/]
+    - Platforms: windows, macos
+    - License: Free (account required)
+    - Summary: A professional photo, vector, and layout suite that Canva made free to use.
+    - Advantages: Pro-level raster, vector, and layout tools in one app; Imports PSD and AI files; No subscription
+    - Limitations / Trade-offs: Some AI features need a paid Canva plan; Requires a free Canva account
+  * **Canva** [https://www.canva.com/]
+    - Platforms: web, ios, android, windows, macos
+    - License: Free tier, paid Pro
+    - Summary: Drag-and-drop design for social posts, slides, logos, and posters, with a huge template library.
+    - Advantages: Thousands of free templates; Easy for non-designers; great for social media; Real-time collaboration
+    - Limitations / Trade-offs: Not a true replacement for pixel-level editing; Best assets and Magic tools need Pro
+  * **Lunacy** [https://icons8.com/lunacy]
+    - Platforms: windows, macos, linux
+    - License: Free
+    - Summary: A free design tool for UI and graphics that opens Sketch files and includes built-in assets.
+    - Advantages: Opens Sketch (.sketch) and Figma-style layouts; Offline use with built-in icons and stock; Free to use for design work
+    - Limitations / Trade-offs: Collaboration is lighter than Figma; Plugin ecosystem is small
+  * **Vectr** [https://vectr.com/]
+    - Platforms: web, windows, macos, linux
+    - License: Free
+    - Summary: A free, simple vector graphics editor that works in the browser or as a desktop app.
+    - Advantages: Easy to learn for logos and icons; Real-time collaboration and sharing; Free web and desktop versions
+    - Limitations / Trade-offs: Far fewer features than Illustrator; Development has slowed in recent years
+
+---
+
+## 6. Adobe Lightroom
+- Vendor: Adobe
+- Category: Photo Editing
+- Typical Commercial Price: Monthly or annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/lightroom/
+- Verified Free Alternatives (5 tools):
+  * **darktable** [https://www.darktable.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/darktable-org/darktable)
+    - Summary: A RAW photo workflow app with non-destructive editing, tethering, and lens corrections.
+    - Advantages: Non-destructive RAW development; Powerful masking and color tools; Tethered shooting support
+    - Limitations / Trade-offs: Steeper learning curve than Lightroom; No built-in cloud sync
+  * **RawTherapee** [https://www.rawtherapee.com/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/RawTherapee/RawTherapee)
+    - Summary: A cross-platform RAW converter focused on image quality and fine control of every parameter.
+    - Advantages: Excellent demosaicing and detail; Batch processing and profiles; Very precise color control
+    - Limitations / Trade-offs: Interface is dense; Weaker photo library features
+  * **Pixlr** [https://pixlr.com/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid upgrade
+    - Summary: Browser-based photo editor with layers, one-click effects, and AI tools, from quick fixes to full editing.
+    - Advantages: Pixlr E offers a fuller editor, Pixlr X is simple and quick; Works in any browser and on mobile; Templates and AI cutout tools
+    - Limitations / Trade-offs: Some AI features are limited on the free tier; Free version includes ads
+  * **Photoshop Express** [https://www.adobe.com/products/photoshop-express.html]
+    - Platforms: ios, android, web, windows
+    - License: Free tier, paid upgrade
+    - Summary: Adobe’s free, simple photo editor for quick edits, filters, and collages on your phone or PC.
+    - Advantages: Fast fixes with filters, crop, and healing; Familiar Adobe quality; Free on phone and PC
+    - Limitations / Trade-offs: Premium features are paid; Far fewer tools than full Photoshop
+  * **Snapseed** [https://apps.apple.com/app/snapseed/id439438619]
+    - Platforms: ios, android
+    - License: Free
+    - Summary: Google’s free mobile photo editor with selective adjustments, healing, and RAW support.
+    - Advantages: Selective editing with control points; Free with no subscription; Open and edit RAW (DNG) files
+    - Limitations / Trade-offs: Mobile only; No library or cloud sync
+
+---
+
+## 7. After Effects
+- Vendor: Adobe
+- Category: Video & Animation
+- Typical Commercial Price: Monthly or annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/after-effects/
+- Verified Free Alternatives (4 tools):
+  * **Blender** [https://www.blender.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/blender/blender)
+    - Summary: A complete 3D suite for modeling, sculpting, animation, rendering, simulation, and video editing.
+    - Advantages: Industry-proven modeling and rendering; Huge community and add-on market; Cycles and EEVEE render engines
+    - Limitations / Trade-offs: Big learning curve at the start; Some studio pipelines still expect Maya
+  * **Natron** [https://natrongithub.github.io/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/NatronGitHub/Natron)
+    - Summary: A node-based compositing app for visual effects and motion graphics.
+    - Advantages: Node-based compositing workflow; Supports OpenFX plugins; Good for VFX pipelines
+    - Limitations / Trade-offs: Development is slower than commercial tools; Node workflow differs from layers
+  * **DaVinci Resolve** [https://www.blackmagicdesign.com/products/davinciresolve]
+    - Platforms: windows, macos, linux
+    - License: Free version, paid Studio
+    - Summary: A professional editor with industry-leading color grading, Fusion effects, and Fairlight audio, all in one free app.
+    - Advantages: Hollywood-grade color, VFX, and audio tools; Free version has no watermark; Great performance on Mac, Windows, and Linux
+    - Limitations / Trade-offs: Needs a fairly powerful computer; A few features (like some codecs and AI) require Studio
+  * **Cavalry** [https://cavalry.scenegroup.co/]
+    - Platforms: windows, macos
+    - License: Free starter tier, paid Pro
+    - Summary: A next-generation 2D motion graphics and animation software built from the ground up for procedural motion design and UI animators.
+    - Advantages: Procedural animation tools make complex particle and geometric animations effortless; Blazingly fast GPU-accelerated real-time viewport playback; Generous free tier with no time limit and full timeline export
+    - Limitations / Trade-offs: Free tier restricts renders to 1080p and disables certain advanced dynamics; Closed-source software
+
+---
+
+## 8. Final Cut Pro
+- Vendor: Apple
+- Category: Video & Animation
+- Typical Commercial Price: One-time purchase, Mac only
+- Comparison URL: https://appsolutelyfree.com/alternatives/final-cut-pro/
+- Verified Free Alternatives (5 tools):
+  * **Kdenlive** [https://kdenlive.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/KDE/kdenlive)
+    - Summary: A multi-track video editor with proxies, keyframes, and a flexible timeline.
+    - Advantages: Multi-track timeline and proxy editing; Wide format support through FFmpeg; Keyframeable effects
+    - Limitations / Trade-offs: Can be unstable on very complex projects; Hardware acceleration varies by system
+  * **Shotcut** [https://shotcut.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/mltframework/shotcut)
+    - Summary: A fast cross-platform video editor with a clean interface and broad format support.
+    - Advantages: Native timeline editing, no import needed; Good filters and color tools; Portable version available
+    - Limitations / Trade-offs: Less polished than commercial editors; Fewer templates and effects
+  * **OpenShot** [https://www.openshot.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/OpenShot/openshot-qt)
+    - Summary: A beginner-friendly video editor with drag-and-drop clips, titles, and transitions.
+    - Advantages: Very approachable for beginners; Animated titles and transitions; Cross-platform
+    - Limitations / Trade-offs: Struggles with heavy 4K projects; Fewer pro features
+  * **DaVinci Resolve** [https://www.blackmagicdesign.com/products/davinciresolve]
+    - Platforms: windows, macos, linux
+    - License: Free version, paid Studio
+    - Summary: A professional editor with industry-leading color grading, Fusion effects, and Fairlight audio, all in one free app.
+    - Advantages: Hollywood-grade color, VFX, and audio tools; Free version has no watermark; Great performance on Mac, Windows, and Linux
+    - Limitations / Trade-offs: Needs a fairly powerful computer; A few features (like some codecs and AI) require Studio
+  * **iMovie** [https://www.apple.com/imovie/]
+    - Platforms: macos, ios
+    - License: Free on Apple devices
+    - Summary: Apple’s free video editor for Mac, iPhone, and iPad with trailers, titles, and 4K support.
+    - Advantages: Free and preinstalled on Apple devices; Simple timeline with great templates; Projects move between iPhone and Mac
+    - Limitations / Trade-offs: Apple platforms only; Limited advanced editing and effects
+
+---
+
+## 9. Camtasia
+- Vendor: TechSmith
+- Category: Video & Animation
+- Typical Commercial Price: Paid license
+- Comparison URL: https://appsolutelyfree.com/alternatives/camtasia/
+- Verified Free Alternatives (6 tools):
+  * **OpenShot** [https://www.openshot.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/OpenShot/openshot-qt)
+    - Summary: A beginner-friendly video editor with drag-and-drop clips, titles, and transitions.
+    - Advantages: Very approachable for beginners; Animated titles and transitions; Cross-platform
+    - Limitations / Trade-offs: Struggles with heavy 4K projects; Fewer pro features
+  * **OBS Studio** [https://obsproject.com/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/obsproject/obs-studio)
+    - Summary: The standard free tool for screen recording and live streaming, with scenes and plugins.
+    - Advantages: Record and stream with scenes and sources; Huge plugin ecosystem; Low overhead and hardware encoding
+    - Limitations / Trade-offs: Recording only; editing needs another app; Setup takes some learning
+  * **Clipchamp** [https://clipchamp.com/]
+    - Platforms: web, windows
+    - License: Free tier, paid upgrade
+    - Summary: A browser-based video editor from Microsoft with screen recording, templates, and 1080p export.
+    - Advantages: Free 1080p exports without a watermark; Built-in screen and webcam recorder; Included with Windows 11
+    - Limitations / Trade-offs: Fewer pro features than desktop editors; 4K export requires a paid plan
+  * **Loom** [https://www.loom.com/]
+    - Platforms: web, windows, macos, ios, android
+    - License: Free tier, paid Business
+    - Summary: Record your screen and camera and share a link instantly, ideal for walkthroughs and feedback.
+    - Advantages: One-click record and share; Automatic transcripts on paid plans; Works in the browser and as an app
+    - Limitations / Trade-offs: Free plan limits video length and count; Editing tools are basic
+  * **HandBrake** [https://handbrake.fr/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/HandBrake/HandBrake)
+    - Summary: The open-source video transcoder for converting video from nearly any format to a selection of modern codecs.
+    - Advantages: Massive preset library for devices, web, and streaming; Hardware encoding (NVENC, Intel QSV, Apple Silicon); Batch queue encoding
+    - Limitations / Trade-offs: Encoding only; does not edit or trim timelines; Cannot decrypt commercial copy-protected Blu-rays natively
+  * **LosslessCut** [https://github.com/mifi/lossless-cut]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/mifi/lossless-cut)
+    - Summary: The Swiss Army knife of lossless video, audio, and subtitle trimming that cuts files instantly at keyframes without re-encoding.
+    - Advantages: Blazingly fast cuts in seconds with ZERO loss in video/audio quality; Extract audio tracks, subtitles, or create thumbnail chapters instantly; Supports virtually all video formats powered by FFmpeg
+    - Limitations / Trade-offs: Cuts only on video keyframes for pure lossless export; Not an effects editor or compositor
+
+---
+
+## 10. Adobe Audition
+- Vendor: Adobe
+- Category: Audio & Music
+- Typical Commercial Price: Monthly or annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/adobe-audition/
+- Verified Free Alternatives (3 tools):
+  * **Audacity** [https://www.audacityteam.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/audacity/audacity)
+    - Summary: The most popular free audio editor for recording, cleaning, and editing sound.
+    - Advantages: Easy multi-track recording and editing; Noise reduction and effects; Supports VST and many plugins
+    - Limitations / Trade-offs: Editing is partly destructive; Interface looks dated
+  * **Ardour** [https://ardour.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/Ardour/ardour)
+    - Summary: A professional digital audio workstation for recording, editing, and mixing.
+    - Advantages: Pro-grade recording and mixing; Plugin support (LV2, VST3); Flexible routing
+    - Limitations / Trade-offs: Not a loop-based performance tool; Pay-what-you-want builds for official binaries
+  * **Ocenaudio** [https://www.ocenaudio.com/]
+    - Platforms: windows, macos, linux
+    - License: Free
+    - Summary: A fast, easy audio editor with real-time effects and a clean waveform interface.
+    - Advantages: Real-time effect previews; Handles large files quickly; Spectrogram and analysis tools
+    - Limitations / Trade-offs: No multi-track editing; Fewer plugins than Audacity
+
+---
+
+## 11. FL Studio
+- Vendor: Image-Line
+- Category: Audio & Music
+- Typical Commercial Price: Paid editions
+- Comparison URL: https://appsolutelyfree.com/alternatives/fl-studio/
+- Verified Free Alternatives (4 tools):
+  * **LMMS** [https://lmms.io/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/LMMS/lmms)
+    - Summary: A free music production studio with a pattern-based workflow similar to FL Studio.
+    - Advantages: Pattern and song editors like FL Studio; Built-in synths and samplers; Supports VST on some platforms
+    - Limitations / Trade-offs: Fewer pro mixing features; Audio recording is limited
+  * **GarageBand** [https://www.apple.com/mac/garageband/]
+    - Platforms: macos, ios
+    - License: Free on Apple devices
+    - Summary: A free music studio with virtual instruments, loops, and multi-track recording on Apple devices.
+    - Advantages: Large library of loops and instruments; Easy to start making music; Projects open in Logic Pro
+    - Limitations / Trade-offs: Apple platforms only; Limited mixing and routing
+  * **Cakewalk by BandLab** [https://www.bandlab.com/products/cakewalk]
+    - Platforms: windows
+    - License: Free
+    - Summary: A full professional DAW for Windows that BandLab released for free, with unlimited tracks.
+    - Advantages: Unlimited audio and MIDI tracks; Pro mixing, VST3 support, and ProChannel; No subscription
+    - Limitations / Trade-offs: Windows only; Interface has a steep learning curve
+  * **BandLab** [https://www.bandlab.com/]
+    - Platforms: web, ios, android
+    - License: Free
+    - Summary: A free online music studio for recording, beat-making, and collaborating from your browser or phone.
+    - Advantages: Make music anywhere on any device; Unlimited projects and cloud saving; Built-in loops and effects
+    - Limitations / Trade-offs: Less powerful than desktop DAWs; Requires an internet connection
+
+---
+
+## 12. Ableton Live
+- Vendor: Ableton
+- Category: Audio & Music
+- Typical Commercial Price: Paid editions
+- Comparison URL: https://appsolutelyfree.com/alternatives/ableton-live/
+- Verified Free Alternatives (4 tools):
+  * **Ardour** [https://ardour.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/Ardour/ardour)
+    - Summary: A professional digital audio workstation for recording, editing, and mixing.
+    - Advantages: Pro-grade recording and mixing; Plugin support (LV2, VST3); Flexible routing
+    - Limitations / Trade-offs: Not a loop-based performance tool; Pay-what-you-want builds for official binaries
+  * **GarageBand** [https://www.apple.com/mac/garageband/]
+    - Platforms: macos, ios
+    - License: Free on Apple devices
+    - Summary: A free music studio with virtual instruments, loops, and multi-track recording on Apple devices.
+    - Advantages: Large library of loops and instruments; Easy to start making music; Projects open in Logic Pro
+    - Limitations / Trade-offs: Apple platforms only; Limited mixing and routing
+  * **Cakewalk by BandLab** [https://www.bandlab.com/products/cakewalk]
+    - Platforms: windows
+    - License: Free
+    - Summary: A full professional DAW for Windows that BandLab released for free, with unlimited tracks.
+    - Advantages: Unlimited audio and MIDI tracks; Pro mixing, VST3 support, and ProChannel; No subscription
+    - Limitations / Trade-offs: Windows only; Interface has a steep learning curve
+  * **BandLab** [https://www.bandlab.com/]
+    - Platforms: web, ios, android
+    - License: Free
+    - Summary: A free online music studio for recording, beat-making, and collaborating from your browser or phone.
+    - Advantages: Make music anywhere on any device; Unlimited projects and cloud saving; Built-in loops and effects
+    - Limitations / Trade-offs: Less powerful than desktop DAWs; Requires an internet connection
+
+---
+
+## 13. Sibelius
+- Vendor: Avid
+- Category: Audio & Music
+- Typical Commercial Price: Subscription tiers
+- Comparison URL: https://appsolutelyfree.com/alternatives/sibelius/
+- Verified Free Alternatives (4 tools):
+  * **MuseScore** [https://musescore.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/musescore/MuseScore)
+    - Summary: A full-featured music notation app for composing, arranging, and printing scores.
+    - Advantages: Professional engraving quality; MusicXML and MIDI import and export; Large online score community
+    - Limitations / Trade-offs: Fewer advanced layout tools than Sibelius; Plugin ecosystem is smaller
+  * **LilyPond** [https://lilypond.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0
+    - Summary: A music engraving system dedicated to producing the highest publication-quality sheet music from automated code input.
+    - Advantages: Engraving quality matches the finest traditional European music publishers; Text-based music files can be version-controlled in Git; Automated spacing, beams, and collision avoidance
+    - Limitations / Trade-offs: Steep learning curve (text programming language, no visual piano roll); Requires a front-end like Frescobaldi for visual previews
+  * **Flat.io** [https://flat.io/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free tier, paid Power
+    - Summary: A collaborative online music score and guitar tablature editor that runs in your web browser with real-time multi-user editing.
+    - Advantages: Real-time Google Docs-style collaboration on sheet music; Works in any browser on laptops, iPads, and Chromebooks; High-quality instrument playback audio
+    - Limitations / Trade-offs: Free plan limits you to 15 concurrent scores; Requires internet connection for cloud saving
+  * **Noteflight** [https://www.noteflight.com/]
+    - Platforms: web
+    - License: Free tier, paid Crescendo
+    - Summary: An established web-based music notation community and editor for writing, listening to, and sharing music online.
+    - Advantages: Nothing to install; compose sheet music directly in your web browser; Active community to share and discover original scores; Print and export MIDI/XML files
+    - Limitations / Trade-offs: Free accounts are limited to 10 saved scores; Web interface can feel sluggish with huge orchestral scores
+
+---
+
+## 14. AutoCAD
+- Vendor: Autodesk
+- Category: 3D & CAD
+- Typical Commercial Price: Costly annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/autocad/
+- Verified Free Alternatives (5 tools):
+  * **FreeCAD** [https://www.freecad.org/]
+    - Platforms: windows, macos, linux
+    - License: LGPL-2.0 (Repo: https://github.com/FreeCAD/FreeCAD)
+    - Summary: A parametric 3D CAD modeler for mechanical design, product design, and architecture.
+    - Advantages: Parametric modeling with history; Workbenches for many engineering tasks; Python scripting
+    - Limitations / Trade-offs: Interface has a learning curve; Topological naming issues in older versions
+  * **LibreCAD** [https://librecad.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/LibreCAD/LibreCAD)
+    - Summary: A lightweight 2D CAD application for technical drawings with DXF support.
+    - Advantages: Fast and light 2D drafting; DXF import and export; Familiar CAD command line
+    - Limitations / Trade-offs: 2D only; Limited DWG support
+  * **Fusion (personal use)** [https://www.autodesk.com/products/fusion-360/personal]
+    - Platforms: windows, macos
+    - License: Free for personal, non-commercial use
+    - Summary: Autodesk’s cloud-connected CAD/CAM tool, free for personal, hobby use.
+    - Advantages: Parametric CAD, CAM, and simulation; Excellent for 3D printing; Free for personal use
+    - Limitations / Trade-offs: Non-commercial use only; Cloud-based and requires an account
+  * **SketchUp Free** [https://www.sketchup.com/plans-and-pricing/sketchup-free]
+    - Platforms: web
+    - License: Free web version
+    - Summary: An easy browser-based 3D modeler popular for woodworking, interiors, and architecture.
+    - Advantages: Very easy to learn; Large 3D Warehouse of models; Runs in your browser
+    - Limitations / Trade-offs: Free version is feature-limited; Needs an internet connection
+  * **Tinkercad** [https://www.tinkercad.com/]
+    - Platforms: web
+    - License: Free
+    - Summary: A beginner-friendly 3D design app for modeling, 3D printing, and learning CAD.
+    - Advantages: Easiest way to start 3D modeling; Exports straight to 3D printing; Free and browser-based
+    - Limitations / Trade-offs: Limited for complex or precise parts; Not a professional CAD tool
+
+---
+
+## 15. Autodesk Maya
+- Vendor: Autodesk
+- Category: 3D & CAD
+- Typical Commercial Price: Costly annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/maya/
+- Verified Free Alternatives (5 tools):
+  * **Blender** [https://www.blender.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/blender/blender)
+    - Summary: A complete 3D suite for modeling, sculpting, animation, rendering, simulation, and video editing.
+    - Advantages: Industry-proven modeling and rendering; Huge community and add-on market; Cycles and EEVEE render engines
+    - Limitations / Trade-offs: Big learning curve at the start; Some studio pipelines still expect Maya
+  * **Wings 3D** [http://www.wings3d.com/]
+    - Platforms: windows, macos, linux
+    - License: BSD-style
+    - Summary: A dedicated polygon subdivision modeler with an intuitive contextual right-click interface and powerful mesh tools.
+    - Advantages: Extremely fast and intuitive subdivision mesh modeling; Lightweight and boots up in a split second; Context-sensitive menus speed up polygon modeling workflows
+    - Limitations / Trade-offs: Modeling only: does not support animation or rigging; Traditional interface conventions
+  * **MagicaVoxel** [https://ephtracy.github.io/]
+    - Platforms: windows, macos
+    - License: Freeware
+    - Summary: A free, lightweight 8-bit voxel art editor and GPU-accelerated interactive path-tracing renderer that makes 3D creation accessible.
+    - Advantages: Stunning built-in interactive path tracer with realistic shadows, glass, and emission; Extremely fun, accessible voxel block sculpting; Exports directly to OBJ, VOX, and MagicaVoxel formats
+    - Limitations / Trade-offs: Voxel aesthetic only; not suitable for traditional curved CAD/NURBS surfaces; No bone rigging system
+  * **Dust3D** [https://dust3d.org/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/huxingyi/dust3d)
+    - Summary: A quick 3D modeling software for indie game developers to auto-generate watertight base meshes, UV unwrap, and rig characters in minutes.
+    - Advantages: Auto-generates clean 3D character meshes from 2D reference lines; Built-in automatic UV unwrapping and rigging; Exports directly to glTF and FBX for game engines
+    - Limitations / Trade-offs: Specialized for quick character base meshes, not detailed micro-sculpting; Interface takes an hour to get used to
+  * **ArmorPaint** [https://armorpaint.org/]
+    - Platforms: windows, macos, linux
+    - License: zlib/libpng (free from source) (Repo: https://github.com/armory3d/armorpaint)
+    - Summary: A stand-alone, GPU-accelerated 3D PBR texture painting software designed as an open-source alternative to Substance 3D Painter.
+    - Advantages: Physically-based texture painting with real-time viewport feedback; Node-based procedural material graph editor; Runs smoothly on standard GPUs with ray tracing support
+    - Limitations / Trade-offs: Pre-compiled binaries require purchase/donation, though source code is completely free on GitHub; Smaller brush library than Substance Painter
+
+---
+
+## 16. SolidWorks
+- Vendor: Dassault Systèmes
+- Category: 3D & CAD
+- Typical Commercial Price: Expensive professional license
+- Comparison URL: https://appsolutelyfree.com/alternatives/solidworks/
+- Verified Free Alternatives (5 tools):
+  * **FreeCAD** [https://www.freecad.org/]
+    - Platforms: windows, macos, linux
+    - License: LGPL-2.0 (Repo: https://github.com/FreeCAD/FreeCAD)
+    - Summary: A parametric 3D CAD modeler for mechanical design, product design, and architecture.
+    - Advantages: Parametric modeling with history; Workbenches for many engineering tasks; Python scripting
+    - Limitations / Trade-offs: Interface has a learning curve; Topological naming issues in older versions
+  * **OpenSCAD** [https://openscad.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/openscad/openscad)
+    - Summary: A code-driven 3D CAD tool where you describe parts with scripts, ideal for 3D printing.
+    - Advantages: Fully parametric, scriptable designs; Great for printable parts; Version-control friendly
+    - Limitations / Trade-offs: No visual sketching; Steep curve for non-programmers
+  * **Fusion (personal use)** [https://www.autodesk.com/products/fusion-360/personal]
+    - Platforms: windows, macos
+    - License: Free for personal, non-commercial use
+    - Summary: Autodesk’s cloud-connected CAD/CAM tool, free for personal, hobby use.
+    - Advantages: Parametric CAD, CAM, and simulation; Excellent for 3D printing; Free for personal use
+    - Limitations / Trade-offs: Non-commercial use only; Cloud-based and requires an account
+  * **SketchUp Free** [https://www.sketchup.com/plans-and-pricing/sketchup-free]
+    - Platforms: web
+    - License: Free web version
+    - Summary: An easy browser-based 3D modeler popular for woodworking, interiors, and architecture.
+    - Advantages: Very easy to learn; Large 3D Warehouse of models; Runs in your browser
+    - Limitations / Trade-offs: Free version is feature-limited; Needs an internet connection
+  * **Tinkercad** [https://www.tinkercad.com/]
+    - Platforms: web
+    - License: Free
+    - Summary: A beginner-friendly 3D design app for modeling, 3D printing, and learning CAD.
+    - Advantages: Easiest way to start 3D modeling; Exports straight to 3D printing; Free and browser-based
+    - Limitations / Trade-offs: Limited for complex or precise parts; Not a professional CAD tool
+
+---
+
+## 17. MATLAB
+- Vendor: MathWorks
+- Category: Developer Tools
+- Typical Commercial Price: Paid license plus toolboxes
+- Comparison URL: https://appsolutelyfree.com/alternatives/matlab/
+- Verified Free Alternatives (3 tools):
+  * **GNU Octave** [https://octave.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0
+    - Summary: A numerical computing language that is largely compatible with MATLAB scripts.
+    - Advantages: Runs most MATLAB code with few changes; Strong math and plotting; Large package library
+    - Limitations / Trade-offs: Slower than MATLAB for some workloads; No Simulink equivalent
+  * **Julia** [https://julialang.org/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/JuliaLang/julia)
+    - Summary: A fast, modern language for scientific computing with MATLAB-like syntax.
+    - Advantages: Very fast numerical performance; MATLAB-like syntax for arrays; Rich package ecosystem
+    - Limitations / Trade-offs: Smaller ecosystem than Python; First-run compile latency
+  * **Scilab** [https://www.scilab.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 / CeCILL
+    - Summary: Free software for numerical computation with Xcos, a Simulink-like block diagram tool.
+    - Advantages: Xcos simulation like Simulink; MATLAB-style scripting; Free for any use
+    - Limitations / Trade-offs: Smaller toolbox ecosystem; Not fully MATLAB compatible
+
+---
+
+## 18. Adobe Acrobat Pro
+- Vendor: Adobe
+- Category: Office & Documents
+- Typical Commercial Price: Monthly or annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/adobe-acrobat/
+- Verified Free Alternatives (7 tools):
+  * **LibreOffice** [https://www.libreoffice.org/]
+    - Platforms: windows, macos, linux
+    - License: MPL-2.0 (Repo: https://github.com/LibreOffice/core)
+    - Summary: The full-featured free office suite with word processing, spreadsheets, slides, and drawing.
+    - Advantages: Writer, Calc, Impress, Draw, and Base; Opens and saves Microsoft Office formats; No account or subscription
+    - Limitations / Trade-offs: Interface looks traditional; Complex Office documents may shift slightly
+  * **Stirling-PDF** [https://www.stirlingpdf.com/]
+    - Platforms: web, self-hosted, windows, macos, linux
+    - License: MIT (Repo: https://github.com/Stirling-Tools/Stirling-PDF)
+    - Summary: A self-hostable web tool to merge, split, convert, compress, sign, and edit PDFs locally.
+    - Advantages: Dozens of PDF tools in one place; Files stay on your own machine; Docker and desktop options
+    - Limitations / Trade-offs: Advanced form editing is basic; Self-hosting needs Docker
+  * **PDFsam Basic** [https://pdfsam.org/]
+    - Platforms: windows, macos, linux
+    - License: AGPL-3.0 (Repo: https://github.com/torakiki/pdfsam)
+    - Summary: A simple desktop tool for splitting, merging, rotating, and extracting pages from PDFs.
+    - Advantages: Focused and fast for page operations; Works offline; Cross-platform
+    - Limitations / Trade-offs: Not a full PDF editor; Advanced features are in the paid edition
+  * **WPS Office** [https://www.wps.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free with ads, paid Premium
+    - Summary: A lightweight office suite with Writer, Spreadsheet, and Presentation that looks like Microsoft Office.
+    - Advantages: Familiar Office-style ribbon; Handles docx, xlsx, pptx, and PDF; Runs on desktop and mobile
+    - Limitations / Trade-offs: Free version shows ads; Some features require a subscription
+  * **PDFgear** [https://www.pdfgear.com/]
+    - Platforms: windows, macos, ios, android
+    - License: Free
+    - Summary: A completely free PDF reader, editor, converter, and merger with no watermarks.
+    - Advantages: Edit, annotate, sign, and convert PDFs; No watermark or page limits; Works offline
+    - Limitations / Trade-offs: No Linux version; Interface can feel crowded
+  * **iLovePDF** [https://www.ilovepdf.com/]
+    - Platforms: web, windows, macos, ios, android
+    - License: Free tier, paid Premium
+    - Summary: Merge, split, compress, and convert PDFs online in a few clicks.
+    - Advantages: Simple tools for common jobs; No install needed; Handles Word, Excel, and image conversions
+    - Limitations / Trade-offs: Free tier has file size and usage limits; Files are processed on their servers
+  * **Foxit PDF Reader** [https://www.foxit.com/pdf-reader/]
+    - Platforms: windows, macos, ios, android
+    - License: Free reader
+    - Summary: A fast, free PDF reader with annotation, form filling, and signing.
+    - Advantages: Lightweight and fast; Annotate, fill forms, and sign; Tabbed interface
+    - Limitations / Trade-offs: Advanced editing requires a paid plan; Installer may offer extra software
+
+---
+
+## 19. Microsoft Visio
+- Vendor: Microsoft
+- Category: Office & Documents
+- Typical Commercial Price: Separate subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/microsoft-visio/
+- Verified Free Alternatives (4 tools):
+  * **LibreOffice** [https://www.libreoffice.org/]
+    - Platforms: windows, macos, linux
+    - License: MPL-2.0 (Repo: https://github.com/LibreOffice/core)
+    - Summary: The full-featured free office suite with word processing, spreadsheets, slides, and drawing.
+    - Advantages: Writer, Calc, Impress, Draw, and Base; Opens and saves Microsoft Office formats; No account or subscription
+    - Limitations / Trade-offs: Interface looks traditional; Complex Office documents may shift slightly
+  * **diagrams.net (draw.io)** [https://www.drawio.com/]
+    - Platforms: web, windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/jgraph/drawio)
+    - Summary: A free diagramming tool for flowcharts, UML, network maps, and more, in your browser or desktop.
+    - Advantages: Imports and exports Visio files; Saves anywhere you choose; Large shape libraries
+    - Limitations / Trade-offs: Fewer data-linked diagram features; Collaboration needs a storage provider
+  * **Lucidchart** [https://www.lucidchart.com/]
+    - Platforms: web
+    - License: Free tier, paid plans
+    - Summary: Browser-based diagrams and flowcharts with Visio import and team collaboration.
+    - Advantages: Imports and exports Visio files; Large template and shape library; Real-time collaboration
+    - Limitations / Trade-offs: Free plan limits documents and shapes; Advanced features need a paid plan
+  * **Excalidraw** [https://excalidraw.com/]
+    - Platforms: web
+    - License: MIT (Repo: https://github.com/excalidraw/excalidraw)
+    - Summary: A virtual whiteboard for sketching hand-drawn style diagrams and wireframes.
+    - Advantages: Instant, no-account sketching; Real-time collaboration; Exports to PNG, SVG, and shareable links
+    - Limitations / Trade-offs: Hand-drawn style is not for formal diagrams; Fewer technical shape libraries
+
+---
+
+## 20. Microsoft Outlook
+- Vendor: Microsoft
+- Category: Office & Documents
+- Typical Commercial Price: Included with Microsoft 365
+- Comparison URL: https://appsolutelyfree.com/alternatives/microsoft-outlook/
+- Verified Free Alternatives (3 tools):
+  * **Mozilla Thunderbird** [https://www.thunderbird.net/]
+    - Platforms: windows, macos, linux, android
+    - License: MPL-2.0
+    - Summary: A free email, calendar, and contacts client with strong privacy and extensions.
+    - Advantages: Unified inbox, calendar, and contacts; Add-on ecosystem; Works with IMAP, POP, and Exchange
+    - Limitations / Trade-offs: Design feels dated to some users; Exchange setup can need extras
+  * **Gmail** [https://mail.google.com/]
+    - Platforms: web, ios, android
+    - License: Free with a Google account
+    - Summary: Free email with powerful search, spam filtering, and 15 GB of shared storage.
+    - Advantages: Excellent spam protection and search; Integrates with Google Calendar and Meet; Free apps on every device
+    - Limitations / Trade-offs: Ad-supported business model; 15 GB storage is shared across Google services
+  * **Proton Mail** [https://proton.me/mail]
+    - Platforms: web, ios, android, windows, macos, linux
+    - License: Free tier, paid plans
+    - Summary: Private, end-to-end encrypted email based in Switzerland, with open-source apps.
+    - Advantages: End-to-end encryption by default; No ads or data mining; Open-source, audited apps
+    - Limitations / Trade-offs: Free tier has limited storage; Some features require a paid plan
+
+---
+
+## 21. WinRAR
+- Vendor: win.rar GmbH
+- Category: System Utilities
+- Typical Commercial Price: Paid license (endless trial)
+- Comparison URL: https://appsolutelyfree.com/alternatives/winrar/
+- Verified Free Alternatives (4 tools):
+  * **7-Zip** [https://www.7-zip.org/]
+    - Platforms: windows, linux, macos
+    - License: LGPL-2.1 (Repo: https://github.com/ip7z/7zip)
+    - Summary: A fast, free file archiver with a high compression ratio and AES-256 encryption.
+    - Advantages: High compression with 7z format; Opens RAR, ZIP, TAR, and more; Lightweight
+    - Limitations / Trade-offs: Plain interface; Cannot create RAR archives
+  * **PeaZip** [https://peazip.github.io/]
+    - Platforms: windows, linux, macos
+    - License: LGPL-3.0 (Repo: https://github.com/peazip/PeaZip)
+    - Summary: A free archive manager with a friendly interface and support for 200+ formats.
+    - Advantages: Handles 200+ archive types; Strong encryption options; Portable edition
+    - Limitations / Trade-offs: Interface can feel busy; Slightly slower than 7-Zip
+  * **Bandizip** [https://www.bandisoft.com/bandizip/]
+    - Platforms: windows, macos
+    - License: Free with ads, paid Pro
+    - Summary: A very fast, free archive tool that opens ZIP, RAR, 7z, and many other formats.
+    - Advantages: Very fast and easy to use; Opens RAR and 7z files; Free standard edition
+    - Limitations / Trade-offs: Free version shows ads; No Linux version
+  * **NanaZip** [https://github.com/M2Team/NanaZip]
+    - Platforms: windows
+    - License: MIT (Repo: https://github.com/M2Team/NanaZip)
+    - Summary: A modern fork of 7-Zip for Windows 10 and 11 with a native look and extra formats.
+    - Advantages: Modern Windows 11 design; Built on 7-Zip with extra formats; Free and open source
+    - Limitations / Trade-offs: Windows only; Fewer settings than PeaZip
+
+---
+
+## 22. Parallels Desktop
+- Vendor: Parallels
+- Category: System Utilities
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/parallels/
+- Verified Free Alternatives (3 tools):
+  * **VirtualBox** [https://www.virtualbox.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/VirtualBox/virtualbox)
+    - Summary: Run other operating systems in virtual machines on your desktop for free.
+    - Advantages: Run Windows, Linux, and more; Snapshots and shared folders; Free and widely supported
+    - Limitations / Trade-offs: Apple Silicon support is limited; Slower graphics than Parallels
+  * **UTM** [https://mac.getutm.app/]
+    - Platforms: macos, ios
+    - License: Apache-2.0 (Repo: https://github.com/utmapp/UTM)
+    - Summary: Run Windows, Linux, and more in virtual machines on Apple Silicon and Intel Macs.
+    - Advantages: Native on Apple Silicon; Runs many operating systems; Free outside the Mac App Store
+    - Limitations / Trade-offs: Slower graphics than Parallels; More manual setup
+  * **VMware Workstation & Fusion** [https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion]
+    - Platforms: windows, linux, macos
+    - License: Free for personal use
+    - Summary: A mature virtualization app that is free for personal use on Windows, Linux, and Mac.
+    - Advantages: Excellent VM performance and compatibility; Snapshots and shared folders; Free for personal use
+    - Limitations / Trade-offs: Commercial use requires a license; Heavy install
+
+---
+
+## 23. TeamViewer
+- Vendor: TeamViewer
+- Category: System Utilities
+- Typical Commercial Price: Free for personal use, expensive for business
+- Comparison URL: https://appsolutelyfree.com/alternatives/teamviewer/
+- Verified Free Alternatives (4 tools):
+  * **RustDesk** [https://rustdesk.com/]
+    - Platforms: windows, macos, linux, ios, android, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/rustdesk/rustdesk)
+    - Summary: An open-source remote desktop app you can use immediately or self-host for full control.
+    - Advantages: Works out of the box; Self-host your own relay server; Cross-platform
+    - Limitations / Trade-offs: Fewer enterprise features; Some features are paid
+  * **AnyDesk** [https://anydesk.com/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: Free for personal use
+    - Summary: A fast remote desktop tool that is free for personal use.
+    - Advantages: Very low-latency connections; Lightweight and portable; Free for personal use
+    - Limitations / Trade-offs: Business use is paid; Free sessions can be flagged as commercial
+  * **Chrome Remote Desktop** [https://remotedesktop.google.com/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: Free
+    - Summary: Free remote access to your computer from any browser or phone.
+    - Advantages: Totally free; Works from any browser; Simple setup with your Google account
+    - Limitations / Trade-offs: Fewer features like file transfer; Requires Chrome and a Google account
+  * **HopToDesk** [https://www.hoptodesk.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free for personal and commercial use
+    - Summary: A completely free remote desktop tool with end-to-end encryption for Windows, Mac, Linux, Android, and iOS.
+    - Advantages: Free for both personal and commercial use with zero subscription fees; Simple 9-digit ID connection similar to AnyDesk/TeamViewer; File transfer, chat, and multi-monitor switching included
+    - Limitations / Trade-offs: Proprietary network relays; Smaller community than RustDesk
+
+---
+
+## 24. Snagit
+- Vendor: TechSmith
+- Category: System Utilities
+- Typical Commercial Price: Paid license
+- Comparison URL: https://appsolutelyfree.com/alternatives/snagit/
+- Verified Free Alternatives (7 tools):
+  * **ShareX** [https://getsharex.com/]
+    - Platforms: windows
+    - License: GPL-3.0 (Repo: https://github.com/ShareX/ShareX)
+    - Summary: A powerful screenshot and screen recording tool with annotations and instant uploads.
+    - Advantages: Screenshots, GIFs, and screen recording; Automated workflows; Many upload destinations
+    - Limitations / Trade-offs: Windows only; Settings are overwhelming at first
+  * **Flameshot** [https://flameshot.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/flameshot-org/flameshot)
+    - Summary: A simple, customizable screenshot tool with built-in annotation and sharing.
+    - Advantages: Quick annotations right on capture; Keyboard-friendly; Cross-platform
+    - Limitations / Trade-offs: No video capture; Fewer editing tools than Snagit
+  * **Greenshot** [https://getgreenshot.org/]
+    - Platforms: windows, macos
+    - License: GPL-3.0 (Repo: https://github.com/greenshot/greenshot)
+    - Summary: A lightweight screenshot tool with quick annotations and one-click export.
+    - Advantages: Quick region capture and annotations; Exports to files, clipboard, and apps; Light on resources
+    - Limitations / Trade-offs: No video recording; Fewer editing tools than Snagit
+  * **Lightshot** [https://app.prntscr.com/]
+    - Platforms: windows, macos
+    - License: Free
+    - Summary: A fast, free screenshot tool with simple editing and instant sharing.
+    - Advantages: One-key capture and upload; Basic annotations; Reverse image search
+    - Limitations / Trade-offs: Limited editing; Uploads go to a public server by default
+  * **Screenity** [https://screenity.io/]
+    - Platforms: web
+    - License: GPL-3.0 (Repo: https://github.com/alyssaxuu/screenity)
+    - Summary: A feature-packed open-source screen recorder and annotation tool for Chrome with webcam overlay, zoom, drawing, and trimming.
+    - Advantages: Unlimited recordings with zero watermarks or time limits; Annotate your screen live with pens, arrows, text, and click highlights; Save directly to Google Drive or export as MP4/WebM/GIF
+    - Limitations / Trade-offs: Requires a Chromium-based browser (Chrome, Brave, Edge); Desktop recording outside the browser relies on OS screen sharing permission
+  * **Shottr** [https://shottr.cc/]
+    - Platforms: macos
+    - License: Free personal use, $12 Pro
+    - Summary: A tiny, 1.6MB pixel-perfect screenshot utility for macOS with scrolling capture, OCR text extraction, pixel ruler, and blur tools.
+    - Advantages: Blazingly fast startup taking less than 15ms to trigger; Scrolling screenshot capture for long web pages and chat logs; Instant OCR extracts text or QR codes directly from screenshots
+    - Limitations / Trade-offs: macOS only; Occasional banner prompt to upgrade to the $12 Pro supporter tier
+  * **Kap** [https://getkap.co/]
+    - Platforms: macos
+    - License: MIT (Repo: https://github.com/wulkano/kap)
+    - Summary: An open-source macOS screen recorder built on web standards that exports silky-smooth video to MP4, GIF, and WebM with custom plugins.
+    - Advantages: Clean, unobtrusive menu bar interface with simple capture crop; Export directly to GIF or MP4 with adjustable framerates and dimensions; Extensible plugin system for uploading to S3, Streamable, or Imgur
+    - Limitations / Trade-offs: macOS only; Built with Electron, so slightly higher memory footprint during active recording
+
+---
+
+## 25. CleanMyMac
+- Vendor: MacPaw
+- Category: System Utilities
+- Typical Commercial Price: Subscription or one-time license
+- Comparison URL: https://appsolutelyfree.com/alternatives/cleanmymac/
+- Verified Free Alternatives (4 tools):
+  * **BleachBit** [https://www.bleachbit.org/]
+    - Platforms: windows, linux
+    - License: GPL-3.0 (Repo: https://github.com/bleachbit/bleachbit)
+    - Summary: Free up disk space and protect privacy by cleaning caches, logs, and temporary files.
+    - Advantages: Cleans browsers and apps; Secure file shredding; Free and open-source
+    - Limitations / Trade-offs: No macOS version; Powerful, so be careful what you select
+  * **AppCleaner** [https://freemacsoft.net/appcleaner/]
+    - Platforms: macos
+    - License: Free
+    - Summary: A small free app that removes other apps and all their leftover files on a Mac.
+    - Advantages: Removes apps and leftover files cleanly; Drag-and-drop simplicity; Free and lightweight
+    - Limitations / Trade-offs: Does only uninstalling, not system maintenance; Mac only
+  * **Pearcleaner** [https://github.com/alienator88/Pearcleaner]
+    - Platforms: macos
+    - License: GPL-3.0 (Repo: https://github.com/alienator88/Pearcleaner)
+    - Summary: A modern, open-source macOS app uninstaller and leftovers remover written in native Swift with zero telemetry.
+    - Advantages: Native Swift macOS app with clean modern design; Deep leftover file search across Application Support and LaunchAgents; Completely open-source and privacy-respecting
+    - Limitations / Trade-offs: macOS only; Distributed via GitHub releases and Homebrew
+  * **GrandPerspective** [https://grandperspectiv.sourceforge.net/]
+    - Platforms: macos
+    - License: GPL-2.0 (Repo: https://sourceforge.net/projects/grandperspectiv/)
+    - Summary: A graphical disk space visualization tool that draws an interactive treemap to reveal exactly what large files are eating your storage.
+    - Advantages: Visual treemaps make multi-gigabyte hidden videos and caches instantly obvious; Scan internal hard drives, external disks, or specific folders; Lightweight and open-source
+    - Limitations / Trade-offs: Visualizes disk space, but file deletion requires manual user review; Traditional macOS utility aesthetic
+
+---
+
+## 26. Power BI
+- Vendor: Microsoft
+- Category: Business & Analytics
+- Typical Commercial Price: Per-user subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/power-bi/
+- Verified Free Alternatives (4 tools):
+  * **Metabase** [https://www.metabase.com/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/metabase/metabase)
+    - Summary: A simple open-source BI tool that lets anyone ask questions of your data and build dashboards.
+    - Advantages: Easy for non-technical users; Connects to most databases; Free self-hosted edition
+    - Limitations / Trade-offs: Fewer advanced visuals than Tableau; Some features are in paid tiers
+  * **Apache Superset** [https://superset.apache.org/]
+    - Platforms: web, self-hosted
+    - License: Apache-2.0 (Repo: https://github.com/apache/superset)
+    - Summary: A modern data exploration and visualization platform with dozens of chart types.
+    - Advantages: Wide range of charts and dashboards; Connects to most SQL databases; Scales to large datasets
+    - Limitations / Trade-offs: More complex to set up; Requires SQL knowledge for power use
+  * **Looker Studio** [https://lookerstudio.google.com/]
+    - Platforms: web
+    - License: Free
+    - Summary: Google’s free tool for building interactive dashboards from many data sources.
+    - Advantages: Free and browser-based; Connects to Google Sheets, Analytics, and more; Easy sharing
+    - Limitations / Trade-offs: Less powerful modeling than Power BI; Complex joins are limited
+  * **Tableau Public** [https://public.tableau.com/]
+    - Platforms: windows, macos, web
+    - License: Free (public data only)
+    - Summary: Free Tableau for building and publishing interactive data visualizations.
+    - Advantages: Full Tableau-style authoring; Large community gallery; Free to use
+    - Limitations / Trade-offs: All work is public; Limited data sources
+
+---
+
+## 27. Tableau
+- Vendor: Salesforce
+- Category: Business & Analytics
+- Typical Commercial Price: Per-user subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/tableau/
+- Verified Free Alternatives (4 tools):
+  * **Metabase** [https://www.metabase.com/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/metabase/metabase)
+    - Summary: A simple open-source BI tool that lets anyone ask questions of your data and build dashboards.
+    - Advantages: Easy for non-technical users; Connects to most databases; Free self-hosted edition
+    - Limitations / Trade-offs: Fewer advanced visuals than Tableau; Some features are in paid tiers
+  * **Apache Superset** [https://superset.apache.org/]
+    - Platforms: web, self-hosted
+    - License: Apache-2.0 (Repo: https://github.com/apache/superset)
+    - Summary: A modern data exploration and visualization platform with dozens of chart types.
+    - Advantages: Wide range of charts and dashboards; Connects to most SQL databases; Scales to large datasets
+    - Limitations / Trade-offs: More complex to set up; Requires SQL knowledge for power use
+  * **Looker Studio** [https://lookerstudio.google.com/]
+    - Platforms: web
+    - License: Free
+    - Summary: Google’s free tool for building interactive dashboards from many data sources.
+    - Advantages: Free and browser-based; Connects to Google Sheets, Analytics, and more; Easy sharing
+    - Limitations / Trade-offs: Less powerful modeling than Power BI; Complex joins are limited
+  * **Tableau Public** [https://public.tableau.com/]
+    - Platforms: windows, macos, web
+    - License: Free (public data only)
+    - Summary: Free Tableau for building and publishing interactive data visualizations.
+    - Advantages: Full Tableau-style authoring; Large community gallery; Free to use
+    - Limitations / Trade-offs: All work is public; Limited data sources
+
+---
+
+## 28. Google Analytics
+- Vendor: Google
+- Category: Business & Analytics
+- Typical Commercial Price: Free, paid for with your visitors’ data
+- Comparison URL: https://appsolutelyfree.com/alternatives/google-analytics/
+- Verified Free Alternatives (4 tools):
+  * **Plausible Analytics** [https://plausible.io/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/plausible/analytics)
+    - Summary: Lightweight, privacy-friendly web analytics with no cookies and a one-page dashboard.
+    - Advantages: No cookies or consent banner needed; Tiny script, fast sites; Simple, clear dashboard
+    - Limitations / Trade-offs: Hosted version is paid; Fewer deep-dive reports
+  * **Umami** [https://umami.is/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/umami-software/umami)
+    - Summary: A simple, fast, privacy-focused alternative to Google Analytics that you can self-host.
+    - Advantages: Cookie-free and privacy-first; Self-host for free; Clean dashboard
+    - Limitations / Trade-offs: You maintain the server; Less advanced attribution
+  * **Matomo** [https://matomo.org/]
+    - Platforms: self-hosted, web
+    - License: GPL-3.0 (Repo: https://github.com/matomo-org/matomo)
+    - Summary: A full-featured, privacy-friendly web analytics platform you can self-host.
+    - Advantages: Own your data; Heatmaps and funnels available; GDPR-friendly
+    - Limitations / Trade-offs: Self-hosting takes upkeep; Cloud version is paid
+  * **Cloudflare Web Analytics** [https://www.cloudflare.com/web-analytics/]
+    - Platforms: web
+    - License: Free
+    - Summary: Free, privacy-first analytics that do not use cookies or fingerprinting.
+    - Advantages: Free and cookie-free; No client-side tracking; Simple dashboard
+    - Limitations / Trade-offs: Basic compared to GA; Requires a Cloudflare account
+
+---
+
+## 29. Mailchimp
+- Vendor: Intuit
+- Category: Business & Analytics
+- Typical Commercial Price: Price grows with your list size
+- Comparison URL: https://appsolutelyfree.com/alternatives/mailchimp/
+- Verified Free Alternatives (3 tools):
+  * **listmonk** [https://listmonk.app/]
+    - Platforms: self-hosted, web
+    - License: AGPL-3.0 (Repo: https://github.com/knadh/listmonk)
+    - Summary: A high-performance self-hosted newsletter and mailing list manager.
+    - Advantages: Single binary, very fast; Templates and segmentation; No per-subscriber fees
+    - Limitations / Trade-offs: You supply your own SMTP; Fewer design tools than Mailchimp
+  * **MailerLite** [https://www.mailerlite.com/]
+    - Platforms: web
+    - License: Free for up to 1,000 subscribers
+    - Summary: Easy email newsletters with automations and a free plan for small lists.
+    - Advantages: Free plan for 1,000 subscribers; Easy drag-and-drop builder; Automations and landing pages
+    - Limitations / Trade-offs: Free plan limits monthly emails; Fewer integrations than Mailchimp
+  * **Brevo** [https://www.brevo.com/]
+    - Platforms: web
+    - License: Free tier, paid plans
+    - Summary: Email, SMS, and marketing automation with a free plan that sends 300 emails a day.
+    - Advantages: Free plan with unlimited contacts; Email and SMS in one place; Transactional email too
+    - Limitations / Trade-offs: Daily sending limits on free plan; Brevo logo on free emails
+
+---
+
+## 30. Airtable
+- Vendor: Airtable
+- Category: Business & Analytics
+- Typical Commercial Price: Per-seat subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/airtable/
+- Verified Free Alternatives (5 tools):
+  * **NocoDB** [https://nocodb.com/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/nocodb/nocodb)
+    - Summary: Turn any database into a smart spreadsheet with grids, forms, kanban, and galleries.
+    - Advantages: Airtable-style interface on your own DB; Forms, kanban, and gallery views; Self-hostable
+    - Limitations / Trade-offs: Fewer automations than Airtable; Self-hosting required for free use
+  * **Baserow** [https://baserow.io/]
+    - Platforms: web, self-hosted
+    - License: MIT
+    - Summary: An open-source no-code database with spreadsheet-style views, forms, and API.
+    - Advantages: Airtable-like UI; Self-host for free; Automatic REST API
+    - Limitations / Trade-offs: Some premium features are paid; Smaller template library
+  * **Grist** [https://www.getgrist.com/]
+    - Platforms: web, self-hosted
+    - License: Apache-2.0 (Repo: https://github.com/gristlabs/grist-core)
+    - Summary: A modern relational spreadsheet combining the drag-and-drop flexibility of Airtable with real Python formulas and granular permissions.
+    - Advantages: Formulas use real Python syntax instead of clunky formula languages; Custom multi-panel dashboards linking tables, cards, and charts; Self-hostable via Docker or use the free cloud tier
+    - Limitations / Trade-offs: Younger template gallery than Airtable; Python formulas require basic scripting familiarity for advanced features
+  * **Teable** [https://teable.io/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/teableio/teable)
+    - Summary: A super-fast, real-time open-source no-code database built directly on native PostgreSQL, capable of handling millions of records smoothly.
+    - Advantages: Blazingly fast performance scaling to 100k+ rows without lag; Native Postgres architecture allows direct SQL queries and extensions; Modern, responsive Airtable-like spreadsheet interface
+    - Limitations / Trade-offs: Newer product under rapid development; Self-hosting requires Docker compose stack
+  * **Mathesar** [https://mathesar.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-3.0 (Repo: https://github.com/centerofci/mathesar)
+    - Summary: An open-source web application that turns any existing PostgreSQL database into an intuitive spreadsheet UI for non-technical users.
+    - Advantages: Zero schema duplication: operates directly on your actual PostgreSQL database; Preserves data types, foreign keys, and constraints automatically; Completely free and open-source with no row limits
+    - Limitations / Trade-offs: Requires an existing PostgreSQL database; Designed for database administration, not marketing Kanban boards
+
+---
+
+## 31. Zapier
+- Vendor: Zapier
+- Category: Business & Analytics
+- Typical Commercial Price: Priced per task volume
+- Comparison URL: https://appsolutelyfree.com/alternatives/zapier/
+- Verified Free Alternatives (4 tools):
+  * **Activepieces** [https://www.activepieces.com/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/activepieces/activepieces)
+    - Summary: An open-source no-code automation tool with a visual builder and many app integrations.
+    - Advantages: Visual no-code flow builder; Self-host with no task limits; Growing integration library
+    - Limitations / Trade-offs: Fewer integrations than Zapier; Younger project
+  * **n8n** [https://n8n.io/]
+    - Platforms: web, self-hosted
+    - License: Sustainable Use License (Repo: https://github.com/n8n-io/n8n)
+    - Summary: A powerful workflow automation tool you can self-host, with hundreds of integrations.
+    - Advantages: Visual workflows with code when needed; Self-host for free; 400+ integrations
+    - Limitations / Trade-offs: Not OSI open-source; More technical than Zapier
+  * **Make** [https://www.make.com/]
+    - Platforms: web
+    - License: Free tier, paid plans
+    - Summary: Visual no-code automation with a free plan and powerful scenario builder.
+    - Advantages: Visual builder for complex flows; Free plan for light use; Large integration list
+    - Limitations / Trade-offs: Free plan has operation limits; Learning curve for advanced scenarios
+  * **IFTTT** [https://ifttt.com/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid Pro
+    - Summary: Simple “if this, then that” automations for apps and smart devices.
+    - Advantages: Very easy to use; Great for smart-home automation; Free applets available
+    - Limitations / Trade-offs: Free plan limits applets; Less powerful for complex workflows
+
+---
+
+## 32. Dropbox
+- Vendor: Dropbox
+- Category: Cloud & Storage
+- Typical Commercial Price: Small free tier, then subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/dropbox/
+- Verified Free Alternatives (6 tools):
+  * **Nextcloud** [https://nextcloud.com/]
+    - Platforms: self-hosted, web, windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/nextcloud/server)
+    - Summary: A self-hosted cloud for files, calendar, contacts, and collaboration that you fully own.
+    - Advantages: Files, calendar, contacts, and office in one; Full ownership of your data; Huge app marketplace
+    - Limitations / Trade-offs: Requires a server to run; Can feel heavy without tuning
+  * **Syncthing** [https://syncthing.net/]
+    - Platforms: windows, macos, linux, android
+    - License: MPL-2.0 (Repo: https://github.com/syncthing/syncthing)
+    - Summary: Continuous peer-to-peer file synchronization between your devices with no cloud in the middle.
+    - Advantages: Private, direct device-to-device sync; No accounts or servers; Fast and reliable
+    - Limitations / Trade-offs: Devices must be online to sync; No web access to files
+  * **Google Drive** [https://drive.google.com/]
+    - Platforms: web, windows, macos, ios, android
+    - License: 15 GB free
+    - Summary: Cloud storage with real-time Docs collaboration and 15 GB free.
+    - Advantages: 15 GB free storage; Deep integration with Docs, Sheets, and Gmail; Fast sharing and search
+    - Limitations / Trade-offs: Storage is shared with Gmail and Photos; Data is processed by Google
+  * **Microsoft OneDrive** [https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage]
+    - Platforms: web, windows, macos, ios, android
+    - License: 5 GB free
+    - Summary: Cloud storage built into Windows with 5 GB free and Office integration.
+    - Advantages: Built into Windows; Personal Vault for sensitive files; Works with Office apps
+    - Limitations / Trade-offs: Only 5 GB free; Syncing can be heavy on some PCs
+  * **MEGA** [https://mega.io/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: 20 GB free
+    - Summary: Encrypted cloud storage with a generous 20 GB free plan.
+    - Advantages: End-to-end encrypted storage; 20 GB free to start; Apps for every platform
+    - Limitations / Trade-offs: Free transfer quota limits; Interface is less polished
+  * **Proton Drive** [https://proton.me/drive]
+    - Platforms: web, ios, android, windows, macos
+    - License: Free tier, paid plans
+    - Summary: Private, end-to-end encrypted cloud storage from the makers of Proton Mail.
+    - Advantages: End-to-end encrypted by default; Swiss privacy laws and open-source apps; Free tier with 5 GB
+    - Limitations / Trade-offs: Smaller free storage than some rivals; Fewer collaboration features
+
+---
+
+## 33. Google Photos
+- Vendor: Google
+- Category: Cloud & Storage
+- Typical Commercial Price: Small free tier, then subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/google-photos/
+- Verified Free Alternatives (4 tools):
+  * **Nextcloud** [https://nextcloud.com/]
+    - Platforms: self-hosted, web, windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/nextcloud/server)
+    - Summary: A self-hosted cloud for files, calendar, contacts, and collaboration that you fully own.
+    - Advantages: Files, calendar, contacts, and office in one; Full ownership of your data; Huge app marketplace
+    - Limitations / Trade-offs: Requires a server to run; Can feel heavy without tuning
+  * **Immich** [https://immich.app/]
+    - Platforms: self-hosted, web, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/immich-app/immich)
+    - Summary: A self-hosted photo and video backup solution with a Google Photos-like experience.
+    - Advantages: Mobile auto-backup and timeline; Face and object search; Fast development pace
+    - Limitations / Trade-offs: Self-hosting and storage required; Under heavy development, so back up your data
+  * **Ente Photos** [https://ente.io/]
+    - Platforms: ios, android, web, windows, macos, linux
+    - License: AGPL-3.0 (Repo: https://github.com/ente-io/ente)
+    - Summary: An end-to-end encrypted photo backup service that is fully open source.
+    - Advantages: Encrypted backups and sharing; Face and location search on device; Open-source apps and server
+    - Limitations / Trade-offs: Free tier is small; Smaller community than Google Photos
+  * **PhotoPrism** [https://www.photoprism.app/]
+    - Platforms: self-hosted, web
+    - License: AGPL-3.0 (Repo: https://github.com/photoprism/photoprism)
+    - Summary: A self-hosted AI-powered photo manager with automatic tagging and a private library.
+    - Advantages: Automatic tagging and faces; Your photos stay on your server; Works with RAW and video
+    - Limitations / Trade-offs: No mobile backup app out of the box; Needs a server to run
+
+---
+
+## 34. Plex
+- Vendor: Plex
+- Category: Media & Streaming
+- Typical Commercial Price: Free tier, paid Plex Pass for key features
+- Comparison URL: https://appsolutelyfree.com/alternatives/plex/
+- Verified Free Alternatives (3 tools):
+  * **Jellyfin** [https://jellyfin.org/]
+    - Platforms: self-hosted, web, windows, macos, linux, ios, android
+    - License: GPL-2.0 (Repo: https://github.com/jellyfin/jellyfin)
+    - Summary: A free software media system to stream your own movies, shows, and music with no tracking.
+    - Advantages: Completely free, no premium tier; No tracking or accounts; Clients for almost every device
+    - Limitations / Trade-offs: You host and manage the server; Some client apps are less polished than Plex
+  * **Kodi** [https://kodi.tv/]
+    - Platforms: windows, macos, linux, android, ios
+    - License: GPL-2.0 (Repo: https://github.com/xbmc/xbmc)
+    - Summary: A free media center that plays and organizes your movies, shows, and music on any screen.
+    - Advantages: Plays almost any local media; Huge add-on and skin ecosystem; Runs on TVs, boxes, and PCs
+    - Limitations / Trade-offs: No built-in remote streaming server; Setup takes some tinkering
+  * **VLC Media Player** [https://www.videolan.org/vlc/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: GPL-2.0 (Repo: https://github.com/videolan/vlc)
+    - Summary: The legendary free media player that plays virtually any video, audio, DVD, or stream format without codec packs.
+    - Advantages: Plays absolutely every video and audio codec known to man; Zero ads, spyware, or user tracking; Hardware acceleration and streaming support
+    - Limitations / Trade-offs: Traditional media player UI rather than a cloud library; Does not provide cloud music catalogs
+
+---
+
+## 35. 1Password
+- Vendor: AgileBits
+- Category: Security & Privacy
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/1password/
+- Verified Free Alternatives (5 tools):
+  * **Bitwarden** [https://bitwarden.com/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: GPL-3.0 (Repo: https://github.com/bitwarden/clients)
+    - Summary: An open-source password manager with a generous free plan and apps everywhere.
+    - Advantages: Free unlimited passwords on all devices; Open-source and audited; Self-hostable server
+    - Limitations / Trade-offs: Interface is functional rather than fancy; Some features are premium
+  * **KeePassXC** [https://keepassxc.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/keepassxreboot/keepassxc)
+    - Summary: A local, offline password manager that stores everything in an encrypted file you control.
+    - Advantages: Fully offline and private; Browser integration and TOTP; No account or cloud
+    - Limitations / Trade-offs: You handle syncing yourself; No official mobile app
+  * **Proton Pass** [https://proton.me/pass]
+    - Platforms: web, ios, android, windows, macos, linux
+    - License: Free tier, paid plans
+    - Summary: An open-source, end-to-end encrypted password manager with hide-my-email aliases.
+    - Advantages: Unlimited passwords on the free plan; Built-in email aliases and 2FA codes; Open-source and audited
+    - Limitations / Trade-offs: Some features need a paid plan; Younger than Bitwarden and 1Password
+  * **Passbolt** [https://www.passbolt.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/passbolt/passbolt_api)
+    - Summary: An open-source password manager designed for agile teams and businesses with granular sharing permissions and OpenPGP cryptography.
+    - Advantages: Granular folder and credential sharing permissions for teams; Full OpenPGP end-to-end encryption verified by third-party audits; Free Community Edition can be self-hosted in your own infrastructure
+    - Limitations / Trade-offs: Designed specifically for team sharing rather than solo consumers; Self-hosting requires standard Docker or Linux server installation
+  * **Vaultwarden** [https://github.com/dani-garcia/vaultwarden]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/dani-garcia/vaultwarden)
+    - Summary: A lightweight, self-hosted Bitwarden-compatible backend server written in Rust that runs on minimal RAM and unlocks Bitwarden Premium features.
+    - Advantages: Drop-in replacement for Bitwarden server using tiny CPU and RAM resources (ideal for Raspberry Pi); Compatible with all official Bitwarden browser extensions and mobile apps; Unlocks premium 2FA features (TOTP generation) and file attachments for free
+    - Limitations / Trade-offs: Requires basic Docker knowledge to host and maintain; You are responsible for backing up your SQLite/Postgres database
+
+---
+
+## 36. LastPass
+- Vendor: GoTo
+- Category: Security & Privacy
+- Typical Commercial Price: Limited free tier, subscription for more
+- Comparison URL: https://appsolutelyfree.com/alternatives/lastpass/
+- Verified Free Alternatives (5 tools):
+  * **Bitwarden** [https://bitwarden.com/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: GPL-3.0 (Repo: https://github.com/bitwarden/clients)
+    - Summary: An open-source password manager with a generous free plan and apps everywhere.
+    - Advantages: Free unlimited passwords on all devices; Open-source and audited; Self-hostable server
+    - Limitations / Trade-offs: Interface is functional rather than fancy; Some features are premium
+  * **KeePassXC** [https://keepassxc.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/keepassxreboot/keepassxc)
+    - Summary: A local, offline password manager that stores everything in an encrypted file you control.
+    - Advantages: Fully offline and private; Browser integration and TOTP; No account or cloud
+    - Limitations / Trade-offs: You handle syncing yourself; No official mobile app
+  * **Proton Pass** [https://proton.me/pass]
+    - Platforms: web, ios, android, windows, macos, linux
+    - License: Free tier, paid plans
+    - Summary: An open-source, end-to-end encrypted password manager with hide-my-email aliases.
+    - Advantages: Unlimited passwords on the free plan; Built-in email aliases and 2FA codes; Open-source and audited
+    - Limitations / Trade-offs: Some features need a paid plan; Younger than Bitwarden and 1Password
+  * **Passbolt** [https://www.passbolt.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/passbolt/passbolt_api)
+    - Summary: An open-source password manager designed for agile teams and businesses with granular sharing permissions and OpenPGP cryptography.
+    - Advantages: Granular folder and credential sharing permissions for teams; Full OpenPGP end-to-end encryption verified by third-party audits; Free Community Edition can be self-hosted in your own infrastructure
+    - Limitations / Trade-offs: Designed specifically for team sharing rather than solo consumers; Self-hosting requires standard Docker or Linux server installation
+  * **Vaultwarden** [https://github.com/dani-garcia/vaultwarden]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/dani-garcia/vaultwarden)
+    - Summary: A lightweight, self-hosted Bitwarden-compatible backend server written in Rust that runs on minimal RAM and unlocks Bitwarden Premium features.
+    - Advantages: Drop-in replacement for Bitwarden server using tiny CPU and RAM resources (ideal for Raspberry Pi); Compatible with all official Bitwarden browser extensions and mobile apps; Unlocks premium 2FA features (TOTP generation) and file attachments for free
+    - Limitations / Trade-offs: Requires basic Docker knowledge to host and maintain; You are responsible for backing up your SQLite/Postgres database
+
+---
+
+## 37. Authy
+- Vendor: Twilio
+- Category: Security & Privacy
+- Typical Commercial Price: Free but closed source
+- Comparison URL: https://appsolutelyfree.com/alternatives/authy/
+- Verified Free Alternatives (4 tools):
+  * **Aegis Authenticator** [https://getaegis.app/]
+    - Platforms: android
+    - License: GPL-3.0 (Repo: https://github.com/beemdevelopment/Aegis)
+    - Summary: A free, secure, open-source 2FA app for Android with encrypted vault backups.
+    - Advantages: Encrypted vault with backups; Import from other authenticators; No ads or tracking
+    - Limitations / Trade-offs: Android only; Manual backup management
+  * **Ente Auth** [https://ente.io/auth/]
+    - Platforms: ios, android, windows, macos, linux, web
+    - License: AGPL-3.0 (Repo: https://github.com/ente-io/ente)
+    - Summary: An open-source 2FA authenticator with end-to-end encrypted cloud sync across devices.
+    - Advantages: Encrypted sync across devices; Apps on every platform; Fully open-source
+    - Limitations / Trade-offs: Cloud sync requires an account; Less well known
+  * **Google Authenticator** [https://support.google.com/accounts/answer/1066447]
+    - Platforms: ios, android
+    - License: Free
+    - Summary: Free two-factor codes with optional Google account sync.
+    - Advantages: Simple and widely supported; Optional cloud sync; No ads
+    - Limitations / Trade-offs: Cloud sync ties codes to a Google account; Fewer backup and export options
+  * **2FAS** [https://2fas.com/]
+    - Platforms: ios, android
+    - License: Open source
+    - Summary: A free, open-source two-factor authenticator with encrypted backups and a browser extension.
+    - Advantages: Encrypted backups; Browser extension for quick codes; No ads or tracking
+    - Limitations / Trade-offs: Mobile only for the main app; Smaller community
+
+---
+
+## 38. NordVPN
+- Vendor: Nord Security
+- Category: Security & Privacy
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/nordvpn/
+- Verified Free Alternatives (4 tools):
+  * **Mullvad VPN** [https://mullvad.net/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: GPL-3.0 (Repo: https://github.com/mullvad/mullvadvpn-app)
+    - Summary: A privacy-focused VPN with open-source apps, anonymous accounts, and a flat price.
+    - Advantages: Open-source, audited apps; No email needed to sign up; WireGuard support
+    - Limitations / Trade-offs: Paid service, though simple pricing; No streaming-focused features
+  * **Proton VPN** [https://protonvpn.com/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: GPL-3.0
+    - Summary: A Swiss VPN with open-source apps and a truly free tier with no data limits.
+    - Advantages: Free tier with no data cap; Open-source and audited apps; Strong privacy jurisdiction
+    - Limitations / Trade-offs: Free tier has fewer server locations; Paid plans for full speed
+  * **Windscribe** [https://windscribe.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free tier (10 GB/month)
+    - Summary: A VPN with a free plan that includes 10 GB of data each month and a built-in ad blocker.
+    - Advantages: 10 GB free per month; Built-in ad and tracker blocking; Apps and browser extensions
+    - Limitations / Trade-offs: Free plan has limited locations; Speeds vary by server
+  * **Cloudflare WARP (1.1.1.1)** [https://one.one.one.one/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: Free
+    - Summary: A free app that encrypts your device’s traffic and speeds up DNS using Cloudflare’s network.
+    - Advantages: Free, fast, and easy to use; Encrypts traffic to Cloudflare; No data cap on the free tier
+    - Limitations / Trade-offs: Not designed to change your location; Not an anonymity tool
+
+---
+
+## 39. Notion
+- Vendor: Notion Labs
+- Category: Notes & Productivity
+- Typical Commercial Price: Free tier, paid per seat
+- Comparison URL: https://appsolutelyfree.com/alternatives/notion/
+- Verified Free Alternatives (7 tools):
+  * **Joplin** [https://joplinapp.org/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/laurent22/joplin)
+    - Summary: A Markdown note-taking app with end-to-end encrypted sync across all your devices.
+    - Advantages: End-to-end encrypted sync; Markdown with attachments and plugins; Imports Evernote notes
+    - Limitations / Trade-offs: Less visual than Notion; No built-in real-time collaboration
+  * **AppFlowy** [https://appflowy.com/]
+    - Platforms: windows, macos, linux, ios, android, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/AppFlowy-IO/AppFlowy)
+    - Summary: An open-source Notion alternative with docs, databases, and boards you fully control.
+    - Advantages: Notion-like docs and databases; Local-first with self-hosting; Native apps on desktop and mobile
+    - Limitations / Trade-offs: Fewer integrations than Notion; Still maturing
+  * **Logseq** [https://logseq.com/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/logseq/logseq)
+    - Summary: A privacy-first outliner and knowledge base with bidirectional links and local files.
+    - Advantages: Local Markdown files you own; Bidirectional linking and graph view; Plugin and theme system
+    - Limitations / Trade-offs: Outliner style takes getting used to; Mobile sync needs setup
+  * **Obsidian** [https://obsidian.md/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: Free for personal use
+    - Summary: A powerful private notes app that stores plain Markdown files and links ideas together.
+    - Advantages: Your notes are plain local files; Backlinks, graph view, and 1,000+ plugins; Free for personal use
+    - Limitations / Trade-offs: Sync and publish are paid add-ons; Not a database or team wiki like Notion
+  * **Microsoft OneNote** [https://www.onenote.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free
+    - Summary: A free digital notebook for text, ink, images, and clippings that syncs across devices.
+    - Advantages: Free-form canvas with ink support; Free on every platform; Web clipper
+    - Limitations / Trade-offs: Organization is notebook-based, not database-based; Requires a Microsoft account
+  * **AFFiNE** [https://affine.pro/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MIT (Repo: https://github.com/toeverything/AFFiNE)
+    - Summary: A next-gen privacy-first open-source workspace combining Notion-style docs, Miro-style whiteboards, and databases.
+    - Advantages: Seamless switch between document view and infinite canvas whiteboard; Local-first with peer sync; No vendor lock-in
+    - Limitations / Trade-offs: Younger ecosystem than Notion; Self-hosting takes configuration
+  * **Anytype** [https://anytype.io/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Any Source Available License (Repo: https://github.com/anyproto/anytype-ts)
+    - Summary: A beautiful local-first, decentralized, and encrypted alternative to Notion for notes, docs, and tasks.
+    - Advantages: End-to-end encrypted peer-to-peer sync; Works completely offline without an internet connection; Gorgeous native desktop & mobile apps
+    - Limitations / Trade-offs: Different paradigm takes some getting used to; Smaller plugin ecosystem
+
+---
+
+## 40. Evernote
+- Vendor: Bending Spoons
+- Category: Notes & Productivity
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/evernote/
+- Verified Free Alternatives (7 tools):
+  * **Joplin** [https://joplinapp.org/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/laurent22/joplin)
+    - Summary: A Markdown note-taking app with end-to-end encrypted sync across all your devices.
+    - Advantages: End-to-end encrypted sync; Markdown with attachments and plugins; Imports Evernote notes
+    - Limitations / Trade-offs: Less visual than Notion; No built-in real-time collaboration
+  * **Standard Notes** [https://standardnotes.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/standardnotes/app)
+    - Summary: A simple, private, end-to-end encrypted notes app built to last for decades.
+    - Advantages: End-to-end encryption by default; Clean, focused interface; Works on every platform
+    - Limitations / Trade-offs: Advanced features need a subscription; Minimal formatting in the free tier
+  * **Logseq** [https://logseq.com/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: AGPL-3.0 (Repo: https://github.com/logseq/logseq)
+    - Summary: A privacy-first outliner and knowledge base with bidirectional links and local files.
+    - Advantages: Local Markdown files you own; Bidirectional linking and graph view; Plugin and theme system
+    - Limitations / Trade-offs: Outliner style takes getting used to; Mobile sync needs setup
+  * **Obsidian** [https://obsidian.md/]
+    - Platforms: windows, macos, linux, ios, android
+    - License: Free for personal use
+    - Summary: A powerful private notes app that stores plain Markdown files and links ideas together.
+    - Advantages: Your notes are plain local files; Backlinks, graph view, and 1,000+ plugins; Free for personal use
+    - Limitations / Trade-offs: Sync and publish are paid add-ons; Not a database or team wiki like Notion
+  * **Microsoft OneNote** [https://www.onenote.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free
+    - Summary: A free digital notebook for text, ink, images, and clippings that syncs across devices.
+    - Advantages: Free-form canvas with ink support; Free on every platform; Web clipper
+    - Limitations / Trade-offs: Organization is notebook-based, not database-based; Requires a Microsoft account
+  * **Google Keep** [https://keep.google.com/]
+    - Platforms: web, ios, android
+    - License: Free with a Google account
+    - Summary: Simple, fast notes, checklists, and reminders that sync with your Google account.
+    - Advantages: Quick capture with colors and labels; Reminders and voice notes; Syncs across Google apps
+    - Limitations / Trade-offs: No rich text formatting; Not suited to large note collections
+  * **Simplenote** [https://simplenote.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: GPL-2.0 (Repo: https://github.com/Automattic/simplenote-electron)
+    - Summary: A clean, free note-taking app with instant sync and Markdown support across all devices.
+    - Advantages: Very fast and minimalist; Free sync across devices; Open source and no ads
+    - Limitations / Trade-offs: No attachments or rich media; Minimal organization features
+
+---
+
+## 41. Grammarly
+- Vendor: Grammarly
+- Category: Notes & Productivity
+- Typical Commercial Price: Free tier, Premium subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/grammarly/
+- Verified Free Alternatives (4 tools):
+  * **LanguageTool** [https://languagetool.org/]
+    - Platforms: web, windows, macos, linux, self-hosted
+    - License: LGPL-2.1 (Repo: https://github.com/languagetool-org/languagetool)
+    - Summary: An open-source grammar, style, and spell checker supporting 30+ languages.
+    - Advantages: Supports many languages; Browser and office add-ons; Self-hostable server
+    - Limitations / Trade-offs: Premium features are paid; Style suggestions are less advanced than Grammarly
+  * **QuillBot** [https://quillbot.com/]
+    - Platforms: web, windows, macos
+    - License: Free tier, paid Premium
+    - Summary: Free grammar checking and paraphrasing with a browser extension and Word add-in.
+    - Advantages: Free grammar and spelling checks; Paraphrasing and summarizing tools; Browser extension
+    - Limitations / Trade-offs: Free tier has word limits; Not as deep as Grammarly Premium for tone
+  * **Vale** [https://vale.sh/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/errata-ai/vale)
+    - Summary: An open-source, highly customizable syntax-aware prose and style linter for technical writers and developers.
+    - Advantages: Enforces custom company style guides (Google, Microsoft, or custom); Understands Markdown, AsciiDoc, and HTML without breaking syntax; Runs in CI/CD pipelines, Git pre-commit hooks, and IDEs
+    - Limitations / Trade-offs: CLI-focused tool meant for technical writers, not general consumers; Requires YAML configuration to customize rules
+  * **ProWritingAid Free** [https://prowritingaid.com/]
+    - Platforms: web, windows, macos
+    - License: Free tier, paid Premium
+    - Summary: A comprehensive writing mentor and style checker that analyzes clarity, passive voice, readability, and pacing.
+    - Advantages: In-depth reports on sticky sentences, overused words, and pacing; Browser extensions and web editor; Helps improve creative and fiction writing craft
+    - Limitations / Trade-offs: Free tier limited to 500 words per check; Desktop deep app integrations require Premium
+
+---
+
+## 42. Calendly
+- Vendor: Calendly
+- Category: Notes & Productivity
+- Typical Commercial Price: Free tier, paid per seat
+- Comparison URL: https://appsolutelyfree.com/alternatives/calendly/
+- Verified Free Alternatives (4 tools):
+  * **Cal.com** [https://cal.com/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/calcom/cal.com)
+    - Summary: Open scheduling infrastructure to let people book time with you, self-hosted or hosted.
+    - Advantages: Calendly-style booking pages; Integrates with major calendars; Self-hostable
+    - Limitations / Trade-offs: Some features are enterprise-only; Self-hosting takes setup
+  * **Koalendar** [https://koalendar.com/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid Pro
+    - Summary: A clean, modern 1-on-1 booking page software with free Google Calendar sync and no meeting limits on the free plan.
+    - Advantages: Unlimited appointments on the free tier; Clean, responsive booking page that embeds easily into websites; Direct Google Calendar & Outlook integration
+    - Limitations / Trade-offs: Group booking and custom branding require Pro plan; Basic email reminders only on free plan
+  * **TidyCal** [https://tidycal.com/]
+    - Platforms: web
+    - License: Free tier, $29 lifetime Pro
+    - Summary: A streamlined booking software by AppSumo for scheduling meetings and paid consultations with a generous free plan.
+    - Advantages: Zero recurring subscriptions (free tier + $29 lifetime deal for advanced features); Syncs with Google Calendar, Apple Calendar, and Office 365; Accepts payments via Stripe and PayPal on paid tier
+    - Limitations / Trade-offs: Free tier allows up to 2 calendar connections; Simpler interface with fewer enterprise integrations
+  * **Zcal** [https://zcal.co/]
+    - Platforms: web
+    - License: Free individual plan
+    - Summary: A free meeting scheduling app that adds personalized video introductions and collective meeting polling with zero paywalls.
+    - Advantages: Generous free plan with unlimited booking links and calendars; Record short video/GIF intros to personalize your booking page; No branding watermarks on standard bookings
+    - Limitations / Trade-offs: Smaller user base and third-party integrations than Calendly; No native SMS notifications
+
+---
+
+## 43. Trello / Jira
+- Vendor: Atlassian
+- Category: Notes & Productivity
+- Typical Commercial Price: Free tier, paid per seat
+- Comparison URL: https://appsolutelyfree.com/alternatives/trello/
+- Verified Free Alternatives (9 tools):
+  * **Plane** [https://plane.so/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/makeplane/plane)
+    - Summary: An open-source project and issue tracker with boards, cycles, and modules.
+    - Advantages: Jira-style issues and sprints; Kanban boards and roadmaps; Self-hostable
+    - Limitations / Trade-offs: Younger than Jira; Fewer integrations
+  * **Vikunja** [https://vikunja.io/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/go-vikunja/vikunja)
+    - Summary: A lightweight, self-hostable to-do and project app with lists, kanban, and Gantt views.
+    - Advantages: Lists, kanban, Gantt, and table views; Light on resources; Self-hosted and private
+    - Limitations / Trade-offs: Smaller feature set than Jira; Mobile app is community-driven
+  * **ClickUp** [https://clickup.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free tier (100MB storage)
+    - Summary: An all-in-one work platform for tasks, docs, goals, and sprints, with a generous free plan.
+    - Advantages: Tasks, boards, docs, and goals in one place; Free plan for small teams; Highly customizable
+    - Limitations / Trade-offs: Can feel overwhelming; Advanced features are paid
+  * **Asana** [https://asana.com/]
+    - Platforms: web, ios, android
+    - License: Free for small teams
+    - Summary: Polished project and task management with lists, boards, and timelines for small teams.
+    - Advantages: Clean interface for task management; Free plan for up to 10 people; Many integrations
+    - Limitations / Trade-offs: Timelines and advanced reporting are paid; Less flexible than Jira for engineering
+  * **Kanboard** [https://kanboard.org/]
+    - Platforms: self-hosted, web
+    - License: MIT (Repo: https://github.com/kanboard/kanboard)
+    - Summary: A minimalist, self-hosted Kanban project board that is fast and easy to run.
+    - Advantages: Simple, focused Kanban; Very lightweight; Plugin system and automation
+    - Limitations / Trade-offs: Basic design; Self-hosting required
+  * **Taiga** [https://taiga.io/]
+    - Platforms: web, self-hosted
+    - License: MPL-2.0 (Repo: https://github.com/taigaio/taiga-front)
+    - Summary: A user-friendly, agile project management tool with Scrum and Kanban boards for cross-functional teams.
+    - Advantages: Beautiful, intuitive interface designed for agile developers; Scrum sprints, user stories, and epics; Free hosted tier and self-hostable
+    - Limitations / Trade-offs: Fewer traditional Gantt chart tools than Monday.com; Self-hosting requires Docker
+  * **OpenProject** [https://www.openproject.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-3.0 (Repo: https://github.com/opf/openproject)
+    - Summary: The leading open-source project management software for classic, agile, or hybrid projects with Gantt charts.
+    - Advantages: Comprehensive interactive Gantt charts and timelines; Agile boards and task tracking; Enterprise security and accessibility compliance
+    - Limitations / Trade-offs: Heavier setup and system requirements for self-hosting; Advanced features in Enterprise edition
+  * **Focalboard** [https://www.focalboard.com/]
+    - Platforms: web, windows, macos, linux, self-hosted
+    - License: MIT / AGPL (Repo: https://github.com/mattermost/focalboard)
+    - Summary: An open-source multilingual project management tool by Mattermost for organizing work with Kanban boards, tables, galleries, and calendars.
+    - Advantages: Available as a standalone desktop app or self-hosted server; Familiar Notion/Trello card properties, filters, and custom views; Clean, responsive UI with no user subscription caps
+    - Limitations / Trade-offs: Standalone desktop app lacks real-time multi-user sync (requires server setup); Smaller integration ecosystem than Monday.com
+  * **Leantime** [https://leantime.io/]
+    - Platforms: web, self-hosted
+    - License: GPL-2.0 (Repo: https://github.com/Leantime/leantime)
+    - Summary: An open-source strategic project management system that combines lean principles, milestone roadmaps, and ADHD-friendly task design.
+    - Advantages: Built for entrepreneurs and cross-functional teams with milestone tracking; ADHD-friendly design that prioritizes focus and reduces cognitive overload; Gantt charts, idea boards, and strategy roadmaps included
+    - Limitations / Trade-offs: Heavier initial interface than simple Kanban boards; Self-hosting requires standard PHP/MySQL or Docker setup
+
+---
+
+## 44. YNAB
+- Vendor: You Need A Budget
+- Category: Notes & Productivity
+- Typical Commercial Price: Annual subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/ynab/
+- Verified Free Alternatives (4 tools):
+  * **Actual Budget** [https://actualbudget.org/]
+    - Platforms: web, self-hosted, windows, macos, linux
+    - License: MIT (Repo: https://github.com/actualbudget/actual)
+    - Summary: A local-first personal finance app with envelope budgeting and optional sync.
+    - Advantages: Envelope budgeting like YNAB; Local-first with optional sync; Free and private
+    - Limitations / Trade-offs: Bank sync requires setup; No official mobile app
+  * **Firefly III** [https://www.firefly-iii.org/]
+    - Platforms: self-hosted, web
+    - License: AGPL-3.0 (Repo: https://github.com/firefly-iii/firefly-iii)
+    - Summary: A self-hosted personal finance manager with budgets, rules, and detailed reports.
+    - Advantages: Rich reports and rules engine; Full control of your data; Import from many sources
+    - Limitations / Trade-offs: Self-hosting required; Less polished budgeting flow
+  * **Goodbudget** [https://goodbudget.com/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid Plus
+    - Summary: Envelope-style budgeting you can share with a partner, with a free plan.
+    - Advantages: Envelope budgeting like YNAB; Sync between devices and partners; Free plan with 20 envelopes
+    - Limitations / Trade-offs: No automatic bank sync on free tier; Basic reporting
+  * **GnuCash** [https://www.gnucash.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/Gnucash/gnucash)
+    - Summary: Personal and small-business financial-accounting software with double-entry bookkeeping, invoicing, and reporting.
+    - Advantages: Double-entry accounting principles ensure accurate books; Invoicing, accounts receivable, and accounts payable; Local storage with no recurring subscription fees
+    - Limitations / Trade-offs: Interface is traditional and requires understanding basic bookkeeping; No mobile cloud sync app out of the box
+
+---
+
+## 45. Slack
+- Vendor: Salesforce
+- Category: Chat & Meetings
+- Typical Commercial Price: Free tier, paid per seat
+- Comparison URL: https://appsolutelyfree.com/alternatives/slack/
+- Verified Free Alternatives (5 tools):
+  * **Element (Matrix)** [https://element.io/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: Apache-2.0 (Repo: https://github.com/element-hq/element-web)
+    - Summary: A secure, decentralized chat app built on the open Matrix protocol with end-to-end encryption.
+    - Advantages: End-to-end encrypted rooms; Decentralized and self-hostable; Bridges to other chat services
+    - Limitations / Trade-offs: Onboarding is less simple than Slack; Performance varies by server
+  * **Rocket.Chat** [https://www.rocket.chat/]
+    - Platforms: web, self-hosted, ios, android, windows, macos, linux
+    - License: MIT (Repo: https://github.com/RocketChat/Rocket.Chat)
+    - Summary: A customizable team chat platform with channels, threads, and omnichannel support.
+    - Advantages: Channels, threads, and integrations; Self-hostable; Apps on all platforms
+    - Limitations / Trade-offs: Some features need paid editions; Server upkeep required
+  * **Zulip** [https://zulip.com/]
+    - Platforms: web, self-hosted, windows, macos, linux, ios, android
+    - License: Apache-2.0 (Repo: https://github.com/zulip/zulip)
+    - Summary: Team chat with a unique topic-based threading model that keeps conversations organized.
+    - Advantages: Topic threading reduces noise; Free for open-source projects; Self-hostable
+    - Limitations / Trade-offs: Threading model needs adjustment; Smaller integration list than Slack
+  * **Discord** [https://discord.com/]
+    - Platforms: web, windows, macos, linux, ios, android
+    - License: Free (optional Nitro)
+    - Summary: Free chat with channels, voice, and screen share, widely used for communities and small teams.
+    - Advantages: Free unlimited message history for channels; Voice and video built in; Huge bot and integration ecosystem
+    - Limitations / Trade-offs: Built for communities more than business; Fewer admin and compliance tools
+  * **Microsoft Teams (free)** [https://www.microsoft.com/microsoft-teams/free]
+    - Platforms: web, windows, macos, ios, android
+    - License: Free tier
+    - Summary: Free chat and video meetings with screen sharing and shared files.
+    - Advantages: Chat and meetings in one app; Free group meetings with a time cap; Works across all platforms
+    - Limitations / Trade-offs: Free plan has meeting length limits; App can be heavy
+
+---
+
+## 46. Zoom
+- Vendor: Zoom
+- Category: Chat & Meetings
+- Typical Commercial Price: Free tier with time limits, paid for more
+- Comparison URL: https://appsolutelyfree.com/alternatives/zoom/
+- Verified Free Alternatives (3 tools):
+  * **Jitsi Meet** [https://jitsi.org/jitsi-meet/]
+    - Platforms: web, ios, android, self-hosted
+    - License: Apache-2.0 (Repo: https://github.com/jitsi/jitsi-meet)
+    - Summary: Free, encrypted video meetings in the browser with no account required.
+    - Advantages: No account needed to join; Screen sharing and recording; Self-hostable
+    - Limitations / Trade-offs: Large meetings may need your own server; Fewer webinar tools than Zoom
+  * **Microsoft Teams (free)** [https://www.microsoft.com/microsoft-teams/free]
+    - Platforms: web, windows, macos, ios, android
+    - License: Free tier
+    - Summary: Free chat and video meetings with screen sharing and shared files.
+    - Advantages: Chat and meetings in one app; Free group meetings with a time cap; Works across all platforms
+    - Limitations / Trade-offs: Free plan has meeting length limits; App can be heavy
+  * **Google Meet** [https://meet.google.com/]
+    - Platforms: web, ios, android
+    - License: Free tier with a Google account
+    - Summary: Free video meetings in the browser with screen sharing and live captions.
+    - Advantages: Join from any browser, no install; Captions and noise cancellation; Integrated with Calendar and Gmail
+    - Limitations / Trade-offs: Free group calls have a time limit; Fewer webinar tools than Zoom
+
+---
+
+## 47. Postman
+- Vendor: Postman
+- Category: Developer Tools
+- Typical Commercial Price: Free tier, paid per seat
+- Comparison URL: https://appsolutelyfree.com/alternatives/postman/
+- Verified Free Alternatives (3 tools):
+  * **Bruno** [https://www.usebruno.com/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/usebruno/bruno)
+    - Summary: An offline-first API client that stores collections as plain files in your Git repo.
+    - Advantages: Collections live in your repo; No forced account or cloud; Fast and lightweight
+    - Limitations / Trade-offs: Fewer team features than Postman; Younger plugin ecosystem
+  * **Hoppscotch** [https://hoppscotch.io/]
+    - Platforms: web, windows, macos, linux, self-hosted
+    - License: MIT (Repo: https://github.com/hoppscotch/hoppscotch)
+    - Summary: A fast, browser-based API client you can also self-host for your team.
+    - Advantages: Works instantly in the browser; REST, GraphQL, and WebSocket support; Self-hostable
+    - Limitations / Trade-offs: Fewer advanced test features; Browser CORS limits without the agent
+  * **Insomnia** [https://insomnia.rest/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (core) (Repo: https://github.com/Kong/insomnia)
+    - Summary: A clean API client for REST, GraphQL, and gRPC with a free local scratch pad.
+    - Advantages: REST, GraphQL, and gRPC in one app; Clean, fast interface; Plugins and environments
+    - Limitations / Trade-offs: Cloud sync features are paid; Fewer team features than Postman
+
+---
+
+## 48. JetBrains IDEs
+- Vendor: JetBrains
+- Category: Developer Tools
+- Typical Commercial Price: Subscription per IDE or bundle
+- Comparison URL: https://appsolutelyfree.com/alternatives/jetbrains/
+- Verified Free Alternatives (5 tools):
+  * **VSCodium** [https://vscodium.com/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/VSCodium/vscodium)
+    - Summary: Community-built binaries of VS Code without Microsoft telemetry, with a rich extension ecosystem.
+    - Advantages: Fast editor with thousands of extensions; No telemetry; Great Git integration
+    - Limitations / Trade-offs: Lighter refactoring than JetBrains IDEs; Some extensions need the Microsoft marketplace
+  * **Neovim** [https://neovim.io/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/neovim/neovim)
+    - Summary: A modern, extensible Vim-based editor loved for speed and keyboard-driven workflows.
+    - Advantages: Blazing fast and lightweight; LSP and Treesitter built in; Endlessly configurable
+    - Limitations / Trade-offs: Steep learning curve; You assemble your own IDE experience
+  * **Visual Studio Code** [https://code.visualstudio.com/]
+    - Platforms: windows, macos, linux, web
+    - License: MIT (source Code-OSS), Microsoft License (official binary) (Repo: https://github.com/microsoft/vscode)
+    - Summary: The most popular free code editor with an unmatched ecosystem of extensions, integrated terminal, and debugging tools.
+    - Advantages: Massive extension marketplace covering virtually every programming language; Built-in Git source control and integrated terminal; Free multi-device settings sync
+    - Limitations / Trade-offs: Higher memory footprint than minimal text editors like Sublime Text; Official Microsoft binaries contain telemetry (use VSCodium for clean open-source build)
+  * **Zed** [https://zed.dev/]
+    - Platforms: macos, linux, windows
+    - License: GPL-3.0 (Repo: https://github.com/zed-industries/zed)
+    - Summary: A very fast, modern code editor built for collaboration and AI-assisted coding.
+    - Advantages: Blazing fast native performance; Real-time multiplayer editing; Built-in AI tools
+    - Limitations / Trade-offs: Smaller extension library; Newer than VS Code and JetBrains
+  * **Visual Studio Community** [https://visualstudio.microsoft.com/vs/community/]
+    - Platforms: windows
+    - License: Free for individuals and small teams
+    - Summary: Microsoft’s full-featured IDE for .NET, C++, and more, free for individuals and small teams.
+    - Advantages: Full IDE with powerful debugger; Great for .NET and C++; Free for individuals and small teams
+    - Limitations / Trade-offs: Windows only; Heavy install
+
+---
+
+## 49. Heroku / Vercel
+- Vendor: Salesforce / Vercel
+- Category: Developer Tools
+- Typical Commercial Price: Usage-based hosting
+- Comparison URL: https://appsolutelyfree.com/alternatives/heroku/
+- Verified Free Alternatives (4 tools):
+  * **Coolify** [https://coolify.io/]
+    - Platforms: self-hosted, web
+    - License: Apache-2.0 (Repo: https://github.com/coollabsio/coolify)
+    - Summary: A self-hostable platform to deploy apps, databases, and services on your own servers.
+    - Advantages: Heroku-style deploys on your own server; One-click databases and services; Git-based deployments
+    - Limitations / Trade-offs: You maintain the server; Smaller community than hosted platforms
+  * **Cloudflare Pages** [https://pages.cloudflare.com/]
+    - Platforms: web
+    - License: Generous free tier
+    - Summary: Free static and full-stack hosting on Cloudflare’s global network with Git deploys.
+    - Advantages: Unlimited static bandwidth on free tier; Git push deploys with previews; Edge functions available
+    - Limitations / Trade-offs: Not for long-running servers; Some features need Workers paid plan
+  * **Netlify** [https://www.netlify.com/]
+    - Platforms: web
+    - License: Free tier, paid plans
+    - Summary: Git-based deployment for static sites and serverless functions with a free starter plan.
+    - Advantages: Instant deploys from Git; Forms, functions, and previews; Easy custom domains
+    - Limitations / Trade-offs: Free tier has usage limits; Not for traditional back-end servers
+  * **Render** [https://render.com/]
+    - Platforms: web
+    - License: Free tier, paid plans
+    - Summary: A cloud platform for web services, databases, and cron jobs with a free tier.
+    - Advantages: Heroku-style workflow; Managed Postgres and Redis; Free static sites
+    - Limitations / Trade-offs: Free web services sleep when idle; Paid for production workloads
+
+---
+
+## 50. Firebase
+- Vendor: Google
+- Category: Developer Tools
+- Typical Commercial Price: Usage-based beyond free tier
+- Comparison URL: https://appsolutelyfree.com/alternatives/firebase/
+- Verified Free Alternatives (3 tools):
+  * **Supabase** [https://supabase.com/]
+    - Platforms: web, self-hosted
+    - License: Apache-2.0 (Repo: https://github.com/supabase/supabase)
+    - Summary: An open-source Firebase alternative built on Postgres with auth, storage, and realtime.
+    - Advantages: Real Postgres database; Auth, storage, and realtime included; Can be self-hosted
+    - Limitations / Trade-offs: Self-hosting has many moving parts; Different data model than Firestore
+  * **Appwrite** [https://appwrite.io/]
+    - Platforms: web, self-hosted
+    - License: BSD-3-Clause (Repo: https://github.com/appwrite/appwrite)
+    - Summary: An open-source backend server with auth, databases, storage, and functions.
+    - Advantages: Broad SDK support; Simple Docker-based self-hosting; Auth and storage included
+    - Limitations / Trade-offs: Ecosystem is younger than Firebase; Realtime features are less mature
+  * **PocketBase** [https://pocketbase.io/]
+    - Platforms: self-hosted
+    - License: MIT (Repo: https://github.com/pocketbase/pocketbase)
+    - Summary: An open-source backend in a single file with database, auth, file storage, and an admin UI.
+    - Advantages: Single executable, trivial to deploy; Realtime subscriptions and auth; Admin dashboard included
+    - Limitations / Trade-offs: SQLite-based, so it is not for huge scale; Pre-1.0 so APIs can change
+
+---
+
+## 51. Auth0
+- Vendor: Okta
+- Category: Developer Tools
+- Typical Commercial Price: Priced per active user
+- Comparison URL: https://appsolutelyfree.com/alternatives/auth0/
+- Verified Free Alternatives (2 tools):
+  * **Keycloak** [https://www.keycloak.org/]
+    - Platforms: self-hosted, web
+    - License: Apache-2.0 (Repo: https://github.com/keycloak/keycloak)
+    - Summary: Open-source identity and access management with SSO, OAuth2, and user federation.
+    - Advantages: SSO, OIDC, and SAML support; Highly configurable; No per-user pricing
+    - Limitations / Trade-offs: Complex to configure and run; Heavier than hosted services
+  * **authentik** [https://goauthentik.io/]
+    - Platforms: self-hosted, web
+    - License: MIT (core) (Repo: https://github.com/goauthentik/authentik)
+    - Summary: An open-source identity provider with SSO, MFA, and flexible flows.
+    - Advantages: SSO, SAML, OAuth, and LDAP; Visual flow editor; Self-hosted with no per-user fees
+    - Limitations / Trade-offs: Requires hosting and upkeep; Smaller than Keycloak
+
+---
+
+## 52. ChatGPT Plus
+- Vendor: OpenAI
+- Category: Developer Tools
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/chatgpt-plus/
+- Verified Free Alternatives (5 tools):
+  * **Ollama** [https://ollama.com/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/ollama/ollama)
+    - Summary: Run state-of-the-art open-source LLMs (Llama 3, Mistral, DeepSeek, Qwen) completely offline and free on your own computer.
+    - Advantages: 100% private: no data ever leaves your device; Works without internet or subscriptions; Huge library of open-weights models
+    - Limitations / Trade-offs: Requires a computer with decent RAM/GPU; Speed depends on your hardware
+  * **LM Studio** [https://lmstudio.ai/]
+    - Platforms: windows, macos, linux
+    - License: Free for personal use
+    - Summary: A slick desktop app to discover, download, and chat with local LLMs offline with a ChatGPT-like interface.
+    - Advantages: Beautiful UI identical to modern chat apps; One-click model downloading; Provides a local drop-in OpenAI-compatible API server
+    - Limitations / Trade-offs: Requires a modern Mac or PC with GPU; Closed-source desktop binary
+  * **Jan.ai** [https://jan.ai/]
+    - Platforms: windows, macos, linux
+    - License: AGPL-3.0 (Repo: https://github.com/janhq/jan)
+    - Summary: An open-source alternative to ChatGPT that runs 100% offline on your device, customizable with extensions.
+    - Advantages: Clean, modern desktop interface; Self-hosted and local-first; Supports local hardware and remote APIs
+    - Limitations / Trade-offs: Model downloads can be large (4GB - 16GB); Hardware requirements for heavy models
+  * **Claude by Anthropic** [https://claude.ai/]
+    - Platforms: web, ios, android
+    - License: Free tier, paid Pro
+    - Summary: Anthropic’s conversational AI assistant known for exceptional writing, coding, and document analysis.
+    - Advantages: Generous free tier with top-tier reasoning; High-quality code generation and long context; Available on web and mobile
+    - Limitations / Trade-offs: Free tier has message limits during peak hours; Not open-source or offline
+  * **DeepSeek AI** [https://www.deepseek.com/]
+    - Platforms: web, ios, android
+    - License: Free web / open weights
+    - Summary: An open-weight AI model family with state-of-the-art coding and math capabilities, free to use online.
+    - Advantages: Outstanding programming and reasoning performance; Open weights available to download; Free web interface
+    - Limitations / Trade-offs: Cloud servers can be congested; Requires account for web app
+
+---
+
+## 53. GitHub Copilot
+- Vendor: Microsoft / GitHub
+- Category: Developer Tools
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/github-copilot/
+- Verified Free Alternatives (6 tools):
+  * **Ollama** [https://ollama.com/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/ollama/ollama)
+    - Summary: Run state-of-the-art open-source LLMs (Llama 3, Mistral, DeepSeek, Qwen) completely offline and free on your own computer.
+    - Advantages: 100% private: no data ever leaves your device; Works without internet or subscriptions; Huge library of open-weights models
+    - Limitations / Trade-offs: Requires a computer with decent RAM/GPU; Speed depends on your hardware
+  * **Continue.dev** [https://www.continue.dev/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/continuedev/continue)
+    - Summary: The leading open-source AI code assistant for VS Code and JetBrains, connecting to local or cloud models.
+    - Advantages: Autocomplete, chat, and codebase understanding inside your IDE; Works with Ollama, LM Studio, or cloud APIs; Fully open-source
+    - Limitations / Trade-offs: Requires setting up your own model provider; Autocomplete quality depends on chosen model
+  * **Void** [https://voideditor.com/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/voideditor/void)
+    - Summary: An open-source AI code editor alternative to Cursor that lets you use any local or hosted LLM without sending your code to third parties.
+    - Advantages: Familiar VS Code fork interface with inline AI edits and codebase chat; Supports local models (Ollama/vLLM) or private cloud API keys; No telemetry or forced telemetry subscriptions
+    - Limitations / Trade-offs: Early development stage compared to mature editors; Requires providing your own API key or local model setup
+  * **Cline** [https://cline.bot/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/cline/cline)
+    - Summary: An autonomous AI coding agent for VS Code that executes terminal commands, reads browser console, and edits multi-file codebases with your approval.
+    - Advantages: Can autonomously create entire projects, debug errors, and run tests; Human-in-the-loop approval for every command and file change; Works with Claude 3.5 Sonnet, DeepSeek, OpenAI, or local models
+    - Limitations / Trade-offs: Can burn through API tokens quickly on large multi-step tasks; Requires careful supervision on terminal commands
+  * **Aider** [https://aider.chat/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/Aider-AI/aider)
+    - Summary: A top-rated command-line AI pair programmer that writes, edits, and commits code directly to your local Git repository.
+    - Advantages: Ranks #1 on coding benchmarks for multi-file repo edits; Automatically writes Git commits with descriptive commit messages; Terminal-native; works with any IDE or terminal emulator
+    - Limitations / Trade-offs: Command-line interface (no visual GUI panels); Requires familiarizing yourself with slash commands (/add, /drop)
+  * **Codeium / Windsurf** [https://codeium.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free personal tier, paid teams
+    - Summary: A blazingly fast AI code completion and in-editor chat assistant with a free personal tier supporting over 70+ languages and 40+ IDEs.
+    - Advantages: Generous free personal tier with unlimited autocomplete; Integrates with VS Code, JetBrains, Vim, Emacs, and Xcode; Ultra-fast low latency completions
+    - Limitations / Trade-offs: Proprietary backend model (not self-hosted); Advanced team collaboration features require enterprise tier
+
+---
+
+## 54. Google Chrome
+- Vendor: Google
+- Category: System Utilities
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/google-chrome/
+- Verified Free Alternatives (4 tools):
+  * **Mozilla Firefox** [https://www.mozilla.org/firefox/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MPL-2.0 (Repo: https://github.com/mozilla/gecko-dev)
+    - Summary: The premier independent, open-source web browser that protects your privacy and supports powerful extensions.
+    - Advantages: Independent rendering engine (Gecko) not controlled by Google; Full Manifest V2 ad-blocker support; Cross-device sync with privacy protection
+    - Limitations / Trade-offs: Slightly different performance profile on some sites; Market share is smaller than Chromium
+  * **Brave Browser** [https://brave.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MPL-2.0 (Repo: https://github.com/brave/brave-browser)
+    - Summary: A fast, Chromium-based browser with built-in ad, tracker, and fingerprinting blocking by default.
+    - Advantages: Blocks ads and trackers out of the box with zero configuration; Runs all Chrome Web Store extensions; 3x faster page loads due to ad stripping
+    - Limitations / Trade-offs: Includes crypto/rewards features (can be toggled off); Chromium engine
+  * **LibreWolf** [https://librewolf.net/]
+    - Platforms: windows, macos, linux
+    - License: MPL-2.0 (Repo: https://gitlab.com/librewolf-community/browser)
+    - Summary: A custom, hardened build of Firefox focused on privacy, security, and freedom, with zero telemetry.
+    - Advantages: Completely removed telemetry and data collection; Pre-configured with uBlock Origin and enhanced tracking protection; DuckDuckGo / SearXNG by default
+    - Limitations / Trade-offs: Can break logins on high-security banking sites due to strict anti-fingerprinting; No automatic updater on Windows without package managers
+  * **Tor Browser** [https://www.torproject.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: BSD-3-Clause
+    - Summary: The ultimate privacy browser that bounces your traffic through an encrypted relay network worldwide.
+    - Advantages: Complete anonymity and censorship circumvention; Defeats browser fingerprinting completely; Free and non-profit maintained
+    - Limitations / Trade-offs: Slower browsing speed due to multi-hop routing; Some websites block known exit nodes
+
+---
+
+## 55. Spotify Premium
+- Vendor: Spotify
+- Category: Media & Streaming
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/spotify/
+- Verified Free Alternatives (3 tools):
+  * **Spotube** [https://spotube.krtirtho.dev/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: BSD-4-Clause (Repo: https://github.com/KRTirtho/spotube)
+    - Summary: An open-source Spotify client that uses Spotify’s metadata with YouTube as the audio source, giving you ad-free music.
+    - Advantages: No Spotify Premium subscription needed; No ads and no telemetry; Download tracks for offline listening
+    - Limitations / Trade-offs: Relies on YouTube audio matching, so very niche live tracks may mismatch; Cannot play Spotify Podcasts
+  * **VLC Media Player** [https://www.videolan.org/vlc/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: GPL-2.0 (Repo: https://github.com/videolan/vlc)
+    - Summary: The legendary free media player that plays virtually any video, audio, DVD, or stream format without codec packs.
+    - Advantages: Plays absolutely every video and audio codec known to man; Zero ads, spyware, or user tracking; Hardware acceleration and streaming support
+    - Limitations / Trade-offs: Traditional media player UI rather than a cloud library; Does not provide cloud music catalogs
+  * **Nuclear Music Player** [https://nuclear.js.org/]
+    - Platforms: windows, macos, linux
+    - License: AGPL-3.0 (Repo: https://github.com/nukeop/nuclear)
+    - Summary: A modern streaming music player that pulls free music from free sources across the internet into one slick UI.
+    - Advantages: Free streaming with no ads; Scrobbling to Last.fm and lyrics integration; Multi-source searching
+    - Limitations / Trade-offs: Electron-based, so can use more RAM than native apps; Track matching occasionally differs
+
+---
+
+## 56. McAfee / Norton Antivirus
+- Vendor: McAfee / Gen Digital
+- Category: Security & Privacy
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/mcafee/
+- Verified Free Alternatives (2 tools):
+  * **uBlock Origin** [https://ublockorigin.com/]
+    - Platforms: web, windows, macos, linux, android
+    - License: GPL-3.0 (Repo: https://github.com/gorhill/uBlock)
+    - Summary: The world’s most effective, lightweight, open-source content blocker for ads, trackers, coin miners, and malware domains.
+    - Advantages: Completely wipes ads, popups, and tracker scripts from the web; Tiny CPU and memory footprint compared to antivirus web shields; Completely free and non-commercial
+    - Limitations / Trade-offs: Browser extension only; does not scan local files; Chromium is restricting extensions via Manifest V3 (works best on Firefox)
+  * **Malwarebytes (Free Scanner)** [https://www.malwarebytes.com/]
+    - Platforms: windows, macos, android, ios
+    - License: Free manual scanner, paid real-time
+    - Summary: The gold-standard free on-demand malware, spyware, and adware detection and cleaning tool.
+    - Advantages: Detects malware and junkware traditional antivirus misses; Free manual scanning and removal forever; No subscription required to clean an infected PC
+    - Limitations / Trade-offs: Free version lacks real-time background protection (rely on Windows Defender); Occasional upgrade prompts
+
+---
+
+## 57. Internet Download Manager (IDM)
+- Vendor: Tonec Inc.
+- Category: System Utilities
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/idm/
+- Verified Free Alternatives (3 tools):
+  * **Free Download Manager (FDM)** [https://www.freedownloadmanager.org/]
+    - Platforms: windows, macos, linux, android
+    - License: Freeware
+    - Summary: A modern, multi-threaded download accelerator and torrent client that speeds up downloads by splitting files.
+    - Advantages: Up to 10x download acceleration via split connections; Built-in BitTorrent client; Browser integration for Chrome, Firefox, Edge
+    - Limitations / Trade-offs: Closed source (though completely free); Slightly larger installer than IDM
+  * **JDownloader 2** [https://jdownloader.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL
+    - Summary: The most comprehensive open-source download manager for hoster sites, link grabbing, and batch extraction.
+    - Advantages: Link grabber catches video/audio from thousands of sites; Automatic archive extraction (RAR/ZIP); Captcha solving and cloud remote control
+    - Limitations / Trade-offs: Java-based interface looks technical; Installer has optional sponsor offers (use clean installer)
+  * **Motrix** [https://motrix.app/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/agalwood/motrix)
+    - Summary: A gorgeous, minimalist download manager powered by aria2 supporting HTTP, FTP, BitTorrent, and Magnet links.
+    - Advantages: Stunning minimalist dark UI; Up to 64 concurrent download threads; No ads or tracking
+    - Limitations / Trade-offs: Fewer site-specific decrypters than JDownloader; Development is quiet
+
+---
+
+## 58. Adobe InDesign
+- Vendor: Adobe
+- Category: Design & Illustration
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/adobe-indesign/
+- Verified Free Alternatives (4 tools):
+  * **Scribus** [https://www.scribus.net/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0
+    - Summary: A professional desktop publishing application for layout, typography, and prepress PDF output.
+    - Advantages: Full CMYK color support, spot colors, and ICC color management; Interactive PDF form creation; Free for commercial book & magazine production
+    - Limitations / Trade-offs: Steeper learning curve than InDesign; Cannot natively open proprietary InDesign .indd files
+  * **Marq (Lucidpress)** [https://www.marq.com/]
+    - Platforms: web
+    - License: Free tier, paid teams
+    - Summary: A collaborative, web-based desktop publishing and brand templating tool with drag-and-drop page layouts and print-ready export.
+    - Advantages: Intuitive drag-and-drop page layout inside any modern browser; Real-time collaborative editing with team members; Pre-made templates for flyers, newsletters, and brochures
+    - Limitations / Trade-offs: Free tier limits stored documents and exports to 3 pages; Cloud-only; requires an internet connection
+  * **Typst** [https://typst.app/]
+    - Platforms: web, windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/typst/typst)
+    - Summary: A modern, blazingly fast markup-based typesetting system designed to replace LaTeX and InDesign for beautiful reports, books, and papers.
+    - Advantages: Instant sub-second compile previews as you type; Clean, intuitive syntax far easier to learn than LaTeX; Produces publication-grade typography, equations, and PDFs
+    - Limitations / Trade-offs: Markup-driven rather than drag-and-drop GUI; Newer package ecosystem
+  * **LyX** [https://www.lyx.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0
+    - Summary: A visual WYSIWYM document processor that combines the ease of a graphical word processor with the typographic brilliance of TeX.
+    - Advantages: Mathematical formulas and structural formatting look gorgeous; Focus on document structure rather than manual page tinkering; Battle-tested for textbooks, theses, and articles
+    - Limitations / Trade-offs: Dated graphical interface appearance; Steeper learning curve than standard word processors
+
+---
+
+## 59. Unity Engine
+- Vendor: Unity Technologies
+- Category: Developer Tools
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/unity/
+- Verified Free Alternatives (6 tools):
+  * **Godot Engine** [https://godotengine.org/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/godotengine/godot)
+    - Summary: The free, open-source 2D and 3D game engine that is completely free of royalties, runtime fees, and subscriptions.
+    - Advantages: Open source under MIT license with no runtime fees or royalties; Lightweight 50MB single executable with fast startup; Clean node-based scene architecture with GDScript & C#
+    - Limitations / Trade-offs: High-end 3D graphics pipeline still maturing compared to Unreal/Unity; Fewer console export kits out of the box
+  * **Defold** [https://defold.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Defold License (Developer-Friendly) (Repo: https://github.com/defold/defold)
+    - Summary: An ultra-lightweight, high-performance 2D and 3D game engine with blazing fast compile times, zero setup, and no runtime royalties.
+    - Advantages: Extremely tiny build sizes (under 5MB HTML5/mobile games); Zero royalties or revenue shares ever; Rock-solid Lua scripting workflow
+    - Limitations / Trade-offs: Smaller 3D feature set compared to Unreal or Unity; Community ecosystem is smaller than Unity
+  * **Unreal Engine** [https://www.unrealengine.com/]
+    - Platforms: windows, macos, linux
+    - License: Free to start (5% royalty after $1M gross)
+    - Summary: The industry standard AAA 3D game and virtual production engine featuring photorealistic Nanite geometry and Lumen dynamic lighting.
+    - Advantages: Unrivaled photorealistic 3D graphics and lighting out of the box; Visual Blueprint scripting plus native C++; 100% free until your game earns over $1,000,000 USD
+    - Limitations / Trade-offs: Massive disk install size (50GB - 100GB+); Demanding hardware requirements for development
+  * **Stride 3D** [https://stride3d.net/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/stride3d/stride)
+    - Summary: A free, open-source C# 2D and 3D game engine built on modern .NET, designed as the closest open architectural alternative to Unity.
+    - Advantages: Native modern C# and .NET with full async/await support; Familiar component and scene editor workflow for Unity developers; Completely open source with zero runtime fees
+    - Limitations / Trade-offs: Smaller asset store and plugin ecosystem; Smaller community than Godot or Unity
+  * **Raylib** [https://www.raylib.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: zlib/libpng (Repo: https://github.com/raysan5/raylib)
+    - Summary: A simple, lightweight C library for videogame programming with no bloated GUI or project managers, beloved by hobbyists and educators.
+    - Advantages: Zero bloated editor; pure code-driven videogame programming; Bindings for over 60+ programming languages; Superb cross-platform performance on web, mobile, and desktop
+    - Limitations / Trade-offs: No visual drag-and-drop editor; Requires writing game loops and UI manually
+  * **GDevelop** [https://gdevelop.io/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MIT / BSL (Repo: https://github.com/4ian/GDevelop)
+    - Summary: An intuitive, open-source 2D and 3D game creator that lets anyone build games using visual event-based logic without writing code.
+    - Advantages: Visual event sheet system requires zero coding knowledge; Built-in asset store with thousands of free sprites and sounds; One-click export to iOS, Android, Steam, and web
+    - Limitations / Trade-offs: Complex game logic can become unwieldy in event sheets; 3D tools are geared toward simple low-poly games
+
+---
+
+## 60. QuickBooks Online
+- Vendor: Intuit
+- Category: Business & Analytics
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/quickbooks/
+- Verified Free Alternatives (5 tools):
+  * **GnuCash** [https://www.gnucash.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/Gnucash/gnucash)
+    - Summary: Personal and small-business financial-accounting software with double-entry bookkeeping, invoicing, and reporting.
+    - Advantages: Double-entry accounting principles ensure accurate books; Invoicing, accounts receivable, and accounts payable; Local storage with no recurring subscription fees
+    - Limitations / Trade-offs: Interface is traditional and requires understanding basic bookkeeping; No mobile cloud sync app out of the box
+  * **Wave Accounting** [https://www.waveapps.com/]
+    - Platforms: web, ios, android
+    - License: Free invoicing & accounting
+    - Summary: Free invoicing and accounting for small business owners and freelancers with no monthly software fee.
+    - Advantages: Free unlimited invoicing, accounting, and receipt scanning; Professional invoice templates with payment links; Clean web dashboard
+    - Limitations / Trade-offs: Charges standard transaction fees if customers pay via credit card; Payroll is a paid add-on
+  * **Akaunting** [https://akaunting.com/]
+    - Platforms: web, self-hosted
+    - License: GPL-3.0 (Repo: https://github.com/akaunting/akaunting)
+    - Summary: A free, open-source online accounting software designed for small businesses and freelancers to manage money from anywhere.
+    - Advantages: Invoicing, expense tracking, deposits, and banking feeds in one web portal; Self-hostable with full data ownership or hosted cloud option; Multi-currency and client portal features
+    - Limitations / Trade-offs: App store ecosystem charges for certain third-party extensions; Self-hosting requires PHP and MySQL server setup
+  * **Manager Accounting** [https://www.manager.io/]
+    - Platforms: windows, macos, linux
+    - License: Free desktop version, paid cloud
+    - Summary: A fully-featured, free desktop accounting application with comprehensive double-entry bookkeeping, general ledger, and VAT/sales tax reports.
+    - Advantages: Completely free and unlimited on desktop with zero recurring fees; Works completely offline; stores data in local database files; Full double-entry general ledger, balance sheets, and profit & loss
+    - Limitations / Trade-offs: Desktop version is single-user only (multi-user requires Cloud or Server paid edition); Interface is functional rather than flashy
+  * **Dolibarr ERP & CRM** [https://www.dolibarr.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-3.0 (Repo: https://github.com/Dolibarr/dolibarr)
+    - Summary: An all-in-one open-source ERP and CRM suite that handles invoices, quotes, inventory, orders, and customer management for companies.
+    - Advantages: Modular architecture: enable only the modules you need (invoicing, stock, HR); Handles complex B2B sales pipelines and purchase orders; Active global open-source community with over 15 years of updates
+    - Limitations / Trade-offs: Traditional enterprise UI; Installation requires web server hosting (LAMP stack or Docker)
+
+---
+
+## 61. Adobe Media Encoder
+- Vendor: Adobe
+- Category: Video & Animation
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/adobe-media-encoder/
+- Verified Free Alternatives (4 tools):
+  * **HandBrake** [https://handbrake.fr/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/HandBrake/HandBrake)
+    - Summary: The open-source video transcoder for converting video from nearly any format to a selection of modern codecs.
+    - Advantages: Massive preset library for devices, web, and streaming; Hardware encoding (NVENC, Intel QSV, Apple Silicon); Batch queue encoding
+    - Limitations / Trade-offs: Encoding only; does not edit or trim timelines; Cannot decrypt commercial copy-protected Blu-rays natively
+  * **Shutter Encoder** [https://www.shutterencoder.com/]
+    - Platforms: windows, macos, linux
+    - License: Free / Donationware
+    - Summary: A pro-grade video converter based on FFmpeg tailored for film editors and broadcast workflows.
+    - Advantages: Converts to Apple ProRes, DNxHD, H.264, and AV1; Built-in subtitling, rewinding, and audio normalization; No installation needed for portable build
+    - Limitations / Trade-offs: Interface is dense with professional video specs; Can be intimidating for casual users
+  * **Avidemux** [https://avidemux.sourceforge.net/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0
+    - Summary: A free, open-source video editor designed for simple cutting, filtering, and re-encoding tasks without quality degradation.
+    - Advantages: Cut and splice video segments without re-encoding the stream in "Copy" mode; Batch processing queue for converting libraries of files; Extensive video and audio filter collection (crop, subtitles, deinterlace)
+    - Limitations / Trade-offs: Basic timeline interface, not designed for multi-track Hollywood editing; No timeline transitions
+  * **LosslessCut** [https://github.com/mifi/lossless-cut]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/mifi/lossless-cut)
+    - Summary: The Swiss Army knife of lossless video, audio, and subtitle trimming that cuts files instantly at keyframes without re-encoding.
+    - Advantages: Blazingly fast cuts in seconds with ZERO loss in video/audio quality; Extract audio tracks, subtitles, or create thumbnail chapters instantly; Supports virtually all video formats powered by FFmpeg
+    - Limitations / Trade-offs: Cuts only on video keyframes for pure lossless export; Not an effects editor or compositor
+
+---
+
+## 62. Monday.com
+- Vendor: monday.com Ltd.
+- Category: Notes & Productivity
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/monday/
+- Verified Free Alternatives (5 tools):
+  * **Vikunja** [https://vikunja.io/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/go-vikunja/vikunja)
+    - Summary: A lightweight, self-hostable to-do and project app with lists, kanban, and Gantt views.
+    - Advantages: Lists, kanban, Gantt, and table views; Light on resources; Self-hosted and private
+    - Limitations / Trade-offs: Smaller feature set than Jira; Mobile app is community-driven
+  * **Taiga** [https://taiga.io/]
+    - Platforms: web, self-hosted
+    - License: MPL-2.0 (Repo: https://github.com/taigaio/taiga-front)
+    - Summary: A user-friendly, agile project management tool with Scrum and Kanban boards for cross-functional teams.
+    - Advantages: Beautiful, intuitive interface designed for agile developers; Scrum sprints, user stories, and epics; Free hosted tier and self-hostable
+    - Limitations / Trade-offs: Fewer traditional Gantt chart tools than Monday.com; Self-hosting requires Docker
+  * **OpenProject** [https://www.openproject.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-3.0 (Repo: https://github.com/opf/openproject)
+    - Summary: The leading open-source project management software for classic, agile, or hybrid projects with Gantt charts.
+    - Advantages: Comprehensive interactive Gantt charts and timelines; Agile boards and task tracking; Enterprise security and accessibility compliance
+    - Limitations / Trade-offs: Heavier setup and system requirements for self-hosting; Advanced features in Enterprise edition
+  * **Focalboard** [https://www.focalboard.com/]
+    - Platforms: web, windows, macos, linux, self-hosted
+    - License: MIT / AGPL (Repo: https://github.com/mattermost/focalboard)
+    - Summary: An open-source multilingual project management tool by Mattermost for organizing work with Kanban boards, tables, galleries, and calendars.
+    - Advantages: Available as a standalone desktop app or self-hosted server; Familiar Notion/Trello card properties, filters, and custom views; Clean, responsive UI with no user subscription caps
+    - Limitations / Trade-offs: Standalone desktop app lacks real-time multi-user sync (requires server setup); Smaller integration ecosystem than Monday.com
+  * **Leantime** [https://leantime.io/]
+    - Platforms: web, self-hosted
+    - License: GPL-2.0 (Repo: https://github.com/Leantime/leantime)
+    - Summary: An open-source strategic project management system that combines lean principles, milestone roadmaps, and ADHD-friendly task design.
+    - Advantages: Built for entrepreneurs and cross-functional teams with milestone tracking; ADHD-friendly design that prioritizes focus and reduces cognitive overload; Gantt charts, idea boards, and strategy roadmaps included
+    - Limitations / Trade-offs: Heavier initial interface than simple Kanban boards; Self-hosting requires standard PHP/MySQL or Docker setup
+
+---
+
+## 63. Sublime Text / UltraEdit
+- Vendor: Sublime HQ / Idera
+- Category: Developer Tools
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/sublime-text/
+- Verified Free Alternatives (5 tools):
+  * **Neovim** [https://neovim.io/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/neovim/neovim)
+    - Summary: A modern, extensible Vim-based editor loved for speed and keyboard-driven workflows.
+    - Advantages: Blazing fast and lightweight; LSP and Treesitter built in; Endlessly configurable
+    - Limitations / Trade-offs: Steep learning curve; You assemble your own IDE experience
+  * **Visual Studio Code** [https://code.visualstudio.com/]
+    - Platforms: windows, macos, linux, web
+    - License: MIT (source Code-OSS), Microsoft License (official binary) (Repo: https://github.com/microsoft/vscode)
+    - Summary: The most popular free code editor with an unmatched ecosystem of extensions, integrated terminal, and debugging tools.
+    - Advantages: Massive extension marketplace covering virtually every programming language; Built-in Git source control and integrated terminal; Free multi-device settings sync
+    - Limitations / Trade-offs: Higher memory footprint than minimal text editors like Sublime Text; Official Microsoft binaries contain telemetry (use VSCodium for clean open-source build)
+  * **Zed** [https://zed.dev/]
+    - Platforms: macos, linux, windows
+    - License: GPL-3.0 (Repo: https://github.com/zed-industries/zed)
+    - Summary: A very fast, modern code editor built for collaboration and AI-assisted coding.
+    - Advantages: Blazing fast native performance; Real-time multiplayer editing; Built-in AI tools
+    - Limitations / Trade-offs: Smaller extension library; Newer than VS Code and JetBrains
+  * **Notepad++** [https://notepad-plus-plus.org/]
+    - Platforms: windows
+    - License: GPL-3.0 (Repo: https://github.com/notepad-plus-plus/notepad-plus-plus)
+    - Summary: The legendary lightweight, lightning-fast source code and text editor for Windows that opens gigabyte log files in milliseconds.
+    - Advantages: Starts up in a split second with negligible CPU and memory usage; Handles massive multi-gigabyte log files without breaking a sweat; Extensive regex search-and-replace across multiple files and folders
+    - Limitations / Trade-offs: Native to Windows only (requires Wine on Linux/Mac); Traditional Windows desktop aesthetic
+  * **Pulsar** [https://pulsar-edit.dev/]
+    - Platforms: windows, macos, linux
+    - License: MIT (Repo: https://github.com/pulsar-edit/pulsar)
+    - Summary: A community-led, fully hackable open-source code editor continuing the beloved legacy and package ecosystem of GitHub’s Atom.
+    - Advantages: 100% hackable: customize every piece of the editor via CSS and JavaScript; Familiar Atom package manager and themes; Completely community-driven with zero corporate control
+    - Limitations / Trade-offs: Electron architecture uses more memory than native C++ editors; Startup speed is slower than Sublime Text
+
+---
+
+## 64. Discord Nitro
+- Vendor: Discord Inc.
+- Category: Chat & Meetings
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/discord/
+- Verified Free Alternatives (2 tools):
+  * **Revolt** [https://revolt.chat/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/revoltchat/frontend)
+    - Summary: A user-first, open-source chat and voice platform designed as a direct drop-in alternative to Discord with zero monetization lockouts.
+    - Advantages: Interface is virtually identical to Discord, making migration effortless; No paid Nitro paywalls on emojis, upload limits, or screenshares; Self-hostable or use the official public community servers
+    - Limitations / Trade-offs: Smaller server directory than Discord; Fewer bot developer integrations than mature platforms
+  * **Guilded** [https://www.guilded.gg/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Proprietary Freeware
+    - Summary: A feature-packed gaming community chat platform that provides 1080p 60fps streaming, 500MB uploads, and calendar scheduling for free.
+    - Advantages: High-definition 1080p 60fps screen sharing without a subscription; Built-in event calendars, tournament brackets, and document wikis; Generous 500MB file upload limit per post
+    - Limitations / Trade-offs: Requires a Roblox account login; Closed-source proprietary platform
+
+---
+
+## 65. X (Twitter) Premium
+- Vendor: X Corp.
+- Category: Chat & Meetings
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/twitter/
+- Verified Free Alternatives (3 tools):
+  * **Mastodon** [https://joinmastodon.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: AGPL-3.0 (Repo: https://github.com/mastodon/mastodon)
+    - Summary: The premier decentralized, open-source microblogging network with no algorithms, no corporate ads, and no pay-to-win verification.
+    - Advantages: Federated across thousands of independent servers (the Fediverse); Chronological timeline with no manipulative engagement algorithms; No subscription fees, promoted tweets, or data harvesting
+    - Limitations / Trade-offs: Choosing a starting server can cause initial decision fatigue; Search is deliberately privacy-scoped to hashtags and mentions
+  * **Bluesky** [https://bsky.app/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MIT / Apache-2.0 (Repo: https://github.com/bluesky-social/social-app)
+    - Summary: An open social network built on the AT Protocol featuring customizable algorithmic feeds, domain-as-handle identity, and composable moderation.
+    - Advantages: Fast, responsive interface that feels just like classic Twitter; Algorithmic choice: subscribe to custom feeds created by the community; Use your personal website domain as your verified handle for free
+    - Limitations / Trade-offs: Direct messaging features are still evolving; Federation with self-hosted instances is in early phases
+  * **Nostr** [https://nostr.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: MIT (Repo: https://github.com/nostr-protocol/nostr)
+    - Summary: A lightweight, decentralized protocol for censorship-resistant global publishing where you own your identity via cryptographic keys.
+    - Advantages: Decentralized protocol resistant to single-platform account bans or centralized server takedowns; Use any mobile or web client (Damus, Amethyst, Primal, Coracle); Built-in micropayments via Bitcoin Lightning Network zaps
+    - Limitations / Trade-offs: Requires keeping your private cryptographic key secure; Relay connection concepts differ from standard social logins
+
+---
+
+## 66. Google Maps
+- Vendor: Google
+- Category: System Utilities
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/google-maps/
+- Verified Free Alternatives (3 tools):
+  * **OpenStreetMap** [https://www.openstreetmap.org/]
+    - Platforms: web
+    - License: ODbL (Repo: https://github.com/openstreetmap/openstreetmap-website)
+    - Summary: The community-driven "Wikipedia of world maps", providing free, editable geographic data without tracking your personal location.
+    - Advantages: Created and updated by over 10 million volunteers worldwide; Zero commercial tracking, profiling, or targeted location ads; Open data foundation used by thousands of research and navigation apps
+    - Limitations / Trade-offs: Web viewer is an open database browser, not a turn-by-turn voice navigator; Search bar requires precise naming on rural addresses
+  * **Organic Maps** [https://organicmaps.app/]
+    - Platforms: ios, android
+    - License: Apache-2.0 (Repo: https://github.com/organicmaps/organicmaps)
+    - Summary: A privacy-focused offline maps and turn-by-turn navigation app for hikers, cyclists, and drivers, powered by OpenStreetMap.
+    - Advantages: 100% offline navigation: download entire countries for trips without cellular data; Zero tracking, zero ads, zero telemetry, and battery-friendly; Detailed hiking trails, cycling routes, and contour elevation maps
+    - Limitations / Trade-offs: No live traffic congestion data (avoids real-time vehicle tracking); Point-of-interest reviews rely on open data rather than Google Reviews
+  * **OsmAnd** [https://osmand.net/]
+    - Platforms: ios, android
+    - License: GPL-3.0 (Repo: https://github.com/osmandapp/OsmAnd)
+    - Summary: The most feature-dense mobile offline map and GPS navigation app, equipped with nautical depth contours, GPX tracks, and topographic relief.
+    - Advantages: Unrivaled customization for off-road GPS, hiking, and sailing; Download full offline vector maps with Wikipedia point-of-interest guides; Record and export GPX hiking routes with live elevation telemetry
+    - Limitations / Trade-offs: Deep settings menu can feel overwhelming for basic city driving; Free tier limits number of offline regional map downloads (unlimited on F-Droid)
+
+---
+
+## 67. Raycast Pro / Alfred Powerpack
+- Vendor: Raycast / Running with Crayons
+- Category: System Utilities
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/raycast/
+- Verified Free Alternatives (3 tools):
+  * **Ulauncher** [https://ulauncher.io/]
+    - Platforms: linux
+    - License: GPL-3.0 (Repo: https://github.com/Ulauncher/Ulauncher)
+    - Summary: A fast, minimal application launcher for Linux written in Python and GTK with customizable themes and extensive extension support.
+    - Advantages: Blazingly fast search for apps, files, and browser bookmarks; Rich extension ecosystem for GitHub, Spotify, dictionary, and calculations; Lightweight and native to Linux desktop environments
+    - Limitations / Trade-offs: Linux only; Simpler interface than Raycast with no window tiling manager
+  * **Flow Launcher** [https://www.flowlauncher.com/]
+    - Platforms: windows
+    - License: MIT (Repo: https://github.com/Flow-Launcher/Flow.Launcher)
+    - Summary: A modern, open-source file search and productivity launcher for Windows with instant Everything search integration and rich plugins.
+    - Advantages: Integrates seamlessly with Everything search for sub-second file retrieval; Execute shell commands, calculate math, and search browser tabs instantly; Fully customizable themes and community plugin store
+    - Limitations / Trade-offs: Windows only; Plugin quality varies between community authors
+  * **Albert Launcher** [https://albertlauncher.github.io/]
+    - Platforms: linux
+    - License: GPL-3.0 (Repo: https://github.com/albertlauncher/albert)
+    - Summary: A lightning-fast, C++ and Qt-powered keyboard launcher for Linux with minimal resource consumption and modular plugins.
+    - Advantages: Negligible CPU and RAM footprint written in native C++; Extensible with Python and C++ plugins; Fuzzy search across system apps, files, and mathematical expressions
+    - Limitations / Trade-offs: Linux only; Configuration requires manual plugin toggling in settings
+
+---
+
+## 68. Loom / ScreenFlow
+- Vendor: Atlassian / Telestream
+- Category: Video & Animation
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/loom/
+- Verified Free Alternatives (2 tools):
+  * **Screenity** [https://screenity.io/]
+    - Platforms: web
+    - License: GPL-3.0 (Repo: https://github.com/alyssaxuu/screenity)
+    - Summary: A feature-packed open-source screen recorder and annotation tool for Chrome with webcam overlay, zoom, drawing, and trimming.
+    - Advantages: Unlimited recordings with zero watermarks or time limits; Annotate your screen live with pens, arrows, text, and click highlights; Save directly to Google Drive or export as MP4/WebM/GIF
+    - Limitations / Trade-offs: Requires a Chromium-based browser (Chrome, Brave, Edge); Desktop recording outside the browser relies on OS screen sharing permission
+  * **Kap** [https://getkap.co/]
+    - Platforms: macos
+    - License: MIT (Repo: https://github.com/wulkano/kap)
+    - Summary: An open-source macOS screen recorder built on web standards that exports silky-smooth video to MP4, GIF, and WebM with custom plugins.
+    - Advantages: Clean, unobtrusive menu bar interface with simple capture crop; Export directly to GIF or MP4 with adjustable framerates and dimensions; Extensible plugin system for uploading to S3, Streamable, or Imgur
+    - Limitations / Trade-offs: macOS only; Built with Electron, so slightly higher memory footprint during active recording
+
+---
+
+## 69. Typeform / SurveyMonkey
+- Vendor: Typeform / Momentive
+- Category: Business & Analytics
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/typeform/
+- Verified Free Alternatives (4 tools):
+  * **Formbricks** [https://formbricks.com/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/formbricks/formbricks)
+    - Summary: An open-source survey and customer feedback suite designed for in-app micro-surveys, link surveys, and product experience management.
+    - Advantages: Trigger targeted micro-surveys directly inside web and mobile apps; Self-hostable with full data ownership (GDPR & HIPAA compliant); Generous free cloud tier with unlimited surveys and responses
+    - Limitations / Trade-offs: Advanced multi-channel distribution requires developer SDK setup; Fewer playful gamified animations than Typeform
+  * **Typebot** [https://typebot.io/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/baptisteArno/typebot.io)
+    - Summary: An open-source conversational form builder that allows you to craft engaging chat-based lead capture forms and interactive bots.
+    - Advantages: Visual node-based canvas for designing conversational chat flows; Higher conversion rates by turning static forms into interactive chats; Integrates with Webhooks, Google Sheets, OpenAI, and email services
+    - Limitations / Trade-offs: Conversational chat paradigm is not ideal for massive 50-question tables; Free cloud plan has response limits (unlimited when self-hosted)
+  * **Tally** [https://tally.so/]
+    - Platforms: web
+    - License: Free tier, paid Pro
+    - Summary: The simplest free online form builder that lets you create stunning forms just like typing a document in Notion.
+    - Advantages: 99% of features are 100% free with unlimited forms and responses; Type "/" for form blocks, questions, file uploads, and conditional logic; Zero coding needed; embeds seamlessly in any website
+    - Limitations / Trade-offs: Custom domains and removing "Made with Tally" badge require Pro tier; Web-only cloud application
+  * **LimeSurvey** [https://www.limesurvey.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-2.0 (Repo: https://github.com/LimeSurvey/LimeSurvey)
+    - Summary: The world’s leading open-source online survey tool for professional research, universities, and enterprise statistical analysis.
+    - Advantages: Unrivaled question type variety and complex multi-page branching logic; Full quota management, token participant tracking, and SPSS export; Completely open-source and self-hostable with unlimited responses
+    - Limitations / Trade-offs: Traditional survey questionnaire aesthetic rather than sleek one-question cards; Steeper administration learning curve
+
+---
+
+## 70. Squarespace / Webflow
+- Vendor: Squarespace / Webflow Inc.
+- Category: Business & Analytics
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/squarespace/
+- Verified Free Alternatives (4 tools):
+  * **WordPress.org** [https://wordpress.org/]
+    - Platforms: web, self-hosted
+    - License: GPL-2.0 (Repo: https://github.com/WordPress/WordPress)
+    - Summary: The open-source content management system that powers over 43% of the web, with tens of thousands of free themes and plugins.
+    - Advantages: Zero platform vendor lock-in; host anywhere on affordable servers; Over 60,000 free plugins for e-commerce, SEO, and contact forms; Gutenberg block editor allows visual page building without code
+    - Limitations / Trade-offs: Requires maintaining your own web hosting and software updates; Too many plugins can slow down site performance if unoptimized
+  * **Ghost** [https://ghost.org/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/TryGhost/Ghost)
+    - Summary: A modern, blazingly fast open-source publishing platform for independent creators, newsletters, and membership websites.
+    - Advantages: Built-in native email newsletter delivery and member subscriptions; Ultra-fast Node.js architecture with stellar Core Web Vitals SEO; Clean, distraction-free Markdown and card editor
+    - Limitations / Trade-offs: Self-hosting requires Node.js and MySQL server administration; Focused specifically on publishing and blogs rather than generic corporate brochure sites
+  * **Hugo** [https://gohugo.io/]
+    - Platforms: windows, macos, linux
+    - License: Apache-2.0 (Repo: https://github.com/gohugoio/hugo)
+    - Summary: The world’s fastest open-source static site generator, compiling thousands of pages into static HTML in fractions of a second.
+    - Advantages: Generates entire websites in milliseconds with zero database overhead; Host for free on GitHub Pages, Cloudflare Pages, or Netlify free tiers; Static file architecture eliminates dynamic CMS database exploits
+    - Limitations / Trade-offs: Requires writing Markdown and editing HTML/Go templates; No graphical drag-and-drop web admin interface out of the box
+  * **Publii** [https://getpublii.com/]
+    - Platforms: windows, macos, linux
+    - License: GPL-3.0 (Repo: https://github.com/GetPublii/Publii)
+    - Summary: A privacy-first open-source desktop CMS for creating ultra-fast, secure static websites without touching a code editor.
+    - Advantages: Visual desktop app for Mac, Windows, and Linux to write posts and pages; One-click sync to GitHub Pages, GitLab, S3, or standard FTP; Blazingly fast static output with zero server maintenance
+    - Limitations / Trade-offs: Desktop-based app: editing from a phone or tablet is not supported; Smaller theme marketplace than WordPress
+
+---
+
+## 71. GoodNotes / Notability
+- Vendor: Time Base Technology / Ginger Labs
+- Category: Notes & Productivity
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/goodnotes/
+- Verified Free Alternatives (3 tools):
+  * **Xournal++** [https://xournalpp.github.io/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/xournalpp/xournalpp)
+    - Summary: An open-source handwriting note-taking application with PDF annotation, pressure-sensitive stylus support, and audio recording.
+    - Advantages: Annotate and highlight imported PDF textbooks and documents smoothly; Pressure-sensitive pen and stylus support with palm rejection; Audio recording synced to your handwritten notes
+    - Limitations / Trade-offs: Interface is designed as a desktop application with classic toolbars; Mobile Android port is unofficial/in-progress
+  * **Rnote** [https://flathub.org/apps/com.github.flxzt.rnote]
+    - Platforms: linux, windows, macos
+    - License: GPL-3.0 (Repo: https://github.com/flxzt/rnote)
+    - Summary: A vector-based sketch and handwritten note-taking app designed for drawing tablets and touchscreens with smooth infinite canvas.
+    - Advantages: Infinite canvas with vector rendering keeps handwriting crisp at any zoom; Shape recognition turns rough sketches into perfect circles and rectangles; Exports to SVG, PDF, and Xopp with full vector fidelity
+    - Limitations / Trade-offs: Best on Linux and GNOME touchscreens (Windows build is newer); No direct cloud sync client built into the app
+  * **Saber** [https://saber.adil.hanney.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: GPL-3.0 (Repo: https://github.com/saber-notes/saber)
+    - Summary: An open-source handwritten notes app designed for tablets and phones with dark mode inverted ink and Nextcloud synchronization.
+    - Advantages: Dark mode inverts colors dynamically so handwriting doesn’t blind you at night; Cross-platform sync via Nextcloud or custom WebDAV servers; Password protect sensitive notebooks with local encryption
+    - Limitations / Trade-offs: Younger project with fewer template options than GoodNotes; Tool selection is focused on writing essentials
+
+---
+
+## 72. Audible
+- Vendor: Amazon
+- Category: Media & Streaming
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/audible/
+- Verified Free Alternatives (3 tools):
+  * **Libby by OverDrive** [https://www.overdrive.com/apps/libby]
+    - Platforms: ios, android, web
+    - License: Free (Library Service)
+    - Summary: Borrow thousands of audiobooks and eBooks completely free using your local public library card with no monthly subscription fees.
+    - Advantages: 100% free legal access to thousands of bestselling audiobooks and eBooks; Clean, delightful mobile player with sleep timer, bookmarks, and variable speed; Download audiobooks for offline road trips and commutes
+    - Limitations / Trade-offs: Requires an active public library card; Popular new releases may have digital hold queues before they become available
+  * **Audiobookshelf** [https://www.audiobookshelf.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: GPL-3.0 (Repo: https://github.com/advplyr/audiobookshelf)
+    - Summary: A self-hosted open-source audiobook and podcast server with dedicated mobile apps for streaming and multi-device progress sync.
+    - Advantages: Stream your own audiobook collection anywhere with synchronized playback across devices; Fetches audiobook metadata and chapter covers automatically from open databases; Free, polished native iOS and Android apps
+    - Limitations / Trade-offs: Requires self-hosting the server via Docker or desktop binary; You provide your own audiobook audio files (MP3/M4B)
+  * **LibriVox** [https://librivox.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Public Domain
+    - Summary: A non-profit community of volunteers who record and release free public-domain audiobooks from classic literature.
+    - Advantages: Completely free access to over 18,000 public domain audiobooks; Classic literature from Shakespeare and Austen to Doyle and Verne; Download files as DRM-free MP3s with zero registration
+    - Limitations / Trade-offs: Volunteer narrator quality varies across titles; Covers historic public domain books only (no contemporary copyrighted books)
+
+---
+
+## 73. Wolfram Alpha Pro
+- Vendor: Wolfram Research
+- Category: Developer Tools
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/wolfram-alpha/
+- Verified Free Alternatives (3 tools):
+  * **GeoGebra** [https://www.geogebra.org/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free for non-commercial use
+    - Summary: Dynamic mathematics software that brings together geometry, algebra, spreadsheets, graphing, statistics, and calculus in an intuitive app.
+    - Advantages: Interactive visual manipulation of geometric shapes and mathematical functions; Comprehensive CAS (Computer Algebra System) solves equations step by step; Massive free library of classroom interactive simulations
+    - Limitations / Trade-offs: Non-commercial free license; Interface has many modes which can require exploration
+  * **Desmos Studio** [https://www.desmos.com/]
+    - Platforms: windows, macos, linux, ios, android, web
+    - License: Free web application
+    - Summary: A free suite of world-class math tools including the legendary Desmos Graphing Calculator and Scientific Calculator.
+    - Advantages: Instant, responsive graph plotting as you type mathematical functions; Sliders, tables of data, animations, and regression curve fitting; Available completely free on the web, iOS, and Android with zero ads
+    - Limitations / Trade-offs: Specialized in graphing and algebra rather than general computational trivia queries; Step-by-step calculus proofs are limited compared to Wolfram Pro
+  * **SpeedCrunch** [https://speedcrunch.org/]
+    - Platforms: windows, macos, linux
+    - License: GPL-2.0 (Repo: https://github.com/speedcrunch/SpeedCrunch)
+    - Summary: A high-precision scientific desktop calculator with auto-completion, historical scrollback, and over 80 built-in math functions.
+    - Advantages: Up to 50 decimal digits of precision; Instant calculation as you type with autocompletion of variables and constants; Keyboard-centric workflow makes quick calculations effortless
+    - Limitations / Trade-offs: Desktop only; no mobile apps; Focused on arithmetic and scientific computation, not symbolic CAS solving
+
+---
+
+## 74. Bitly / Linktree
+- Vendor: Bitly / Linktree
+- Category: Business & Analytics
+- Typical Commercial Price: Subscription
+- Comparison URL: https://appsolutelyfree.com/alternatives/bitly/
+- Verified Free Alternatives (3 tools):
+  * **Dub.co** [https://dub.co/]
+    - Platforms: web, self-hosted
+    - License: AGPL-3.0 (Repo: https://github.com/dubinc/dub)
+    - Summary: A modern open-source link management platform with custom domains, QR codes, geolocation targeting, and rich click analytics.
+    - Advantages: Custom domains with automated free SSL certificates; Detailed analytics covering geolocation, referrers, and device types; Generous free tier (25 links/month) or unlimited when self-hosted
+    - Limitations / Trade-offs: Free cloud tier has monthly link creation limits; Self-hosting requires Next.js and Redis infrastructure
+  * **Kutt** [https://kutt.it/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/thedevs-network/kutt)
+    - Summary: A modern open-source URL shortener with support for custom domains, link statistics, password protection, and a RESTful API.
+    - Advantages: Completely open-source and free to self-host with zero link limits; Set expiration dates and password protection on shortened URLs; Simple, clean web dashboard with QR code generation
+    - Limitations / Trade-offs: Self-hosting requires Node.js and PostgreSQL/Redis setup; Free public server has occasional registration pauses
+  * **BioDrop** [https://biodrop.io/]
+    - Platforms: web, self-hosted
+    - License: MIT (Repo: https://github.com/EddieHubCommunity/BioDrop)
+    - Summary: An open-source link-in-bio platform for developers and creators to connect their community to their content with no paywalls.
+    - Advantages: 100% free and open-source with no premium theme paywalls; Add social media icons, blog post links, events, and milestones; Community-driven project backed by open-source contributors
+    - Limitations / Trade-offs: Profile updates are configured via JSON or web forms; Fewer commercial e-commerce checkout widgets than Linktree
+
+---
